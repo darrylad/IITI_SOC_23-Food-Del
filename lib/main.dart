@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 import 'home_screen.dart';
 
 void main() {
@@ -16,9 +16,10 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        fontFamily: GoogleFonts.lato().fontFamily,
         useMaterial3: true,
       ),
-      home: const HomeScreen(),
+      home: const StartscreenWidget(),
     );
   }
 }
