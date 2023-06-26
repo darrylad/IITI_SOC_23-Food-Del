@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_2/screens/Restaurants/NighCanteen/Main/NightCanteenCard/NightCanteen.dart';
 import 'package:flutter_2/screens/start_screen.dart';
+import 'package:go_router/go_router.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -12,14 +15,33 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        fontFamily: GoogleFonts.lato().fontFamily,
-        useMaterial3: true,
-      ),
-      home: const StartscreenWidget(),
-    );
+    return MaterialApp.router(
+        title: 'DeliverEat',
+        theme: ThemeData(
+          fontFamily: GoogleFonts.lato().fontFamily,
+          colorScheme: ColorScheme.fromSeed(
+              seedColor: const Color.fromARGB(255, 255, 225, 135)),
+          useMaterial3: true,
+        ),
+        routerConfig: router);
   }
 }
+
+final GoRouter router = GoRouter(
+  routes: [
+    GoRoute(
+        name: 'START',
+        path: '/',
+        builder: (BuildContext context, GoRouterState state) {
+          // ignore: prefer_const_constructors
+          return Startscreen();
+        }),
+    GoRoute(
+      name: 'NightCanteen',
+      path: '/NightCanteen.dart',
+      builder: (BuildContext context, GoRouterState state) {
+        return const NightCanteen();
+      },
+    )
+  ],
+);
