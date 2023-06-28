@@ -1,22 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_2/screens/Homescreen/ImageCarausel.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../Restaurants/NighCanteen/Main/NightCanteenCard/NightCanteen.dart';
 import 'SectionTitle.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key, required this.url, required this.nameofperson});
+  const HomeScreen({super.key, required this.nameofperson});
   final String location = 'VSB Hostel';
-  final String url;
+
   final String nameofperson;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 248, 248, 248),
+      bottomNavigationBar: const BottomNav(),
+      backgroundColor: const Color.fromARGB(255, 230, 230, 230),
       body: MainScroll(
         name: nameofperson,
-        url: url,
       ),
     );
   }
@@ -25,11 +27,9 @@ class HomeScreen extends StatelessWidget {
 class MainScroll extends StatelessWidget {
   const MainScroll({
     super.key,
-    required this.url,
     required this.name,
   });
 
-  final String url;
   final String name;
 
   @override
@@ -53,7 +53,7 @@ class MainScroll extends StatelessWidget {
           expandedTitleScale: 1.0,
           titlePadding: const EdgeInsets.fromLTRB(0, 1, 0, 5),
           title: const SearchBar_Homepage(),
-          background: GoodMorning(url: url, name: name),
+          background: GoodMorning(name: name),
         ),
       ),
       const SliverToBoxAdapter(
@@ -129,11 +129,9 @@ class SearchBar extends StatelessWidget {
 class GoodMorning extends StatelessWidget {
   const GoodMorning({
     super.key,
-    required this.url,
     required this.name,
   });
 
-  final String url;
   final String name;
 
   @override
@@ -156,7 +154,7 @@ class GoodMorning extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(20, 5, 0, 0),
                   child: Text(
-                    'Good Morning, $name ',
+                    'Hi, $name ',
                     style: GoogleFonts.dmSans(
                         color: const Color.fromARGB(255, 152, 46, 1),
                         fontSize: 23,
@@ -179,10 +177,10 @@ class GoodMorning extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.fromLTRB(0, 30, 20, 10),
-                  child: InkWell(
-                    onTap: () {},
-                    child: Image.network(
-                      url,
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: Image.asset(
+                      'assets/images/Google_logo.png',
                       height: 30,
                       width: 30,
                     ),
@@ -404,7 +402,9 @@ class NightCanteen_card extends StatelessWidget {
               height: 210,
               width: 370,
               child: GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  context.go('/NightCanteen.dart');
+                },
                 child: Stack(children: [
                   Positioned(
                     child: ClipRRect(

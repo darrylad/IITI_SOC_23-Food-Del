@@ -13,7 +13,7 @@ class SectionTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: const Color.fromARGB(255, 248, 248, 248),
+      color: const Color.fromARGB(255, 230, 230, 230),
       child: Column(
         children: [
           Row(

@@ -1,14 +1,17 @@
 // ignore: filFast_Foodort 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_2/screens/Restaurants/NighCanteen/Cart(SUM)/sum.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../NightCanteen_dishes.dart';
+import 'NightCanteen_dishes.dart';
 
 // ignore: camel_case_types
 class Fast_Food extends StatelessWidget {
   const Fast_Food({
     super.key,
   });
+
+  final int sum = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -24,32 +27,32 @@ class Fast_Food extends StatelessWidget {
             style: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.w500),
           ),
           initiallyExpanded: true,
-          children: const <Widget>[
+          children: <Widget>[
             // ListTile(title: Text('This is tile number 1')),
             Column(
               children: [
-                CheeseMOMO(),
-                SizedBox(
+                CheeseMOMO(
+                  sum: sum,
+                ),
+                const SizedBox(
                   height: 20,
                 ),
-                CheeseCornMOMO(),
-                SizedBox(
+                CheeseCornMOMO(
+                  sum: sum,
+                ),
+                const SizedBox(
                   height: 20,
                 ),
-                ChickenBiryani(),
-                SizedBox(
+                Cheese_Maggi(
+                  sum: sum,
+                ),
+                const SizedBox(
                   height: 20,
                 ),
-                ChickenCurry(),
-                SizedBox(
-                  height: 20,
+                Kathiroll(
+                  sum: sum,
                 ),
-                KajuCurry(),
-                SizedBox(
-                  height: 20,
-                ),
-                Shahipaneer(),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
               ],
@@ -63,9 +66,9 @@ class Fast_Food extends StatelessWidget {
 
 // ignore: camel_case_types
 class CheeseMOMO extends StatefulWidget {
-  const CheeseMOMO({
-    super.key,
-  });
+  const CheeseMOMO({super.key, required this.sum});
+
+  final int sum;
 
   @override
   State<CheeseMOMO> createState() => _CheeseMOMOState();
@@ -73,7 +76,6 @@ class CheeseMOMO extends StatefulWidget {
 
 // ignore: camel_case_types
 class _CheeseMOMOState extends State<CheeseMOMO> {
-  int cheesemomo = 0;
   bool isTap = false;
   double top = 45;
   @override
@@ -149,7 +151,8 @@ class _CheeseMOMOState extends State<CheeseMOMO> {
                     onTap: () {
                       setState(() {
                         isTap = true;
-                        cheesemomo++;
+                        Items[0]++;
+
                         top = 20;
                       });
                     },
@@ -160,7 +163,7 @@ class _CheeseMOMOState extends State<CheeseMOMO> {
 
   // ignore: non_constant_identifier_names
   Container PBM_GD() {
-    if (cheesemomo == 0) {
+    if (Items[0] == 0) {
       return Container(
         decoration: const BoxDecoration(
             color: Color.fromARGB(255, 42, 252, 0),
@@ -181,9 +184,9 @@ class _CheeseMOMOState extends State<CheeseMOMO> {
             GestureDetector(
               onTap: () {
                 setState(() {
-                  cheesemomo++;
+                  Items[0]++;
 
-                  if (cheesemomo == 0) {
+                  if (Items[0] == 0) {
                     top = 45;
                   } else {
                     top = 20;
@@ -196,12 +199,12 @@ class _CheeseMOMOState extends State<CheeseMOMO> {
                 width: 30,
               ),
             ),
-            Text(cheesemomo.toString()),
+            Text(Items[0].toString()),
             GestureDetector(
               onTap: () {
                 setState(() {
-                  cheesemomo--;
-                  if (cheesemomo == 0) {
+                  Items[0]--;
+                  if (Items[0] == 0) {
                     top = 45;
                   } else {
                     top = 20;
@@ -223,8 +226,11 @@ class _CheeseMOMOState extends State<CheeseMOMO> {
 
 class CheeseCornMOMO extends StatefulWidget {
   const CheeseCornMOMO({
+    required this.sum,
     super.key,
   });
+
+  final int sum;
 
   @override
   State<CheeseCornMOMO> createState() => _CheeseCornMOMO();
@@ -232,7 +238,6 @@ class CheeseCornMOMO extends StatefulWidget {
 
 // ignore: camel_case_types
 class _CheeseCornMOMO extends State<CheeseCornMOMO> {
-  int cheesecornmomo = 0;
   bool isTap = false;
   double top = 45;
   @override
@@ -308,7 +313,7 @@ class _CheeseCornMOMO extends State<CheeseCornMOMO> {
                     onTap: () {
                       setState(() {
                         isTap = true;
-                        cheesecornmomo++;
+                        Items[1]++;
                         top = 20;
                       });
                     },
@@ -319,7 +324,7 @@ class _CheeseCornMOMO extends State<CheeseCornMOMO> {
 
   // ignore: non_constant_identifier_names
   Container PBM_GD() {
-    if (cheesecornmomo == 0) {
+    if (Items[1] == 0) {
       return Container(
         decoration: const BoxDecoration(
             color: Color.fromARGB(255, 42, 252, 0),
@@ -340,9 +345,9 @@ class _CheeseCornMOMO extends State<CheeseCornMOMO> {
             GestureDetector(
               onTap: () {
                 setState(() {
-                  cheesecornmomo++;
+                  Items[1]++;
 
-                  if (cheesecornmomo == 0) {
+                  if (Items[1] == 0) {
                     top = 45;
                   } else {
                     top = 20;
@@ -355,12 +360,12 @@ class _CheeseCornMOMO extends State<CheeseCornMOMO> {
                 width: 30,
               ),
             ),
-            Text(cheesecornmomo.toString()),
+            Text(Items[1].toString()),
             GestureDetector(
               onTap: () {
                 setState(() {
-                  cheesecornmomo--;
-                  if (cheesecornmomo == 0) {
+                  Items[1]--;
+                  if (Items[1] == 0) {
                     top = 45;
                   } else {
                     top = 20;
@@ -380,19 +385,23 @@ class _CheeseCornMOMO extends State<CheeseCornMOMO> {
   }
 }
 
-class Shahipaneer extends StatefulWidget {
-  const Shahipaneer({
+// ignore: camel_case_types
+class Cheese_Maggi extends StatefulWidget {
+  const Cheese_Maggi({
+    required this.sum,
     super.key,
   });
 
+  final int sum;
+
   @override
-  State<Shahipaneer> createState() => _Shahipaneer();
+  State<Cheese_Maggi> createState() => _Cheese_Maggi();
 }
 
 // ignore: camel_case_types
-class _Shahipaneer extends State<Shahipaneer> {
+class _Cheese_Maggi extends State<Cheese_Maggi> {
   // ignore: non_constant_identifier_names
-  int Shahipaneer = 0;
+
   bool isTap = false;
   double top = 45;
   @override
@@ -417,7 +426,7 @@ class _Shahipaneer extends State<Shahipaneer> {
                 top: 6,
                 left: 40,
                 child: Text(
-                  Veg[2],
+                  Veg[8],
                   style: GoogleFonts.roboto(
                       fontSize: 20, fontWeight: FontWeight.w400),
                 )),
@@ -442,7 +451,7 @@ class _Shahipaneer extends State<Shahipaneer> {
             Positioned(
                 top: 80,
                 left: 60,
-                child: Text(Veg_Price[2].toString(),
+                child: Text(Veg_Price[8].toString(),
                     style: GoogleFonts.roboto(
                         fontSize: 18, fontWeight: FontWeight.w400))),
             Positioned(
@@ -457,7 +466,7 @@ class _Shahipaneer extends State<Shahipaneer> {
                 top: 0,
                 right: 20,
                 child: Image.asset(
-                  'assets/dispics/dishes/Shahi paneer.jpg',
+                  'assets/dispics/dishes/cheesemaggi.jpg',
                   height: 130,
                   width: 117,
                 )),
@@ -468,7 +477,7 @@ class _Shahipaneer extends State<Shahipaneer> {
                     onTap: () {
                       setState(() {
                         isTap = true;
-                        Shahipaneer++;
+                        Items[2]++;
                         top = 20;
                       });
                     },
@@ -479,7 +488,7 @@ class _Shahipaneer extends State<Shahipaneer> {
 
   // ignore: non_constant_identifier_names
   Container PBM_GD() {
-    if (Shahipaneer == 0) {
+    if (Items[2] == 0) {
       return Container(
         decoration: const BoxDecoration(
             color: Color.fromARGB(255, 42, 252, 0),
@@ -500,9 +509,9 @@ class _Shahipaneer extends State<Shahipaneer> {
             GestureDetector(
               onTap: () {
                 setState(() {
-                  Shahipaneer++;
+                  Items[2]++;
 
-                  if (Shahipaneer == 0) {
+                  if (Items[2] == 0) {
                     top = 45;
                   } else {
                     top = 20;
@@ -515,12 +524,12 @@ class _Shahipaneer extends State<Shahipaneer> {
                 width: 30,
               ),
             ),
-            Text(Shahipaneer.toString()),
+            Text(Items[2].toString()),
             GestureDetector(
               onTap: () {
                 setState(() {
-                  Shahipaneer--;
-                  if (Shahipaneer == 0) {
+                  Items[2]--;
+                  if (Items[2] == 0) {
                     top = 45;
                   } else {
                     top = 20;
@@ -540,18 +549,18 @@ class _Shahipaneer extends State<Shahipaneer> {
   }
 }
 
-class KajuCurry extends StatefulWidget {
-  const KajuCurry({
+class Kathiroll extends StatefulWidget {
+  const Kathiroll({
     super.key,
+    required this.sum,
   });
-
+  final int sum;
   @override
-  State<KajuCurry> createState() => _KajuCurry();
+  State<Kathiroll> createState() => _Kathiroll();
 }
 
 // ignore: camel_case_types
-class _KajuCurry extends State<KajuCurry> {
-  int kajucurry = 0;
+class _Kathiroll extends State<Kathiroll> {
   bool isTap = false;
   double top = 45;
   @override
@@ -576,7 +585,7 @@ class _KajuCurry extends State<KajuCurry> {
                 top: 6,
                 left: 40,
                 child: Text(
-                  Veg[3],
+                  Veg[9],
                   style: GoogleFonts.roboto(
                       fontSize: 20, fontWeight: FontWeight.w400),
                 )),
@@ -601,7 +610,7 @@ class _KajuCurry extends State<KajuCurry> {
             Positioned(
                 top: 80,
                 left: 60,
-                child: Text(Veg_Price[3].toString(),
+                child: Text(Veg_Price[9].toString(),
                     style: GoogleFonts.roboto(
                         fontSize: 18, fontWeight: FontWeight.w400))),
             Positioned(
@@ -616,7 +625,7 @@ class _KajuCurry extends State<KajuCurry> {
                 top: 0,
                 right: 20,
                 child: Image.asset(
-                  'assets/dispics/dishes/Kajucurry.jpg',
+                  'assets/dispics/dishes/Kathiroll.jpg',
                   height: 130,
                   width: 117,
                 )),
@@ -627,7 +636,7 @@ class _KajuCurry extends State<KajuCurry> {
                     onTap: () {
                       setState(() {
                         isTap = true;
-                        kajucurry++;
+                        Items[3]++;
                         top = 20;
                       });
                     },
@@ -638,7 +647,7 @@ class _KajuCurry extends State<KajuCurry> {
 
   // ignore: non_constant_identifier_names
   Container PBM_GD() {
-    if (kajucurry == 0) {
+    if (Items[2] == 0) {
       return Container(
         decoration: const BoxDecoration(
             color: Color.fromARGB(255, 42, 252, 0),
@@ -659,9 +668,9 @@ class _KajuCurry extends State<KajuCurry> {
             GestureDetector(
               onTap: () {
                 setState(() {
-                  kajucurry++;
+                  Items[2]++;
 
-                  if (kajucurry == 0) {
+                  if (Items[2] == 0) {
                     top = 45;
                   } else {
                     top = 20;
@@ -674,332 +683,12 @@ class _KajuCurry extends State<KajuCurry> {
                 width: 30,
               ),
             ),
-            Text(kajucurry.toString()),
+            Text(Items[2].toString()),
             GestureDetector(
               onTap: () {
                 setState(() {
-                  kajucurry--;
-                  if (kajucurry == 0) {
-                    top = 45;
-                  } else {
-                    top = 20;
-                  }
-                });
-              },
-              child: Image.asset(
-                'assets/buttons/minus.png',
-                height: 30,
-                width: 30,
-              ),
-            ),
-          ],
-        ),
-      );
-    }
-  }
-}
-
-class ChickenBiryani extends StatefulWidget {
-  const ChickenBiryani({
-    super.key,
-  });
-
-  @override
-  State<ChickenBiryani> createState() => _ChickenBiryani();
-}
-
-// ignore: camel_case_types
-class _ChickenBiryani extends State<ChickenBiryani> {
-  int chickenbiryani = 0;
-  bool isTap = false;
-  double top = 45;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        decoration: const BoxDecoration(
-            color: Color.fromARGB(255, 255, 255, 255),
-            borderRadius: BorderRadius.all(Radius.circular(30))),
-        width: 400,
-        height: 130,
-        child: Stack(
-          children: [
-            Positioned(
-                top: 10,
-                left: 10,
-                child: Image.asset(
-                  'assets/buttons/non veg.png',
-                  height: 20,
-                  width: 20,
-                )),
-            Positioned(
-                top: 6,
-                left: 40,
-                child: Text(
-                  Nonveg[4],
-                  style: GoogleFonts.roboto(
-                      fontSize: 20, fontWeight: FontWeight.w400),
-                )),
-            Positioned(
-                top: 36,
-                left: 40,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Delicious Paneer cubes serverd',
-                      style: GoogleFonts.roboto(
-                          fontSize: 15, fontWeight: FontWeight.w400),
-                    ),
-                    Text(
-                      'with craving orange gravy',
-                      style: GoogleFonts.roboto(
-                          fontSize: 15, fontWeight: FontWeight.w400),
-                    ),
-                  ],
-                )),
-            Positioned(
-                top: 80,
-                left: 60,
-                child: Text(NonVeg_Price[4].toString(),
-                    style: GoogleFonts.roboto(
-                        fontSize: 18, fontWeight: FontWeight.w400))),
-            Positioned(
-                top: 83,
-                left: 40,
-                child: Image.asset(
-                  'assets/buttons/Rupee.png',
-                  height: 20,
-                  width: 20,
-                )),
-            Positioned(
-                top: 0,
-                right: 20,
-                child: Image.asset(
-                  'assets/dispics/dishes/Chickenbiryani.jpeg',
-                  height: 130,
-                  width: 117,
-                )),
-            Positioned(
-                top: top,
-                right: 10,
-                child: GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        isTap = true;
-                        chickenbiryani++;
-                        top = 20;
-                      });
-                    },
-                    child: PBM_GD())),
-          ],
-        ));
-  }
-
-  // ignore: non_constant_identifier_names
-  Container PBM_GD() {
-    if (chickenbiryani == 0) {
-      return Container(
-        decoration: const BoxDecoration(
-            color: Color.fromARGB(255, 42, 252, 0),
-            borderRadius: BorderRadius.all(Radius.circular(50))),
-        child: Image.asset(
-          'assets/buttons/plus.png',
-          height: 30,
-          width: 30,
-        ),
-      );
-    } else {
-      return Container(
-        decoration: const BoxDecoration(
-            color: Color.fromARGB(255, 255, 122, 56),
-            borderRadius: BorderRadius.all(Radius.circular(50))),
-        child: Column(
-          children: [
-            GestureDetector(
-              onTap: () {
-                setState(() {
-                  chickenbiryani++;
-
-                  if (chickenbiryani == 0) {
-                    top = 45;
-                  } else {
-                    top = 20;
-                  }
-                });
-              },
-              child: Image.asset(
-                'assets/buttons/plus.png',
-                height: 30,
-                width: 30,
-              ),
-            ),
-            Text(chickenbiryani.toString()),
-            GestureDetector(
-              onTap: () {
-                setState(() {
-                  chickenbiryani--;
-                  if (chickenbiryani == 0) {
-                    top = 45;
-                  } else {
-                    top = 20;
-                  }
-                });
-              },
-              child: Image.asset(
-                'assets/buttons/minus.png',
-                height: 30,
-                width: 30,
-              ),
-            ),
-          ],
-        ),
-      );
-    }
-  }
-}
-
-class ChickenCurry extends StatefulWidget {
-  const ChickenCurry({
-    super.key,
-  });
-
-  @override
-  State<ChickenCurry> createState() => _ChickenCurry();
-}
-
-// ignore: camel_case_types
-class _ChickenCurry extends State<ChickenCurry> {
-  int chickencurry = 0;
-  bool isTap = false;
-  double top = 45;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        decoration: const BoxDecoration(
-            color: Color.fromARGB(255, 255, 255, 255),
-            borderRadius: BorderRadius.all(Radius.circular(30))),
-        width: 400,
-        height: 130,
-        child: Stack(
-          children: [
-            Positioned(
-                top: 10,
-                left: 10,
-                child: Image.asset(
-                  'assets/buttons/non veg.png',
-                  height: 20,
-                  width: 20,
-                )),
-            Positioned(
-                top: 6,
-                left: 40,
-                child: Text(
-                  Nonveg[3],
-                  style: GoogleFonts.roboto(
-                      fontSize: 20, fontWeight: FontWeight.w400),
-                )),
-            Positioned(
-                top: 36,
-                left: 40,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Delicious Paneer cubes serverd',
-                      style: GoogleFonts.roboto(
-                          fontSize: 15, fontWeight: FontWeight.w400),
-                    ),
-                    Text(
-                      'with craving orange gravy',
-                      style: GoogleFonts.roboto(
-                          fontSize: 15, fontWeight: FontWeight.w400),
-                    ),
-                  ],
-                )),
-            Positioned(
-                top: 80,
-                left: 60,
-                child: Text(NonVeg_Price[3].toString(),
-                    style: GoogleFonts.roboto(
-                        fontSize: 18, fontWeight: FontWeight.w400))),
-            Positioned(
-                top: 83,
-                left: 40,
-                child: Image.asset(
-                  'assets/buttons/Rupee.png',
-                  height: 20,
-                  width: 20,
-                )),
-            Positioned(
-                top: 0,
-                right: 20,
-                child: Image.asset(
-                  'assets/dispics/dishes/chickencurry.jpg',
-                  height: 130,
-                  width: 117,
-                )),
-            Positioned(
-                top: top,
-                right: 10,
-                child: GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        isTap = true;
-                        chickencurry++;
-                        top = 20;
-                      });
-                    },
-                    child: PBM_GD())),
-          ],
-        ));
-  }
-
-  // ignore: non_constant_identifier_names
-  Container PBM_GD() {
-    if (chickencurry == 0) {
-      return Container(
-        decoration: const BoxDecoration(
-            color: Color.fromARGB(255, 42, 252, 0),
-            borderRadius: BorderRadius.all(Radius.circular(50))),
-        child: Image.asset(
-          'assets/buttons/plus.png',
-          height: 30,
-          width: 30,
-        ),
-      );
-    } else {
-      return Container(
-        decoration: const BoxDecoration(
-            color: Color.fromARGB(255, 255, 122, 56),
-            borderRadius: BorderRadius.all(Radius.circular(50))),
-        child: Column(
-          children: [
-            GestureDetector(
-              onTap: () {
-                setState(() {
-                  chickencurry++;
-
-                  if (chickencurry == 0) {
-                    top = 45;
-                  } else {
-                    top = 20;
-                  }
-                });
-              },
-              child: Image.asset(
-                'assets/buttons/plus.png',
-                height: 30,
-                width: 30,
-              ),
-            ),
-            Text(
-              chickencurry.toString(),
-            ),
-            GestureDetector(
-              onTap: () {
-                setState(() {
-                  chickencurry--;
-                  if (chickencurry == 0) {
+                  Items[2]--;
+                  if (Items[2] == 0) {
                     top = 45;
                   } else {
                     top = 20;

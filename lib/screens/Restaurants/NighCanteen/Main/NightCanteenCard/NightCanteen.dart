@@ -1,5 +1,7 @@
 // ignore: file_names
 import 'package:flutter/material.dart';
+import 'package:flutter_2/screens/Restaurants/NighCanteen/Cart(SUM)/sum.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../Side/NightCanteen_sidefiles.dart';
 import 'FastFood.dart';
@@ -18,6 +20,7 @@ class _NightCanteenState extends State<NightCanteen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: const BottomNav(),
       backgroundColor: const Color.fromARGB(255, 238, 238, 238),
       body: CustomScrollView(
         slivers: [
@@ -52,6 +55,62 @@ class _NightCanteenState extends State<NightCanteen> {
         background: Padding(
           padding: EdgeInsets.fromLTRB(20, 80, 20, 0),
           child: Upper_Title(),
+        ),
+      ),
+    );
+  }
+}
+
+class BottomNav extends StatelessWidget {
+  const BottomNav({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(10, 0, 10, 20),
+      child: Container(
+        height: 60,
+        decoration: const BoxDecoration(
+            color: Color.fromARGB(255, 255, 255, 255),
+            borderRadius: BorderRadius.all(Radius.circular(20))),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const SizedBox(
+              width: 1,
+            ),
+            IconButton(
+                onPressed: () {
+                  context.go('/home_screen.dart');
+                },
+                icon: Image.asset(
+                  'assets/buttons/Home.png',
+                  height: 30,
+                  width: 30,
+                )),
+            IconButton(
+                onPressed: () {
+                  context.go('/cart.dart');
+                  Summer();
+                },
+                icon: Image.asset(
+                  'assets/buttons/cart.png',
+                  height: 30,
+                  width: 30,
+                )),
+            IconButton(
+                onPressed: () {},
+                icon: Image.asset(
+                  'assets/buttons/user.png',
+                  height: 30,
+                  width: 30,
+                )),
+            const SizedBox(
+              width: 1,
+            ),
+          ],
         ),
       ),
     );

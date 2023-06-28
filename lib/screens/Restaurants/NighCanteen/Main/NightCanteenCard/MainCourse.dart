@@ -1,8 +1,9 @@
 // ignore: file_names
 import 'package:flutter/material.dart';
+import 'package:flutter_2/screens/Restaurants/NighCanteen/Cart(SUM)/sum.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../NightCanteen_dishes.dart';
+import 'NightCanteen_dishes.dart';
 
 // ignore: camel_case_types
 class Main_Course extends StatelessWidget {
@@ -73,7 +74,6 @@ class Paneer_Butter_Masala extends StatefulWidget {
 
 // ignore: camel_case_types
 class _Paneer_Butter_MasalaState extends State<Paneer_Butter_Masala> {
-  int paneerbuttermasala = 0;
   bool isTap = false;
   double top = 45;
   @override
@@ -149,7 +149,7 @@ class _Paneer_Butter_MasalaState extends State<Paneer_Butter_Masala> {
                     onTap: () {
                       setState(() {
                         isTap = true;
-                        paneerbuttermasala++;
+                        Items[4]++;
                         top = 20;
                       });
                     },
@@ -160,7 +160,7 @@ class _Paneer_Butter_MasalaState extends State<Paneer_Butter_Masala> {
 
   // ignore: non_constant_identifier_names
   Container PBM_GD() {
-    if (paneerbuttermasala == 0) {
+    if (Items[4] == 0) {
       return Container(
         decoration: const BoxDecoration(
             color: Color.fromARGB(255, 42, 252, 0),
@@ -181,9 +181,9 @@ class _Paneer_Butter_MasalaState extends State<Paneer_Butter_Masala> {
             GestureDetector(
               onTap: () {
                 setState(() {
-                  paneerbuttermasala++;
+                  Items[4]++;
 
-                  if (paneerbuttermasala == 0) {
+                  if (Items[4] == 0) {
                     top = 45;
                   } else {
                     top = 20;
@@ -196,12 +196,12 @@ class _Paneer_Butter_MasalaState extends State<Paneer_Butter_Masala> {
                 width: 30,
               ),
             ),
-            Text(paneerbuttermasala.toString()),
+            Text(Items[4].toString()),
             GestureDetector(
               onTap: () {
                 setState(() {
-                  paneerbuttermasala--;
-                  if (paneerbuttermasala == 0) {
+                  Items[4]--;
+                  if (Items[4] == 0) {
                     top = 45;
                   } else {
                     top = 20;
@@ -232,7 +232,6 @@ class MutterMushroom extends StatefulWidget {
 
 // ignore: camel_case_types
 class _MutterMushroom extends State<MutterMushroom> {
-  int Muttermushroom = 0;
   bool isTap = false;
   double top = 45;
   @override
@@ -308,7 +307,7 @@ class _MutterMushroom extends State<MutterMushroom> {
                     onTap: () {
                       setState(() {
                         isTap = true;
-                        Muttermushroom++;
+                        Items[5]++;
                         top = 20;
                       });
                     },
@@ -319,7 +318,7 @@ class _MutterMushroom extends State<MutterMushroom> {
 
   // ignore: non_constant_identifier_names
   Container PBM_GD() {
-    if (Muttermushroom == 0) {
+    if (Items[5] == 0) {
       return Container(
         decoration: const BoxDecoration(
             color: Color.fromARGB(255, 42, 252, 0),
@@ -340,9 +339,9 @@ class _MutterMushroom extends State<MutterMushroom> {
             GestureDetector(
               onTap: () {
                 setState(() {
-                  Muttermushroom++;
+                  Items[5]++;
 
-                  if (Muttermushroom == 0) {
+                  if (Items[5] == 0) {
                     top = 45;
                   } else {
                     top = 20;
@@ -355,12 +354,12 @@ class _MutterMushroom extends State<MutterMushroom> {
                 width: 30,
               ),
             ),
-            Text(Muttermushroom.toString()),
+            Text(Items[5].toString()),
             GestureDetector(
               onTap: () {
                 setState(() {
-                  Muttermushroom--;
-                  if (Muttermushroom == 0) {
+                  Items[5]--;
+                  if (Items[5] == 0) {
                     top = 45;
                   } else {
                     top = 20;
@@ -392,7 +391,7 @@ class Shahipaneer extends StatefulWidget {
 // ignore: camel_case_types
 class _Shahipaneer extends State<Shahipaneer> {
   // ignore: non_constant_identifier_names
-  int Shahipaneer = 0;
+
   bool isTap = false;
   double top = 45;
   @override
@@ -468,7 +467,7 @@ class _Shahipaneer extends State<Shahipaneer> {
                     onTap: () {
                       setState(() {
                         isTap = true;
-                        Shahipaneer++;
+                        Items[6]++;
                         top = 20;
                       });
                     },
@@ -479,7 +478,7 @@ class _Shahipaneer extends State<Shahipaneer> {
 
   // ignore: non_constant_identifier_names
   Container PBM_GD() {
-    if (Shahipaneer == 0) {
+    if (Items[6] == 0) {
       return Container(
         decoration: const BoxDecoration(
             color: Color.fromARGB(255, 42, 252, 0),
@@ -500,9 +499,9 @@ class _Shahipaneer extends State<Shahipaneer> {
             GestureDetector(
               onTap: () {
                 setState(() {
-                  Shahipaneer++;
+                  Items[6]++;
 
-                  if (Shahipaneer == 0) {
+                  if (Items[6] == 0) {
                     top = 45;
                   } else {
                     top = 20;
@@ -515,12 +514,12 @@ class _Shahipaneer extends State<Shahipaneer> {
                 width: 30,
               ),
             ),
-            Text(Shahipaneer.toString()),
+            Text(Items[6].toString()),
             GestureDetector(
               onTap: () {
                 setState(() {
-                  Shahipaneer--;
-                  if (Shahipaneer == 0) {
+                  Items[6]--;
+                  if (Items[6] == 0) {
                     top = 45;
                   } else {
                     top = 20;
@@ -551,7 +550,6 @@ class KajuCurry extends StatefulWidget {
 
 // ignore: camel_case_types
 class _KajuCurry extends State<KajuCurry> {
-  int kajucurry = 0;
   bool isTap = false;
   double top = 45;
   @override
@@ -627,7 +625,7 @@ class _KajuCurry extends State<KajuCurry> {
                     onTap: () {
                       setState(() {
                         isTap = true;
-                        kajucurry++;
+                        Items[7]++;
                         top = 20;
                       });
                     },
@@ -638,7 +636,7 @@ class _KajuCurry extends State<KajuCurry> {
 
   // ignore: non_constant_identifier_names
   Container PBM_GD() {
-    if (kajucurry == 0) {
+    if (Items[7] == 0) {
       return Container(
         decoration: const BoxDecoration(
             color: Color.fromARGB(255, 42, 252, 0),
@@ -659,9 +657,9 @@ class _KajuCurry extends State<KajuCurry> {
             GestureDetector(
               onTap: () {
                 setState(() {
-                  kajucurry++;
+                  Items[7]++;
 
-                  if (kajucurry == 0) {
+                  if (Items[7] == 0) {
                     top = 45;
                   } else {
                     top = 20;
@@ -674,12 +672,12 @@ class _KajuCurry extends State<KajuCurry> {
                 width: 30,
               ),
             ),
-            Text(kajucurry.toString()),
+            Text(Items[7].toString()),
             GestureDetector(
               onTap: () {
                 setState(() {
-                  kajucurry--;
-                  if (kajucurry == 0) {
+                  Items[7]--;
+                  if (Items[7] == 0) {
                     top = 45;
                   } else {
                     top = 20;
@@ -710,7 +708,6 @@ class ChickenBiryani extends StatefulWidget {
 
 // ignore: camel_case_types
 class _ChickenBiryani extends State<ChickenBiryani> {
-  int chickenbiryani = 0;
   bool isTap = false;
   double top = 45;
   @override
@@ -786,7 +783,7 @@ class _ChickenBiryani extends State<ChickenBiryani> {
                     onTap: () {
                       setState(() {
                         isTap = true;
-                        chickenbiryani++;
+                        Items[8]++;
                         top = 20;
                       });
                     },
@@ -797,7 +794,7 @@ class _ChickenBiryani extends State<ChickenBiryani> {
 
   // ignore: non_constant_identifier_names
   Container PBM_GD() {
-    if (chickenbiryani == 0) {
+    if (Items[8] == 0) {
       return Container(
         decoration: const BoxDecoration(
             color: Color.fromARGB(255, 42, 252, 0),
@@ -818,9 +815,9 @@ class _ChickenBiryani extends State<ChickenBiryani> {
             GestureDetector(
               onTap: () {
                 setState(() {
-                  chickenbiryani++;
+                  Items[8]++;
 
-                  if (chickenbiryani == 0) {
+                  if (Items[8] == 0) {
                     top = 45;
                   } else {
                     top = 20;
@@ -833,12 +830,12 @@ class _ChickenBiryani extends State<ChickenBiryani> {
                 width: 30,
               ),
             ),
-            Text(chickenbiryani.toString()),
+            Text(Items[8].toString()),
             GestureDetector(
               onTap: () {
                 setState(() {
-                  chickenbiryani--;
-                  if (chickenbiryani == 0) {
+                  Items[8]--;
+                  if (Items[8] == 0) {
                     top = 45;
                   } else {
                     top = 20;
@@ -869,7 +866,6 @@ class ChickenCurry extends StatefulWidget {
 
 // ignore: camel_case_types
 class _ChickenCurry extends State<ChickenCurry> {
-  int chickencurry = 0;
   bool isTap = false;
   double top = 45;
   @override
@@ -945,7 +941,7 @@ class _ChickenCurry extends State<ChickenCurry> {
                     onTap: () {
                       setState(() {
                         isTap = true;
-                        chickencurry++;
+                        Items[9]++;
                         top = 20;
                       });
                     },
@@ -956,7 +952,7 @@ class _ChickenCurry extends State<ChickenCurry> {
 
   // ignore: non_constant_identifier_names
   Container PBM_GD() {
-    if (chickencurry == 0) {
+    if (Items[9] == 0) {
       return Container(
         decoration: const BoxDecoration(
             color: Color.fromARGB(255, 42, 252, 0),
@@ -977,9 +973,9 @@ class _ChickenCurry extends State<ChickenCurry> {
             GestureDetector(
               onTap: () {
                 setState(() {
-                  chickencurry++;
+                  Items[9]++;
 
-                  if (chickencurry == 0) {
+                  if (Items[9] == 0) {
                     top = 45;
                   } else {
                     top = 20;
@@ -993,13 +989,13 @@ class _ChickenCurry extends State<ChickenCurry> {
               ),
             ),
             Text(
-              chickencurry.toString(),
+              Items[9].toString(),
             ),
             GestureDetector(
               onTap: () {
                 setState(() {
-                  chickencurry--;
-                  if (chickencurry == 0) {
+                  Items[9]--;
+                  if (Items[9] == 0) {
                     top = 45;
                   } else {
                     top = 20;

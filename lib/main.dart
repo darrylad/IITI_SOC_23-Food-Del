@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_2/screens/Cart/cart.dart';
+import 'package:flutter_2/screens/Homescreen/home_screen.dart';
 import 'package:flutter_2/screens/Restaurants/NighCanteen/Main/NightCanteenCard/NightCanteen.dart';
 import 'package:flutter_2/screens/start_screen.dart';
 import 'package:go_router/go_router.dart';
@@ -42,6 +44,22 @@ final GoRouter router = GoRouter(
       builder: (BuildContext context, GoRouterState state) {
         return const NightCanteen();
       },
-    )
+    ),
+    GoRoute(
+        name: 'Cart',
+        path: '/cart.dart',
+        builder: (BuildContext context, GoRouterState state) {
+          // ignore: prefer_const_constructors
+          return Cart();
+        }),
+    GoRoute(
+        name: 'Home',
+        path: '/home_screen.dart',
+        builder: (BuildContext context, GoRouterState state) {
+          // ignore: prefer_const_constructors
+          return HomeScreen(
+            nameofperson: 'Shivam Sharma',
+          );
+        }),
   ],
 );
