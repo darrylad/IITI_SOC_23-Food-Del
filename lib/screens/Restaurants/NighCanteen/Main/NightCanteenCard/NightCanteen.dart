@@ -92,8 +92,8 @@ class BottomNav extends StatelessWidget {
                 )),
             IconButton(
                 onPressed: () {
-                  context.go('/cart.dart');
                   Summer();
+                  context.go('/cart.dart');
                 },
                 icon: Image.asset(
                   'assets/buttons/cart.png',
