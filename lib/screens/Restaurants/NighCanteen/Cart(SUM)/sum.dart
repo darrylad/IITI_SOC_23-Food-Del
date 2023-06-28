@@ -68,19 +68,15 @@ var Name = [];
 
 // ignore: non_constant_identifier_names
 void Summer() {
-  for (var i = 0; i < 12; i++) {
+  for (var i = 0; i < Names.length; i++) {
     if (Items[i] > 0) {
-      for (var j = 0; j < 100; j++) {
-        if (Name[j] != Names[i] &&
-            Img[j] != Item_images[i] &&
-            Fin_price[j] != Price[i]) {
-          Name.add(Names[i]);
-          Img.add(Item_images[i]);
-          Fin_price.add(Price[i]);
-        }
-      }
-      // ignore: avoid_print
       no_of_selections++;
+
+      Name.add(Names[i]);
+      Img.add(Item_images[i]);
+      Fin_price.add(Price[i]);
+
+      // ignore: avoid_print
     } else {
       no_of_selections = 0;
     }
