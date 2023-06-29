@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_2/screens/Accountspage/accounts.dart';
 import 'package:flutter_2/screens/Cart/cart.dart';
 import 'package:flutter_2/screens/Homescreen/home_screen.dart';
 import 'package:flutter_2/screens/Restaurants/NighCanteen/Main/NightCanteenCard/NightCanteen.dart';
@@ -60,6 +61,13 @@ final GoRouter router = GoRouter(
           return HomeScreen(
             nameofperson: 'Shivam Sharma',
           );
+        }),
+    GoRoute(
+        name: 'Accounts',
+        path: '/accounts.dart',
+        builder: (BuildContext context, GoRouterState state) {
+          // ignore: prefer_const_constructors
+          return ProfileScreen();
         }),
   ],
 );

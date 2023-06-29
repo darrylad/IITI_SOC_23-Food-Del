@@ -101,7 +101,9 @@ class BottomNav extends StatelessWidget {
                   width: 30,
                 )),
             IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.go('/accounts.dart');
+                },
                 icon: Image.asset(
                   'assets/buttons/user.png',
                   height: 30,
