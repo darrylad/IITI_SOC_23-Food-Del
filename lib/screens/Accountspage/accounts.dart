@@ -4,6 +4,8 @@ import 'package:flutter_2/screens/Start/start_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
+import '../Homescreen/home_screen.dart';
+
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
 
@@ -15,6 +17,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
       bottomNavigationBar: const BottomNav_1(),
       body: Column(
@@ -318,66 +321,4 @@ class _ProfileScreenState extends State<ProfileScreen> {
 }
 
 // ignore: camel_case_types
-class BottomNav_1 extends StatelessWidget {
-  const BottomNav_1({
-    super.key,
-  });
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.transparent,
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
-        child: Material(
-          borderRadius: const BorderRadius.all(Radius.circular(20)),
-          elevation: 2,
-          child: Container(
-            height: 60,
-            decoration: const BoxDecoration(
-                color: Color.fromRGBO(255, 255, 255, 1),
-                borderRadius: BorderRadius.all(Radius.circular(20))),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const SizedBox(
-                  width: 1,
-                ),
-                IconButton(
-                    onPressed: () {
-                      context.go('/home_screen.dart');
-                    },
-                    icon: Image.asset(
-                      'assets/buttons/Home.png',
-                      height: 30,
-                      width: 30,
-                    )),
-                IconButton(
-                    onPressed: () {
-                      context.go('/cart.dart');
-                    },
-                    icon: SvgPicture.asset(
-                      'assets/buttons/cart.svg',
-                      height: 30,
-                      width: 30,
-                    )),
-                IconButton(
-                    onPressed: () {
-                      context.go('/accounts.dart');
-                    },
-                    icon: SvgPicture.asset(
-                      'assets/buttons/User.svg',
-                      height: 30,
-                      width: 30,
-                    )),
-                const SizedBox(
-                  width: 1,
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}

@@ -1,3 +1,4 @@
+// ignore: non_constant_identifier_names
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
@@ -5,49 +6,52 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../global/globals.dart';
 
-// ignore: camel_case_types, must_be_immutable
-class Add_Location_Screen extends StatefulWidget {
-  const Add_Location_Screen({super.key});
+// ignore: camel_case_types
+class popup extends StatefulWidget {
+  const popup({super.key});
 
   @override
-  State<Add_Location_Screen> createState() => _Add_Location_ScreenState();
+  State<popup> createState() => _popupState();
 }
 
 // ignore: camel_case_types
-class _Add_Location_ScreenState extends State<Add_Location_Screen> {
+class _popupState extends State<popup> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: const Color.fromRGBO(255, 233, 214, 1),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            const SizedBox(
-              height: 145,
-            ),
-            Image.asset(
-              'assets/buttons/addlocation.jpg',
-              height: 172,
-              width: 172,
-            ),
-            const SizedBox(
-              height: 40,
-            ),
-            Text(
-              'Choose your Location',
+    return AlertDialog(
+      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+      content: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const SizedBox(
+            height: 25,
+            width: 329,
+          ),
+          Image.asset(
+            'assets/buttons/addlocationpop.png',
+            height: 132,
+            width: 132,
+          ),
+          const SizedBox(
+            height: 45,
+          ),
+          Text('Choose your Location',
               style: GoogleFonts.inter(
-                  fontSize: 25, color: const Color.fromRGBO(110, 46, 0, 1)),
-            ),
-            const SizedBox(
-              height: 80,
-            ),
-            Row(
+                  fontSize: 22,
+                  color: const Color.fromRGBO(173, 82, 31, 1),
+                  fontWeight: FontWeight.w500)),
+          const SizedBox(
+            height: 50,
+          ),
+          Flexible(
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
                   decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
-                      color: Color.fromARGB(236, 255, 255, 255),
+                      color: Color.fromRGBO(255, 249, 245, 1),
                       border: Border(
                         top: BorderSide(
                             width: 2, color: Color.fromRGBO(110, 46, 0, 1)),
@@ -58,15 +62,15 @@ class _Add_Location_ScreenState extends State<Add_Location_Screen> {
                         left: BorderSide(
                             width: 2, color: Color.fromRGBO(110, 46, 0, 1)),
                       )),
-                  width: 320,
+                  width: 270,
                   height: 50,
                   child: DropdownButtonHideUnderline(
                     child: DropdownButton<String>(
-                      iconEnabledColor: const Color.fromRGBO(110, 46, 0, 1),
+                      iconEnabledColor: const Color.fromRGBO(173, 82, 31, 1),
                       iconSize: 30.0,
                       isDense: true,
                       isExpanded: true,
-                      menuMaxHeight: 350,
+                      menuMaxHeight: 250,
                       value: dropdownValue,
                       onChanged: (String? value) {
                         setState(() {
@@ -76,7 +80,7 @@ class _Add_Location_ScreenState extends State<Add_Location_Screen> {
                       },
                       style: GoogleFonts.inter(
                           fontSize: 23,
-                          color: const Color.fromRGBO(110, 46, 0, 1)),
+                          color: const Color.fromRGBO(173, 82, 31, 1)),
                       selectedItemBuilder: (BuildContext context) {
                         return options.map((String value) {
                           return Align(
@@ -97,7 +101,7 @@ class _Add_Location_ScreenState extends State<Add_Location_Screen> {
                           child: Text(
                               style: GoogleFonts.inter(
                                   fontSize: 20,
-                                  color: const Color.fromRGBO(110, 46, 0, 1)),
+                                  color: const Color.fromRGBO(173, 82, 31, 1)),
                               value),
                         );
                       }).toList(),
@@ -106,14 +110,19 @@ class _Add_Location_ScreenState extends State<Add_Location_Screen> {
                 )
               ],
             ),
-            const SizedBox(
-              height: 70,
-            ),
-            SubmitButton(
-              dropdownValue: dropdownValue,
-            ),
-          ],
-        ));
+          ),
+          const SizedBox(
+            height: 60,
+          ),
+          SubmitButton(
+            dropdownValue: dropdownValue,
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+        ],
+      ),
+    );
   }
 }
 
@@ -142,11 +151,11 @@ class _SubmitButtonState extends State<SubmitButton> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50,
-      width: 150,
+      height: 40,
+      width: 100,
       decoration: const BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(20)),
-        color: Color.fromRGBO(115, 50, 2, 1),
+        borderRadius: BorderRadius.all(Radius.circular(10)),
+        color: Color.fromRGBO(173, 82, 31, 1),
       ),
       child: TextButton(
           onPressed: () {
@@ -172,7 +181,7 @@ class _SubmitButtonState extends State<SubmitButton> {
           },
           child: Text(
             'Done',
-            style: GoogleFonts.inter(fontSize: 20, color: Colors.white),
+            style: GoogleFonts.inter(fontSize: 18, color: Colors.white),
           )),
     );
   }

@@ -30,6 +30,9 @@ class _PaymentpageState extends State<Paymentpage> {
   }
 
   void _handlePaymentError(PaymentFailureResponse response) {
+    {
+      context.go('/afterpayments.dart');
+    }
     // Do something when payment fails
   }
 

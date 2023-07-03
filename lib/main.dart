@@ -6,12 +6,9 @@ import 'package:flutter_2/screens/Location/add_location_screen.dart';
 import 'package:flutter_2/screens/Restaurants/NighCanteen/Main/NightCanteenCard/NightCanteen.dart';
 import 'package:flutter_2/screens/Start/start_screen.dart';
 import 'package:go_router/go_router.dart';
-
 import 'package:google_fonts/google_fonts.dart';
-
 import 'screens/Payment/afterpayments.dart';
 import 'screens/Payment/payments_screen.dart';
-import 'screens/Payment/trial.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,6 +21,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+        debugShowCheckedModeBanner: false,
         title: 'DeliverEat',
         theme: ThemeData(
           fontFamily: GoogleFonts.lato().fontFamily,
@@ -39,17 +37,17 @@ final GoRouter router = GoRouter(
   routes: [
     GoRoute(
         name: 'START',
-        path: '/start_screen.dart',
+        path: '/startscreen.dart',
         builder: (BuildContext context, GoRouterState state) {
           // ignore: prefer_const_constructors
           return Startscreen();
         }),
     GoRoute(
         name: 'After Payment',
-        path: '/afterpayments.dart',
+        path: '/',
         builder: (BuildContext context, GoRouterState state) {
           // ignore: prefer_const_constructors
-          return Afterpayments();
+          return HomeScreen();
         }),
     GoRoute(
         name: 'Add location',
@@ -88,7 +86,7 @@ final GoRouter router = GoRouter(
         }),
     GoRoute(
         name: 'Upi',
-        path: '/',
+        path: '/payments.dart',
         builder: (BuildContext context, GoRouterState state) {
           // ignore: prefer_const_constructors
           return Paymentpage();

@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_2/screens/Accountspage/accounts.dart';
 import 'package:flutter_2/screens/Homescreen/ImageCarausel.dart';
 
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 
 import '../../global/globals.dart';
+import '../Location/locationpopup.dart';
 import 'SectionTitle.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -16,6 +19,26 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // bottomNavigationBar: const GNav(
+      //   backgroundColor: Color.fromRGBO(245, 245, 245, 1),
+      //   color: Color.fromARGB(255, 196, 60, 2),
+      //   activeColor: Color.fromARGB(255, 169, 52, 2),
+      //   tabBackgroundColor: Color.fromARGB(255, 193, 148, 129),
+      //   iconSize: 40,
+      //   gap: 8,
+      //   tabs: [
+      //     GButton(
+      //       icon: Icons.home_outlined,
+      //       text: 'Home',
+      //     ),
+      //     GButton(icon: Icons.shopping_cart_outlined, text: 'Cart'),
+      //     GButton(
+      //       icon: Icons.account_box_outlined,
+      //       text: 'Account',
+      //     )
+      //   ],
+      // ),
+      extendBody: true,
       bottomNavigationBar: const BottomNav_1(),
       backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
       body: MainScroll(
@@ -83,12 +106,46 @@ class MainScroll extends StatelessWidget {
   }
 }
 
+// // ignore: camel_case_types
+// class BottomNav_1 extends StatelessWidget {
+//   const BottomNav_1({
+//     super.key,
+//   });
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       color: Colors.transparent,
+//       child: Padding(
+//         padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
+//         child: Material(
+//           borderRadius: const BorderRadius.all(Radius.circular(20)),
+//           elevation: 2,
+//           child: Container(
+//             height: 100,
+//             decoration: const BoxDecoration(
+//                 color: Color.fromRGBO(255, 255, 255, 1),
+//                 borderRadius: BorderRadius.all(Radius.circular(20))),
+//             child: const
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
 // ignore: camel_case_types
-class BottomNav_1 extends StatelessWidget {
+class BottomNav_1 extends StatefulWidget {
   const BottomNav_1({
     super.key,
   });
 
+  @override
+  State<BottomNav_1> createState() => _BottomNav_1State();
+}
+
+// ignore: camel_case_types
+class _BottomNav_1State extends State<BottomNav_1> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -102,12 +159,21 @@ class BottomNav_1 extends StatelessWidget {
             height: 60,
             decoration: const BoxDecoration(
                 color: Color.fromRGBO(255, 255, 255, 1),
+                boxShadow: [
+                  //BoxShadow
+                  BoxShadow(
+                    color: Color.fromARGB(255, 0, 0, 0),
+                    offset: Offset(1, 1),
+                    blurRadius: 0.0,
+                    spreadRadius: 0.0,
+                  ), //BoxShadow
+                ],
                 borderRadius: BorderRadius.all(Radius.circular(20))),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 const SizedBox(
-                  width: 1,
+                  width: 53,
                 ),
                 IconButton(
                     onPressed: () {
@@ -118,6 +184,9 @@ class BottomNav_1 extends StatelessWidget {
                       height: 30,
                       width: 30,
                     )),
+                const SizedBox(
+                  width: 60,
+                ),
                 IconButton(
                     onPressed: () {
                       context.go('/cart.dart');
@@ -127,6 +196,9 @@ class BottomNav_1 extends StatelessWidget {
                       height: 30,
                       width: 30,
                     )),
+                const SizedBox(
+                  width: 60,
+                ),
                 IconButton(
                     onPressed: () {
                       context.go('/accounts.dart');
@@ -136,9 +208,6 @@ class BottomNav_1 extends StatelessWidget {
                       height: 30,
                       width: 30,
                     )),
-                const SizedBox(
-                  width: 1,
-                ),
               ],
             ),
           ),
@@ -147,8 +216,6 @@ class BottomNav_1 extends StatelessWidget {
     );
   }
 }
-
-// ignore: camel_case_types
 
 // ignore: camel_case_types
 class SearchBar_Homepage extends StatelessWidget {
@@ -209,6 +276,15 @@ class SearchBar extends StatelessWidget {
   }
 }
 
+Future<void> _dialogBuilder(BuildContext context) {
+  return showDialog<void>(
+    context: context,
+    builder: (BuildContext context) {
+      return const popup();
+    },
+  );
+}
+
 class GoodMorning extends StatelessWidget {
   const GoodMorning({
     super.key,
@@ -252,9 +328,7 @@ class GoodMorning extends StatelessWidget {
                           height: 14, width: 14),
                     ),
                     GestureDetector(
-                      onTap: () {
-                        context.go('/add_location_screen.dart');
-                      },
+                      onTap: () => _dialogBuilder(context),
                       child: Padding(
                         padding: const EdgeInsets.fromLTRB(2, 0, 0, 0),
                         child: Text(

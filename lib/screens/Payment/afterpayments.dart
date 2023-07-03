@@ -5,9 +5,17 @@ class Afterpayments extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Shivam Ne kardiya'),
+    return Material(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(0, 50, 0, 0),
+        child: Container(
+            color: Color.fromARGB(255, 87, 23, 23),
+            height: MediaQuery.of(context).size.height,
+            width: double.infinity,
+            child: Image.asset(
+              'assets/maps/map.png',
+              fit: BoxFit.fill,
+            )),
       ),
     );
   }
