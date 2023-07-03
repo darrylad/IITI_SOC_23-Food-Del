@@ -2,11 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_2/screens/Accountspage/accounts.dart';
 import 'package:flutter_2/screens/Cart/cart.dart';
 import 'package:flutter_2/screens/Homescreen/home_screen.dart';
+import 'package:flutter_2/screens/Location/add_location_screen.dart';
 import 'package:flutter_2/screens/Restaurants/NighCanteen/Main/NightCanteenCard/NightCanteen.dart';
-import 'package:flutter_2/screens/start_screen.dart';
+import 'package:flutter_2/screens/Start/start_screen.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:google_fonts/google_fonts.dart';
+
+import 'screens/Payment/afterpayments.dart';
+import 'screens/Payment/payments_screen.dart';
+import 'screens/Payment/trial.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,10 +39,24 @@ final GoRouter router = GoRouter(
   routes: [
     GoRoute(
         name: 'START',
-        path: '/',
+        path: '/start_screen.dart',
         builder: (BuildContext context, GoRouterState state) {
           // ignore: prefer_const_constructors
           return Startscreen();
+        }),
+    GoRoute(
+        name: 'After Payment',
+        path: '/afterpayments.dart',
+        builder: (BuildContext context, GoRouterState state) {
+          // ignore: prefer_const_constructors
+          return Afterpayments();
+        }),
+    GoRoute(
+        name: 'Add location',
+        path: '/add_location_screen.dart',
+        builder: (BuildContext context, GoRouterState state) {
+          // ignore: prefer_const_constructors
+          return Add_Location_Screen();
         }),
     GoRoute(
       name: 'NightCanteen',
@@ -58,9 +77,7 @@ final GoRouter router = GoRouter(
         path: '/home_screen.dart',
         builder: (BuildContext context, GoRouterState state) {
           // ignore: prefer_const_constructors
-          return HomeScreen(
-            nameofperson: 'Shivam Sharma',
-          );
+          return HomeScreen();
         }),
     GoRoute(
         name: 'Accounts',
@@ -68,6 +85,13 @@ final GoRouter router = GoRouter(
         builder: (BuildContext context, GoRouterState state) {
           // ignore: prefer_const_constructors
           return ProfileScreen();
+        }),
+    GoRoute(
+        name: 'Upi',
+        path: '/',
+        builder: (BuildContext context, GoRouterState state) {
+          // ignore: prefer_const_constructors
+          return Paymentpage();
         }),
   ],
 );

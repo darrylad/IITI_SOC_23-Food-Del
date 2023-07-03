@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-
-import '../Restaurants/NighCanteen/Main/NightCanteenCard/NightCanteen.dart';
+import 'package:flutter_2/global/globals.dart';
+import 'package:flutter_2/screens/Start/start_screen.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -13,11 +15,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: const BottomNav(),
+      backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
+      bottomNavigationBar: const BottomNav_1(),
       body: Column(
         children: [
           const SizedBox(
-            height: 100,
+            height: 80,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -37,15 +40,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
           const SizedBox(
             height: 10,
           ),
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('Shivam',
-                  style: TextStyle(
-                      color: Color.fromRGBO(56, 56, 56, 1),
+              Text(username,
+                  style: const TextStyle(
+                      color: Color.fromRGBO(18, 18, 18, 1),
                       fontFamily: 'Inter',
                       fontSize: 25,
-                      fontWeight: FontWeight.normal,
+                      fontWeight: FontWeight.w500,
                       height: 1)),
             ],
           ),
@@ -55,7 +58,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           Row(
             children: [
               const SizedBox(
-                width: 50,
+                width: 70,
               ),
               TextButton.icon(
                 onPressed: () {},
@@ -81,10 +84,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             ],
           ),
+          const SizedBox(
+            height: 5,
+          ),
           Row(
             children: [
               const SizedBox(
-                width: 50,
+                width: 70,
               ),
               TextButton.icon(
                 onPressed: () {},
@@ -110,10 +116,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             ],
           ),
+          const SizedBox(
+            height: 5,
+          ),
           Row(
             children: [
               const SizedBox(
-                width: 50,
+                width: 70,
               ),
               TextButton.icon(
                 onPressed: () {},
@@ -139,10 +148,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             ],
           ),
+          const SizedBox(
+            height: 5,
+          ),
           Row(
             children: [
               const SizedBox(
-                width: 50,
+                width: 70,
               ),
               TextButton.icon(
                 onPressed: () {},
@@ -168,10 +180,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             ],
           ),
+          const SizedBox(
+            height: 5,
+          ),
           Row(
             children: [
               const SizedBox(
-                width: 50,
+                width: 70,
               ),
               TextButton.icon(
                 onPressed: () {},
@@ -197,10 +212,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             ],
           ),
+          const SizedBox(
+            height: 5,
+          ),
           Row(
             children: [
               const SizedBox(
-                width: 50,
+                width: 70,
               ),
               TextButton.icon(
                 onPressed: () {},
@@ -226,10 +244,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             ],
           ),
+          const SizedBox(
+            height: 5,
+          ),
           Row(
             children: [
               const SizedBox(
-                width: 50,
+                width: 70,
               ),
               TextButton.icon(
                 onPressed: () {},
@@ -255,13 +276,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             ],
           ),
+          const SizedBox(
+            height: 5,
+          ),
           Row(
             children: [
               const SizedBox(
-                width: 50,
+                width: 70,
               ),
               TextButton.icon(
-                onPressed: () {},
+                onPressed: () {
+                  controller.logout();
+                  context.go('/');
+                },
                 icon: Image.asset(
                   'assets/Tejas/logout.png',
                   width: 26,
@@ -286,210 +313,71 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
         ],
       ),
-      // body: Stack(children: <Widget>[
-      //   Positioned(
-      //     left: 120,
-      //     top: 85,
-      //     child: SizedBox(
-      //       width: 152,
-      //       height: 204,
-      //       child: Stack(
-      //         children: [
-      //           Align(
-      //             alignment: Alignment.topCenter,
-      //             child: Container(
-      //               width: 152,
-      //               height: 152,
-      //               decoration: const BoxDecoration(
-      //                 boxShadow: [
-      //                   BoxShadow(
-      //                       color:
-      //                           Color.fromRGBO(103, 30, 0, 0.3100000023841858),
-      //                       offset: Offset(0, 0),
-      //                       blurRadius: 69)
-      //                 ],
-      //                 gradient: LinearGradient(
-      //                     begin: Alignment(6.123234262925839e-17, 1),
-      //                     end: Alignment(-1, 6.123234262925839e-17),
-      //                     colors: [
-      //                       Color.fromRGBO(255, 170, 91, 1),
-      //                       Color.fromRGBO(207, 127, 59, 1)
-      //                     ]),
-      //                 borderRadius:
-      //                     BorderRadius.all(Radius.elliptical(152, 152)),
-      //               ),
-      //             ),
-      //           ),
-      //           const Align(
-      //             alignment: Alignment.bottomCenter,
-      //             child:
-      //         ],
-      //       ),
-      //     ),
-      //   ),
-      //   Positioned(
-      //     top: 318,
-      //     left: 43,
-      //     child: SizedBox(
-      //         width: 208,
-      //         height: 384,
-      //         child: Column(
-      //           children: <Widget>[
-      //             Align(
-      //               alignment: Alignment.centerLeft,
-      //               child:
-      //             ),
-      //             Align(
-      //               alignment: Alignment.centerLeft,
-      //               child: TextButton.icon(
-      //                 onPressed: () {},
-      //                 icon: Image.asset(
-      //                   'assets/Tejas/credit-card (1).png',
-      //                   width: 30,
-      //                   height: 30,
-      //                 ),
-      //                 label: const Text(
-      //                   'Payment Methods',
-      //                   style: TextStyle(
-      //                       color: Color.fromRGBO(0, 0, 0, 1),
-      //                       fontFamily: 'Inter',
-      //                       fontSize: 18,
-      //                       letterSpacing: 0,
-      //                       fontWeight: FontWeight.normal,
-      //                       height: 1),
-      //                 ),
-      //               ),
-      //             ),
-      //             Align(
-      //               alignment: Alignment.centerLeft,
-      //               child: TextButton.icon(
-      //                 onPressed: () {},
-      //                 icon: Image.asset(
-      //                   'assets/Tejas/heart.png',
-      //                   width: 30,
-      //                   height: 30,
-      //                 ),
-      //                 label: const Text(
-      //                   'Favourites',
-      //                   style: TextStyle(
-      //                       color: Color.fromRGBO(0, 0, 0, 1),
-      //                       fontFamily: 'Inter',
-      //                       fontSize: 18,
-      //                       letterSpacing: 0,
-      //                       fontWeight: FontWeight.normal,
-      //                       height: 1),
-      //                 ),
-      //               ),
-      //             ),
-      //             Align(
-      //               alignment: Alignment.centerLeft,
-      //               child: TextButton.icon(
-      //                 onPressed: () {},
-      //                 icon: Image.asset(
-      //                   'assets/Tejas/feedback.png',
-      //                   width: 30,
-      //                   height: 30,
-      //                 ),
-      //                 label: const Text(
-      //                   'Feedback',
-      //                   style: TextStyle(
-      //                       color: Color.fromRGBO(0, 0, 0, 1),
-      //                       fontFamily: 'Inter',
-      //                       fontSize: 18,
-      //                       letterSpacing: 0,
-      //                       fontWeight: FontWeight.normal,
-      //                       height: 1),
-      //                 ),
-      //               ),
-      //             ),
-      //             Align(
-      //               alignment: Alignment.centerLeft,
-      //               child: TextButton.icon(
-      //                 onPressed: () {},
-      //                 icon: Image.asset(
-      //                   'assets/Tejas/ringing.png',
-      //                   width: 30,
-      //                   height: 30,
-      //                 ),
-      //                 label: const Text(
-      //                   'Notifications',
-      //                   style: TextStyle(
-      //                       color: Color.fromRGBO(0, 0, 0, 1),
-      //                       fontFamily: 'Inter',
-      //                       fontSize: 18,
-      //                       letterSpacing: 0,
-      //                       fontWeight: FontWeight.normal,
-      //                       height: 1),
-      //                 ),
-      //               ),
-      //             ),
-      //             Align(
-      //               alignment: Alignment.centerLeft,
-      //               child: TextButton.icon(
-      //                 onPressed: () {},
-      //                 icon: Image.asset(
-      //                   'assets/Tejas/moon.png',
-      //                   width: 30,
-      //                   height: 30,
-      //                 ),
-      //                 label: const Text(
-      //                   'Appearance',
-      //                   style: TextStyle(
-      //                       color: Color.fromRGBO(0, 0, 0, 1),
-      //                       fontFamily: 'Inter',
-      //                       fontSize: 18,
-      //                       letterSpacing: 0,
-      //                       fontWeight: FontWeight.normal,
-      //                       height: 1),
-      //                 ),
-      //               ),
-      //             ),
-      //             Align(
-      //               alignment: Alignment.centerLeft,
-      //               child: TextButton.icon(
-      //                 onPressed: () {},
-      //                 icon: Image.asset(
-      //                   'assets/Tejas/information.png',
-      //                   width: 30,
-      //                   height: 30,
-      //                 ),
-      //                 label: const Text(
-      //                   'About',
-      //                   style: TextStyle(
-      //                       color: Color.fromRGBO(0, 0, 0, 1),
-      //                       fontFamily: 'Inter',
-      //                       fontSize: 18,
-      //                       letterSpacing: 0,
-      //                       fontWeight: FontWeight.normal,
-      //                       height: 1),
-      //                 ),
-      //               ),
-      //             ),
-      //             Align(
-      //               alignment: Alignment.centerLeft,
-      //               child: TextButton.icon(
-      //                 onPressed: () {},
-      //                 icon: Image.asset(
-      //                   'assets/Tejas/logout.png',
-      //                   width: 30,
-      //                   height: 30,
-      //                 ),
-      //                 label: const Text(
-      //                   'Log Out',
-      //                   style: TextStyle(
-      //                       color: Color.fromRGBO(193, 39, 5, 1),
-      //                       fontFamily: 'Inter',
-      //                       fontSize: 18,
-      //                       letterSpacing: 0,
-      //                       fontWeight: FontWeight.normal,
-      //                       height: 1),
-      //                 ),
-      //               ),
-      //             ),
-      //           ],
-      //         )),
-      //   ),
-      // ]),
+    );
+  }
+}
+
+// ignore: camel_case_types
+class BottomNav_1 extends StatelessWidget {
+  const BottomNav_1({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.transparent,
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
+        child: Material(
+          borderRadius: const BorderRadius.all(Radius.circular(20)),
+          elevation: 2,
+          child: Container(
+            height: 60,
+            decoration: const BoxDecoration(
+                color: Color.fromRGBO(255, 255, 255, 1),
+                borderRadius: BorderRadius.all(Radius.circular(20))),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const SizedBox(
+                  width: 1,
+                ),
+                IconButton(
+                    onPressed: () {
+                      context.go('/home_screen.dart');
+                    },
+                    icon: Image.asset(
+                      'assets/buttons/Home.png',
+                      height: 30,
+                      width: 30,
+                    )),
+                IconButton(
+                    onPressed: () {
+                      context.go('/cart.dart');
+                    },
+                    icon: SvgPicture.asset(
+                      'assets/buttons/cart.svg',
+                      height: 30,
+                      width: 30,
+                    )),
+                IconButton(
+                    onPressed: () {
+                      context.go('/accounts.dart');
+                    },
+                    icon: SvgPicture.asset(
+                      'assets/buttons/User.svg',
+                      height: 30,
+                      width: 30,
+                    )),
+                const SizedBox(
+                  width: 1,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

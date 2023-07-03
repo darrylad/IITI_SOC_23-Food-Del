@@ -13,9 +13,12 @@ class SectionTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: const Color.fromARGB(255, 230, 230, 230),
+      color: const Color.fromRGBO(255, 255, 255, 1),
       child: Column(
         children: [
+          SizedBox(
+            height: 10,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -23,8 +26,8 @@ class SectionTitle extends StatelessWidget {
                 title,
                 style: GoogleFonts.inter(
                     color: const Color.fromARGB(255, 2, 2, 2),
-                    fontSize: 29,
-                    fontWeight: FontWeight.normal,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
                     decorationColor: Colors.black),
               ),
             ],

@@ -4,7 +4,6 @@ import 'package:flutter_2/screens/Restaurants/NighCanteen/Cart(SUM)/sum.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../Side/NightCanteen_sidefiles.dart';
-import 'FastFood.dart';
 import 'MainCourse.dart';
 
 class NightCanteen extends StatefulWidget {
@@ -20,16 +19,16 @@ class _NightCanteenState extends State<NightCanteen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: const BottomNav(),
-      backgroundColor: const Color.fromARGB(255, 238, 238, 238),
-      body: CustomScrollView(
-        slivers: [
-          SliverAppbar(),
-          const Main_Course(),
-          const Fast_Food(),
-        ],
-      ),
-    );
+        bottomNavigationBar: const BottomNav(),
+        backgroundColor: const Color.fromARGB(255, 238, 238, 238),
+        body: NestedScrollView(
+            headerSliverBuilder:
+                (BuildContext context, bool innerBoxIsScrolled) {
+              return <Widget>[
+                const SliverAppBar(),
+              ];
+            },
+            body: const Main_Course()));
   }
 
   // ignore: non_constant_identifier_names
