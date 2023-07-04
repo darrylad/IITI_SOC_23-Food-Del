@@ -3,14 +3,14 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Afterpayments extends StatefulWidget {
-  const Afterpayments({super.key});
+class Afterpayments1 extends StatefulWidget {
+  const Afterpayments1({super.key});
 
   @override
-  State<Afterpayments> createState() => _AfterpaymentsState();
+  State<Afterpayments1> createState() => _Afterpayments1State();
 }
 
-class _AfterpaymentsState extends State<Afterpayments> {
+class _Afterpayments1State extends State<Afterpayments1> {
   @override
   void initState() {
     super.initState();
@@ -40,9 +40,9 @@ class _AfterpaymentsState extends State<Afterpayments> {
             Container(
               decoration: const BoxDecoration(
                 gradient: RadialGradient(colors: [
-                  Color.fromRGBO(200, 86, 62, 1),
-                  Color.fromRGBO(171, 52, 1, 1),
-                  Color.fromRGBO(115, 23, 2, 1),
+                  Color.fromRGBO(0, 229, 92, 1),
+                  Color.fromRGBO(1, 159, 112, 1),
+                  Color.fromRGBO(0, 78, 96, 1),
                 ], center: Alignment.center, radius: 1),
               ),
               height: MediaQuery.of(context).size.height,
@@ -55,9 +55,9 @@ class _AfterpaymentsState extends State<Afterpayments> {
               child: Container(
                 decoration: const BoxDecoration(
                   gradient: RadialGradient(colors: [
-                    Color.fromRGBO(255, 163, 96, 1),
-                    Color.fromRGBO(205, 78, 06, 1),
-                    Color.fromRGBO(146, 19, 2, 1),
+                    Color.fromRGBO(1, 159, 121, 1),
+                    Color.fromRGBO(1, 139, 114, 1),
+                    Color.fromRGBO(0, 67, 96, 1),
                   ], center: Alignment.center, radius: 1),
                 ),
                 height: MediaQuery.of(context).size.height,
@@ -74,7 +74,7 @@ class _AfterpaymentsState extends State<Afterpayments> {
               child:
                   Column(mainAxisAlignment: MainAxisAlignment.end, children: [
                 Text(
-                  '10',
+                  '5',
                   style: GoogleFonts.inter(
                       fontSize: 160,
                       color: Colors.white,
@@ -106,22 +106,21 @@ class _AfterpaymentsState extends State<Afterpayments> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           const SizedBox(
-                            height: 35,
+                            height: 25,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text('Your food is being prepared',
+                              Text('Abhinav Tiwari',
                                   style: GoogleFonts.inter(
-                                    fontSize: 20,
+                                    fontSize: 22,
                                     fontWeight: FontWeight.w500,
-                                    color:
-                                        const Color.fromRGBO(2, 119, 56, 0.92),
+                                    color: const Color.fromARGB(234, 0, 0, 0),
                                   )),
                             ],
                           ),
                           const SizedBox(
-                            height: 25,
+                            height: 12,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -131,14 +130,29 @@ class _AfterpaymentsState extends State<Afterpayments> {
                                 child: Container(
                                   color: const Color.fromRGBO(237, 237, 237, 1),
                                   height: 38,
-                                  width: 275,
+                                  width: 200,
                                   child: Center(
-                                    child: Text(
-                                      'Call Night Canteen',
-                                      style: GoogleFonts.inter(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w400,
-                                          color: Colors.black),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Image.asset(
+                                          'assets/buttons/phone.png',
+                                          height: 15,
+                                          width: 15,
+                                        ),
+                                        const SizedBox(
+                                          width: 2,
+                                        ),
+                                        Text(
+                                          '8302193934',
+                                          style: GoogleFonts.inter(
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.w400,
+                                              color: const Color.fromRGBO(
+                                                  1, 62, 25, 0.75)),
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 ),
@@ -151,22 +165,24 @@ class _AfterpaymentsState extends State<Afterpayments> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              GestureDetector(
-                                onTap: () {},
-                                child: Container(
-                                  color: const Color.fromRGBO(237, 237, 237, 1),
-                                  height: 38,
-                                  width: 275,
-                                  child: Center(
-                                    child: Text(
-                                      'Request Cancellation',
-                                      style: GoogleFonts.inter(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w400,
-                                          color: Colors.black),
-                                    ),
-                                  ),
-                                ),
+                              Text(
+                                'Your food has been picked up by',
+                                style: GoogleFonts.inter(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w400,
+                                    color: const Color.fromRGBO(0, 0, 0, 0.5)),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Abhinav Tiwari',
+                                style: GoogleFonts.inter(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w400,
+                                    color: const Color.fromRGBO(0, 0, 0, 0.5)),
                               ),
                             ],
                           )

@@ -19,25 +19,6 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // bottomNavigationBar: const GNav(
-      //   backgroundColor: Color.fromRGBO(245, 245, 245, 1),
-      //   color: Color.fromARGB(255, 196, 60, 2),
-      //   activeColor: Color.fromARGB(255, 169, 52, 2),
-      //   tabBackgroundColor: Color.fromARGB(255, 193, 148, 129),
-      //   iconSize: 40,
-      //   gap: 8,
-      //   tabs: [
-      //     GButton(
-      //       icon: Icons.home_outlined,
-      //       text: 'Home',
-      //     ),
-      //     GButton(icon: Icons.shopping_cart_outlined, text: 'Cart'),
-      //     GButton(
-      //       icon: Icons.account_box_outlined,
-      //       text: 'Account',
-      //     )
-      //   ],
-      // ),
       extendBody: true,
       bottomNavigationBar: const BottomNav_1(),
       backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
@@ -105,34 +86,6 @@ class MainScroll extends StatelessWidget {
     ]);
   }
 }
-
-// // ignore: camel_case_types
-// class BottomNav_1 extends StatelessWidget {
-//   const BottomNav_1({
-//     super.key,
-//   });
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       color: Colors.transparent,
-//       child: Padding(
-//         padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
-//         child: Material(
-//           borderRadius: const BorderRadius.all(Radius.circular(20)),
-//           elevation: 2,
-//           child: Container(
-//             height: 100,
-//             decoration: const BoxDecoration(
-//                 color: Color.fromRGBO(255, 255, 255, 1),
-//                 borderRadius: BorderRadius.all(Radius.circular(20))),
-//             child: const
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
 
 // ignore: camel_case_types
 class BottomNav_1 extends StatefulWidget {

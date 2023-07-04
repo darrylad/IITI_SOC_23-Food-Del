@@ -3,11 +3,11 @@ import 'package:flutter_2/screens/Accountspage/accounts.dart';
 import 'package:flutter_2/screens/Cart/cart.dart';
 import 'package:flutter_2/screens/Homescreen/home_screen.dart';
 import 'package:flutter_2/screens/Location/add_location_screen.dart';
+import 'package:flutter_2/screens/Payment/afterpayments2.dart';
 import 'package:flutter_2/screens/Restaurants/NighCanteen/Main/NightCanteenCard/NightCanteen.dart';
 import 'package:flutter_2/screens/Start/start_screen.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'screens/Payment/afterpayments.dart';
 import 'screens/Payment/payments_screen.dart';
 
 void main() {
@@ -43,11 +43,11 @@ final GoRouter router = GoRouter(
           return Startscreen();
         }),
     GoRoute(
-        name: 'After Payment',
+        name: 'After Payment before 5 min',
         path: '/',
         builder: (BuildContext context, GoRouterState state) {
           // ignore: prefer_const_constructors
-          return HomeScreen();
+          return Paymentpage();
         }),
     GoRoute(
         name: 'Add location',
