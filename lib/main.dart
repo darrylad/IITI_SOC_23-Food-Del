@@ -4,6 +4,7 @@ import 'package:flutter_2/screens/Cart/cart.dart';
 import 'package:flutter_2/screens/Cart/cart_provider.dart';
 import 'package:flutter_2/screens/Homescreen/home_screen.dart';
 import 'package:flutter_2/screens/Location/add_location_screen.dart';
+import 'package:flutter_2/screens/Payment/afterpayments.dart';
 import 'package:flutter_2/screens/Restaurants/NightCanteen/night_canteen_screen.dart';
 import 'package:flutter_2/screens/Restaurants/TapriIITiansKi/tapri_iitians_ki_screen.dart';
 import 'package:flutter_2/screens/Start/start_screen.dart';
@@ -48,14 +49,14 @@ final GoRouter router = GoRouter(
   routes: [
     GoRoute(
         name: 'START',
-        path: '/startscreen.dart',
+        path: '/',
         builder: (BuildContext context, GoRouterState state) {
           // ignore: prefer_const_constructors
-          return Startscreen();
+          return Afterpayments();
         }),
     GoRoute(
         name: 'After Payment before 5 min',
-        path: '/',
+        path: '/afterpayment.dart',
         builder: (BuildContext context, GoRouterState state) {
           // ignore: prefer_const_constructors
           return HomeScreen();

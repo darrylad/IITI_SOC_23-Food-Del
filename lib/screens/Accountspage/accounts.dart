@@ -11,6 +11,43 @@ class ProfileScreen extends StatefulWidget {
   State<ProfileScreen> createState() => _ProfileScreenState();
 }
 
+class CustomDialog extends StatelessWidget {
+  final Widget content;
+
+  CustomDialog({required this.content});
+
+  @override
+  Widget build(BuildContext context) {
+    return Dialog(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      elevation: 0.0,
+      backgroundColor: Colors.transparent,
+      child: Container(
+                      width: 329,
+                      height: 498,
+       
+        decoration: BoxDecoration(
+          borderRadius : BorderRadius.only(
+            topLeft: Radius.circular(17),
+            topRight: Radius.circular(17),
+            bottomLeft: Radius.circular(17),
+            bottomRight: Radius.circular(17),
+          ),
+      boxShadow : [BoxShadow(
+          color: Color.fromRGBO(0, 0, 0, 0.15000000596046448),
+          offset: Offset(0,0),
+          blurRadius: 39
+      )],
+      color : Color.fromRGBO(255, 243, 235, 1),
+  ),
+  child: content,
+                    ),
+    );
+  }
+}
+
 class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
@@ -254,7 +291,81 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 width: 70,
               ),
               TextButton.icon(
-                onPressed: () {},
+                onPressed: () {
+                  showDialog(context: context, 
+                  builder: (context){
+                    return CustomDialog(
+                      content: Container(
+                    child: Column(
+                      mainAxisAlignment:MainAxisAlignment.start,
+                      children:<Widget> [
+                       
+                        Padding(padding: EdgeInsets.only(top: 30),
+                        
+                        child: Container(
+                          width:276,
+                          height:104,
+                          
+                          child:Row(
+                            children:<Widget> [
+                              Padding(padding: EdgeInsets.only(right: 20),
+                             child: Image.asset('assets/Tejas/lodo_draft1.png',
+                            height: 104,
+                            width: 104,),),
+                             Text('Deliver Eat',
+                           style: TextStyle(
+        color: Color.fromRGBO(143, 63, 5, 1),
+        fontFamily: 'Inter',
+        fontSize: 24,
+        letterSpacing: 0,
+        fontWeight: FontWeight.normal,
+        height: 1
+      ),),
+                            ],
+                          )
+                        ),),
+                        Padding(padding: EdgeInsets.all(24),
+                        child: ElevatedButton(onPressed: (){}, 
+                        child: Text('Open in Store',textAlign: TextAlign.center, style: TextStyle(
+        color: Color.fromRGBO(255, 255, 255, 1),
+        fontFamily: 'Inter',
+        fontSize: 16,
+        letterSpacing: 0,
+        fontWeight: FontWeight.normal,
+        height: 1
+      ),),
+      style:ElevatedButton.styleFrom(
+        primary: Color.fromRGBO(217, 137, 79, 1),
+  )
+      ), ),
+      Padding(padding: EdgeInsets.all(20),
+      child: Text('We made this app to give on-campus restaurants an intuitive platform to display their menu and provide delivery services. This project was a part of IITISoC’23.', textAlign: TextAlign.center, style: TextStyle(
+        color: Color.fromRGBO(115, 49, 2, 0.6000000238418579),
+        fontFamily: 'Inter',
+        fontSize: 17,
+        letterSpacing: 0,
+        fontWeight: FontWeight.normal,
+        height: 1
+      ),),),
+       Padding(padding: EdgeInsets.all(32),
+      child: Text('Made by Shivam, Darryl, Tejas, and Deepesh', textAlign: TextAlign.center, style: TextStyle(
+        color: Color.fromRGBO(115, 49, 2, 0.6000000238418579),
+        fontFamily: 'Inter',
+        fontSize: 17,
+        letterSpacing: 0,
+        fontWeight: FontWeight.normal,
+        height: 1
+      ),),)
+
+                        
+                      ],
+                    ),
+                  ),
+                    );
+             
+                  }
+                  );
+                },
                 icon: Image.asset(
                   'assets/Tejas/information.png',
                   width: 26,
