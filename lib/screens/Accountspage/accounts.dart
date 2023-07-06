@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_2/global/globals.dart';
-import 'package:flutter_2/screens/Start/start_screen.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
 import '../Homescreen/home_screen.dart';

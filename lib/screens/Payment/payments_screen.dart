@@ -97,7 +97,7 @@ class _PaymentpageState extends State<Paymentpage> {
               onTap: () {
                 var options = {
                   'key': '<rzp_test_V9s6DK7Eadsvfx>',
-                  'amount': 50000, //in the smallest currency sub-unit.
+                  'amount': '50000', //in the smallest currency sub-unit.
                   'name': 'Acme Corp.',
                   'order_id':
                       'order_EMBFqjDHEEn80l', // Generate order_id using Orders API
@@ -128,11 +128,5 @@ class _PaymentpageState extends State<Paymentpage> {
         ),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _razorpay.clear();
-    super.dispose();
   }
 }

@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_2/screens/Accountspage/accounts.dart';
 import 'package:flutter_2/screens/Homescreen/ImageCarausel.dart';
 
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
 
 import '../../global/globals.dart';
 import '../Location/locationpopup.dart';
@@ -78,7 +76,7 @@ class MainScroll extends StatelessWidget {
         child: TeaPost_card(),
       ),
       const SliverToBoxAdapter(
-        child: Aladeens_card(),
+        child: Tapri_card(),
       ),
       const SliverToBoxAdapter(
         child: Juciliciouss_card(),
@@ -99,71 +97,60 @@ class BottomNav_1 extends StatefulWidget {
 
 // ignore: camel_case_types
 class _BottomNav_1State extends State<BottomNav_1> {
+  // ignore: prefer_typing_uninitialized_variables
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.transparent,
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
-        child: Material(
-          borderRadius: const BorderRadius.all(Radius.circular(20)),
-          elevation: 2,
-          child: Container(
-            height: 60,
-            decoration: const BoxDecoration(
-                color: Color.fromRGBO(255, 255, 255, 1),
-                boxShadow: [
-                  //BoxShadow
-                  BoxShadow(
-                    color: Color.fromARGB(255, 0, 0, 0),
-                    offset: Offset(1, 1),
-                    blurRadius: 0.0,
-                    spreadRadius: 0.0,
-                  ), //BoxShadow
-                ],
-                borderRadius: BorderRadius.all(Radius.circular(20))),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                const SizedBox(
-                  width: 53,
-                ),
-                IconButton(
-                    onPressed: () {
-                      context.go('/home_screen.dart');
-                    },
-                    icon: Image.asset(
-                      'assets/buttons/Home.png',
-                      height: 30,
-                      width: 30,
-                    )),
-                const SizedBox(
-                  width: 60,
-                ),
-                IconButton(
-                    onPressed: () {
-                      context.go('/cart.dart');
-                    },
-                    icon: SvgPicture.asset(
-                      'assets/buttons/cart.svg',
-                      height: 30,
-                      width: 30,
-                    )),
-                const SizedBox(
-                  width: 60,
-                ),
-                IconButton(
-                    onPressed: () {
-                      context.go('/accounts.dart');
-                    },
-                    icon: SvgPicture.asset(
-                      'assets/buttons/User.svg',
-                      height: 30,
-                      width: 30,
-                    )),
-              ],
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(20, 0, 20, 15),
+      child: Container(
+        height: 60,
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(20)),
+          color: Color.fromRGBO(255, 255, 255, 1),
+        ),
+        //
+
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            const SizedBox(
+              width: 53,
             ),
-          ),
+            IconButton(
+                onPressed: () {
+                  context.go('/home_screen.dart');
+                },
+                icon: Image.asset(
+                  'assets/buttons/Home.png',
+                  height: 30,
+                  width: 30,
+                )),
+            const SizedBox(
+              width: 60,
+            ),
+            IconButton(
+                onPressed: () {
+                  context.go('/cart.dart');
+                },
+                icon: SvgPicture.asset(
+                  'assets/buttons/cart.svg',
+                  height: 30,
+                  width: 30,
+                )),
+            const SizedBox(
+              width: 60,
+            ),
+            IconButton(
+                onPressed: () {
+                  context.go('/accounts.dart');
+                },
+                icon: SvgPicture.asset(
+                  'assets/buttons/User.svg',
+                  height: 30,
+                  width: 30,
+                )),
+          ],
         ),
       ),
     );
@@ -179,17 +166,24 @@ class SearchBar_Homepage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        context.go('/search_bar_screen.dart');
+      },
       child: const SearchBar(),
     );
   }
 }
 
-class SearchBar extends StatelessWidget {
+class SearchBar extends StatefulWidget {
   const SearchBar({
     super.key,
   });
 
+  @override
+  State<SearchBar> createState() => _SearchBarState();
+}
+
+class _SearchBarState extends State<SearchBar> {
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -327,8 +321,8 @@ class GoodMorning extends StatelessWidget {
 // ignore: camel_case_types
 
 // ignore: camel_case_types
-class Aladeens_card extends StatelessWidget {
-  const Aladeens_card({
+class Tapri_card extends StatelessWidget {
+  const Tapri_card({
     super.key,
   });
 
@@ -352,7 +346,7 @@ class Aladeens_card extends StatelessWidget {
               width: 356,
               child: GestureDetector(
                 onTap: () {
-                  context.go('/NightCanteen.dart');
+                  context.go('/tapri_iitians_ki_screen.dart');
                 },
                 child: Stack(children: [
                   Positioned(
@@ -374,7 +368,7 @@ class Aladeens_card extends StatelessWidget {
                     top: 165,
                     left: 9,
                     child: Text(
-                      'Aladeens',
+                      'Tapri IITians ki',
                       style: GoogleFonts.inter(
                           color: const Color.fromARGB(255, 2, 2, 2),
                           fontSize: 20,
@@ -447,7 +441,7 @@ class NightCanteen_card extends StatelessWidget {
               width: 356,
               child: GestureDetector(
                 onTap: () {
-                  context.go('/NightCanteen.dart');
+                  context.go('/night_canteen_screen.dart');
                 },
                 child: Stack(children: [
                   Positioned(
