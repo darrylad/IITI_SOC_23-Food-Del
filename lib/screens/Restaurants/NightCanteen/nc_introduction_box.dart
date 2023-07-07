@@ -55,7 +55,7 @@ class _NCIntroductionState extends State<NCIntroduction> {
                       right: 50,
                       child: IconButton(
                           onPressed: () {
-                            context.go('/search_bar_screen.dart');
+                            context.go('/search_nightcanteen.dart');
                           },
                           icon: Image.asset(
                             'assets/buttons/search.png',

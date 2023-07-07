@@ -35,7 +35,7 @@ List<Item> productsNC = [
       restaurant: 'Night Canteen',
       itemdescription: 'Dish Discription',
       identity: 'NICT',
-      price: 8,
+      price: 50,
       image: 'assets/Deepesh/assets/images/frenchfries.jpg'),
   Item(
       name: 'Coffee',
@@ -80,7 +80,7 @@ List<Item> productsNC = [
       restaurant: 'Night Canteen',
       itemdescription: 'Dish Discription',
       identity: 'NICT',
-      price: 12,
+      price: 120,
       image: 'assets/Deepesh/assets/images/paneertikka.png'),
   Item(
       name: 'Pizza',

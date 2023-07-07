@@ -112,11 +112,8 @@ class _BottomNav_1State extends State<BottomNav_1> {
         //
 
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBox(
-              width: 53,
-            ),
             IconButton(
                 onPressed: () {
                   context.go('/home_screen.dart');
@@ -131,7 +128,7 @@ class _BottomNav_1State extends State<BottomNav_1> {
             ),
             IconButton(
                 onPressed: () {
-                  context.go('/cart.dart');
+                  context.go('/cart_screen.dart');
                 },
                 icon: SvgPicture.asset(
                   'assets/buttons/cart.svg',

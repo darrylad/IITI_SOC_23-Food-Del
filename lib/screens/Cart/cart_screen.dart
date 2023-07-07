@@ -13,15 +13,6 @@ class CartScreen extends StatefulWidget {
     Key? key,
   }) : super(key: key);
 
-  static const String routeName = '/cart';
-
-  static Route route() {
-    return MaterialPageRoute(
-      builder: (_) => const CartScreen(),
-      settings: const RouteSettings(name: routeName),
-    );
-  }
-
   @override
   State<CartScreen> createState() => _CartScreenState();
 }

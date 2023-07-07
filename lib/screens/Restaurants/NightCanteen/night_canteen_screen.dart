@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_2/screens/Cart/data_base.dart';
 import 'package:flutter_2/screens/Restaurants/NightCanteen/nc_item_identifier.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'nc_introduction_box.dart';
@@ -20,7 +22,9 @@ class _NightCanteenScreenState extends State<NightCanteenScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 249, 249, 249),
+      extendBody: true,
+      bottomNavigationBar: const BottomNav_nightcanteen(),
+      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       body: SingleChildScrollView(
         // physics: const ClampingScrollPhysics(),
         child: Column(
@@ -78,7 +82,7 @@ class _NightCanteenScreenState extends State<NightCanteenScreen> {
                           vertical: 10.0, horizontal: 8.0),
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
-                        return NCMainCourse(menuindex: index);
+                        return NCFastFood(menuindex: index);
                       }),
                 ),
               ],
@@ -104,7 +108,7 @@ class _NightCanteenScreenState extends State<NightCanteenScreen> {
                           vertical: 10.0, horizontal: 8.0),
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
-                        return NCMainCourse(menuindex: index);
+                        return NCBeverages(menuindex: index);
                       }),
                 ),
               ],
@@ -182,6 +186,74 @@ class AlertDialogReplaceButtons extends StatelessWidget {
               Navigator.of(context).pop();
             },
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class BottomNav_nightcanteen extends StatefulWidget {
+  const BottomNav_nightcanteen({
+    super.key,
+  });
+
+  @override
+  State<BottomNav_nightcanteen> createState() => _BottomNav_nightcanteenState();
+}
+
+// ignore: camel_case_types
+class _BottomNav_nightcanteenState extends State<BottomNav_nightcanteen> {
+  // ignore: prefer_typing_uninitialized_variables
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(20, 0, 20, 15),
+      child: Container(
+        height: 60,
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(20)),
+          color: Color.fromRGBO(255, 255, 255, 1),
+        ),
+        //
+
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            IconButton(
+                onPressed: () {
+                  context.go('/home_screen.dart');
+                },
+                icon: Image.asset(
+                  'assets/buttons/Home.png',
+                  height: 30,
+                  width: 30,
+                )),
+            const SizedBox(
+              width: 60,
+            ),
+            IconButton(
+                onPressed: () {
+                  context.go('/cart_screen.dart');
+                },
+                icon: SvgPicture.asset(
+                  'assets/buttons/cart.svg',
+                  height: 30,
+                  width: 30,
+                )),
+            const SizedBox(
+              width: 60,
+            ),
+            IconButton(
+                onPressed: () {
+                  context.go('/accounts.dart');
+                },
+                icon: SvgPicture.asset(
+                  'assets/buttons/User.svg',
+                  height: 30,
+                  width: 30,
+                )),
+          ],
         ),
       ),
     );

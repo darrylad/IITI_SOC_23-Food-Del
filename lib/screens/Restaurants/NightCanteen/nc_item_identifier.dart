@@ -126,7 +126,7 @@ class _NCMainCourseState extends State<NCMainCourse> {
                   ),
                 ),
                 const SizedBox(
-                  width: 20,
+                  width: 5,
                 ),
                 Stack(
                   children: [
@@ -459,7 +459,7 @@ class _NCFastFoodState extends State<NCFastFood> {
                   ),
                 ),
                 const SizedBox(
-                  width: 20,
+                  width: 5,
                 ),
                 Stack(
                   children: [
@@ -792,7 +792,7 @@ class _NCBeveragesState extends State<NCBeverages> {
                   ),
                 ),
                 const SizedBox(
-                  width: 20,
+                  width: 5,
                 ),
                 Stack(
                   children: [

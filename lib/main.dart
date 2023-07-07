@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_2/screens/Accountspage/accounts.dart';
 import 'package:flutter_2/screens/Cart/cart.dart';
 import 'package:flutter_2/screens/Cart/cart_provider.dart';
+import 'package:flutter_2/screens/Cart/cart_screen.dart';
 import 'package:flutter_2/screens/Homescreen/home_screen.dart';
 import 'package:flutter_2/screens/Location/add_location_screen.dart';
 import 'package:flutter_2/screens/Payment/afterpayments.dart';
 import 'package:flutter_2/screens/Restaurants/NightCanteen/night_canteen_screen.dart';
+import 'package:flutter_2/screens/Restaurants/NightCanteen/search_nightcanteen.dart';
 import 'package:flutter_2/screens/Restaurants/TapriIITiansKi/tapri_iitians_ki_screen.dart';
 import 'package:flutter_2/screens/Start/start_screen.dart';
 import 'package:go_router/go_router.dart';
@@ -52,7 +54,7 @@ final GoRouter router = GoRouter(
         path: '/',
         builder: (BuildContext context, GoRouterState state) {
           // ignore: prefer_const_constructors
-          return Afterpayments();
+          return HomeScreen();
         }),
     GoRoute(
         name: 'After Payment before 5 min',
@@ -77,10 +79,10 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
         name: 'Cart',
-        path: '/cart.dart',
+        path: '/cart_screen.dart',
         builder: (BuildContext context, GoRouterState state) {
           // ignore: prefer_const_constructors
-          return Cart();
+          return CartScreen();
         }),
     GoRoute(
         name: 'Home',
@@ -123,6 +125,13 @@ final GoRouter router = GoRouter(
         builder: (BuildContext context, GoRouterState state) {
           // ignore: prefer_const_constructors
           return SearchBarScreen();
+        }),
+    GoRoute(
+        name: 'searchbarnight',
+        path: '/search_nightcanteen.dart',
+        builder: (BuildContext context, GoRouterState state) {
+          // ignore: prefer_const_constructors
+          return SearchBarScreennight();
         }),
   ],
 );
