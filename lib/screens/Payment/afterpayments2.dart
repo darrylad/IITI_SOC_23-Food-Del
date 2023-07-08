@@ -244,7 +244,7 @@ class _BottomNav_1State extends State<BottomNav_1> {
                 ),
                 IconButton(
                     onPressed: () {
-                      context.go('/home_screen.dart');
+                      Navigator.pushNamed(context, '/home');
                     },
                     icon: Image.asset(
                       'assets/buttons/Home.png',
@@ -256,7 +256,7 @@ class _BottomNav_1State extends State<BottomNav_1> {
                 ),
                 IconButton(
                     onPressed: () {
-                      context.go('/cart.dart');
+                      Navigator.pushNamed(context, '/cart');
                     },
                     icon: SvgPicture.asset(
                       'assets/buttons/cart.svg',
@@ -268,7 +268,7 @@ class _BottomNav_1State extends State<BottomNav_1> {
                 ),
                 IconButton(
                     onPressed: () {
-                      context.go('/accounts.dart');
+                      Navigator.pushNamed(context, '/accounts');
                     },
                     icon: SvgPicture.asset(
                       'assets/buttons/User.svg',

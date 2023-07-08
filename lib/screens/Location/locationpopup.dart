@@ -176,7 +176,7 @@ class _SubmitButtonState extends State<SubmitButton> {
                         ),
                       )));
             } else {
-              context.go('/home_screen.dart');
+              Navigator.pushNamed(context, '/home');
             }
           },
           child: Text(

@@ -1,4 +1,4 @@
-import 'package:flutter_2/screens/Cart/item_model.dart';
+import 'package:flutter_2/Screens/Cart/item_model.dart';
 
 List<Item> productsTIK = [
   Item(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_2/global/globals.dart';
-import 'package:flutter_2/screens/Location/add_location_screen.dart';
+import 'package:flutter_2/Screens/Location/add_location_screen.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -9,6 +9,15 @@ import 'package:google_fonts/google_fonts.dart';
 // ignore: must_be_immutable
 class Startscreen extends StatefulWidget {
   const Startscreen({super.key});
+
+    static const String routeName = '/';
+
+  static Route route() {
+    return MaterialPageRoute(
+      builder: (_) => const Startscreen(),
+      settings: const RouteSettings(name: routeName),
+    );
+  }
 
   @override
   State<StatefulWidget> createState() {
@@ -24,7 +33,7 @@ class State1 extends State<Startscreen> {
       debugShowCheckedModeBanner: false,
       home: Container(
         height: MediaQuery.of(context).size.height,
-        width: double.infinity,
+        width: double.maxFinite,
         decoration:
             const BoxDecoration(color: Color.fromRGBO(255, 222, 192, 1)),
         child: Stack(children: <Widget>[
@@ -34,7 +43,7 @@ class State1 extends State<Startscreen> {
                 return LoginView();
               } else {
                 username = controller.googleAccount.value?.displayName ?? '';
-                return const Add_Location_Screen();
+                return const AddLocationScreen();
               }
             }),
           )

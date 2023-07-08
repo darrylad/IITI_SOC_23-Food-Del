@@ -1,6 +1,6 @@
 // ignore: filFast_Foodort 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_2/screens/Restaurants/NighCanteen/Cart(SUM)/sum.dart';
+import 'package:flutter_2/Screens/Restaurants/NighCanteen/Cart(SUM)/sum.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'NightCanteen_dishes.dart';

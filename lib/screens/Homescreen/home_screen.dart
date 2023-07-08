@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_2/screens/Homescreen/ImageCarausel.dart';
+import 'package:flutter_2/Screens/Homescreen/ImageCarausel.dart';
 
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -13,6 +13,15 @@ class HomeScreen extends StatelessWidget {
   const HomeScreen({
     super.key,
   });
+
+  static const String routeName = '/home';
+
+  static Route route() {
+    return MaterialPageRoute(
+      builder: (_) => const HomeScreen(),
+      settings: const RouteSettings(name: routeName),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -81,6 +90,9 @@ class MainScroll extends StatelessWidget {
       const SliverToBoxAdapter(
         child: Juciliciouss_card(),
       ),
+      const SliverToBoxAdapter(
+        child: SizedBox(height: 100,),
+      )
     ]);
   }
 }
@@ -116,7 +128,7 @@ class _BottomNav_1State extends State<BottomNav_1> {
           children: [
             IconButton(
                 onPressed: () {
-                  context.go('/home_screen.dart');
+                  Navigator.pushNamed(context, '/home');
                 },
                 icon: Image.asset(
                   'assets/buttons/Home.png',
@@ -128,7 +140,7 @@ class _BottomNav_1State extends State<BottomNav_1> {
             ),
             IconButton(
                 onPressed: () {
-                  context.go('/cart_screen.dart');
+                  Navigator.pushNamed(context, '/cart');
                 },
                 icon: SvgPicture.asset(
                   'assets/buttons/cart.svg',
@@ -140,7 +152,7 @@ class _BottomNav_1State extends State<BottomNav_1> {
             ),
             IconButton(
                 onPressed: () {
-                  context.go('/accounts.dart');
+                  Navigator.pushNamed(context, '/accounts');
                 },
                 icon: SvgPicture.asset(
                   'assets/buttons/User.svg',
@@ -164,7 +176,7 @@ class SearchBar_Homepage extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.go('/search_bar_screen.dart');
+        Navigator.pushNamed(context, '/search');
       },
       child: const SearchBar(),
     );
@@ -343,7 +355,7 @@ class Tapri_card extends StatelessWidget {
               width: 356,
               child: GestureDetector(
                 onTap: () {
-                  context.go('/tapri_iitians_ki_screen.dart');
+                  Navigator.pushNamed(context, '/tapri');
                 },
                 child: Stack(children: [
                   Positioned(
@@ -438,7 +450,7 @@ class NightCanteen_card extends StatelessWidget {
               width: 356,
               child: GestureDetector(
                 onTap: () {
-                  context.go('/night_canteen_screen.dart');
+                  Navigator.pushNamed(context, '/nightcanteen');
                 },
                 child: Stack(children: [
                   Positioned(
@@ -533,7 +545,7 @@ class TeaPost_card extends StatelessWidget {
               width: 356,
               child: GestureDetector(
                 onTap: () {
-                  context.go('/NightCanteen.dart');
+                  Navigator.pushNamed(context, '/nightcanteen');
                 },
                 child: Stack(children: [
                   Positioned(
@@ -628,7 +640,7 @@ class Juciliciouss_card extends StatelessWidget {
               width: 356,
               child: GestureDetector(
                 onTap: () {
-                  context.go('/NightCanteen.dart');
+                  Navigator.pushNamed(context, '/nightcanteen');
                 },
                 child: Stack(children: [
                   Positioned(

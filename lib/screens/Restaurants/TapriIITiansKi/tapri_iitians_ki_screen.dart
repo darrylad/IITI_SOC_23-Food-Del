@@ -1,14 +1,23 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_2/screens/Cart/data_base.dart';
-import 'package:flutter_2/screens/Restaurants/TapriIITiansKi/tapri_iitians_ki.dart';
-import 'package:flutter_2/screens/Restaurants/TapriIITiansKi/tik_introduction_box.dart';
-import 'package:flutter_2/screens/Restaurants/TapriIITiansKi/tik_item_identifier.dart';
+import 'package:flutter_2/Screens/Cart/data_base.dart';
+import 'package:flutter_2/Screens/Restaurants/TapriIITiansKi/tapri_iitians_ki.dart';
+import 'package:flutter_2/Screens/Restaurants/TapriIITiansKi/tik_introduction_box.dart';
+import 'package:flutter_2/Screens/Restaurants/TapriIITiansKi/tik_item_identifier.dart';
 
 import 'package:provider/provider.dart';
 
 class TapriIITiansKiScreen extends StatefulWidget {
   const TapriIITiansKiScreen({Key? key}) : super(key: key);
+
+    static const String routeName = '/tapri';
+
+  static Route route() {
+    return MaterialPageRoute(
+      builder: (_) => const TapriIITiansKiScreen(),
+      settings: const RouteSettings(name: routeName),
+    );
+  }
 
   @override
   State<TapriIITiansKiScreen> createState() => _TapriIITiansKiScreenState();

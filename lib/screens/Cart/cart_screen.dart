@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_2/screens/Cart/cart_model.dart';
-import 'package:flutter_2/screens/Cart/data_base.dart';
+import 'package:flutter_2/Screens/Cart/cart_model.dart';
+import 'package:flutter_2/Screens/Cart/data_base.dart';
 
 import 'package:provider/provider.dart';
 
@@ -12,6 +12,15 @@ class CartScreen extends StatefulWidget {
   const CartScreen({
     Key? key,
   }) : super(key: key);
+
+    static const String routeName = '/cart';
+
+  static Route route() {
+    return MaterialPageRoute(
+      builder: (_) => const CartScreen(),
+      settings: const RouteSettings(name: routeName),
+    );
+  }
 
   @override
   State<CartScreen> createState() => _CartScreenState();

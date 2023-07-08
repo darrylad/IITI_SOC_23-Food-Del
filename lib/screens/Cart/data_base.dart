@@ -1,4 +1,4 @@
-import 'package:flutter_2/screens/Cart/cart_model.dart';
+import 'package:flutter_2/Screens/Cart/cart_model.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart';

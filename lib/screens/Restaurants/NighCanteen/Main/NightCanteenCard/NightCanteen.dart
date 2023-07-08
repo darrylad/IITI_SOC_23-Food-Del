@@ -1,6 +1,6 @@
 // ignore: file_names
 import 'package:flutter/material.dart';
-import 'package:flutter_2/screens/Restaurants/NighCanteen/Cart(SUM)/sum.dart';
+import 'package:flutter_2/Screens/Restaurants/NighCanteen/Cart(SUM)/sum.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../Side/NightCanteen_sidefiles.dart';
@@ -82,7 +82,7 @@ class BottomNav extends StatelessWidget {
             ),
             IconButton(
                 onPressed: () {
-                  context.go('/home_screen.dart');
+                  Navigator.pushNamed(context, '/home');
                 },
                 icon: Image.asset(
                   'assets/buttons/Home.png',
@@ -92,7 +92,7 @@ class BottomNav extends StatelessWidget {
             IconButton(
                 onPressed: () {
                   Summer();
-                  context.go('/cart.dart');
+                  Navigator.pushNamed(context, '/cart');
                 },
                 icon: Image.asset(
                   'assets/buttons/cart.png',
@@ -101,7 +101,7 @@ class BottomNav extends StatelessWidget {
                 )),
             IconButton(
                 onPressed: () {
-                  context.go('/accounts.dart');
+                  Navigator.pushNamed(context, '/accounts');
                 },
                 icon: Image.asset(
                   'assets/buttons/user.png',

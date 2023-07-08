@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import "package:flutter_2/screens/Cart/item_model.dart";
+import 'package:flutter_2/Screens/Cart/item_model.dart';
 // ignore: unused_import
 import "package:go_router/go_router.dart";
 
@@ -8,6 +8,15 @@ import "menu_item_data.dart";
 
 class SearchBarScreen extends StatefulWidget {
   const SearchBarScreen({Key? key}) : super(key: key);
+
+  static const String routeName = '/searchbarafter';
+
+  static Route route() {
+    return MaterialPageRoute(
+      builder: (_) => const SearchBarScreen(),
+      settings: const RouteSettings(name: routeName),
+    );
+  }
 
   @override
   State<SearchBarScreen> createState() => _SearchBarScreen();
@@ -32,7 +41,7 @@ class _SearchBarScreen extends State<SearchBarScreen> {
           centerTitle: true,
           leading: BackButton(
             onPressed: () {
-              context.go('/home_screen.dart');
+              Navigator.pushNamed(context, '/search');
             },
             color: const Color.fromARGB(255, 152, 46, 1),
           ),
@@ -102,9 +111,9 @@ class _SearchBarScreen extends State<SearchBarScreen> {
   }
 
   void searchMenuItem(String query) {
-    final menuItems = products.where((Item) {
-      final restaurantLower = Item.restaurant.toLowerCase();
-      final dishLower = Item.name.toLowerCase();
+    final menuItems = products.where((menuItem) {
+      final restaurantLower = menuItem.restaurant.toLowerCase();
+      final dishLower = menuItem.name.toLowerCase();
       final searchLower = query.toLowerCase();
 
       return restaurantLower.contains(searchLower) ||

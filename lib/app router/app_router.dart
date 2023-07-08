@@ -1,0 +1,56 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_2/screen.dart';
+import 'package:flutter_2/Screens/Accountspage/accounts.dart';
+import 'package:flutter_2/Screens/Cart/cart_screen.dart';
+import 'package:flutter_2/Screens/Homescreen/home_screen.dart';
+import 'package:flutter_2/Screens/Location/add_location_screen.dart';
+import 'package:flutter_2/Screens/Payment/payments_screen.dart';
+import 'package:flutter_2/Screens/Restaurants/NighCanteen/Main/NightCanteenCard/NightCanteen.dart';
+import 'package:flutter_2/Screens/Restaurants/NightCanteen/night_canteen_screen.dart';
+import 'package:flutter_2/Screens/Restaurants/TapriIITiansKi/tapri_iitians_ki_screen.dart';
+import 'package:flutter_2/Screens/Search/SearchUsingStoredData/search_bar_screen.dart';
+import 'package:flutter_2/Screens/Search/search_screen.dart';
+
+class AppRouter {
+  static Route onGenerateRoute(RouteSettings settings) {
+    // ignore: avoid_print
+    print('The Route Is : ${settings.name}');
+
+    switch (settings.name) {
+      case '/':
+        return Startscreen.route();
+      case Startscreen.routeName:
+        return Startscreen.route();
+        case HomeScreen.routeName:
+        return HomeScreen.route();
+      case AddLocationScreen.routeName:
+        return AddLocationScreen.route();
+      case SearchScreen.routeName:
+        return SearchScreen.route();
+      case SearchBarScreen.routeName:
+        return SearchBarScreen.route();
+      case CartScreen.routeName:
+        return CartScreen.route();
+      case NightCanteenScreen.routeName:
+        return NightCanteenScreen.route();
+      case TapriIITiansKiScreen.routeName:
+        return TapriIITiansKiScreen.route();
+      case ProfileScreen.routeName:
+        return ProfileScreen.route();
+      case PaymentsPage.routeName:
+        return PaymentsPage.route();
+
+        break;
+
+      default:
+        return _errorRoute();
+    }
+  }
+
+  static Route _errorRoute() {
+    return MaterialPageRoute(
+      builder: (_) => Scaffold(appBar: AppBar(title: const Text('error'))),
+      settings: const RouteSettings(name: '/error'),
+    );
+  }
+}

@@ -4,14 +4,23 @@ import 'package:go_router/go_router.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Paymentpage extends StatefulWidget {
-  const Paymentpage({super.key});
+class PaymentsPage extends StatefulWidget {
+  const PaymentsPage({super.key});
+
+  static const String routeName = '/payments';
+
+  static Route route() {
+    return MaterialPageRoute(
+      builder: (_) => const PaymentsPage(),
+      settings: const RouteSettings(name: routeName),
+    );
+  }
 
   @override
-  State<Paymentpage> createState() => _PaymentpageState();
+  State<PaymentsPage> createState() => _PaymentsPageState();
 }
 
-class _PaymentpageState extends State<Paymentpage> {
+class _PaymentsPageState extends State<PaymentsPage> {
   final _razorpay = Razorpay();
 
   @override
@@ -25,14 +34,14 @@ class _PaymentpageState extends State<Paymentpage> {
 
   void _handlePaymentSuccess(PaymentSuccessResponse response) {
     {
-      context.go('/afterpayments.dart');
+      Navigator.pushNamed(context, '/afterpayments');
     }
     // Do something when payment succeeds
   }
 
   void _handlePaymentError(PaymentFailureResponse response) {
     {
-      context.go('/afterpayments.dart');
+      Navigator.pushNamed(context, '/afterpayments');
     }
     // Do something when payment fails
   }
@@ -43,7 +52,7 @@ class _PaymentpageState extends State<Paymentpage> {
 
   @override
   Widget build(BuildContext context) {
-    // Figma Flutter Generator PaymentpageWidget - FRAME
+    // Figma Flutter Generator PaymentsPageWidget - FRAME
     return Material(
       child: Container(
         width: double.infinity,

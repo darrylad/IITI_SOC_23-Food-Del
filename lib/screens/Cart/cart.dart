@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_2/screens/Cart/exp.dart';
-import 'package:flutter_2/screens/Restaurants/NighCanteen/Cart(SUM)/sum.dart';
+import 'package:flutter_2/Screens/Cart/exp.dart';
+import 'package:flutter_2/Screens/Restaurants/NighCanteen/Cart(SUM)/sum.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -19,7 +19,7 @@ class Cart extends StatelessWidget {
         leading: BackButton(
           color: const Color.fromARGB(255, 0, 0, 0),
           onPressed: () {
-            context.go('/NightCanteen.dart');
+           Navigator.pushNamed(context, '/nightcanteen');
           },
         ),
         backgroundColor: const Color.fromARGB(255, 227, 255, 238),

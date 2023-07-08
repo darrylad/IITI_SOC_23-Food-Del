@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import "package:flutter_2/screens/Cart/item_model.dart";
+import 'package:flutter_2/Screens/Cart/item_model.dart';
 // ignore: unused_import
 import "package:go_router/go_router.dart";
 
@@ -7,14 +7,23 @@ import "../../Search/search_widget.dart";
 
 import "night_canteen_menu.dart";
 
-class SearchBarScreennight extends StatefulWidget {
-  const SearchBarScreennight({Key? key}) : super(key: key);
+class SearchBarScreenNight extends StatefulWidget {
+  const SearchBarScreenNight({Key? key}) : super(key: key);
+
+  static const String routeName = '/searchbarnight';
+
+  static Route route() {
+    return MaterialPageRoute(
+      builder: (_) => const SearchBarScreenNight(),
+      settings: const RouteSettings(name: routeName),
+    );
+  }
 
   @override
-  State<SearchBarScreennight> createState() => _SearchBarScreennight();
+  State<SearchBarScreenNight> createState() => _SearchBarScreenNight();
 }
 
-class _SearchBarScreennight extends State<SearchBarScreennight> {
+class _SearchBarScreenNight extends State<SearchBarScreenNight> {
   late List<Item> menuItems;
   String query = '';
 
@@ -33,7 +42,7 @@ class _SearchBarScreennight extends State<SearchBarScreennight> {
           centerTitle: true,
           leading: BackButton(
             onPressed: () {
-              context.go('/night_canteen_screen.dart');
+              Navigator.pushNamed(context, '/nightcanteen');
             },
             color: const Color.fromARGB(255, 152, 46, 1),
           ),
@@ -103,9 +112,9 @@ class _SearchBarScreennight extends State<SearchBarScreennight> {
   }
 
   void searchMenuItem(String query) {
-    final menuItems = productsNC.where((Item) {
-      final restaurantLower = Item.restaurant.toLowerCase();
-      final dishLower = Item.name.toLowerCase();
+    final menuItems = productsNC.where((menuItem) {
+      final restaurantLower = menuItem.restaurant.toLowerCase();
+      final dishLower = menuItem.name.toLowerCase();
       final searchLower = query.toLowerCase();
 
       return restaurantLower.contains(searchLower) ||

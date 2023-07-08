@@ -1,6 +1,6 @@
 // ignore: file_names
 import 'package:flutter/material.dart';
-import 'package:flutter_2/screens/Restaurants/NighCanteen/Cart(SUM)/sum.dart';
+import 'package:flutter_2/Screens/Restaurants/NighCanteen/Cart(SUM)/sum.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 // ignore: camel_case_types

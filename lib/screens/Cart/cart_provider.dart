@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_2/screens/Cart/cart_model.dart';
+import 'package:flutter_2/Screens/Cart/cart_model.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 

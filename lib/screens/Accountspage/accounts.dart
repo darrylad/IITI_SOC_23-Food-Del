@@ -7,6 +7,15 @@ import '../Homescreen/home_screen.dart';
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
 
+    static const String routeName = '/accounts';
+
+  static Route route() {
+    return MaterialPageRoute(
+      builder: (_) => const ProfileScreen(),
+      settings: const RouteSettings(name: routeName),
+    );
+  }
+
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
 }
@@ -399,7 +408,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               TextButton.icon(
                 onPressed: () {
                   controller.logout();
-                  context.go('/');
+                  Navigator.pushNamed(context, '/');
                 },
                 icon: Image.asset(
                   'assets/Tejas/logout.png',

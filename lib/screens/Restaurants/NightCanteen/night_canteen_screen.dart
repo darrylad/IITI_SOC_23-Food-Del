@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_2/screens/Cart/data_base.dart';
-import 'package:flutter_2/screens/Restaurants/NightCanteen/nc_item_identifier.dart';
+import 'package:flutter_2/Screens/Cart/data_base.dart';
+import 'package:flutter_2/Screens/Restaurants/NightCanteen/nc_item_identifier.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -10,6 +10,15 @@ import 'night_canteen_menu.dart';
 
 class NightCanteenScreen extends StatefulWidget {
   const NightCanteenScreen({Key? key}) : super(key: key);
+
+    static const String routeName = '/nightcanteen';
+
+  static Route route() {
+    return MaterialPageRoute(
+      builder: (_) => const NightCanteenScreen(),
+      settings: const RouteSettings(name: routeName),
+    );
+  }
 
   @override
   State<NightCanteenScreen> createState() => _NightCanteenScreenState();
@@ -222,7 +231,7 @@ class _BottomNav_nightcanteenState extends State<BottomNav_nightcanteen> {
           children: [
             IconButton(
                 onPressed: () {
-                  context.go('/home_screen.dart');
+                  Navigator.pushNamed(context, '/home');
                 },
                 icon: Image.asset(
                   'assets/buttons/Home.png',
@@ -234,7 +243,7 @@ class _BottomNav_nightcanteenState extends State<BottomNav_nightcanteen> {
             ),
             IconButton(
                 onPressed: () {
-                  context.go('/cart_screen.dart');
+                  Navigator.pushNamed(context, '/cart');
                 },
                 icon: SvgPicture.asset(
                   'assets/buttons/cart.svg',
@@ -246,7 +255,7 @@ class _BottomNav_nightcanteenState extends State<BottomNav_nightcanteen> {
             ),
             IconButton(
                 onPressed: () {
-                  context.go('/accounts.dart');
+                  Navigator.pushNamed(context, '/accounts');
                 },
                 icon: SvgPicture.asset(
                   'assets/buttons/User.svg',

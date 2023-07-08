@@ -7,6 +7,15 @@ import "../Homescreen/home_screen.dart";
 class SearchScreen extends StatefulWidget {
   const SearchScreen({Key? key}) : super(key: key);
 
+  static const String routeName = '/search';
+
+  static Route route() {
+    return MaterialPageRoute(
+      builder: (_) => const SearchScreen(),
+      settings: const RouteSettings(name: routeName),
+    );
+  }
+
   @override
   State<SearchScreen> createState() => _SearchScreen();
 }
@@ -31,12 +40,12 @@ class _SearchScreen extends State<SearchScreen> {
                 centerTitle: true,
                 expandedTitleScale: 1.0,
                 titlePadding: EdgeInsets.fromLTRB(0, 50, 0, 10),
-                title: SearchBarBox(),
               ),
             ),
             SliverToBoxAdapter(
               child: Column(
                 children: [
+                  SearchBarBox(),
                   const SizedBox(
                     height: 10,
                   ),
@@ -626,44 +635,55 @@ class SearchBarBoxState extends State<SearchBarBox> {
   @override
   Widget build(BuildContext context) {
     return Material(
-      borderRadius: const BorderRadius.all(Radius.circular(25)),
+ 
       elevation: 2,
       child: GestureDetector(
         onTap: () {
-          context.go('/search_bar_screen.dart');
+          Navigator.pushNamed(context, '/searchbarafter');
         },
-        child: Container(
-          height: 45,
-          width: 375,
-          decoration: const BoxDecoration(
-              color: Color.fromRGBO(255, 243, 240, 1),
-              border: Border(
-                  right: BorderSide(color: Color.fromRGBO(164, 73, 21, 1)),
-                  bottom: BorderSide(color: Color.fromRGBO(164, 73, 21, 1)),
-                  left: BorderSide(color: Color.fromRGBO(164, 73, 21, 1)),
-                  top: BorderSide(color: Color.fromRGBO(164, 73, 21, 1))),
-              borderRadius: BorderRadius.all(Radius.circular(10))),
-          child: Row(
-            children: [
-              const SizedBox(
-                width: 20,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          child: Center(
+            child: Container(
+              height: 60,
+              width: double.maxFinite,
+              decoration: const BoxDecoration(
+                  color: Color.fromRGBO(255, 243, 240, 1),
+                  border: Border(
+                      right: BorderSide(color: Color.fromRGBO(164, 73, 21, 1)),
+                      bottom: BorderSide(color: Color.fromRGBO(164, 73, 21, 1)),
+                      left: BorderSide(color: Color.fromRGBO(164, 73, 21, 1)),
+                      top: BorderSide(color: Color.fromRGBO(164, 73, 21, 1))),
+                  borderRadius: BorderRadius.all(Radius.circular(10))),
+              child: TextField(
+              enabled: false,
+              cursorColor: Colors.black,
+              textAlignVertical: TextAlignVertical.center,
+              decoration: InputDecoration(
+                filled: true,
+                border: InputBorder.none,
+                fillColor: Colors.white,
+                hintText: 'Search Restaurants, Dishes & More...',
+                hintStyle: const TextStyle(
+                    fontWeight: FontWeight.w400,
+                    fontFamily: 'Dropdown',
+                    color: Color.fromARGB(255, 162, 58, 0)),
+                prefixIcon: const Padding(
+                  padding: EdgeInsets.only(left: 15, right: 5),
+                  child:
+                      ImageIcon(AssetImage('assets/buttons/Search_1.png')),
+                ),
+                disabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15),
+                  borderSide:
+                      const BorderSide(color: Color.fromARGB(164, 73, 21, 1)),
+                ),
               ),
-              Image.asset(
-                'assets/buttons/Search_1.png',
-                height: 25,
-                width: 25,
+            ),
               ),
-              const SizedBox(
-                width: 5,
-              ),
-              Text('Search Reataurants,Dishes and more',
-                  style: GoogleFonts.lato(
-                      fontSize: 18,
-                      color: const Color.fromRGBO(164, 73, 21, 1))),
-            ],
+          ),
           ),
         ),
-      ),
     );
   }
 }

@@ -6,15 +6,24 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../global/globals.dart';
 
 // ignore: camel_case_types, must_be_immutable
-class Add_Location_Screen extends StatefulWidget {
-  const Add_Location_Screen({super.key});
+class AddLocationScreen extends StatefulWidget {
+  const AddLocationScreen({super.key});
+
+  static const String routeName = '/addlocation';
+
+  static Route route() {
+    return MaterialPageRoute(
+      builder: (_) => const AddLocationScreen(),
+      settings: const RouteSettings(name: routeName),
+    );
+  }
 
   @override
-  State<Add_Location_Screen> createState() => _Add_Location_ScreenState();
+  State<AddLocationScreen> createState() => _AddLocationScreenState();
 }
 
 // ignore: camel_case_types
-class _Add_Location_ScreenState extends State<Add_Location_Screen> {
+class _AddLocationScreenState extends State<AddLocationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -167,7 +176,7 @@ class _SubmitButtonState extends State<SubmitButton> {
                         ),
                       )));
             } else {
-              context.go('/home_screen.dart');
+              Navigator.pushNamed(context, '/home');
             }
           },
           child: Text(

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_2/screens/Cart/cart_provider.dart';
-import 'package:flutter_2/screens/Cart/data_base.dart';
-import 'package:flutter_2/screens/Restaurants/NightCanteen/night_canteen_menu.dart';
-import 'package:flutter_2/screens/Restaurants/restaurants_logo_decider.dart';
+import 'package:flutter_2/Screens/Cart/cart_provider.dart';
+import 'package:flutter_2/Screens/Cart/data_base.dart';
+import 'package:flutter_2/Screens/Restaurants/NightCanteen/night_canteen_menu.dart';
+import 'package:flutter_2/Screens/Restaurants/restaurants_logo_decider.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:provider/provider.dart';

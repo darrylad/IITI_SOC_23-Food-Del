@@ -1,23 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_2/screens/Accountspage/accounts.dart';
-import 'package:flutter_2/screens/Cart/cart.dart';
-import 'package:flutter_2/screens/Cart/cart_provider.dart';
-import 'package:flutter_2/screens/Cart/cart_screen.dart';
-import 'package:flutter_2/screens/Homescreen/home_screen.dart';
-import 'package:flutter_2/screens/Location/add_location_screen.dart';
-import 'package:flutter_2/screens/Payment/afterpayments.dart';
-import 'package:flutter_2/screens/Restaurants/NightCanteen/night_canteen_screen.dart';
-import 'package:flutter_2/screens/Restaurants/NightCanteen/search_nightcanteen.dart';
-import 'package:flutter_2/screens/Restaurants/TapriIITiansKi/tapri_iitians_ki_screen.dart';
-import 'package:flutter_2/screens/Start/start_screen.dart';
-import 'package:go_router/go_router.dart';
+import 'package:flutter_2/Screens/Homescreen/home_screen.dart';
+import 'package:flutter_2/app%20router/app_router.dart';
+import 'package:flutter_2/screen.dart';
+import 'package:flutter_2/Screens/Cart/cart_provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'screens/Payment/payments_screen.dart';
-import 'screens/Search/SearchUsingStoredData/search_bar_screen.dart';
-import 'screens/Search/search_screen.dart';
 
-void main() {
+String locationdropdownvalue = 'Choose Your Location';
+
+void main() async{
   runApp(const MyApp());
 }
 
@@ -33,105 +24,18 @@ class MyApp extends StatelessWidget {
           create: (_) => CartProvider(),
         )
       ],
-      child: MaterialApp.router(
-          debugShowCheckedModeBanner: false,
-          title: 'DeliverEat',
-          theme: ThemeData(
-            fontFamily: GoogleFonts.lato().fontFamily,
-            colorScheme: ColorScheme.fromSeed(
-                seedColor: const Color.fromARGB(255, 255, 225, 135)),
-            useMaterial3: true,
-          ),
-          routerConfig: router),
+      child: MaterialApp(
+        title: 'DeliverEat',
+        theme: ThemeData(
+          fontFamily: GoogleFonts.lato().fontFamily,
+          colorScheme: ColorScheme.fromSeed(
+              seedColor: const Color.fromARGB(255, 255, 225, 135)),
+          useMaterial3: true,
+        ),
+        onGenerateRoute: AppRouter.onGenerateRoute,
+        initialRoute: HomeScreen.routeName,
+      ),
     );
   }
 }
 
-final GoRouter router = GoRouter(
-  routes: [
-    GoRoute(
-        name: 'START',
-        path: '/',
-        builder: (BuildContext context, GoRouterState state) {
-          // ignore: prefer_const_constructors
-          return HomeScreen();
-        }),
-    GoRoute(
-        name: 'After Payment before 5 min',
-        path: '/afterpayment.dart',
-        builder: (BuildContext context, GoRouterState state) {
-          // ignore: prefer_const_constructors
-          return HomeScreen();
-        }),
-    GoRoute(
-        name: 'Add location',
-        path: '/add_location_screen.dart',
-        builder: (BuildContext context, GoRouterState state) {
-          // ignore: prefer_const_constructors
-          return Add_Location_Screen();
-        }),
-    GoRoute(
-      name: 'NightCanteen',
-      path: '/night_canteen_screen.dart',
-      builder: (BuildContext context, GoRouterState state) {
-        return const NightCanteenScreen();
-      },
-    ),
-    GoRoute(
-        name: 'Cart',
-        path: '/cart_screen.dart',
-        builder: (BuildContext context, GoRouterState state) {
-          // ignore: prefer_const_constructors
-          return CartScreen();
-        }),
-    GoRoute(
-        name: 'Home',
-        path: '/home_screen.dart',
-        builder: (BuildContext context, GoRouterState state) {
-          // ignore: prefer_const_constructors
-          return HomeScreen();
-        }),
-    GoRoute(
-        name: 'Accounts',
-        path: '/accounts.dart',
-        builder: (BuildContext context, GoRouterState state) {
-          // ignore: prefer_const_constructors
-          return ProfileScreen();
-        }),
-    GoRoute(
-        name: 'Upi',
-        path: '/payments.dart',
-        builder: (BuildContext context, GoRouterState state) {
-          // ignore: prefer_const_constructors
-          return Paymentpage();
-        }),
-    GoRoute(
-        name: 'Tapri',
-        path: '/tapri_iitians_ki_screen.dart',
-        builder: (BuildContext context, GoRouterState state) {
-          // ignore: prefer_const_constructors
-          return TapriIITiansKiScreen();
-        }),
-    GoRoute(
-        name: 'search',
-        path: '/search_screen.dart',
-        builder: (BuildContext context, GoRouterState state) {
-          // ignore: prefer_const_constructors
-          return SearchScreen();
-        }),
-    GoRoute(
-        name: 'searchbarafter',
-        path: '/search_bar_screen.dart',
-        builder: (BuildContext context, GoRouterState state) {
-          // ignore: prefer_const_constructors
-          return SearchBarScreen();
-        }),
-    GoRoute(
-        name: 'searchbarnight',
-        path: '/search_nightcanteen.dart',
-        builder: (BuildContext context, GoRouterState state) {
-          // ignore: prefer_const_constructors
-          return SearchBarScreennight();
-        }),
-  ],
-);

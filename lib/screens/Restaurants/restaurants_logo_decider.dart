@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_2/screens/Restaurants/NightCanteen/night_canteen_menu.dart';
-import 'package:flutter_2/screens/Restaurants/TapriIITiansKi/tapri_iitians_ki.dart';
-import 'package:flutter_2/screens/Restaurants/non_veg_logo.dart';
-import 'package:flutter_2/screens/Restaurants/veg_logo.dart';
+import 'package:flutter_2/Screens/Restaurants/NightCanteen/night_canteen_menu.dart';
+import 'package:flutter_2/Screens/Restaurants/TapriIITiansKi/tapri_iitians_ki.dart';
+import 'package:flutter_2/Screens/Restaurants/non_veg_logo.dart';
+import 'package:flutter_2/Screens/Restaurants/veg_logo.dart';
 
 class NCLogoDecider extends StatelessWidget {
   final int logoindex;
