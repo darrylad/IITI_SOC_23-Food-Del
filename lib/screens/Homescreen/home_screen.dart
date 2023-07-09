@@ -545,7 +545,7 @@ class TeaPost_card extends StatelessWidget {
               width: 356,
               child: GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, '/nightcanteen');
+                  Navigator.pushNamed(context, '/teapost');
                 },
                 child: Stack(children: [
                   Positioned(
@@ -640,7 +640,7 @@ class Juciliciouss_card extends StatelessWidget {
               width: 356,
               child: GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, '/nightcanteen');
+                  Navigator.pushNamed(context, '/juiciliciouscafe');
                 },
                 child: Stack(children: [
                   Positioned(
@@ -652,7 +652,7 @@ class Juciliciouss_card extends StatelessWidget {
                         height: 160,
                         width: 370,
                         child: Image.asset(
-                          'assets/dispics/dishes/Kitkatshake.jpeg',
+                          'assets/dispics/dishes/juiciliciouscafe.jpg',
                           fit: BoxFit.fill,
                         ),
                       ),

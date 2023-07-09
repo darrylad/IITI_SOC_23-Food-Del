@@ -18,31 +18,33 @@ class popup extends StatefulWidget {
 class _popupState extends State<popup> {
   @override
   Widget build(BuildContext context) {
+    double screenwidth = MediaQuery.of(context).size.width;
+
     return AlertDialog(
       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       content: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          const SizedBox(
-            height: 25,
-            width: 329,
+          SizedBox(
+            height: 0.063 * screenwidth,
+            width: screenwidth * 0.84,
           ),
           Image.asset(
             'assets/buttons/addlocationpop.png',
-            height: 132,
-            width: 132,
+            height: 0.37 * screenwidth,
+            width: 0.37 * screenwidth,
           ),
-          const SizedBox(
-            height: 45,
+          SizedBox(
+            height: 0.115 * screenwidth,
           ),
           Text('Choose your Location',
               style: GoogleFonts.inter(
-                  fontSize: 22,
+                  fontSize: 21,
                   color: const Color.fromRGBO(173, 82, 31, 1),
                   fontWeight: FontWeight.w500)),
-          const SizedBox(
-            height: 50,
+          SizedBox(
+            height: 0.127 * screenwidth,
           ),
           Flexible(
             child: Row(
@@ -62,8 +64,8 @@ class _popupState extends State<popup> {
                         left: BorderSide(
                             width: 2, color: Color.fromRGBO(110, 46, 0, 1)),
                       )),
-                  width: 270,
-                  height: 50,
+                  width: 0.60 * screenwidth,
+                  height: 0.120 * screenwidth,
                   child: DropdownButtonHideUnderline(
                     child: DropdownButton<String>(
                       iconEnabledColor: const Color.fromRGBO(173, 82, 31, 1),
@@ -111,14 +113,14 @@ class _popupState extends State<popup> {
               ],
             ),
           ),
-          const SizedBox(
-            height: 60,
+          SizedBox(
+            height: 0.15 * screenwidth,
           ),
           SubmitButton(
             dropdownValue: dropdownValue,
           ),
-          const SizedBox(
-            height: 30,
+          SizedBox(
+            height: screenwidth * 0.0765,
           ),
         ],
       ),
@@ -176,7 +178,7 @@ class _SubmitButtonState extends State<SubmitButton> {
                         ),
                       )));
             } else {
-              Navigator.pushNamed(context, '/home');
+              Navigator.of(context).pop();
             }
           },
           child: Text(

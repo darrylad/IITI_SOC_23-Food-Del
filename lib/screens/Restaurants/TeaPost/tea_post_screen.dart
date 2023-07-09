@@ -1,30 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_2/Screens/Cart/data_base.dart';
-import 'package:flutter_2/Screens/Restaurants/NightCanteen/nc_item_identifier.dart';
+import 'package:flutter_2/Screens/Restaurants/TeaPost/tp_item_identifier.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'tp_introduction_box.dart';
+import 'tea_post_menu.dart';
 
-import 'nc_introduction_box.dart';
-import 'night_canteen_menu.dart';
+class TeaPostScreen extends StatefulWidget {
+  const TeaPostScreen({Key? key}) : super(key: key);
 
-class NightCanteenScreen extends StatefulWidget {
-  const NightCanteenScreen({Key? key}) : super(key: key);
-
-  static const String routeName = '/nightcanteen';
+    static const String routeName = '/teapost';
 
   static Route route() {
     return MaterialPageRoute(
-      builder: (_) => const NightCanteenScreen(),
+      builder: (_) => const TeaPostScreen(),
       settings: const RouteSettings(name: routeName),
     );
   }
 
   @override
-  State<NightCanteenScreen> createState() => _NightCanteenScreenState();
+  State<TeaPostScreen> createState() => _TeaPostScreenState();
 }
 
-class _NightCanteenScreenState extends State<NightCanteenScreen> {
+class _TeaPostScreenState extends State<TeaPostScreen> {
   DBHelper dbHelper = DBHelper();
 
   //List<bool> clicked = List.generate(10, (index) => false, growable: true);
@@ -43,7 +41,7 @@ class _NightCanteenScreenState extends State<NightCanteenScreen> {
             const SizedBox(
               height: 70,
             ),
-            const NCIntroduction(),
+            const TPIntroduction(),
             ExpansionTile(
               collapsedIconColor: const Color.fromARGB(255, 152, 46, 1),
               iconColor: const Color.fromARGB(255, 152, 46, 1),
@@ -59,16 +57,14 @@ class _NightCanteenScreenState extends State<NightCanteenScreen> {
                 InkWell(
                   onTap: () {},
                   child: ListView.builder(
-                      itemCount: productsNC.length,
+                      itemCount: productsTP.length,
                       physics: const ClampingScrollPhysics(),
                       padding: const EdgeInsets.only(
-                        top: 10,
-                        bottom: 10,
-                        left: 10,
-                      ),
+                        top: 10,bottom: 10,left: 10,
+                           ),
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
-                        return NCMainCourse(menuindex: index);
+                        return TPMainCourse(menuindex: index);
                       }),
                 ),
               ],
@@ -88,16 +84,14 @@ class _NightCanteenScreenState extends State<NightCanteenScreen> {
                 InkWell(
                   onTap: () {},
                   child: ListView.builder(
-                      itemCount: productsNC.length,
+                      itemCount: productsTP.length,
                       physics: const ClampingScrollPhysics(),
                       padding: const EdgeInsets.only(
-                        top: 10,
-                        bottom: 10,
-                        left: 10,
-                      ),
+                        top: 10,bottom: 10,left: 10,
+                           ),
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
-                        return NCFastFood(menuindex: index);
+                        return TPFastFood(menuindex: index);
                       }),
                 ),
               ],
@@ -117,16 +111,14 @@ class _NightCanteenScreenState extends State<NightCanteenScreen> {
                 InkWell(
                   onTap: () {},
                   child: ListView.builder(
-                      itemCount: productsNC.length,
+                      itemCount: productsTP.length,
                       physics: const ClampingScrollPhysics(),
                       padding: const EdgeInsets.only(
-                        top: 10,
-                        bottom: 10,
-                        left: 10,
-                      ),
+                        top: 10,bottom: 10,left: 10,
+                           ),
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
-                        return NCBeverages(menuindex: index);
+                        return TPBeverages(menuindex: index);
                       }),
                 ),
               ],

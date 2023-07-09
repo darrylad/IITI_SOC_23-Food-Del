@@ -37,3 +37,37 @@ class TIKLogoDecider extends StatelessWidget {
     }
   }
 }
+
+class JCLogoDecider extends StatelessWidget {
+  final int logoindex;
+  const JCLogoDecider({
+    super.key,
+    required this.logoindex,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    if (productsTIK[logoindex].category == 'Veg') {
+      return const VegLogo();
+    } else {
+      return const NonVegLogo();
+    }
+  }
+}
+
+class TPLogoDecider extends StatelessWidget {
+  final int logoindex;
+  const TPLogoDecider({
+    super.key,
+    required this.logoindex,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    if (productsTIK[logoindex].category == 'Veg') {
+      return const VegLogo();
+    } else {
+      return const NonVegLogo();
+    }
+  }
+}

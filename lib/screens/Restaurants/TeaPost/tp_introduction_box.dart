@@ -4,17 +4,16 @@ import 'package:flutter_2/global/globals.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class TIKIntroduction extends StatefulWidget {
-  const TIKIntroduction({
+class TPIntroduction extends StatefulWidget {
+  const TPIntroduction({
     Key? key,
   }) : super(key: key);
 
   @override
-  // ignore: library_private_types_in_public_api
-  _TIKIntroductionState createState() => _TIKIntroductionState();
+  State<TPIntroduction> createState() => _TPIntroductionState();
 }
 
-class _TIKIntroductionState extends State<TIKIntroduction> {
+class _TPIntroductionState extends State<TPIntroduction> {
   final controller = TextEditingController();
 
   @override
@@ -50,7 +49,7 @@ class _TIKIntroductionState extends State<TIKIntroduction> {
                           SizedBox(
                             width: 0.55*screenwidth,
                             child: Text(
-                              'Tapri IITians Ki',
+                              'Tea Post',
                               style: GoogleFonts.inter(
                                   fontSize: 20,
                                   fontWeight: FontWeight.w600,
@@ -120,7 +119,7 @@ class _TIKIntroductionState extends State<TIKIntroduction> {
                               top: 0.02 * screenwidth,
                               left: screenwidth * 0.445,
                               child: Text(
-                                'Tapri IITians Ki',
+                                'Tea Post',
                                 style: GoogleFonts.inter(
                                     fontSize: 14,
                                     fontWeight: FontWeight.w400,
@@ -172,12 +171,12 @@ class _TIKIntroductionState extends State<TIKIntroduction> {
                         height: 0.025 * screenwidth,
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(right: 22.0),
+                        padding: const EdgeInsets.only(right: 20.0),
                         child: SizedBox(
                           width: screenwidth * 0.875,
-                          height: screenwidth * 0.3,
+                          height: screenwidth * 0.26,
                           child: Text(
-                            'Step into our student-led café and immerse yourself in a vibrant space created by IITians for IITians, offering a perfect fusion of flavors, conversations, and caffeine-fueled brilliance.',
+                            'Immerse yourself in our charming space to discover a cozy haven where tea connoisseurs and food enthusiasts gather to savor handcrafted brews, delectable dishes, and create unforgettable memories.',
                             style: GoogleFonts.inter(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w400,

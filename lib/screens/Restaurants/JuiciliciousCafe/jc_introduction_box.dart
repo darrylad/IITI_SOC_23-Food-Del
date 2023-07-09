@@ -4,17 +4,17 @@ import 'package:flutter_2/global/globals.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class TIKIntroduction extends StatefulWidget {
-  const TIKIntroduction({
+class JCIntroduction extends StatefulWidget {
+  const JCIntroduction({
     Key? key,
   }) : super(key: key);
 
   @override
   // ignore: library_private_types_in_public_api
-  _TIKIntroductionState createState() => _TIKIntroductionState();
+  _JCIntroductionState createState() => _JCIntroductionState();
 }
 
-class _TIKIntroductionState extends State<TIKIntroduction> {
+class _JCIntroductionState extends State<JCIntroduction> {
   final controller = TextEditingController();
 
   @override
@@ -48,9 +48,9 @@ class _TIKIntroductionState extends State<TIKIntroduction> {
                       Row(
                         children: [
                           SizedBox(
-                            width: 0.55*screenwidth,
+                            width: 0.55 * screenwidth,
                             child: Text(
-                              'Tapri IITians Ki',
+                              'Juicilicious Cafe',
                               style: GoogleFonts.inter(
                                   fontSize: 20,
                                   fontWeight: FontWeight.w600,
@@ -120,7 +120,7 @@ class _TIKIntroductionState extends State<TIKIntroduction> {
                               top: 0.02 * screenwidth,
                               left: screenwidth * 0.445,
                               child: Text(
-                                'Tapri IITians Ki',
+                                'Juicilicious Cafe',
                                 style: GoogleFonts.inter(
                                     fontSize: 14,
                                     fontWeight: FontWeight.w400,
@@ -131,9 +131,14 @@ class _TIKIntroductionState extends State<TIKIntroduction> {
                               bottom: -0.01 * screenwidth,
                               left: screenwidth * 0.415,
                               child: TextButton(
-                                  onPressed: () => _dialogBuilder(context),
+                                  onPressed: () {
+                                    _dialogBuilder(context);
+                                    setState(() {
+                                    });
+                                  },
                                   child: Row(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     children: [
                                       Text(
                                         '$Locationselected ',
@@ -177,7 +182,7 @@ class _TIKIntroductionState extends State<TIKIntroduction> {
                           width: screenwidth * 0.875,
                           height: screenwidth * 0.3,
                           child: Text(
-                            'Step into our student-led café and immerse yourself in a vibrant space created by IITians for IITians, offering a perfect fusion of flavors, conversations, and caffeine-fueled brilliance.',
+                            'Step into a vibrant oasis where flavor meets freshness in every sip to create a symphony of refreshing and wholesome beverages and to make every visit to Juicilicious a truly juicilicious experience..',
                             style: GoogleFonts.inter(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w400,
