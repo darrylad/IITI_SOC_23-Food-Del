@@ -7,6 +7,7 @@ import 'package:flutter_2/Screens/Restaurants/NightCanteen/night_canteen_screen.
 import 'package:flutter_2/Screens/Restaurants/alertwidgetcancel.dart';
 import 'package:flutter_2/Screens/Restaurants/restaurants_logo_decider.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:provider/provider.dart';
@@ -985,18 +986,42 @@ class _NCBeveragesState extends State<NCBeverages> {
 void _showModalBottomSheet(BuildContext context) {
   showModalBottomSheet(
     context: context,
+    enableDrag: true,
+    isDismissible: true,
     isScrollControlled: true,
+
     shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
       top: Radius.circular(30),
     )),
     builder: (context) => DraggableScrollableSheet(
-        initialChildSize: 0.7,
-        maxChildSize: 0.8,
-        minChildSize: 0.3,
         expand: false,
-        builder: (context, scrollController) {
-          return const CartScreen();
+        initialChildSize: 0.35,
+        maxChildSize: 0.9,
+        minChildSize: 0.32,
+        builder: (context, scrollcontroller) {
+          double screenwidth = MediaQuery.of(context).size.width;
+          return Container(
+              decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
+                  color: Color.fromARGB(255, 229, 229, 229)),
+              padding: const EdgeInsets.only(top: 25),
+              child: Stack(
+                children: [
+                  const Center(child: CartScreen()),
+                  Positioned(
+                    left: screenwidth * 0.5 - 40,
+                    child: Container(
+                      width: 80,
+                      height: 7,
+                      decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 154, 154, 154),
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                    ),
+                  ),
+                ],
+              ));
         }),
   );
 }
