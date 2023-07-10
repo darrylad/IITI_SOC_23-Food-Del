@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_2/Screens/Restaurants/JuiciliciousCafe/juicilicious_cafe_screen.dart';
+import 'package:flutter_2/Screens/Restaurants/NightCanteen/search_nightcanteen.dart';
+import 'package:flutter_2/Screens/Restaurants/TapriIITiansKi/search_tapri.dart';
+import 'package:flutter_2/Screens/Restaurants/TeaPost/tea_post_screen.dart';
 import 'package:flutter_2/screen.dart';
 import 'package:flutter_2/Screens/Accountspage/accounts.dart';
 import 'package:flutter_2/Screens/Cart/cart_screen.dart';
@@ -21,7 +25,7 @@ class AppRouter {
         return Startscreen.route();
       case Startscreen.routeName:
         return Startscreen.route();
-        case HomeScreen.routeName:
+      case HomeScreen.routeName:
         return HomeScreen.route();
       case AddLocationScreen.routeName:
         return AddLocationScreen.route();
@@ -31,6 +35,10 @@ class AppRouter {
         return SearchBarScreen.route();
       case CartScreen.routeName:
         return CartScreen.route();
+      case SearchBarScreenNight.routeName:
+        return SearchBarScreenNight.route();
+      case SearchBarScreenTapri.routeName:
+        return SearchBarScreenTapri.route();
       case NightCanteenScreen.routeName:
         return NightCanteenScreen.route();
       case TapriIITiansKiScreen.routeName:
@@ -39,6 +47,10 @@ class AppRouter {
         return ProfileScreen.route();
       case PaymentsPage.routeName:
         return PaymentsPage.route();
+      case TeaPostScreen.routeName:
+        return TeaPostScreen.route();
+      case JuiciliciousCafeScreen.routeName:
+        return JuiciliciousCafeScreen.route();
 
         break;
 

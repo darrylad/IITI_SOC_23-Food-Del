@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class VegLogo extends StatelessWidget {
   const VegLogo({
@@ -11,8 +12,8 @@ class VegLogo extends StatelessWidget {
       height: 15,
       width: 15,
       child: ClipRRect(
-        child: Image.asset(
-          'assets/buttons/veg.png',
+        child: SvgPicture.asset(
+          'assets/buttons/veg.svg',
           fit: BoxFit.cover,
         ),
       ),

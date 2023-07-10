@@ -2,30 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:flutter_2/Screens/Cart/cart_provider.dart';
 import 'package:flutter_2/Screens/Cart/cart_screen.dart';
 import 'package:flutter_2/Screens/Cart/data_base.dart';
-import 'package:flutter_2/Screens/Restaurants/NightCanteen/night_canteen_menu.dart';
-import 'package:flutter_2/Screens/Restaurants/NightCanteen/night_canteen_screen.dart';
+import 'package:flutter_2/Screens/Restaurants/JuiciliciousCafe/juici_cafe_menu.dart';
 import 'package:flutter_2/Screens/Restaurants/alertwidgetcancel.dart';
 import 'package:flutter_2/Screens/Restaurants/restaurants_logo_decider.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:provider/provider.dart';
 
 import '../../Cart/cart_model.dart';
+import '../TapriIITiansKi/tapri_iitians_ki_screen.dart';
 
-class NCMainCourse extends StatefulWidget {
+class JCMainCourse extends StatefulWidget {
   final int menuindex;
-  const NCMainCourse({
+  const JCMainCourse({
     Key? key,
     required this.menuindex,
   }) : super(key: key);
 
   @override
-  State<NCMainCourse> createState() => _NCMainCourseState();
+  State<JCMainCourse> createState() => _JCMainCourseState();
 }
 
-class _NCMainCourseState extends State<NCMainCourse> {
+class _JCMainCourseState extends State<JCMainCourse> {
   @override
   Widget build(BuildContext context) {
     double screenwidth = MediaQuery.of(context).size.width;
@@ -37,20 +36,20 @@ class _NCMainCourseState extends State<NCMainCourse> {
           .insert(
         Cart(
           id: index,
-          productId: '${productsNC[index].identity}00000$index',
-          productName: productsNC[index].name,
-          restaurantName: productsNC[index].restaurant,
-          initialPrice: productsNC[index].price,
-          productPrice: productsNC[index].price,
-          identity: productsNC[index].identity,
-          menutype: productsNC[index].menutype,
+          productId: '${productsJC[index].identity}00000$index',
+          productName: productsJC[index].name,
+          restaurantName: productsJC[index].restaurant,
+          initialPrice: productsJC[index].price,
+          productPrice: productsJC[index].price,
+          identity: productsJC[index].identity,
+          menutype: productsJC[index].menutype,
           quantity: ValueNotifier(1),
-          categoryTag: productsNC[index].category,
-          image: productsNC[index].image,
+          categoryTag: productsJC[index].category,
+          image: productsJC[index].image,
         ),
       )
           .then((value) {
-        cart.addTotalPrice(productsNC[widget.menuindex].price.toDouble());
+        cart.addTotalPrice(productsJC[widget.menuindex].price.toDouble());
         cart.addCounter();
         print('Product Added to cart');
       }).onError((error, stackTrace) {
@@ -58,7 +57,7 @@ class _NCMainCourseState extends State<NCMainCourse> {
       });
     }
 
-    if (productsNC[widget.menuindex].menutype == 'Main Course') {
+    if (productsJC[widget.menuindex].menutype == 'Main Course') {
       return Container(
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(
@@ -82,7 +81,7 @@ class _NCMainCourseState extends State<NCMainCourse> {
                   const SizedBox(
                     height: 10,
                   ),
-                  NCLogoDecider(logoindex: widget.menuindex),
+                  JCLogoDecider(logoindex: widget.menuindex),
                 ],
               ),
               const SizedBox(
@@ -97,7 +96,7 @@ class _NCMainCourseState extends State<NCMainCourse> {
                     const SizedBox(
                       height: 5,
                     ),
-                    Text(productsNC[widget.menuindex].name,
+                    Text(productsJC[widget.menuindex].name,
                         style: GoogleFonts.inter(
                             fontSize: 17,
                             color: Colors.black,
@@ -108,7 +107,7 @@ class _NCMainCourseState extends State<NCMainCourse> {
                     SizedBox(
                       width: 170,
                       height: 30,
-                      child: Text(productsNC[widget.menuindex].itemdescription,
+                      child: Text(productsJC[widget.menuindex].itemdescription,
                           style: GoogleFonts.inter(
                               fontSize: 10,
                               color: const Color.fromARGB(255, 69, 69, 69),
@@ -119,7 +118,7 @@ class _NCMainCourseState extends State<NCMainCourse> {
                     ),
                     Text(
                         '\u{20B9}'
-                        '${productsNC[widget.menuindex].price.toString()}',
+                        '${productsJC[widget.menuindex].price.toString()}',
                         style: GoogleFonts.inter(
                             fontSize: 15,
                             color: const Color.fromARGB(255, 69, 69, 69),
@@ -139,7 +138,7 @@ class _NCMainCourseState extends State<NCMainCourse> {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: Image.asset(
-                            productsNC[widget.menuindex].image,
+                            productsJC[widget.menuindex].image,
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -175,7 +174,7 @@ class _NCMainCourseState extends State<NCMainCourse> {
                           ),
                         );
                       } else if (!((provider.cart[0].productId!).contains(
-                          (productsNC[this.widget.menuindex].identity)))) {
+                          (productsJC[this.widget.menuindex].identity)))) {
                         return Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -206,7 +205,7 @@ class _NCMainCourseState extends State<NCMainCourse> {
                                           color: Colors.black,
                                           fontSize: 20),
                                       content: Text(
-                                          "Your cart contains dishes from ${provider.cart[0].restaurantName}. Do you wish to discard those and add dishes from ${productsNC[this.widget.menuindex].restaurant}"),
+                                          "Your cart contains dishes from ${provider.cart[0].restaurantName}. Do you wish to discard those and add dishes from ${productsJC[this.widget.menuindex].restaurant}"),
                                       actionsOverflowButtonSpacing: 20,
                                       actions: <Widget>[
                                         Row(
@@ -337,18 +336,18 @@ class _NCMainCourseState extends State<NCMainCourse> {
   }
 }
 
-class NCFastFood extends StatefulWidget {
+class JCFastFood extends StatefulWidget {
   final int menuindex;
-  const NCFastFood({
+  const JCFastFood({
     Key? key,
     required this.menuindex,
   }) : super(key: key);
 
   @override
-  State<NCFastFood> createState() => _NCFastFoodState();
+  State<JCFastFood> createState() => _JCFastFoodState();
 }
 
-class _NCFastFoodState extends State<NCFastFood> {
+class _JCFastFoodState extends State<JCFastFood> {
   @override
   Widget build(BuildContext context) {
     double screenwidth = MediaQuery.of(context).size.width;
@@ -360,20 +359,20 @@ class _NCFastFoodState extends State<NCFastFood> {
           .insert(
         Cart(
           id: index,
-          productId: '${productsNC[index].identity}00000$index',
-          productName: productsNC[index].name,
-          restaurantName: productsNC[index].restaurant,
-          initialPrice: productsNC[index].price,
-          productPrice: productsNC[index].price,
-          identity: productsNC[index].identity,
-          menutype: productsNC[index].menutype,
+          productId: '${productsJC[index].identity}00000$index',
+          productName: productsJC[index].name,
+          restaurantName: productsJC[index].restaurant,
+          initialPrice: productsJC[index].price,
+          productPrice: productsJC[index].price,
+          identity: productsJC[index].identity,
+          menutype: productsJC[index].menutype,
           quantity: ValueNotifier(1),
-          categoryTag: productsNC[index].category,
-          image: productsNC[index].image,
+          categoryTag: productsJC[index].category,
+          image: productsJC[index].image,
         ),
       )
           .then((value) {
-        cart.addTotalPrice(productsNC[widget.menuindex].price.toDouble());
+        cart.addTotalPrice(productsJC[widget.menuindex].price.toDouble());
         cart.addCounter();
         print('Product Added to cart');
       }).onError((error, stackTrace) {
@@ -381,7 +380,7 @@ class _NCFastFoodState extends State<NCFastFood> {
       });
     }
 
-    if (productsNC[widget.menuindex].menutype == 'Fast Food') {
+    if (productsJC[widget.menuindex].menutype == 'Fast Food') {
       return Container(
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(
@@ -405,7 +404,7 @@ class _NCFastFoodState extends State<NCFastFood> {
                   const SizedBox(
                     height: 10,
                   ),
-                  NCLogoDecider(logoindex: widget.menuindex),
+                  JCLogoDecider(logoindex: widget.menuindex),
                 ],
               ),
               const SizedBox(
@@ -420,7 +419,7 @@ class _NCFastFoodState extends State<NCFastFood> {
                     const SizedBox(
                       height: 5,
                     ),
-                    Text(productsNC[widget.menuindex].name,
+                    Text(productsJC[widget.menuindex].name,
                         style: GoogleFonts.inter(
                             fontSize: 17,
                             color: Colors.black,
@@ -431,7 +430,7 @@ class _NCFastFoodState extends State<NCFastFood> {
                     SizedBox(
                       width: 170,
                       height: 30,
-                      child: Text(productsNC[widget.menuindex].itemdescription,
+                      child: Text(productsJC[widget.menuindex].itemdescription,
                           style: GoogleFonts.inter(
                               fontSize: 10,
                               color: const Color.fromARGB(255, 69, 69, 69),
@@ -442,7 +441,7 @@ class _NCFastFoodState extends State<NCFastFood> {
                     ),
                     Text(
                         '\u{20B9}'
-                        '${productsNC[widget.menuindex].price.toString()}',
+                        '${productsJC[widget.menuindex].price.toString()}',
                         style: GoogleFonts.inter(
                             fontSize: 15,
                             color: const Color.fromARGB(255, 69, 69, 69),
@@ -462,7 +461,7 @@ class _NCFastFoodState extends State<NCFastFood> {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: Image.asset(
-                            productsNC[widget.menuindex].image,
+                            productsJC[widget.menuindex].image,
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -498,7 +497,7 @@ class _NCFastFoodState extends State<NCFastFood> {
                           ),
                         );
                       } else if (!((provider.cart[0].productId!).contains(
-                          (productsNC[this.widget.menuindex].identity)))) {
+                          (productsJC[this.widget.menuindex].identity)))) {
                         return Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -529,7 +528,7 @@ class _NCFastFoodState extends State<NCFastFood> {
                                           color: Colors.black,
                                           fontSize: 20),
                                       content: Text(
-                                          "Your cart contains dishes from ${provider.cart[0].restaurantName}. Do you wish to discard those and add dishes from ${productsNC[this.widget.menuindex].restaurant}"),
+                                          "Your cart contains dishes from ${provider.cart[0].restaurantName}. Do you wish to discard those and add dishes from ${productsJC[this.widget.menuindex].restaurant}"),
                                       actionsOverflowButtonSpacing: 20,
                                       actions: <Widget>[
                                         Row(
@@ -660,18 +659,18 @@ class _NCFastFoodState extends State<NCFastFood> {
   }
 }
 
-class NCBeverages extends StatefulWidget {
+class JCBeverages extends StatefulWidget {
   final int menuindex;
-  const NCBeverages({
+  const JCBeverages({
     Key? key,
     required this.menuindex,
   }) : super(key: key);
 
   @override
-  State<NCBeverages> createState() => _NCBeveragesState();
+  State<JCBeverages> createState() => _JCBeveragesState();
 }
 
-class _NCBeveragesState extends State<NCBeverages> {
+class _JCBeveragesState extends State<JCBeverages> {
   @override
   Widget build(BuildContext context) {
     double screenwidth = MediaQuery.of(context).size.width;
@@ -683,20 +682,20 @@ class _NCBeveragesState extends State<NCBeverages> {
           .insert(
         Cart(
           id: index,
-          productId: '${productsNC[index].identity}00000$index',
-          productName: productsNC[index].name,
-          restaurantName: productsNC[index].restaurant,
-          initialPrice: productsNC[index].price,
-          productPrice: productsNC[index].price,
-          identity: productsNC[index].identity,
-          menutype: productsNC[index].menutype,
+          productId: '${productsJC[index].identity}00000$index',
+          productName: productsJC[index].name,
+          restaurantName: productsJC[index].restaurant,
+          initialPrice: productsJC[index].price,
+          productPrice: productsJC[index].price,
+          identity: productsJC[index].identity,
+          menutype: productsJC[index].menutype,
           quantity: ValueNotifier(1),
-          categoryTag: productsNC[index].category,
-          image: productsNC[index].image,
+          categoryTag: productsJC[index].category,
+          image: productsJC[index].image,
         ),
       )
           .then((value) {
-        cart.addTotalPrice(productsNC[widget.menuindex].price.toDouble());
+        cart.addTotalPrice(productsJC[widget.menuindex].price.toDouble());
         cart.addCounter();
         print('Product Added to cart');
       }).onError((error, stackTrace) {
@@ -704,7 +703,7 @@ class _NCBeveragesState extends State<NCBeverages> {
       });
     }
 
-    if (productsNC[widget.menuindex].menutype == 'Beverages') {
+    if (productsJC[widget.menuindex].menutype == 'Beverages') {
       return Container(
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(
@@ -728,7 +727,7 @@ class _NCBeveragesState extends State<NCBeverages> {
                   const SizedBox(
                     height: 10,
                   ),
-                  NCLogoDecider(logoindex: widget.menuindex),
+                  JCLogoDecider(logoindex: widget.menuindex),
                 ],
               ),
               const SizedBox(
@@ -743,7 +742,7 @@ class _NCBeveragesState extends State<NCBeverages> {
                     const SizedBox(
                       height: 5,
                     ),
-                    Text(productsNC[widget.menuindex].name,
+                    Text(productsJC[widget.menuindex].name,
                         style: GoogleFonts.inter(
                             fontSize: 17,
                             color: Colors.black,
@@ -754,7 +753,7 @@ class _NCBeveragesState extends State<NCBeverages> {
                     SizedBox(
                       width: 170,
                       height: 30,
-                      child: Text(productsNC[widget.menuindex].itemdescription,
+                      child: Text(productsJC[widget.menuindex].itemdescription,
                           style: GoogleFonts.inter(
                               fontSize: 10,
                               color: const Color.fromARGB(255, 69, 69, 69),
@@ -765,7 +764,7 @@ class _NCBeveragesState extends State<NCBeverages> {
                     ),
                     Text(
                         '\u{20B9}'
-                        '${productsNC[widget.menuindex].price.toString()}',
+                        '${productsJC[widget.menuindex].price.toString()}',
                         style: GoogleFonts.inter(
                             fontSize: 15,
                             color: const Color.fromARGB(255, 69, 69, 69),
@@ -785,7 +784,7 @@ class _NCBeveragesState extends State<NCBeverages> {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: Image.asset(
-                            productsNC[widget.menuindex].image,
+                            productsJC[widget.menuindex].image,
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -821,7 +820,7 @@ class _NCBeveragesState extends State<NCBeverages> {
                           ),
                         );
                       } else if (!((provider.cart[0].productId!).contains(
-                          (productsNC[this.widget.menuindex].identity)))) {
+                          (productsJC[this.widget.menuindex].identity)))) {
                         return Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -852,7 +851,7 @@ class _NCBeveragesState extends State<NCBeverages> {
                                           color: Colors.black,
                                           fontSize: 20),
                                       content: Text(
-                                          "Your cart contains dishes from ${provider.cart[0].restaurantName}. Do you wish to discard those and add dishes from ${productsNC[this.widget.menuindex].restaurant}"),
+                                          "Your cart contains dishes from ${provider.cart[0].restaurantName}. Do you wish to discard those and add dishes from ${productsJC[this.widget.menuindex].restaurant}"),
                                       actionsOverflowButtonSpacing: 20,
                                       actions: <Widget>[
                                         Row(

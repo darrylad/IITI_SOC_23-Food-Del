@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../global/globals.dart';
 
-// ignore: camel_case_types, must_be_immutable
 class AddLocationScreen extends StatefulWidget {
   const AddLocationScreen({super.key});
 
@@ -35,7 +33,7 @@ class _AddLocationScreenState extends State<AddLocationScreen> {
               height: 145,
             ),
             Image.asset(
-              'assets/buttons/addlocation.jpg',
+              'assets/buttons/Heart.jpg',
               height: 172,
               width: 172,
             ),
