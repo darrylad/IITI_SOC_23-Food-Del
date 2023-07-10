@@ -62,7 +62,7 @@ class MainScroll extends StatelessWidget {
           ],
           centerTitle: true,
           expandedTitleScale: 1.0,
-          titlePadding: const EdgeInsets.fromLTRB(0, 8, 0, 12),
+          titlePadding: const EdgeInsets.fromLTRB(0, 5, 0, 15),
           title: const SearchBar_Homepage(),
           background: GoodMorning(name: name),
         ),

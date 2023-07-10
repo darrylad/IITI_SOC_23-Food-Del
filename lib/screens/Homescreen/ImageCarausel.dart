@@ -40,7 +40,7 @@ class _ImageCarausalState extends State<ImageCarausal> {
               autoPlayAnimationDuration: const Duration(seconds: 3),
               enlargeCenterPage: true,
               height: 230,
-              enlargeFactor: 0.22,
+              enlargeFactor: 0.23,
               viewportFraction: 0.88,
               onPageChanged: (index, reason) {
                 setState(() {
