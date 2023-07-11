@@ -11,7 +11,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import '../../Cart/cart_model.dart';
-import '../TapriIITiansKi/tapri_iitians_ki_screen.dart';
 
 class TPMainCourse extends StatefulWidget {
   final int menuindex;
@@ -73,8 +72,8 @@ class _TPMainCourseState extends State<TPMainCourse> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(
-                width: 5,
+              SizedBox(
+                width: 0.0127 * screenwidth,
               ),
               Column(
                 children: [
@@ -88,7 +87,7 @@ class _TPMainCourseState extends State<TPMainCourse> {
                 width: 10,
               ),
               SizedBox(
-                width: 180,
+                width: 0.475*screenwidth,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -98,15 +97,15 @@ class _TPMainCourseState extends State<TPMainCourse> {
                     ),
                     Text(productsTP[widget.menuindex].name,
                         style: GoogleFonts.inter(
-                            fontSize: 17,
+                            fontSize: 0.0425 * screenwidth,
                             color: Colors.black,
-                            fontWeight: FontWeight.w500)),
+                            fontWeight: FontWeight.w600)),
                     const SizedBox(
                       height: 2.5,
                     ),
                     SizedBox(
-                      width: 170,
-                      height: 30,
+                      width: 0.45*screenwidth,
+                      height: 0.0765*screenwidth,
                       child: Text(productsTP[widget.menuindex].itemdescription,
                           style: GoogleFonts.inter(
                               fontSize: 10,
@@ -129,14 +128,14 @@ class _TPMainCourseState extends State<TPMainCourse> {
               Stack(
                 children: [
                   SizedBox(
-                    width: 0.435 * screenwidth,
+                    width: 0.415 * screenwidth,
                     height: screenwidth * 0.30,
                     child: Center(
                       child: SizedBox(
                         width: screenwidth * 0.30,
                         height: screenwidth * 0.30,
                         child: ClipRRect(
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(15),
                           child: Image.asset(
                             productsTP[widget.menuindex].image,
                             fit: BoxFit.cover,
@@ -146,8 +145,8 @@ class _TPMainCourseState extends State<TPMainCourse> {
                     ),
                   ),
                   Positioned(
-                    right: -0.0325 * screenwidth,
-                    top: 0.035 * screenwidth,
+                    right: -0.04 * screenwidth,
+                    top: 0.04 * screenwidth,
                     child: Consumer<CartProvider>(
                         builder: (BuildContext context, provider, widget) {
                       if (provider.cart.isEmpty) {
@@ -166,6 +165,14 @@ class _TPMainCourseState extends State<TPMainCourse> {
                           child: InkWell(
                             onTap: () {
                               saveData(this.widget.menuindex);
+                              _showModalBottomSheet(context);
+
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text('Item Added Successfully!'),
+                                  duration: Duration(seconds: 2),
+                                ),
+                              );
                             },
                             child: SvgPicture.asset(
                               'assets/buttons/plus.svg',
@@ -396,8 +403,8 @@ class _TPFastFoodState extends State<TPFastFood> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(
-                width: 5,
+              SizedBox(
+                width: 0.0127 * screenwidth,
               ),
               Column(
                 children: [
@@ -411,7 +418,7 @@ class _TPFastFoodState extends State<TPFastFood> {
                 width: 10,
               ),
               SizedBox(
-                width: 180,
+                width: 0.475*screenwidth,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -421,15 +428,15 @@ class _TPFastFoodState extends State<TPFastFood> {
                     ),
                     Text(productsTP[widget.menuindex].name,
                         style: GoogleFonts.inter(
-                            fontSize: 17,
+                            fontSize: 0.0425 * screenwidth,
                             color: Colors.black,
-                            fontWeight: FontWeight.w500)),
+                            fontWeight: FontWeight.w600)),
                     const SizedBox(
                       height: 2.5,
                     ),
                     SizedBox(
-                      width: 170,
-                      height: 30,
+                      width: 0.45*screenwidth,
+                      height: 0.0765*screenwidth,
                       child: Text(productsTP[widget.menuindex].itemdescription,
                           style: GoogleFonts.inter(
                               fontSize: 10,
@@ -452,14 +459,14 @@ class _TPFastFoodState extends State<TPFastFood> {
               Stack(
                 children: [
                   SizedBox(
-                    width: 0.435 * screenwidth,
+                    width: 0.415 * screenwidth,
                     height: screenwidth * 0.30,
                     child: Center(
                       child: SizedBox(
                         width: screenwidth * 0.30,
                         height: screenwidth * 0.30,
                         child: ClipRRect(
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(15),
                           child: Image.asset(
                             productsTP[widget.menuindex].image,
                             fit: BoxFit.cover,
@@ -469,8 +476,8 @@ class _TPFastFoodState extends State<TPFastFood> {
                     ),
                   ),
                   Positioned(
-                    right: -0.0325 * screenwidth,
-                    top: 0.035 * screenwidth,
+                    right: -0.04 * screenwidth,
+                    top: 0.04 * screenwidth,
                     child: Consumer<CartProvider>(
                         builder: (BuildContext context, provider, widget) {
                       if (provider.cart.isEmpty) {
@@ -489,6 +496,14 @@ class _TPFastFoodState extends State<TPFastFood> {
                           child: InkWell(
                             onTap: () {
                               saveData(this.widget.menuindex);
+                              _showModalBottomSheet(context);
+
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text('Item Added Successfully!'),
+                                  duration: Duration(seconds: 2),
+                                ),
+                              );
                             },
                             child: SvgPicture.asset(
                               'assets/buttons/plus.svg',
@@ -719,8 +734,8 @@ class _TPBeveragesState extends State<TPBeverages> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(
-                width: 5,
+              SizedBox(
+                width: 0.0127 * screenwidth,
               ),
               Column(
                 children: [
@@ -734,7 +749,7 @@ class _TPBeveragesState extends State<TPBeverages> {
                 width: 10,
               ),
               SizedBox(
-                width: 180,
+                width: 0.475*screenwidth,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -744,15 +759,15 @@ class _TPBeveragesState extends State<TPBeverages> {
                     ),
                     Text(productsTP[widget.menuindex].name,
                         style: GoogleFonts.inter(
-                            fontSize: 17,
+                            fontSize: 0.0425 * screenwidth,
                             color: Colors.black,
-                            fontWeight: FontWeight.w500)),
+                            fontWeight: FontWeight.w600)),
                     const SizedBox(
                       height: 2.5,
                     ),
                     SizedBox(
-                      width: 170,
-                      height: 30,
+                      width: 0.45*screenwidth,
+                      height: 0.0765*screenwidth,
                       child: Text(productsTP[widget.menuindex].itemdescription,
                           style: GoogleFonts.inter(
                               fontSize: 10,
@@ -775,14 +790,14 @@ class _TPBeveragesState extends State<TPBeverages> {
               Stack(
                 children: [
                   SizedBox(
-                    width: 0.435 * screenwidth,
+                    width: 0.415 * screenwidth,
                     height: screenwidth * 0.30,
                     child: Center(
                       child: SizedBox(
                         width: screenwidth * 0.30,
                         height: screenwidth * 0.30,
                         child: ClipRRect(
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(15),
                           child: Image.asset(
                             productsTP[widget.menuindex].image,
                             fit: BoxFit.cover,
@@ -792,8 +807,8 @@ class _TPBeveragesState extends State<TPBeverages> {
                     ),
                   ),
                   Positioned(
-                    right: -0.0325 * screenwidth,
-                    top: 0.035 * screenwidth,
+                    right: -0.04 * screenwidth,
+                    top: 0.04 * screenwidth,
                     child: Consumer<CartProvider>(
                         builder: (BuildContext context, provider, widget) {
                       if (provider.cart.isEmpty) {
@@ -812,6 +827,14 @@ class _TPBeveragesState extends State<TPBeverages> {
                           child: InkWell(
                             onTap: () {
                               saveData(this.widget.menuindex);
+                              _showModalBottomSheet(context);
+
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text('Item Added Successfully!'),
+                                  duration: Duration(seconds: 2),
+                                ),
+                              );
                             },
                             child: SvgPicture.asset(
                               'assets/buttons/plus.svg',

@@ -59,6 +59,7 @@ class _NCMainCourseState extends State<NCMainCourse> {
     }
 
     if (productsNC[widget.menuindex].menutype == 'Main Course') {
+
       return Container(
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(
@@ -66,7 +67,7 @@ class _NCMainCourseState extends State<NCMainCourse> {
           ),
           color: Color.fromARGB(255, 255, 255, 255),
         ),
-        height: screenwidth * 0.30,
+        height: 115,
         width: screenwidth,
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 0),
@@ -74,8 +75,8 @@ class _NCMainCourseState extends State<NCMainCourse> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(
-                width: 5,
+              SizedBox(
+                width: 0.0127 * screenwidth,
               ),
               Column(
                 children: [
@@ -89,7 +90,7 @@ class _NCMainCourseState extends State<NCMainCourse> {
                 width: 10,
               ),
               SizedBox(
-                width: 180,
+                width: 0.475*screenwidth,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -99,15 +100,15 @@ class _NCMainCourseState extends State<NCMainCourse> {
                     ),
                     Text(productsNC[widget.menuindex].name,
                         style: GoogleFonts.inter(
-                            fontSize: 17,
+                            fontSize: 0.0425 * screenwidth,
                             color: Colors.black,
-                            fontWeight: FontWeight.w500)),
+                            fontWeight: FontWeight.w600)),
                     const SizedBox(
                       height: 2.5,
                     ),
                     SizedBox(
-                      width: 170,
-                      height: 30,
+                      width: 0.45*screenwidth,
+                      height: 0.0765*screenwidth,
                       child: Text(productsNC[widget.menuindex].itemdescription,
                           style: GoogleFonts.inter(
                               fontSize: 10,
@@ -130,14 +131,14 @@ class _NCMainCourseState extends State<NCMainCourse> {
               Stack(
                 children: [
                   SizedBox(
-                    width: 0.435 * screenwidth,
+                    width: 0.415 * screenwidth,
                     height: screenwidth * 0.30,
                     child: Center(
                       child: SizedBox(
                         width: screenwidth * 0.30,
                         height: screenwidth * 0.30,
                         child: ClipRRect(
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(15),
                           child: Image.asset(
                             productsNC[widget.menuindex].image,
                             fit: BoxFit.cover,
@@ -147,8 +148,8 @@ class _NCMainCourseState extends State<NCMainCourse> {
                     ),
                   ),
                   Positioned(
-                    right: -0.0325 * screenwidth,
-                    top: 0.035 * screenwidth,
+                    right: -0.04 * screenwidth,
+                    top: 0.04 * screenwidth,
                     child: Consumer<CartProvider>(
                         builder: (BuildContext context, provider, widget) {
                       if (provider.cart.isEmpty) {
@@ -167,6 +168,14 @@ class _NCMainCourseState extends State<NCMainCourse> {
                           child: InkWell(
                             onTap: () {
                               saveData(this.widget.menuindex);
+                              _showModalBottomSheet(context);
+
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text('Item Added Successfully!'),
+                                  duration: Duration(seconds: 2),
+                                ),
+                              );
                             },
                             child: SvgPicture.asset(
                               'assets/buttons/plus.svg',
@@ -397,8 +406,8 @@ class _NCFastFoodState extends State<NCFastFood> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(
-                width: 5,
+              SizedBox(
+                width: 0.0127 * screenwidth,
               ),
               Column(
                 children: [
@@ -412,7 +421,7 @@ class _NCFastFoodState extends State<NCFastFood> {
                 width: 10,
               ),
               SizedBox(
-                width: 180,
+                width: 0.475*screenwidth,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -422,15 +431,15 @@ class _NCFastFoodState extends State<NCFastFood> {
                     ),
                     Text(productsNC[widget.menuindex].name,
                         style: GoogleFonts.inter(
-                            fontSize: 17,
+                            fontSize: 0.0425 * screenwidth,
                             color: Colors.black,
-                            fontWeight: FontWeight.w500)),
+                            fontWeight: FontWeight.w600)),
                     const SizedBox(
                       height: 2.5,
                     ),
                     SizedBox(
-                      width: 170,
-                      height: 30,
+                      width: 0.45*screenwidth,
+                      height: 0.0765*screenwidth,
                       child: Text(productsNC[widget.menuindex].itemdescription,
                           style: GoogleFonts.inter(
                               fontSize: 10,
@@ -453,14 +462,14 @@ class _NCFastFoodState extends State<NCFastFood> {
               Stack(
                 children: [
                   SizedBox(
-                    width: 0.435 * screenwidth,
+                    width: 0.415 * screenwidth,
                     height: screenwidth * 0.30,
                     child: Center(
                       child: SizedBox(
                         width: screenwidth * 0.30,
                         height: screenwidth * 0.30,
                         child: ClipRRect(
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(15),
                           child: Image.asset(
                             productsNC[widget.menuindex].image,
                             fit: BoxFit.cover,
@@ -470,8 +479,8 @@ class _NCFastFoodState extends State<NCFastFood> {
                     ),
                   ),
                   Positioned(
-                    right: -0.0325 * screenwidth,
-                    top: 0.035 * screenwidth,
+                    right: -0.04 * screenwidth,
+                    top: 0.04 * screenwidth,
                     child: Consumer<CartProvider>(
                         builder: (BuildContext context, provider, widget) {
                       if (provider.cart.isEmpty) {
@@ -490,6 +499,14 @@ class _NCFastFoodState extends State<NCFastFood> {
                           child: InkWell(
                             onTap: () {
                               saveData(this.widget.menuindex);
+                              _showModalBottomSheet(context);
+
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text('Item Added Successfully!'),
+                                  duration: Duration(seconds: 2),
+                                ),
+                              );
                             },
                             child: SvgPicture.asset(
                               'assets/buttons/plus.svg',
@@ -720,8 +737,8 @@ class _NCBeveragesState extends State<NCBeverages> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(
-                width: 5,
+              SizedBox(
+                width: 0.0127 * screenwidth,
               ),
               Column(
                 children: [
@@ -735,7 +752,7 @@ class _NCBeveragesState extends State<NCBeverages> {
                 width: 10,
               ),
               SizedBox(
-                width: 180,
+                width: 0.475*screenwidth,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -745,15 +762,15 @@ class _NCBeveragesState extends State<NCBeverages> {
                     ),
                     Text(productsNC[widget.menuindex].name,
                         style: GoogleFonts.inter(
-                            fontSize: 17,
+                            fontSize: 0.0425 * screenwidth,
                             color: Colors.black,
-                            fontWeight: FontWeight.w500)),
+                            fontWeight: FontWeight.w600)),
                     const SizedBox(
                       height: 2.5,
                     ),
                     SizedBox(
-                      width: 170,
-                      height: 30,
+                      width: 0.45*screenwidth,
+                      height: 0.0765*screenwidth,
                       child: Text(productsNC[widget.menuindex].itemdescription,
                           style: GoogleFonts.inter(
                               fontSize: 10,
@@ -776,14 +793,14 @@ class _NCBeveragesState extends State<NCBeverages> {
               Stack(
                 children: [
                   SizedBox(
-                    width: 0.435 * screenwidth,
+                    width: 0.415 * screenwidth,
                     height: screenwidth * 0.30,
                     child: Center(
                       child: SizedBox(
                         width: screenwidth * 0.30,
                         height: screenwidth * 0.30,
                         child: ClipRRect(
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(15),
                           child: Image.asset(
                             productsNC[widget.menuindex].image,
                             fit: BoxFit.cover,
@@ -793,8 +810,8 @@ class _NCBeveragesState extends State<NCBeverages> {
                     ),
                   ),
                   Positioned(
-                    right: -0.0325 * screenwidth,
-                    top: 0.035 * screenwidth,
+                    right: -0.04 * screenwidth,
+                    top: 0.04 * screenwidth,
                     child: Consumer<CartProvider>(
                         builder: (BuildContext context, provider, widget) {
                       if (provider.cart.isEmpty) {
@@ -813,6 +830,14 @@ class _NCBeveragesState extends State<NCBeverages> {
                           child: InkWell(
                             onTap: () {
                               saveData(this.widget.menuindex);
+                              _showModalBottomSheet(context);
+
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text('Item Added Successfully!'),
+                                  duration: Duration(seconds: 2),
+                                ),
+                              );
                             },
                             child: SvgPicture.asset(
                               'assets/buttons/plus.svg',
@@ -989,7 +1014,6 @@ void _showModalBottomSheet(BuildContext context) {
     enableDrag: true,
     isDismissible: true,
     isScrollControlled: true,
-
     shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
       top: Radius.circular(30),

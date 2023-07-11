@@ -58,7 +58,7 @@ class _TPIntroductionState extends State<TPIntroduction> {
                           ),
                           IconButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, '/searchbartapri');
+                                Navigator.pushNamed(context, '/searchbarteapost');
                               },
                               icon: SvgPicture.asset(
                                 'assets/buttons/search.svg',

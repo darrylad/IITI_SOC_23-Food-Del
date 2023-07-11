@@ -4,23 +4,23 @@ import 'package:flutter_2/Screens/Restaurants/JuiciliciousCafe/juici_cafe_menu.d
 import '../../Search/search_widget.dart';
 
 
-class SearchBarScreenNight extends StatefulWidget {
-  const SearchBarScreenNight({Key? key}) : super(key: key);
+class SearchBarScreenJuiciliciousCafe extends StatefulWidget {
+  const SearchBarScreenJuiciliciousCafe({Key? key}) : super(key: key);
 
   static const String routeName = '/searchbarjuiciliciouscafe';
 
   static Route route() {
     return MaterialPageRoute(
-      builder: (_) => const SearchBarScreenNight(),
+      builder: (_) => const SearchBarScreenJuiciliciousCafe(),
       settings: const RouteSettings(name: routeName),
     );
   }
 
   @override
-  State<SearchBarScreenNight> createState() => _SearchBarScreenNight();
+  State<SearchBarScreenJuiciliciousCafe> createState() => _SearchBarScreenJuiciliciousCafe();
 }
 
-class _SearchBarScreenNight extends State<SearchBarScreenNight> {
+class _SearchBarScreenJuiciliciousCafe extends State<SearchBarScreenJuiciliciousCafe> {
   late List<Item> menuItems;
   String query = '';
 
@@ -39,13 +39,13 @@ class _SearchBarScreenNight extends State<SearchBarScreenNight> {
           centerTitle: true,
           leading: BackButton(
             onPressed: () {
-              Navigator.pushNamed(context, '/nightcanteen');
+              Navigator.pushNamed(context, '/juiciliciouscafe');
             },
             color: const Color.fromARGB(255, 152, 46, 1),
           ),
           title: SearchWidget(
             text: query,
-            hintText: 'Search Restaurants, Dishes and More...',
+            hintText: 'Search In Juicilicious Cafe...',
             onChanged: searchMenuItem,
           ),
         ),
@@ -80,7 +80,7 @@ class _SearchBarScreenNight extends State<SearchBarScreenNight> {
                             ),
                             splashColor: Colors.grey,
                             title: Text(
-                              menuItem.restaurant,
+                              menuItem.name,
                               style: const TextStyle(
                                   fontFamily: 'Dropdown',
                                   fontSize: 20,
@@ -88,7 +88,7 @@ class _SearchBarScreenNight extends State<SearchBarScreenNight> {
                             ),
                             tileColor: Colors.white70,
                             subtitle: Text(
-                              menuItem.name,
+                              menuItem.restaurant ,
                               style: const TextStyle(
                                   color: Color.fromARGB(255, 80, 80, 80),
                                   fontFamily: 'Dropdown',

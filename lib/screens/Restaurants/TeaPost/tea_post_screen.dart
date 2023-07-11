@@ -9,7 +9,7 @@ import 'tea_post_menu.dart';
 class TeaPostScreen extends StatefulWidget {
   const TeaPostScreen({Key? key}) : super(key: key);
 
-    static const String routeName = '/teapost';
+  static const String routeName = '/teapost';
 
   static Route route() {
     return MaterialPageRoute(
@@ -28,6 +28,8 @@ class _TeaPostScreenState extends State<TeaPostScreen> {
   //List<bool> clicked = List.generate(10, (index) => false, growable: true);
   @override
   Widget build(BuildContext context) {
+    double screenwidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       extendBody: true,
       bottomNavigationBar: const BottomNav_nightcanteen(),
@@ -59,9 +61,11 @@ class _TeaPostScreenState extends State<TeaPostScreen> {
                   child: ListView.builder(
                       itemCount: productsTP.length,
                       physics: const ClampingScrollPhysics(),
-                      padding: const EdgeInsets.only(
-                        top: 10,bottom: 10,left: 10,
-                           ),
+                      padding: EdgeInsets.only(
+                        top: 0.025 * screenwidth,
+                        bottom: 0.025 * screenwidth,
+                        left: 0.025 * screenwidth,
+                      ),
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
                         return TPMainCourse(menuindex: index);
@@ -86,9 +90,11 @@ class _TeaPostScreenState extends State<TeaPostScreen> {
                   child: ListView.builder(
                       itemCount: productsTP.length,
                       physics: const ClampingScrollPhysics(),
-                      padding: const EdgeInsets.only(
-                        top: 10,bottom: 10,left: 10,
-                           ),
+                      padding: EdgeInsets.only(
+                        top: 0.025 * screenwidth,
+                        bottom: 0.025 * screenwidth,
+                        left: 0.025 * screenwidth,
+                      ),
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
                         return TPFastFood(menuindex: index);
@@ -113,9 +119,11 @@ class _TeaPostScreenState extends State<TeaPostScreen> {
                   child: ListView.builder(
                       itemCount: productsTP.length,
                       physics: const ClampingScrollPhysics(),
-                      padding: const EdgeInsets.only(
-                        top: 10,bottom: 10,left: 10,
-                           ),
+                      padding: EdgeInsets.only(
+                        top: 0.025 * screenwidth,
+                        bottom: 0.025 * screenwidth,
+                        left: 0.025 * screenwidth,
+                      ),
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
                         return TPBeverages(menuindex: index);
@@ -129,8 +137,6 @@ class _TeaPostScreenState extends State<TeaPostScreen> {
     );
   }
 }
-
-
 
 class BottomNav_nightcanteen extends StatefulWidget {
   const BottomNav_nightcanteen({

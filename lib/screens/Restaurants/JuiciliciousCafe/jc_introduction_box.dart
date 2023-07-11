@@ -59,7 +59,7 @@ class _JCIntroductionState extends State<JCIntroduction> {
                           ),
                           IconButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, '/searchbartapri');
+                                Navigator.pushNamed(context, '/searchbarjuiciliciouscafe');
                               },
                               icon: SvgPicture.asset(
                                 'assets/buttons/search.svg',

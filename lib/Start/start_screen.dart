@@ -10,7 +10,7 @@ import 'package:google_fonts/google_fonts.dart';
 class Startscreen extends StatefulWidget {
   const Startscreen({super.key});
 
-    static const String routeName = '/';
+  static const String routeName = '/';
 
   static Route route() {
     return MaterialPageRoute(
@@ -54,20 +54,21 @@ class State1 extends State<Startscreen> {
 
   // ignore: non_constant_identifier_names
   Widget LoginView() {
+    double screenwidth = MediaQuery.of(context).size.width;
     return Material(
       child: Container(
           color: const Color.fromRGBO(255, 222, 192, 1),
           height: MediaQuery.of(context).size.height,
-          width: double.infinity,
+          width: double.maxFinite,
           child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                const SizedBox(
-                  height: 140,
+                SizedBox(
+                  height: 0.33 * screenwidth,
                 ),
                 Container(
-                    width: 248,
-                    height: 248,
+                    width: 0.67 * screenwidth,
+                    height: 0.67 * screenwidth,
                     decoration: const BoxDecoration(
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(137),
@@ -79,8 +80,8 @@ class State1 extends State<Startscreen> {
                           image: AssetImage("assets/images/logo.png"),
                           fit: BoxFit.cover,
                         ))),
-                const SizedBox(
-                  height: 100,
+                SizedBox(
+                  height: 0.2 * screenwidth,
                 ),
                 Text(
                   'Hello there!',
@@ -89,16 +90,16 @@ class State1 extends State<Startscreen> {
                       fontSize: 30,
                       fontWeight: FontWeight.w400),
                 ),
-                const SizedBox(
-                  height: 70,
+                SizedBox(
+                  height: 0.2 * screenwidth,
                 ),
                 GestureDetector(
                   onTap: () {
                     controller.login();
                   },
                   child: Container(
-                    height: 52,
-                    width: 260,
+                    height: 0.144*screenwidth,
+                    width: 0.742*screenwidth,
                     decoration: const BoxDecoration(
                       border: Border(
                           top: BorderSide(

@@ -8,9 +8,10 @@ class VegLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenwidth = MediaQuery.of(context).size.width;
     return SizedBox(
-      height: 15,
-      width: 15,
+      height: 0.0382*screenwidth,
+      width: 0.0382*screenwidth,
       child: ClipRRect(
         child: SvgPicture.asset(
           'assets/buttons/veg.svg',
@@ -18,20 +19,6 @@ class VegLogo extends StatelessWidget {
         ),
       ),
     );
-    /*Container(
-      width: 18,
-      height: 18,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(6),
-          border: Border.all(
-              width: 2.5, color: const Color.fromARGB(255, 0, 143, 57))),
-      child: Center(
-        child: Icon(
-          Icons.circle,
-          color: Color.fromARGB(255, 0, 143, 57),
-          size: 9,
-        ),
-      ),
-    );*/
+
   }
 }

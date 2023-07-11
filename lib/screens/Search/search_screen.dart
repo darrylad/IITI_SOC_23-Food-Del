@@ -23,6 +23,7 @@ class SearchScreen extends StatefulWidget {
 class _SearchScreen extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
+    double screenwidth = MediaQuery.of(context).size.width;
     return Scaffold(
         extendBody: true,
         bottomNavigationBar: const BottomNav_1(),
@@ -45,7 +46,7 @@ class _SearchScreen extends State<SearchScreen> {
             SliverToBoxAdapter(
               child: Column(
                 children: [
-                  SearchBarBox(),
+                  const SearchBarBox(),
                   const SizedBox(
                     height: 10,
                   ),
@@ -69,8 +70,8 @@ class _SearchScreen extends State<SearchScreen> {
                       Burger(),
                     ],
                   ),
-                  const SizedBox(
-                    height: 20,
+                  SizedBox(
+                    height:  0.051*screenwidth,
                   ),
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -79,8 +80,8 @@ class _SearchScreen extends State<SearchScreen> {
                       Noodles(),
                     ],
                   ),
-                  const SizedBox(
-                    height: 20,
+                  SizedBox(
+                    height:  0.051*screenwidth,
                   ),
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -89,8 +90,8 @@ class _SearchScreen extends State<SearchScreen> {
                       PaneerTikka(),
                     ],
                   ),
-                  const SizedBox(
-                    height: 20,
+                  SizedBox(
+                    height:  0.051*screenwidth,
                   ),
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -99,8 +100,8 @@ class _SearchScreen extends State<SearchScreen> {
                       Juice(),
                     ],
                   ),
-                  const SizedBox(
-                    height: 20,
+                  SizedBox(
+                    height:  0.051*screenwidth,
                   ),
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -129,13 +130,14 @@ class Pizza extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenwidth = MediaQuery.of(context).size.width;
     return InkWell(
       onTap: () {
         context.go('/night_canteen_screen.dart');
       },
       child: Container(
-        width: 160,
-        height: 160,
+        width: 0.42*screenwidth,
+        height: 0.42*screenwidth,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             image: DecorationImage(
@@ -147,13 +149,13 @@ class Pizza extends StatelessWidget {
                   Colors.black.withOpacity(0.15),
                   BlendMode.darken,
                 ))),
-        child: const Stack(
+        child: Stack(
           children: [
             Positioned(
-              bottom: 10,
+              bottom: 0.0256*screenwidth,
               left: 0,
               right: 0,
-              child: Center(
+              child: const Center(
                 child: Text(
                   'Pizza',
                   textAlign: TextAlign.start,
@@ -179,13 +181,15 @@ class Burger extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenwidth = MediaQuery.of(context).size.width;
+
     return InkWell(
       onTap: () {
         context.go('/tapri_iitians_ki_screen.dart');
       },
       child: Container(
-        width: 160,
-        height: 160,
+        width: 0.42*screenwidth,
+        height: 0.42*screenwidth,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             image: DecorationImage(
@@ -197,13 +201,13 @@ class Burger extends StatelessWidget {
                   Colors.black.withOpacity(0.15),
                   BlendMode.darken,
                 ))),
-        child: const Stack(
+        child: Stack(
           children: [
             Positioned(
-              bottom: 10,
+              bottom: 0.0256*screenwidth,
               left: 0,
               right: 0,
-              child: Center(
+              child: const Center(
                 child: Text(
                   'Burger',
                   textAlign: TextAlign.start,
@@ -229,13 +233,14 @@ class FrenchFries extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenwidth = MediaQuery.of(context).size.width;
     return InkWell(
       onTap: () {
         Navigator.pushNamed(context, '/addlocation');
       },
       child: Container(
-        width: 160,
-        height: 160,
+        width: 0.42*screenwidth,
+        height: 0.42*screenwidth,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             image: DecorationImage(
@@ -247,13 +252,13 @@ class FrenchFries extends StatelessWidget {
                   Colors.black.withOpacity(0.15),
                   BlendMode.darken,
                 ))),
-        child: const Stack(
+        child: Stack(
           children: [
             Positioned(
-              bottom: 10,
+              bottom: 0.0256*screenwidth,
               left: 0,
               right: 0,
-              child: Center(
+              child: const Center(
                 child: Text(
                   'French Fries',
                   textAlign: TextAlign.start,
@@ -279,13 +284,14 @@ class Noodles extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenwidth = MediaQuery.of(context).size.width;
     return InkWell(
       onTap: () {
         Navigator.pushNamed(context, '/addlocation');
       },
       child: Container(
-        width: 160,
-        height: 160,
+        width: 0.42*screenwidth,
+        height: 0.42*screenwidth,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             image: DecorationImage(
@@ -297,13 +303,13 @@ class Noodles extends StatelessWidget {
                   Colors.black.withOpacity(0.15),
                   BlendMode.darken,
                 ))),
-        child: const Stack(
+        child: Stack(
           children: [
             Positioned(
-              bottom: 10,
+              bottom: 0.0256*screenwidth,
               left: 0,
               right: 0,
-              child: Center(
+              child: const Center(
                 child: Text(
                   'Noodles',
                   textAlign: TextAlign.start,
@@ -329,13 +335,14 @@ class KathiRoll extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenwidth = MediaQuery.of(context).size.width;
     return InkWell(
       onTap: () {
         Navigator.pushNamed(context, '/addlocation');
       },
       child: Container(
-        width: 160,
-        height: 160,
+        width: 0.42*screenwidth,
+        height: 0.42*screenwidth,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             image: DecorationImage(
@@ -347,13 +354,13 @@ class KathiRoll extends StatelessWidget {
                   Colors.black.withOpacity(0.15),
                   BlendMode.darken,
                 ))),
-        child: const Stack(
+        child: Stack(
           children: [
             Positioned(
-              bottom: 10,
+              bottom: 0.0256*screenwidth,
               left: 0,
               right: 0,
-              child: Center(
+              child: const Center(
                 child: Text(
                   'Kathi Roll',
                   textAlign: TextAlign.start,
@@ -379,13 +386,14 @@ class PaneerTikka extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenwidth = MediaQuery.of(context).size.width;
     return InkWell(
       onTap: () {
         Navigator.pushNamed(context, '/addlocation');
       },
       child: Container(
-        width: 160,
-        height: 160,
+        width: 0.42*screenwidth,
+        height: 0.42*screenwidth,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             image: DecorationImage(
@@ -397,13 +405,13 @@ class PaneerTikka extends StatelessWidget {
                   Colors.black.withOpacity(0.15),
                   BlendMode.darken,
                 ))),
-        child: const Stack(
+        child: Stack(
           children: [
             Positioned(
-              bottom: 10,
+              bottom: 0.0256*screenwidth,
               left: 0,
               right: 0,
-              child: Center(
+              child: const Center(
                 child: Text(
                   'Paneer Tikka',
                   textAlign: TextAlign.start,
@@ -429,13 +437,14 @@ class Samosa extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenwidth = MediaQuery.of(context).size.width;
     return InkWell(
       onTap: () {
         Navigator.pushNamed(context, '/addlocation');
       },
       child: Container(
-        width: 160,
-        height: 160,
+        width: 0.42*screenwidth,
+        height: 0.42*screenwidth,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             image: DecorationImage(
@@ -447,13 +456,13 @@ class Samosa extends StatelessWidget {
                   Colors.black.withOpacity(0.15),
                   BlendMode.darken,
                 ))),
-        child: const Stack(
+        child: Stack(
           children: [
             Positioned(
-              bottom: 10,
+              bottom: 0.0256*screenwidth,
               left: 0,
               right: 0,
-              child: Center(
+              child: const Center(
                 child: Text(
                   'Samosa',
                   textAlign: TextAlign.start,
@@ -479,13 +488,14 @@ class Coffee extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenwidth = MediaQuery.of(context).size.width;
     return InkWell(
       onTap: () {
         Navigator.pushNamed(context, '/addlocation');
       },
       child: Container(
-        width: 160,
-        height: 160,
+        width: 0.42*screenwidth,
+        height: 0.42*screenwidth,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             image: DecorationImage(
@@ -497,13 +507,13 @@ class Coffee extends StatelessWidget {
                   Colors.black.withOpacity(0.15),
                   BlendMode.darken,
                 ))),
-        child: const Stack(
+        child: Stack(
           children: [
             Positioned(
-              bottom: 10,
+              bottom: 0.0256*screenwidth,
               left: 0,
               right: 0,
-              child: Center(
+              child: const Center(
                 child: Text(
                   'Coffee',
                   textAlign: TextAlign.start,
@@ -529,13 +539,14 @@ class Juice extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenwidth = MediaQuery.of(context).size.width;
     return InkWell(
       onTap: () {
         Navigator.pushNamed(context, '/addlocation');
       },
       child: Container(
-        width: 160,
-        height: 160,
+        width: 0.42*screenwidth,
+        height: 0.42*screenwidth,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             image: DecorationImage(
@@ -547,13 +558,13 @@ class Juice extends StatelessWidget {
                   Colors.black.withOpacity(0.15),
                   BlendMode.darken,
                 ))),
-        child: const Stack(
+        child: Stack(
           children: [
             Positioned(
-              bottom: 10,
+              bottom: 0.0256*screenwidth,
               left: 0,
               right: 0,
-              child: Center(
+              child: const Center(
                 child: Text(
                   'Juice',
                   textAlign: TextAlign.start,
@@ -579,13 +590,14 @@ class IceCream extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenwidth = MediaQuery.of(context).size.width;
     return InkWell(
       onTap: () {
         Navigator.pushNamed(context, '/addlocation');
       },
       child: Container(
-        width: 160,
-        height: 160,
+        width: 0.42*screenwidth,
+        height: 0.42*screenwidth,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             image: DecorationImage(
@@ -597,13 +609,13 @@ class IceCream extends StatelessWidget {
                   Colors.black.withOpacity(0.15),
                   BlendMode.darken,
                 ))),
-        child: const Stack(
+        child: Stack(
           children: [
             Positioned(
-              bottom: 10,
+              bottom: 0.0256*screenwidth,
               left: 0,
               right: 0,
-              child: Center(
+              child: const Center(
                 child: Text(
                   'Ice Cream',
                   textAlign: TextAlign.start,
@@ -634,8 +646,8 @@ class SearchBarBox extends StatefulWidget {
 class SearchBarBoxState extends State<SearchBarBox> {
   @override
   Widget build(BuildContext context) {
+    double screenwidth = MediaQuery.of(context).size.width;
     return Material(
- 
       elevation: 2,
       child: GestureDetector(
         onTap: () {
@@ -644,46 +656,41 @@ class SearchBarBoxState extends State<SearchBarBox> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Center(
-            child: Container(
-              height: 60,
+            child: SizedBox(
+              height: 0.154 * screenwidth,
               width: double.maxFinite,
-              decoration: const BoxDecoration(
-                  color: Color.fromRGBO(255, 243, 240, 1),
-                  border: Border(
-                      right: BorderSide(color: Color.fromRGBO(164, 73, 21, 1)),
-                      bottom: BorderSide(color: Color.fromRGBO(164, 73, 21, 1)),
-                      left: BorderSide(color: Color.fromRGBO(164, 73, 21, 1)),
-                      top: BorderSide(color: Color.fromRGBO(164, 73, 21, 1))),
-                  borderRadius: BorderRadius.all(Radius.circular(10))),
               child: TextField(
-              enabled: false,
-              cursorColor: Colors.black,
-              textAlignVertical: TextAlignVertical.center,
-              decoration: InputDecoration(
-                filled: true,
-                border: InputBorder.none,
-                fillColor: Colors.white,
-                hintText: 'Search Restaurants, Dishes & More...',
-                hintStyle: const TextStyle(
-                    fontWeight: FontWeight.w400,
-                    fontFamily: 'Dropdown',
-                    color: Color.fromARGB(255, 162, 58, 0)),
-                prefixIcon: const Padding(
-                  padding: EdgeInsets.only(left: 15, right: 5),
-                  child:
-                      ImageIcon(AssetImage('assets/buttons/Search_1.png')),
-                ),
-                disabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15),
-                  borderSide:
-                      const BorderSide(color: Color.fromARGB(164, 73, 21, 1)),
+                enabled: false,
+                cursorColor: Colors.black,
+                textAlignVertical: TextAlignVertical.center,
+                decoration: InputDecoration(
+                  filled: true,
+                  border: InputBorder.none,
+                  fillColor: Colors.white,
+                  hintText: 'Search Restaurants, Dishes & More...',
+                  hintStyle: GoogleFonts.lato(
+                      fontWeight: FontWeight.w600,
+                      color: const Color.fromARGB(255, 162, 58, 0)),
+                  prefixIcon: Padding(
+                    padding:
+                        EdgeInsets.only(left: 15, right: 10, bottom: 0.0063*screenwidth),
+                    child: Image.asset(
+                      'assets/buttons/Search_1.png',
+                      height: 0.055*screenwidth,
+                      width: 0.055*screenwidth,
+                    ),
+                  ),
+                  disabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                    borderSide: const BorderSide(
+                        width: 2, color: Color.fromRGBO(164, 73, 21, 1)),
+                  ),
                 ),
               ),
             ),
-              ),
-          ),
           ),
         ),
+      ),
     );
   }
 }

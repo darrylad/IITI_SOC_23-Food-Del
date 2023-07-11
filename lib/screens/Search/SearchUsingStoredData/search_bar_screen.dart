@@ -37,7 +37,7 @@ class _SearchBarScreen extends State<SearchBarScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          toolbarHeight: 60,
+          toolbarHeight: 80,
           centerTitle: true,
           leading: BackButton(
             onPressed: () {

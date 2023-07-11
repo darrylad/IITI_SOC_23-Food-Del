@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_2/Screens/Restaurants/JuiciliciousCafe/juicilicious_cafe_screen.dart';
+import 'package:flutter_2/Screens/Restaurants/JuiciliciousCafe/search_juiciliciouscafe.dart';
 import 'package:flutter_2/Screens/Restaurants/NightCanteen/search_nightcanteen.dart';
 import 'package:flutter_2/Screens/Restaurants/TapriIITiansKi/search_tapri.dart';
+import 'package:flutter_2/Screens/Restaurants/TeaPost/search_teapost.dart';
 import 'package:flutter_2/Screens/Restaurants/TeaPost/tea_post_screen.dart';
 import 'package:flutter_2/screen.dart';
 import 'package:flutter_2/Screens/Accountspage/accounts.dart';
@@ -51,6 +53,10 @@ class AppRouter {
         return TeaPostScreen.route();
       case JuiciliciousCafeScreen.routeName:
         return JuiciliciousCafeScreen.route();
+      case SearchBarScreenTeaPost.routeName:
+        return SearchBarScreenTeaPost.route();
+      case SearchBarScreenJuiciliciousCafe.routeName:
+        return SearchBarScreenJuiciliciousCafe.route();
 
         break;
 

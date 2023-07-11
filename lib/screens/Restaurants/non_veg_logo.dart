@@ -8,9 +8,10 @@ class NonVegLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenwidth = MediaQuery.of(context).size.width;
     return SizedBox(
-      height: 15,
-      width: 15,
+      height: 0.0382*screenwidth,
+      width: 0.0382*screenwidth,
       child: ClipRRect(
         child: SvgPicture.asset(
           'assets/buttons/nonveg.svg',

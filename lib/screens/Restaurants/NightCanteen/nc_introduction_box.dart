@@ -60,7 +60,7 @@ class _NCIntroductionState extends State<NCIntroduction> {
                           ),
                           IconButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, '/searchbartapri');
+                                Navigator.pushNamed(context, '/searchbarnight');
                               },
                               icon: SvgPicture.asset(
                                 'assets/buttons/search.svg',
@@ -144,14 +144,7 @@ class _NCIntroductionState extends State<NCIntroduction> {
                                             color: const Color.fromARGB(
                                                 255, 0, 0, 0)),
                                       ),
-                                      Text(
-                                        '▼',
-                                        style: GoogleFonts.inter(
-                                            fontSize: 8,
-                                            fontWeight: FontWeight.w600,
-                                            color: const Color.fromARGB(
-                                                255, 0, 0, 0)),
-                                      )
+                                      
                                     ],
                                   )),
                             ),
@@ -180,7 +173,7 @@ class _NCIntroductionState extends State<NCIntroduction> {
                           child: Text(
                             'Step into a lively atmosphere filled with the aroma of mouthwatering dishes and the sounds of laughter and conversations.',
                             style: GoogleFonts.inter(
-                                fontSize: 14,
+                                fontSize: 15,
                                 fontWeight: FontWeight.w400,
                                 color: const Color.fromARGB(255, 0, 0, 0)),
                           ),

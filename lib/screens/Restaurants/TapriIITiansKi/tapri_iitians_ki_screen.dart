@@ -6,11 +6,10 @@ import 'package:flutter_2/Screens/Restaurants/TapriIITiansKi/tik_item_identifier
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
 class TapriIITiansKiScreen extends StatefulWidget {
   const TapriIITiansKiScreen({Key? key}) : super(key: key);
 
-    static const String routeName = '/tapri';
+  static const String routeName = '/tapri';
 
   static Route route() {
     return MaterialPageRoute(
@@ -29,6 +28,8 @@ class _TapriIITiansKiScreenState extends State<TapriIITiansKiScreen> {
   //List<bool> clicked = List.generate(10, (index) => false, growable: true);
   @override
   Widget build(BuildContext context) {
+    double screenwidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       extendBody: true,
       bottomNavigationBar: const BottomNav_nightcanteen(),
@@ -60,9 +61,11 @@ class _TapriIITiansKiScreenState extends State<TapriIITiansKiScreen> {
                   child: ListView.builder(
                       itemCount: productsTIK.length,
                       physics: const ClampingScrollPhysics(),
-                      padding: const EdgeInsets.only(
-                        top: 10,bottom: 10,left: 10,
-                           ),
+                      padding: EdgeInsets.only(
+                        top: 0.025 * screenwidth,
+                        bottom: 0.025 * screenwidth,
+                        left: 0.025 * screenwidth,
+                      ),
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
                         return TIKMainCourse(menuindex: index);
@@ -87,9 +90,11 @@ class _TapriIITiansKiScreenState extends State<TapriIITiansKiScreen> {
                   child: ListView.builder(
                       itemCount: productsTIK.length,
                       physics: const ClampingScrollPhysics(),
-                      padding: const EdgeInsets.only(
-                        top: 10,bottom: 10,left: 10,
-                           ),
+                      padding: EdgeInsets.only(
+                        top: 0.025 * screenwidth,
+                        bottom: 0.025 * screenwidth,
+                        left: 0.025 * screenwidth,
+                      ),
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
                         return TIKFastFood(menuindex: index);
@@ -114,9 +119,11 @@ class _TapriIITiansKiScreenState extends State<TapriIITiansKiScreen> {
                   child: ListView.builder(
                       itemCount: productsTIK.length,
                       physics: const ClampingScrollPhysics(),
-                      padding: const EdgeInsets.only(
-                        top: 10,bottom: 10,left: 10,
-                           ),
+                      padding: EdgeInsets.only(
+                        top: 0.025 * screenwidth,
+                        bottom: 0.025 * screenwidth,
+                        left: 0.025 * screenwidth,
+                      ),
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
                         return TIKBeverages(menuindex: index);
@@ -130,7 +137,6 @@ class _TapriIITiansKiScreenState extends State<TapriIITiansKiScreen> {
     );
   }
 }
-
 
 class BottomNav_nightcanteen extends StatefulWidget {
   const BottomNav_nightcanteen({

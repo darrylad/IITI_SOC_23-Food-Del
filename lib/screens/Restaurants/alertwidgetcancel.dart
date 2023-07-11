@@ -9,7 +9,7 @@ class AlertDialogCancelButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenwidth = MediaQuery.of(context).size.width;
     return Padding(
-      padding: const EdgeInsets.all(7.5),
+      padding: EdgeInsets.all(0.0191*screenwidth),
       child: Container(
         height: 0.127 * screenwidth,
         width: 0.29*screenwidth,

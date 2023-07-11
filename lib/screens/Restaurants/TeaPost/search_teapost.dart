@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import 'package:flutter_2/Screens/Cart/item_model.dart';
 import 'package:flutter_2/Screens/Restaurants/TeaPost/tea_post_menu.dart';
 import 'package:flutter_2/Screens/Search/search_widget.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 
 
@@ -40,13 +41,13 @@ class _SearchBarScreenTeaPost extends State<SearchBarScreenTeaPost> {
           centerTitle: true,
           leading: BackButton(
             onPressed: () {
-              Navigator.pushNamed(context, '/nightcanteen');
+              Navigator.pushNamed(context, '/teapost');
             },
             color: const Color.fromARGB(255, 152, 46, 1),
           ),
           title: SearchWidget(
             text: query,
-            hintText: 'Search Restaurants, Dishes and More...',
+            hintText: 'Search In Tea Post...',
             onChanged: searchMenuItem,
           ),
         ),
@@ -81,20 +82,19 @@ class _SearchBarScreenTeaPost extends State<SearchBarScreenTeaPost> {
                             ),
                             splashColor: Colors.grey,
                             title: Text(
-                              menuItem.restaurant,
-                              style: const TextStyle(
-                                  fontFamily: 'Dropdown',
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold),
+                              menuItem.name,
+                              style: GoogleFonts.lato(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold
+                              )
                             ),
                             tileColor: Colors.white70,
                             subtitle: Text(
-                              menuItem.name,
-                              style: const TextStyle(
-                                  color: Color.fromARGB(255, 80, 80, 80),
-                                  fontFamily: 'Dropdown',
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold),
+                              menuItem.restaurant,
+                              style: GoogleFonts.lato(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w400
+                              )
                             ),
                             onTap: null,
                           ),

@@ -42,13 +42,13 @@ class _SearchBarScreenTapri extends State<SearchBarScreenTapri> {
           centerTitle: true,
           leading: BackButton(
             onPressed: () {
-              Navigator.pushNamed(context, '/nightcanteen');
+              Navigator.pushNamed(context, '/tapri');
             },
             color: const Color.fromARGB(255, 152, 46, 1),
           ),
           title: SearchWidget(
             text: query,
-            hintText: 'Search Restaurants, Dishes and More...',
+            hintText: 'Search In Tapri IITians Ki...',
             onChanged: searchMenuItem,
           ),
         ),
@@ -83,7 +83,7 @@ class _SearchBarScreenTapri extends State<SearchBarScreenTapri> {
                             ),
                             splashColor: Colors.grey,
                             title: Text(
-                              menuItem.restaurant,
+                              menuItem.name,
                               style: const TextStyle(
                                   fontFamily: 'Dropdown',
                                   fontSize: 20,
@@ -91,7 +91,7 @@ class _SearchBarScreenTapri extends State<SearchBarScreenTapri> {
                             ),
                             tileColor: Colors.white70,
                             subtitle: Text(
-                              menuItem.name,
+                              menuItem.restaurant,
                               style: const TextStyle(
                                   color: Color.fromARGB(255, 80, 80, 80),
                                   fontFamily: 'Dropdown',

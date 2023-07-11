@@ -30,6 +30,7 @@ class _NightCanteenScreenState extends State<NightCanteenScreen> {
   //List<bool> clicked = List.generate(10, (index) => false, growable: true);
   @override
   Widget build(BuildContext context) {
+    double screenwidth = MediaQuery.of(context).size.width;
     return Scaffold(
       extendBody: true,
       bottomNavigationBar: const BottomNav_nightcanteen(),
@@ -43,7 +44,7 @@ class _NightCanteenScreenState extends State<NightCanteenScreen> {
             const SizedBox(
               height: 70,
             ),
-            const NCIntroduction(),
+            NCIntroduction(),
             ExpansionTile(
               collapsedIconColor: const Color.fromARGB(255, 152, 46, 1),
               iconColor: const Color.fromARGB(255, 152, 46, 1),
@@ -61,10 +62,10 @@ class _NightCanteenScreenState extends State<NightCanteenScreen> {
                   child: ListView.builder(
                       itemCount: productsNC.length,
                       physics: const ClampingScrollPhysics(),
-                      padding: const EdgeInsets.only(
-                        top: 10,
-                        bottom: 10,
-                        left: 10,
+                      padding: EdgeInsets.only(
+                        top: 0.025*screenwidth,
+                        bottom: 0.025*screenwidth,
+                        left: 0.025*screenwidth,
                       ),
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
@@ -90,10 +91,10 @@ class _NightCanteenScreenState extends State<NightCanteenScreen> {
                   child: ListView.builder(
                       itemCount: productsNC.length,
                       physics: const ClampingScrollPhysics(),
-                      padding: const EdgeInsets.only(
-                        top: 10,
-                        bottom: 10,
-                        left: 10,
+                      padding: EdgeInsets.only(
+                        top: 0.025*screenwidth,
+                        bottom: 0.025*screenwidth,
+                        left: 0.025*screenwidth,
                       ),
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
@@ -119,10 +120,10 @@ class _NightCanteenScreenState extends State<NightCanteenScreen> {
                   child: ListView.builder(
                       itemCount: productsNC.length,
                       physics: const ClampingScrollPhysics(),
-                      padding: const EdgeInsets.only(
-                        top: 10,
-                        bottom: 10,
-                        left: 10,
+                      padding: EdgeInsets.only(
+                        top: 0.025*screenwidth,
+                        bottom: 0.025*screenwidth,
+                        left: 0.025*screenwidth,
                       ),
                       shrinkWrap: true,
                       itemBuilder: (context, index) {

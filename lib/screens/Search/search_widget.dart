@@ -14,7 +14,7 @@ class SearchWidget extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _SearchWidgetState createState() => _SearchWidgetState();
+  State<SearchWidget> createState() => _SearchWidgetState();
 }
 
 class _SearchWidgetState extends State<SearchWidget> {
@@ -27,10 +27,10 @@ class _SearchWidgetState extends State<SearchWidget> {
     final style = widget.text.isEmpty ? styleHint : styleActive;
 
     return Padding(
-      padding: const EdgeInsets.only(left: 20, right: 20),
+      padding: const EdgeInsets.only(left: 0, right: 0),
       child: Container(
         height: 60,
-        width: 375,
+        width: double.maxFinite,
         child: Text(style, context),
       ),
     );
@@ -59,7 +59,7 @@ class _SearchWidgetState extends State<SearchWidget> {
               )
             : null,
         prefixIcon: Padding(
-          padding: const EdgeInsets.only(left: 15, right: 5, bottom: 5),
+          padding: const EdgeInsets.only(left: 15, right: 10, bottom: 10),
           child: Image.asset(
             'assets/buttons/Search_1.png',
             height: 25,

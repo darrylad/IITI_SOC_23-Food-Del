@@ -10,7 +10,7 @@ import 'juici_cafe_menu.dart';
 class JuiciliciousCafeScreen extends StatefulWidget {
   const JuiciliciousCafeScreen({Key? key}) : super(key: key);
 
-    static const String routeName = '/juiciliciouscafe';
+  static const String routeName = '/juiciliciouscafe';
 
   static Route route() {
     return MaterialPageRoute(
@@ -29,6 +29,8 @@ class _JuiciliciousCafeScreenState extends State<JuiciliciousCafeScreen> {
   //List<bool> clicked = List.generate(10, (index) => false, growable: true);
   @override
   Widget build(BuildContext context) {
+    double screenwidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       extendBody: true,
       bottomNavigationBar: const BottomNav_nightcanteen(),
@@ -60,9 +62,11 @@ class _JuiciliciousCafeScreenState extends State<JuiciliciousCafeScreen> {
                   child: ListView.builder(
                       itemCount: productsJC.length,
                       physics: const ClampingScrollPhysics(),
-                      padding: const EdgeInsets.only(
-                        top: 10,bottom: 10,left: 10,
-                           ),
+                      padding: EdgeInsets.only(
+                        top: 0.025 * screenwidth,
+                        bottom: 0.025 * screenwidth,
+                        left: 0.025 * screenwidth,
+                      ),
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
                         return JCMainCourse(menuindex: index);
@@ -87,9 +91,11 @@ class _JuiciliciousCafeScreenState extends State<JuiciliciousCafeScreen> {
                   child: ListView.builder(
                       itemCount: productsJC.length,
                       physics: const ClampingScrollPhysics(),
-                      padding: const EdgeInsets.only(
-                        top: 10,bottom: 10,left: 10,
-                           ),
+                      padding: EdgeInsets.only(
+                        top: 0.025 * screenwidth,
+                        bottom: 0.025 * screenwidth,
+                        left: 0.025 * screenwidth,
+                      ),
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
                         return JCFastFood(menuindex: index);
@@ -114,9 +120,11 @@ class _JuiciliciousCafeScreenState extends State<JuiciliciousCafeScreen> {
                   child: ListView.builder(
                       itemCount: productsJC.length,
                       physics: const ClampingScrollPhysics(),
-                      padding: const EdgeInsets.only(
-                        top: 10,bottom: 10,left: 10,
-                           ),
+                      padding: EdgeInsets.only(
+                        top: 0.025 * screenwidth,
+                        bottom: 0.025 * screenwidth,
+                        left: 0.025 * screenwidth,
+                      ),
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
                         return JCBeverages(menuindex: index);
@@ -130,8 +138,6 @@ class _JuiciliciousCafeScreenState extends State<JuiciliciousCafeScreen> {
     );
   }
 }
-
-
 
 class BottomNav_nightcanteen extends StatefulWidget {
   const BottomNav_nightcanteen({

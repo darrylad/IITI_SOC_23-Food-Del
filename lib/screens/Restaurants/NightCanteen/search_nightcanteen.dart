@@ -48,7 +48,7 @@ class _SearchBarScreenNight extends State<SearchBarScreenNight> {
           ),
           title: SearchWidget(
             text: query,
-            hintText: 'Search Restaurants, Dishes and More...',
+            hintText: 'Search In Night Canteen...',
             onChanged: searchMenuItem,
           ),
         ),
@@ -83,7 +83,7 @@ class _SearchBarScreenNight extends State<SearchBarScreenNight> {
                             ),
                             splashColor: Colors.grey,
                             title: Text(
-                              menuItem.restaurant,
+                              menuItem.name,
                               style: const TextStyle(
                                   fontFamily: 'Dropdown',
                                   fontSize: 20,
@@ -91,7 +91,7 @@ class _SearchBarScreenNight extends State<SearchBarScreenNight> {
                             ),
                             tileColor: Colors.white70,
                             subtitle: Text(
-                              menuItem.name,
+                              menuItem.restaurant,
                               style: const TextStyle(
                                   color: Color.fromARGB(255, 80, 80, 80),
                                   fontFamily: 'Dropdown',
