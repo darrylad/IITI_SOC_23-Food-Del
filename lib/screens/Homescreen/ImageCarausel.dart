@@ -39,7 +39,9 @@ class _ImageCarausalState extends State<ImageCarausal> {
               autoPlay: true,
               autoPlayAnimationDuration: const Duration(seconds: 3),
               enlargeCenterPage: true,
-              height: 250,
+              height: 230,
+              enlargeFactor: 0.23,
+              viewportFraction: 0.88,
               onPageChanged: (index, reason) {
                 setState(() {
                   activeindex = index;
@@ -48,7 +50,7 @@ class _ImageCarausalState extends State<ImageCarausal> {
             ),
           ),
           const SizedBox(
-            height: 5,
+            height: 10,
           ),
           // buildindicator(),
         ],
@@ -63,7 +65,7 @@ Widget buildimage(String img, int index) {
         borderRadius: BorderRadius.all(Radius.circular(100))),
     // margin: const EdgeInsets.symmetric(horizontal: 3),
     child: ClipRRect(
-      borderRadius: const BorderRadius.all(Radius.circular(20)),
+      borderRadius: const BorderRadius.all(Radius.circular(10)),
       child: Image.asset(
         img,
         fit: BoxFit.cover,

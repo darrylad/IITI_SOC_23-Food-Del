@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_2/Screens/Homescreen/ImageCarausel.dart';
 
-import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -48,13 +47,13 @@ class MainScroll extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScrollView(slivers: [
       SliverAppBar(
-        backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
-        foregroundColor: const Color.fromARGB(255, 248, 248, 248),
+        backgroundColor: Color.fromRGBO(255, 255, 255, 1),
+        foregroundColor: const Color.fromARGB(255, 255, 255, 255),
         pinned: true,
         stretch: true,
         // snap: true,
         // floating: true,
-        expandedHeight: 160,
+        expandedHeight: 185,
         flexibleSpace: FlexibleSpaceBar(
           stretchModes: const <StretchMode>[
             StretchMode.zoomBackground,
@@ -63,7 +62,7 @@ class MainScroll extends StatelessWidget {
           ],
           centerTitle: true,
           expandedTitleScale: 1.0,
-          titlePadding: const EdgeInsets.fromLTRB(0, 1, 0, 10),
+          titlePadding: const EdgeInsets.fromLTRB(0, 5, 0, 15),
           title: const SearchBar_Homepage(),
           background: GoodMorning(name: name),
         ),
@@ -91,7 +90,9 @@ class MainScroll extends StatelessWidget {
         child: Juciliciouss_card(),
       ),
       const SliverToBoxAdapter(
-        child: SizedBox(height: 100,),
+        child: SizedBox(
+          height: 100,
+        ),
       )
     ]);
   }
@@ -195,39 +196,44 @@ class SearchBar extends StatefulWidget {
 class _SearchBarState extends State<SearchBar> {
   @override
   Widget build(BuildContext context) {
-    return Material(
-      borderRadius: const BorderRadius.all(Radius.circular(25)),
-      elevation: 2,
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(0, 40, 0, 0),
       child: Container(
-        height: 45,
-        width: 375,
-        decoration: const BoxDecoration(
-            color: Color.fromRGBO(255, 243, 240, 1),
-            border: Border(
-                right: BorderSide(color: Color.fromRGBO(164, 73, 21, 1)),
-                bottom: BorderSide(color: Color.fromRGBO(164, 73, 21, 1)),
-                left: BorderSide(color: Color.fromRGBO(164, 73, 21, 1)),
-                top: BorderSide(color: Color.fromRGBO(164, 73, 21, 1))),
-            borderRadius: BorderRadius.all(Radius.circular(10))),
-        child: Row(
-          children: [
-            const SizedBox(
-              width: 20,
-            ),
-            Image.asset(
-              'assets/buttons/Search_1.png',
-              height: 25,
-              width: 25,
-            ),
-            const SizedBox(
-              width: 5,
-            ),
-            Text('Search Reataurants,Dishes and more',
-                style: GoogleFonts.lato(
-                    fontSize: 18, color: const Color.fromRGBO(164, 73, 21, 1))),
-          ],
+          height: 45,
+          width: 350,
+          decoration: const BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  color: Color.fromRGBO(160, 80, 0, 1),
+                  spreadRadius: -19.0,
+                  offset: Offset.zero,
+                  blurRadius: 30,
+                )
+              ],
+              color: Color.fromRGBO(255, 243, 240, 1),
+              border: Border(
+                  right: BorderSide(color: Color.fromRGBO(164, 73, 21, 1)),
+                  bottom: BorderSide(color: Color.fromRGBO(164, 73, 21, 1)),
+                  left: BorderSide(color: Color.fromRGBO(164, 73, 21, 1)),
+                  top: BorderSide(color: Color.fromRGBO(164, 73, 21, 1))),
+              borderRadius: BorderRadius.all(Radius.circular(10))),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                'assets/buttons/Search_1.png',
+                height: 25,
+                width: 25,
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              Text('Search Reataurants,Dishes and more',
+                  style: GoogleFonts.lato(
+                      fontSize: 18, color: const Color.fromRGBO(164, 73, 21, 1))),
+            ],
+          ),
         ),
-      ),
     );
   }
 }
@@ -459,7 +465,7 @@ class NightCanteen_card extends StatelessWidget {
                           topLeft: Radius.circular(20),
                           topRight: Radius.circular(20)),
                       child: SizedBox(
-                        height: 160,
+                        height: 173,
                         width: 370,
                         child: Image.asset(
                           'assets/dispics/dishes/shahi_paneer.png',
@@ -469,8 +475,8 @@ class NightCanteen_card extends StatelessWidget {
                     ),
                   ),
                   Positioned(
-                    top: 165,
-                    left: 9,
+                    top: 180,
+                    left: 15,
                     child: Text(
                       'Night Canteen',
                       style: GoogleFonts.inter(
@@ -480,7 +486,7 @@ class NightCanteen_card extends StatelessWidget {
                     ),
                   ),
                   Positioned(
-                      top: 172,
+                      top: 185,
                       right: 40,
                       child: Image.asset(
                         'assets/buttons/star.png',
@@ -488,8 +494,8 @@ class NightCanteen_card extends StatelessWidget {
                         width: 20,
                       )),
                   Positioned(
-                    top: 195,
-                    left: 9,
+                    top: 208,
+                    left: 15,
                     child: Text(
                       'Opens after 11Pm',
                       style: GoogleFonts.inter(
@@ -499,7 +505,7 @@ class NightCanteen_card extends StatelessWidget {
                     ),
                   ),
                   Positioned(
-                    top: 172,
+                    top: 185,
                     right: 13,
                     child: Text(
                       '4.1',
