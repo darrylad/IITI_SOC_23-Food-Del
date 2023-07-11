@@ -11,7 +11,6 @@ import 'package:flutter_2/Screens/Cart/cart_screen.dart';
 import 'package:flutter_2/Screens/Homescreen/home_screen.dart';
 import 'package:flutter_2/Screens/Location/add_location_screen.dart';
 import 'package:flutter_2/Screens/Payment/payments_screen.dart';
-import 'package:flutter_2/Screens/Restaurants/NighCanteen/Main/NightCanteenCard/NightCanteen.dart';
 import 'package:flutter_2/Screens/Restaurants/NightCanteen/night_canteen_screen.dart';
 import 'package:flutter_2/Screens/Restaurants/TapriIITiansKi/tapri_iitians_ki_screen.dart';
 import 'package:flutter_2/Screens/Search/SearchUsingStoredData/search_bar_screen.dart';

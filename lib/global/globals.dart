@@ -41,3 +41,4 @@ List<String> options = <String>[
 ];
 
 String dropdownValue = 'Select Location';
+int? totalCartValue = 0;
