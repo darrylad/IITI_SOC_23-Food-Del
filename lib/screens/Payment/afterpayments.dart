@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
@@ -6,6 +8,15 @@ import 'package:google_fonts/google_fonts.dart';
 class Afterpayments extends StatefulWidget {
   const Afterpayments({super.key});
 
+  static const String routeName = '/afterpayments';
+
+  static Route route() {
+    return MaterialPageRoute(
+      builder: (_) => const Afterpayments(),
+      settings: const RouteSettings(name: routeName),
+    );
+  }
+
   @override
   State<Afterpayments> createState() => _AfterpaymentsState();
 }
@@ -13,7 +24,24 @@ class Afterpayments extends StatefulWidget {
 class _AfterpaymentsState extends State<Afterpayments> {
   @override
   void initState() {
+    startTimer();
     super.initState();
+  }
+
+  static const maxmin = 40;
+  int minutes = maxmin;
+  Timer? timer;
+
+  void startTimer() {
+    timer = Timer.periodic(Duration(minutes: 1), (_) {
+      setState(() {
+        if (minutes <= 11) {
+          Navigator.pushNamed(context, '/afterpayments2');
+        } else {
+          minutes--;
+        }
+      });
+    });
   }
 
   bool istrue = true;
@@ -74,7 +102,7 @@ class _AfterpaymentsState extends State<Afterpayments> {
               child:
                   Column(mainAxisAlignment: MainAxisAlignment.end, children: [
                 Text(
-                  '10',
+                  minutes.toString(),
                   style: GoogleFonts.inter(
                       fontSize: 160,
                       color: Colors.white,
@@ -228,7 +256,7 @@ class _BottomNav_1State extends State<BottomNav_1> {
                 ),
                 IconButton(
                     onPressed: () {
-                     Navigator.pushNamed(context, '/home');
+                      Navigator.pushNamed(context, '/home');
                     },
                     icon: Image.asset(
                       'assets/buttons/Home.png',
@@ -240,7 +268,7 @@ class _BottomNav_1State extends State<BottomNav_1> {
                 ),
                 IconButton(
                     onPressed: () {
-                     Navigator.pushNamed(context, '/cart');
+                      Navigator.pushNamed(context, '/cart');
                     },
                     icon: SvgPicture.asset(
                       'assets/buttons/cart.svg',

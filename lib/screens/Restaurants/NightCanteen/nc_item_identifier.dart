@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_2/Screens/Cart/cart_model.dart';
 import 'package:flutter_2/Screens/Cart/cart_provider.dart';
 import 'package:flutter_2/Screens/Cart/cart_screen.dart';
 import 'package:flutter_2/Screens/Cart/data_base.dart';
@@ -11,8 +12,6 @@ import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:provider/provider.dart';
-
-import '../../Cart/cart_model.dart';
 
 class NCMainCourse extends StatefulWidget {
   final int menuindex;
@@ -59,7 +58,6 @@ class _NCMainCourseState extends State<NCMainCourse> {
     }
 
     if (productsNC[widget.menuindex].menutype == 'Main Course') {
-
       return Container(
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(
@@ -90,7 +88,7 @@ class _NCMainCourseState extends State<NCMainCourse> {
                 width: 10,
               ),
               SizedBox(
-                width: 0.475*screenwidth,
+                width: 0.475 * screenwidth,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -107,8 +105,8 @@ class _NCMainCourseState extends State<NCMainCourse> {
                       height: 2.5,
                     ),
                     SizedBox(
-                      width: 0.45*screenwidth,
-                      height: 0.0765*screenwidth,
+                      width: 0.45 * screenwidth,
+                      height: 0.0765 * screenwidth,
                       child: Text(productsNC[widget.menuindex].itemdescription,
                           style: GoogleFonts.inter(
                               fontSize: 10,
@@ -421,7 +419,7 @@ class _NCFastFoodState extends State<NCFastFood> {
                 width: 10,
               ),
               SizedBox(
-                width: 0.475*screenwidth,
+                width: 0.475 * screenwidth,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -438,8 +436,8 @@ class _NCFastFoodState extends State<NCFastFood> {
                       height: 2.5,
                     ),
                     SizedBox(
-                      width: 0.45*screenwidth,
-                      height: 0.0765*screenwidth,
+                      width: 0.45 * screenwidth,
+                      height: 0.0765 * screenwidth,
                       child: Text(productsNC[widget.menuindex].itemdescription,
                           style: GoogleFonts.inter(
                               fontSize: 10,
@@ -752,7 +750,7 @@ class _NCBeveragesState extends State<NCBeverages> {
                 width: 10,
               ),
               SizedBox(
-                width: 0.475*screenwidth,
+                width: 0.475 * screenwidth,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -769,8 +767,8 @@ class _NCBeveragesState extends State<NCBeverages> {
                       height: 2.5,
                     ),
                     SizedBox(
-                      width: 0.45*screenwidth,
-                      height: 0.0765*screenwidth,
+                      width: 0.45 * screenwidth,
+                      height: 0.0765 * screenwidth,
                       child: Text(productsNC[widget.menuindex].itemdescription,
                           style: GoogleFonts.inter(
                               fontSize: 10,

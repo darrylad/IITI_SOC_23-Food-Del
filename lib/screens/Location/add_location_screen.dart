@@ -33,7 +33,7 @@ class _AddLocationScreenState extends State<AddLocationScreen> {
               height: 145,
             ),
             Image.asset(
-              'assets/buttons/Heart.jpg',
+              'assets/buttons/addlocation.jpg',
               height: 172,
               width: 172,
             ),
@@ -174,7 +174,7 @@ class _SubmitButtonState extends State<SubmitButton> {
                         ),
                       )));
             } else {
-              Navigator.pushNamed(context, '/home');
+              Navigator.of(context, rootNavigator: true).pushNamed('/home');
             }
           },
           child: Text(

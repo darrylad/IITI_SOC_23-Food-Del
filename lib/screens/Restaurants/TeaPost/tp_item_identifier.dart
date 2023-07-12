@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_2/Screens/Cart/cart_model.dart';
 import 'package:flutter_2/Screens/Cart/cart_provider.dart';
 import 'package:flutter_2/Screens/Cart/cart_screen.dart';
 import 'package:flutter_2/Screens/Cart/data_base.dart';
@@ -9,8 +10,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:provider/provider.dart';
-
-import '../../Cart/cart_model.dart';
 
 class TPMainCourse extends StatefulWidget {
   final int menuindex;
@@ -87,7 +86,7 @@ class _TPMainCourseState extends State<TPMainCourse> {
                 width: 10,
               ),
               SizedBox(
-                width: 0.475*screenwidth,
+                width: 0.475 * screenwidth,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -104,8 +103,8 @@ class _TPMainCourseState extends State<TPMainCourse> {
                       height: 2.5,
                     ),
                     SizedBox(
-                      width: 0.45*screenwidth,
-                      height: 0.0765*screenwidth,
+                      width: 0.45 * screenwidth,
+                      height: 0.0765 * screenwidth,
                       child: Text(productsTP[widget.menuindex].itemdescription,
                           style: GoogleFonts.inter(
                               fontSize: 10,
@@ -418,7 +417,7 @@ class _TPFastFoodState extends State<TPFastFood> {
                 width: 10,
               ),
               SizedBox(
-                width: 0.475*screenwidth,
+                width: 0.475 * screenwidth,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -435,8 +434,8 @@ class _TPFastFoodState extends State<TPFastFood> {
                       height: 2.5,
                     ),
                     SizedBox(
-                      width: 0.45*screenwidth,
-                      height: 0.0765*screenwidth,
+                      width: 0.45 * screenwidth,
+                      height: 0.0765 * screenwidth,
                       child: Text(productsTP[widget.menuindex].itemdescription,
                           style: GoogleFonts.inter(
                               fontSize: 10,
@@ -749,7 +748,7 @@ class _TPBeveragesState extends State<TPBeverages> {
                 width: 10,
               ),
               SizedBox(
-                width: 0.475*screenwidth,
+                width: 0.475 * screenwidth,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -766,8 +765,8 @@ class _TPBeveragesState extends State<TPBeverages> {
                       height: 2.5,
                     ),
                     SizedBox(
-                      width: 0.45*screenwidth,
-                      height: 0.0765*screenwidth,
+                      width: 0.45 * screenwidth,
+                      height: 0.0765 * screenwidth,
                       child: Text(productsTP[widget.menuindex].itemdescription,
                           style: GoogleFonts.inter(
                               fontSize: 10,

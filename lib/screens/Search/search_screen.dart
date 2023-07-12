@@ -71,7 +71,7 @@ class _SearchScreen extends State<SearchScreen> {
                     ],
                   ),
                   SizedBox(
-                    height:  0.051*screenwidth,
+                    height: 0.051 * screenwidth,
                   ),
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -81,7 +81,7 @@ class _SearchScreen extends State<SearchScreen> {
                     ],
                   ),
                   SizedBox(
-                    height:  0.051*screenwidth,
+                    height: 0.051 * screenwidth,
                   ),
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -91,7 +91,7 @@ class _SearchScreen extends State<SearchScreen> {
                     ],
                   ),
                   SizedBox(
-                    height:  0.051*screenwidth,
+                    height: 0.051 * screenwidth,
                   ),
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -101,7 +101,7 @@ class _SearchScreen extends State<SearchScreen> {
                     ],
                   ),
                   SizedBox(
-                    height:  0.051*screenwidth,
+                    height: 0.051 * screenwidth,
                   ),
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -133,11 +133,11 @@ class Pizza extends StatelessWidget {
     double screenwidth = MediaQuery.of(context).size.width;
     return InkWell(
       onTap: () {
-        context.go('/night_canteen_screen.dart');
+        Navigator.pushNamed(context, '/nightcanteen');
       },
       child: Container(
-        width: 0.42*screenwidth,
-        height: 0.42*screenwidth,
+        width: 0.42 * screenwidth,
+        height: 0.42 * screenwidth,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             image: DecorationImage(
@@ -152,7 +152,7 @@ class Pizza extends StatelessWidget {
         child: Stack(
           children: [
             Positioned(
-              bottom: 0.0256*screenwidth,
+              bottom: 0.0256 * screenwidth,
               left: 0,
               right: 0,
               child: const Center(
@@ -185,11 +185,11 @@ class Burger extends StatelessWidget {
 
     return InkWell(
       onTap: () {
-        context.go('/tapri_iitians_ki_screen.dart');
+        Navigator.pushNamed(context, '/tapri');
       },
       child: Container(
-        width: 0.42*screenwidth,
-        height: 0.42*screenwidth,
+        width: 0.42 * screenwidth,
+        height: 0.42 * screenwidth,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             image: DecorationImage(
@@ -204,7 +204,7 @@ class Burger extends StatelessWidget {
         child: Stack(
           children: [
             Positioned(
-              bottom: 0.0256*screenwidth,
+              bottom: 0.0256 * screenwidth,
               left: 0,
               right: 0,
               child: const Center(
@@ -236,11 +236,11 @@ class FrenchFries extends StatelessWidget {
     double screenwidth = MediaQuery.of(context).size.width;
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, '/addlocation');
+        Navigator.pushNamed(context, '/teapost');
       },
       child: Container(
-        width: 0.42*screenwidth,
-        height: 0.42*screenwidth,
+        width: 0.42 * screenwidth,
+        height: 0.42 * screenwidth,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             image: DecorationImage(
@@ -255,7 +255,7 @@ class FrenchFries extends StatelessWidget {
         child: Stack(
           children: [
             Positioned(
-              bottom: 0.0256*screenwidth,
+              bottom: 0.0256 * screenwidth,
               left: 0,
               right: 0,
               child: const Center(
@@ -287,11 +287,11 @@ class Noodles extends StatelessWidget {
     double screenwidth = MediaQuery.of(context).size.width;
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, '/addlocation');
+        Navigator.pushNamed(context, '/teapost');
       },
       child: Container(
-        width: 0.42*screenwidth,
-        height: 0.42*screenwidth,
+        width: 0.42 * screenwidth,
+        height: 0.42 * screenwidth,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             image: DecorationImage(
@@ -306,7 +306,7 @@ class Noodles extends StatelessWidget {
         child: Stack(
           children: [
             Positioned(
-              bottom: 0.0256*screenwidth,
+              bottom: 0.0256 * screenwidth,
               left: 0,
               right: 0,
               child: const Center(
@@ -338,11 +338,11 @@ class KathiRoll extends StatelessWidget {
     double screenwidth = MediaQuery.of(context).size.width;
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, '/addlocation');
+        Navigator.pushNamed(context, '/nightcanteen');
       },
       child: Container(
-        width: 0.42*screenwidth,
-        height: 0.42*screenwidth,
+        width: 0.42 * screenwidth,
+        height: 0.42 * screenwidth,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             image: DecorationImage(
@@ -357,7 +357,7 @@ class KathiRoll extends StatelessWidget {
         child: Stack(
           children: [
             Positioned(
-              bottom: 0.0256*screenwidth,
+              bottom: 0.0256 * screenwidth,
               left: 0,
               right: 0,
               child: const Center(
@@ -389,11 +389,11 @@ class PaneerTikka extends StatelessWidget {
     double screenwidth = MediaQuery.of(context).size.width;
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, '/addlocation');
+        Navigator.pushNamed(context, '/nightcanteen');
       },
       child: Container(
-        width: 0.42*screenwidth,
-        height: 0.42*screenwidth,
+        width: 0.42 * screenwidth,
+        height: 0.42 * screenwidth,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             image: DecorationImage(
@@ -408,7 +408,7 @@ class PaneerTikka extends StatelessWidget {
         child: Stack(
           children: [
             Positioned(
-              bottom: 0.0256*screenwidth,
+              bottom: 0.0256 * screenwidth,
               left: 0,
               right: 0,
               child: const Center(
@@ -440,11 +440,11 @@ class Samosa extends StatelessWidget {
     double screenwidth = MediaQuery.of(context).size.width;
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, '/addlocation');
+        Navigator.pushNamed(context, '/teapost');
       },
       child: Container(
-        width: 0.42*screenwidth,
-        height: 0.42*screenwidth,
+        width: 0.42 * screenwidth,
+        height: 0.42 * screenwidth,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             image: DecorationImage(
@@ -459,7 +459,7 @@ class Samosa extends StatelessWidget {
         child: Stack(
           children: [
             Positioned(
-              bottom: 0.0256*screenwidth,
+              bottom: 0.0256 * screenwidth,
               left: 0,
               right: 0,
               child: const Center(
@@ -491,11 +491,11 @@ class Coffee extends StatelessWidget {
     double screenwidth = MediaQuery.of(context).size.width;
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, '/addlocation');
+        Navigator.pushNamed(context, '/juiciliciouscafe');
       },
       child: Container(
-        width: 0.42*screenwidth,
-        height: 0.42*screenwidth,
+        width: 0.42 * screenwidth,
+        height: 0.42 * screenwidth,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             image: DecorationImage(
@@ -510,7 +510,7 @@ class Coffee extends StatelessWidget {
         child: Stack(
           children: [
             Positioned(
-              bottom: 0.0256*screenwidth,
+              bottom: 0.0256 * screenwidth,
               left: 0,
               right: 0,
               child: const Center(
@@ -542,11 +542,11 @@ class Juice extends StatelessWidget {
     double screenwidth = MediaQuery.of(context).size.width;
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, '/addlocation');
+        Navigator.pushNamed(context, '/juiciliciouscafe');
       },
       child: Container(
-        width: 0.42*screenwidth,
-        height: 0.42*screenwidth,
+        width: 0.42 * screenwidth,
+        height: 0.42 * screenwidth,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             image: DecorationImage(
@@ -561,7 +561,7 @@ class Juice extends StatelessWidget {
         child: Stack(
           children: [
             Positioned(
-              bottom: 0.0256*screenwidth,
+              bottom: 0.0256 * screenwidth,
               left: 0,
               right: 0,
               child: const Center(
@@ -593,11 +593,11 @@ class IceCream extends StatelessWidget {
     double screenwidth = MediaQuery.of(context).size.width;
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, '/addlocation');
+        Navigator.pushNamed(context, '/juiciliciouscafe');
       },
       child: Container(
-        width: 0.42*screenwidth,
-        height: 0.42*screenwidth,
+        width: 0.42 * screenwidth,
+        height: 0.42 * screenwidth,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             image: DecorationImage(
@@ -612,7 +612,7 @@ class IceCream extends StatelessWidget {
         child: Stack(
           children: [
             Positioned(
-              bottom: 0.0256*screenwidth,
+              bottom: 0.0256 * screenwidth,
               left: 0,
               right: 0,
               child: const Center(
@@ -672,12 +672,12 @@ class SearchBarBoxState extends State<SearchBarBox> {
                       fontWeight: FontWeight.w600,
                       color: const Color.fromARGB(255, 162, 58, 0)),
                   prefixIcon: Padding(
-                    padding:
-                        EdgeInsets.only(left: 15, right: 10, bottom: 0.0063*screenwidth),
+                    padding: EdgeInsets.only(
+                        left: 15, right: 10, bottom: 0.0063 * screenwidth),
                     child: Image.asset(
                       'assets/buttons/Search_1.png',
-                      height: 0.055*screenwidth,
-                      width: 0.055*screenwidth,
+                      height: 0.055 * screenwidth,
+                      width: 0.055 * screenwidth,
                     ),
                   ),
                   disabledBorder: OutlineInputBorder(

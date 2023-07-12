@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_2/Screens/Homescreen/home_screen.dart';
+
+import 'package:flutter_2/Start/start_screen.dart';
 import 'package:flutter_2/app%20router/app_router.dart';
 import 'package:flutter_2/Screens/Cart/cart_provider.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -7,7 +8,7 @@ import 'package:provider/provider.dart';
 
 String locationdropdownvalue = 'Choose Your Location';
 
-void main() async{
+void main() async {
   runApp(const MyApp());
 }
 
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
         )
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'DeliverEat',
         theme: ThemeData(
           fontFamily: GoogleFonts.lato().fontFamily,
@@ -32,9 +34,8 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         onGenerateRoute: AppRouter.onGenerateRoute,
-        initialRoute: HomeScreen.routeName,
+        initialRoute: Startscreen.routeName,
       ),
     );
   }
 }
-

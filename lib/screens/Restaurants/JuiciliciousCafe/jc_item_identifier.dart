@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_2/Screens/Cart/cart_model.dart';
 import 'package:flutter_2/Screens/Cart/cart_provider.dart';
 import 'package:flutter_2/Screens/Cart/cart_screen.dart';
 import 'package:flutter_2/Screens/Cart/data_base.dart';
@@ -9,8 +10,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:provider/provider.dart';
-
-import '../../Cart/cart_model.dart';
 
 class JCMainCourse extends StatefulWidget {
   final int menuindex;
@@ -87,7 +86,7 @@ class _JCMainCourseState extends State<JCMainCourse> {
                 width: 10,
               ),
               SizedBox(
-                width: 0.475*screenwidth,
+                width: 0.475 * screenwidth,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -104,8 +103,8 @@ class _JCMainCourseState extends State<JCMainCourse> {
                       height: 2.5,
                     ),
                     SizedBox(
-                      width: 0.45*screenwidth,
-                      height: 0.0765*screenwidth,
+                      width: 0.45 * screenwidth,
+                      height: 0.0765 * screenwidth,
                       child: Text(productsJC[widget.menuindex].itemdescription,
                           style: GoogleFonts.inter(
                               fontSize: 10,
@@ -418,7 +417,7 @@ class _JCFastFoodState extends State<JCFastFood> {
                 width: 10,
               ),
               SizedBox(
-                width: 0.475*screenwidth,
+                width: 0.475 * screenwidth,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -435,8 +434,8 @@ class _JCFastFoodState extends State<JCFastFood> {
                       height: 2.5,
                     ),
                     SizedBox(
-                      width: 0.45*screenwidth,
-                      height: 0.0765*screenwidth,
+                      width: 0.45 * screenwidth,
+                      height: 0.0765 * screenwidth,
                       child: Text(productsJC[widget.menuindex].itemdescription,
                           style: GoogleFonts.inter(
                               fontSize: 10,
@@ -749,7 +748,7 @@ class _JCBeveragesState extends State<JCBeverages> {
                 width: 10,
               ),
               SizedBox(
-                width: 0.475*screenwidth,
+                width: 0.475 * screenwidth,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -766,8 +765,8 @@ class _JCBeveragesState extends State<JCBeverages> {
                       height: 2.5,
                     ),
                     SizedBox(
-                      width: 0.45*screenwidth,
-                      height: 0.0765*screenwidth,
+                      width: 0.45 * screenwidth,
+                      height: 0.0765 * screenwidth,
                       child: Text(productsJC[widget.menuindex].itemdescription,
                           style: GoogleFonts.inter(
                               fontSize: 10,
@@ -1011,7 +1010,6 @@ void _showModalBottomSheet(BuildContext context) {
     enableDrag: true,
     isDismissible: true,
     isScrollControlled: true,
-
     shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
       top: Radius.circular(30),

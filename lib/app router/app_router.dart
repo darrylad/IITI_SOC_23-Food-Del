@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_2/Screens/Payment/afterpayments.dart';
+import 'package:flutter_2/Screens/Payment/afterpayments2.dart';
 import 'package:flutter_2/Screens/Restaurants/JuiciliciousCafe/juicilicious_cafe_screen.dart';
 import 'package:flutter_2/Screens/Restaurants/JuiciliciousCafe/search_juiciliciouscafe.dart';
 import 'package:flutter_2/Screens/Restaurants/NightCanteen/search_nightcanteen.dart';
@@ -23,8 +25,6 @@ class AppRouter {
 
     switch (settings.name) {
       case '/':
-        return Startscreen.route();
-      case Startscreen.routeName:
         return Startscreen.route();
       case HomeScreen.routeName:
         return HomeScreen.route();
@@ -56,8 +56,10 @@ class AppRouter {
         return SearchBarScreenTeaPost.route();
       case SearchBarScreenJuiciliciousCafe.routeName:
         return SearchBarScreenJuiciliciousCafe.route();
-
-        break;
+      case Afterpayments.routeName:
+        return Afterpayments.route();
+      case Afterpayments1.routeName:
+        return Afterpayments1.route();
 
       default:
         return _errorRoute();

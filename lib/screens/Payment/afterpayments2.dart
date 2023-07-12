@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
@@ -6,6 +8,15 @@ import 'package:google_fonts/google_fonts.dart';
 class Afterpayments1 extends StatefulWidget {
   const Afterpayments1({super.key});
 
+  static const String routeName = '/afterpayments2';
+
+  static Route route() {
+    return MaterialPageRoute(
+      builder: (_) => const Afterpayments1(),
+      settings: const RouteSettings(name: routeName),
+    );
+  }
+
   @override
   State<Afterpayments1> createState() => _Afterpayments1State();
 }
@@ -13,7 +24,24 @@ class Afterpayments1 extends StatefulWidget {
 class _Afterpayments1State extends State<Afterpayments1> {
   @override
   void initState() {
+    startTimer();
     super.initState();
+  }
+
+  static const maxmin = 10;
+  int minutes = maxmin;
+  Timer? timer;
+
+  void startTimer() {
+    timer = Timer.periodic(Duration(minutes: 1), (_) {
+      setState(() {
+        if (minutes < 1) {
+          Navigator.pushNamed(context, '/afterpayments3');
+        } else {
+          minutes--;
+        }
+      });
+    });
   }
 
   bool istrue = true;
