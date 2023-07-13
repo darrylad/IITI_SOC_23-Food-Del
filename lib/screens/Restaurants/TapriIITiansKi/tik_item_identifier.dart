@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_2/Screens/Cart/cart_model.dart';
 import 'package:flutter_2/Screens/Cart/cart_provider.dart';
 import 'package:flutter_2/Screens/Cart/cart_screen.dart';
 import 'package:flutter_2/Screens/Cart/data_base.dart';
@@ -10,8 +11,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:provider/provider.dart';
-
-import '../../Cart/cart_model.dart';
 
 class TIKMainCourse extends StatefulWidget {
   final int menuindex;
@@ -90,7 +89,7 @@ class _TIKMainCourseState extends State<TIKMainCourse> {
                 width: 10,
               ),
               SizedBox(
-                width: 0.475*screenwidth,
+                width: 0.475 * screenwidth,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -107,8 +106,8 @@ class _TIKMainCourseState extends State<TIKMainCourse> {
                       height: 2.5,
                     ),
                     SizedBox(
-                      width: 0.45*screenwidth,
-                      height: 0.0765*screenwidth,
+                      width: 0.45 * screenwidth,
+                      height: 0.0765 * screenwidth,
                       child: Text(productsTIK[widget.menuindex].itemdescription,
                           style: GoogleFonts.inter(
                               fontSize: 10,
@@ -420,7 +419,7 @@ class _TIKFastFoodState extends State<TIKFastFood> {
                 width: 10,
               ),
               SizedBox(
-                width: 0.475*screenwidth,
+                width: 0.475 * screenwidth,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -437,8 +436,8 @@ class _TIKFastFoodState extends State<TIKFastFood> {
                       height: 2.5,
                     ),
                     SizedBox(
-                      width: 0.45*screenwidth,
-                      height: 0.0765*screenwidth,
+                      width: 0.45 * screenwidth,
+                      height: 0.0765 * screenwidth,
                       child: Text(productsTIK[widget.menuindex].itemdescription,
                           style: GoogleFonts.inter(
                               fontSize: 10,
@@ -750,7 +749,7 @@ class _TIKBeveragesState extends State<TIKBeverages> {
                 width: 10,
               ),
               SizedBox(
-                width: 0.475*screenwidth,
+                width: 0.475 * screenwidth,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -767,8 +766,8 @@ class _TIKBeveragesState extends State<TIKBeverages> {
                       height: 2.5,
                     ),
                     SizedBox(
-                      width: 0.45*screenwidth,
-                      height: 0.0765*screenwidth,
+                      width: 0.45 * screenwidth,
+                      height: 0.0765 * screenwidth,
                       child: Text(productsTIK[widget.menuindex].itemdescription,
                           style: GoogleFonts.inter(
                               fontSize: 10,

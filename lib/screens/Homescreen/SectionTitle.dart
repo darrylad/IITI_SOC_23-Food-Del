@@ -16,7 +16,7 @@ class SectionTitle extends StatelessWidget {
       color: const Color.fromRGBO(255, 255, 255, 1),
       child: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Row(

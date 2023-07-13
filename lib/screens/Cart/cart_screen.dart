@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_2/Screens/Cart/cart_model.dart';
 import 'package:flutter_2/Screens/Cart/data_base.dart';
 import 'package:flutter_2/global/globals.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:razorpay_flutter/razorpay_flutter.dart';
 
+import '../../global/globals.dart';
 import '../Restaurants/non_veg_logo.dart';
 import '../Restaurants/veg_logo.dart';
 import 'cart_provider.dart';
@@ -40,35 +43,49 @@ class _CartScreenState extends State<CartScreen> {
   Widget build(BuildContext context) {
     final cart = Provider.of<CartProvider>(context);
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 229, 229, 229),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        title: Text(
+          'Cart',
+          style: GoogleFonts.inter(fontWeight: FontWeight.w600, fontSize: 24),
+        ),
+      ),
+      backgroundColor: const Color.fromRGBO(240, 255, 253, 1),
       body: SingleChildScrollView(
         child: Column(
           children: [
             Consumer<CartProvider>(
               builder: (BuildContext context, provider, widget) {
                 if (provider.cart.isEmpty) {
-                  return const Center(
-                    child: Text(
-                      'Something Delicious is Waiting For you!',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 18.0),
-                    ),
+                  return Column(
+                    children: [
+                      SizedBox(
+                        height: (MediaQuery.of(context).size.height) / 2.8,
+                      ),
+                      Center(
+                        child: Text(
+                          'Something Delicious is Waiting For you!',
+                          style: GoogleFonts.inter(
+                              fontSize: 18, fontWeight: FontWeight.w500),
+                        ),
+                      ),
+                    ],
                   );
                 } else {
                   return Column(
                     children: [
                       const SizedBox(
-                        height: 30,
+                        height: 10,
                       ),
                       Padding(
                         padding: const EdgeInsets.all(12.0),
                         child: Container(
                           decoration: BoxDecoration(
-                              color: Colors.white,
+                              color: Colors.transparent,
                               //color: Colors.black12,
                               borderRadius: BorderRadius.circular(15)),
                           child: SingleChildScrollView(
-                            child: ListView.separated(
+                            child: ListView.builder(
                               physics: const ClampingScrollPhysics(),
                               padding: EdgeInsets.zero,
                               shrinkWrap: true,
@@ -88,8 +105,8 @@ class _CartScreenState extends State<CartScreen> {
                                         Row(
                                           children: [
                                             SizedBox(
-                                              width: 90,
-                                              height: 90,
+                                              width: 80,
+                                              height: 80,
                                               child: ClipRRect(
                                                 borderRadius:
                                                     BorderRadius.circular(10),
@@ -283,12 +300,12 @@ class _CartScreenState extends State<CartScreen> {
                                   ),
                                 );
                               },
-                              separatorBuilder: (context, index) {
-                                return const Divider(
-                                  thickness: 1.75,
-                                  color: Color.fromARGB(255, 211, 211, 211),
-                                );
-                              },
+                              // separatorBuilder: (context, index) {
+                              //   return const Divider(
+                              //     thickness: 1.75,
+                              //     color: Color.fromARGB(255, 211, 211, 211),
+                              //   );
+                              // },
                             ),
                           ),
                         ),
@@ -301,11 +318,11 @@ class _CartScreenState extends State<CartScreen> {
             Consumer<CartProvider>(
               builder: (BuildContext context, value, Widget? child) {
                 if (value.cart.isEmpty) {
-                  return const Center(
+                  return Center(
                       child: Text(
                     'Please add some items',
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0),
+                    style: GoogleFonts.inter(
+                        fontWeight: FontWeight.w500, fontSize: 18.0),
                   ));
                 } else {
                   final ValueNotifier<int?> totalPrice = ValueNotifier(null);
@@ -316,32 +333,32 @@ class _CartScreenState extends State<CartScreen> {
                   }
                   return Column(
                     children: [
-                      const SizedBox(
-                        height: 10,
+                      Image.asset(
+                        'assets/buttons/line.png',
+                        width: (MediaQuery.of(context).size.width - 60),
                       ),
-                      const CuttlerySection(),
                       const SizedBox(
-                        height: 30,
+                        height: 0,
                       ),
                       ValueListenableBuilder<int?>(
                           valueListenable: totalPrice,
                           builder: (context, val, child) {
-                            totalCartValue = val;
+                            totalCartValue = val! + 20;
                             return Column(
                               children: [
-                                const SizedBox(
-                                  width: double.maxFinite,
-                                  child: Padding(
-                                    padding: EdgeInsets.only(left: 30.0),
-                                    child: Text(
-                                      'Bill Details',
-                                      style: TextStyle(
-                                          fontFamily: 'Dropdown',
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ),
-                                ),
+                                // const SizedBox(
+                                //   width: double.maxFinite,
+                                //   child: Padding(
+                                //     padding: EdgeInsets.only(left: 30.0),
+                                //     child: Text(
+                                //       'Bill Details',
+                                //       style: TextStyle(
+                                //           fontFamily: 'Dropdown',
+                                //           fontSize: 18,
+                                //           fontWeight: FontWeight.bold),
+                                //     ),
+                                //   ),
+                                // ),
                                 Padding(
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: 15, vertical: 10),
@@ -349,7 +366,7 @@ class _CartScreenState extends State<CartScreen> {
                                     padding: const EdgeInsets.symmetric(
                                         vertical: 15, horizontal: 15),
                                     decoration: BoxDecoration(
-                                      color: Colors.white,
+                                      color: Colors.transparent,
                                       borderRadius: BorderRadius.circular(15),
                                     ),
                                     child: Column(
@@ -364,8 +381,21 @@ class _CartScreenState extends State<CartScreen> {
                                         const BillingParameters(
                                             title: 'Delivery Partner Fees',
                                             value: '10.00'),
+                                        const SizedBox(
+                                          height: 30,
+                                        ),
+                                        Image.asset(
+                                          'assets/buttons/line.png',
+                                          width: (MediaQuery.of(context)
+                                                  .size
+                                                  .width -
+                                              50),
+                                        ),
+                                        const SizedBox(
+                                          height: 30,
+                                        ),
                                         BillingAmount(
-                                            title: 'To Pay',
+                                            title: 'Grand Total',
                                             value:
                                                 (val! + 20).toStringAsFixed(2)),
                                       ],
@@ -375,6 +405,30 @@ class _CartScreenState extends State<CartScreen> {
                               ],
                             );
                           }),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 30),
+                        child: GestureDetector(
+                            onTap: () {
+                              Navigator.pushNamed(context, '/payments');
+                            },
+                            child: Container(
+                              height: 60,
+                              width: 250,
+                              decoration: const BoxDecoration(
+                                  color: Color.fromRGBO(36, 194, 138, 1),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10))),
+                              child: Center(
+                                child: Text(
+                                  'CHECKOUT',
+                                  style: GoogleFonts.inter(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.white),
+                                ),
+                              ),
+                            )),
+                      )
                     ],
                   );
                 }
@@ -383,28 +437,20 @@ class _CartScreenState extends State<CartScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: InkWell(
-        onTap: () {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(totalCartValue.toString()),
-              duration: Duration(seconds: 2),
-            ),
-          );
-        },
-        child: Container(
-          color: const Color.fromARGB(255, 69, 255, 159),
-          alignment: Alignment.center,
-          height: 50.0,
-          child: const Text(
-            'Proceed to Pay',
-            style: TextStyle(
-              fontSize: 18.0,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-      ),
+      // bottomNavigationBar: TextButton(
+      //   child: const Text(
+      //     'Proceed To Pay',
+      //     style: TextStyle(
+      //         fontFamily: 'Dropdown',
+      //         fontSize: 16,
+      //         color: Color.fromARGB(255, 0, 126, 51),
+      //         fontWeight: FontWeight.bold),
+      //   ),
+      //   onPressed: () {
+
+      //     _razorpay.open(options);
+      //   },
+      // ),
     );
   }
 }
@@ -537,24 +583,23 @@ class BillingParameters extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.only(top: 8),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             title,
-            style: const TextStyle(
-                fontFamily: 'Dropdown',
-                fontSize: 18,
-                color: Color.fromARGB(255, 113, 113, 113),
-                fontWeight: FontWeight.bold),
+            style: GoogleFonts.inter(
+                fontSize: 20,
+                color: const Color.fromARGB(255, 0, 0, 0),
+                fontWeight: FontWeight.w600),
           ),
           Text(
             '\u{20B9}$value',
-            style: const TextStyle(
-              fontSize: 16.5,
-              color: Color.fromARGB(255, 67, 67, 67),
-              fontWeight: FontWeight.w700,
+            style: GoogleFonts.inter(
+              fontSize: 18,
+              color: const Color.fromRGBO(0, 126, 51, 1),
+              fontWeight: FontWeight.w600,
             ),
           ),
         ],
@@ -570,17 +615,16 @@ class BillingAmount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.only(top: 8),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             title,
-            style: const TextStyle(
-                fontFamily: 'Dropdown',
-                fontSize: 18,
-                color: Color.fromARGB(255, 0, 0, 0),
-                fontWeight: FontWeight.w800),
+            style: GoogleFonts.inter(
+                fontSize: 25,
+                color: const Color.fromARGB(255, 0, 0, 0),
+                fontWeight: FontWeight.w600),
           ),
           Text(
             '\u{20B9}$value',
@@ -606,7 +650,7 @@ class CuttlerySection extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 12),
       child: Container(
         width: double.maxFinite,
-        height: 115,
+        height: 80,
         decoration: BoxDecoration(
             color: Colors.white, borderRadius: BorderRadius.circular(15)),
         child: Column(

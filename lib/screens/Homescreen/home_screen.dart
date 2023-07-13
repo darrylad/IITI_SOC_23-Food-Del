@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_2/Screens/Cart/cart_provider.dart';
 import 'package:flutter_2/Screens/Cart/data_base.dart';
 import 'package:flutter_2/Screens/Homescreen/ImageCarausel.dart';
+import 'package:flutter_2/Screens/Homescreen/data.dart';
+import 'package:flutter_2/Screens/Payment/afterpayments.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -40,7 +42,7 @@ class _HomeScreen extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      bottomNavigationBar: const BottomNav_1(),
+      bottomNavigationBar: BottomNav_1(),
       backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
       body: MainScroll(
         name: username,
@@ -61,7 +63,8 @@ class MainScroll extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScrollView(slivers: [
       SliverAppBar(
-        backgroundColor: Color.fromRGBO(255, 255, 255, 1),
+        automaticallyImplyLeading: false,
+        backgroundColor: Colors.transparent,
         foregroundColor: const Color.fromARGB(255, 255, 255, 255),
         pinned: true,
         stretch: true,
@@ -76,7 +79,7 @@ class MainScroll extends StatelessWidget {
           ],
           centerTitle: true,
           expandedTitleScale: 1.0,
-          titlePadding: const EdgeInsets.fromLTRB(0, 5, 0, 15),
+          titlePadding: const EdgeInsets.fromLTRB(0, 8, 0, 10),
           title: const SearchBar_Homepage(),
           background: GoodMorning(name: name),
         ),
@@ -92,16 +95,7 @@ class MainScroll extends StatelessWidget {
         ),
       ),
       const SliverToBoxAdapter(
-        child: NightCanteen_card(),
-      ),
-      const SliverToBoxAdapter(
-        child: TeaPost_card(),
-      ),
-      const SliverToBoxAdapter(
-        child: Tapri_card(),
-      ),
-      const SliverToBoxAdapter(
-        child: Juciliciouss_card(),
+        child: RestCard(),
       ),
       const SliverToBoxAdapter(
         child: SizedBox(
@@ -112,7 +106,6 @@ class MainScroll extends StatelessWidget {
   }
 }
 
-// ignore: camel_case_types
 class BottomNav_1 extends StatefulWidget {
   const BottomNav_1({
     super.key,
@@ -191,7 +184,7 @@ class SearchBar_Homepage extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, '/search');
+        Navigator.pushNamed(context, '/searchbarafter');
       },
       child: const SearchBar(),
     );
@@ -355,105 +348,39 @@ class _GoodMorning extends State<GoodMorning> {
 // ignore: camel_case_types
 
 // ignore: camel_case_types
-class Tapri_card extends StatelessWidget {
-  const Tapri_card({
+
+// ignore: camel_case_types
+
+class RestCard extends StatelessWidget {
+  const RestCard({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const SizedBox(
-          height: 20,
-        ),
-        Padding(
-          padding: const EdgeInsets.fromLTRB(10, 2, 10, 2),
-          child: Material(
-            elevation: 10,
-            borderRadius: const BorderRadius.all(Radius.circular(13)),
-            child: Container(
-              decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(13)),
-                  color: Color.fromARGB(255, 255, 255, 255)),
-              height: 240,
-              width: 356,
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, '/tapri');
-                },
-                child: Stack(children: [
-                  Positioned(
-                    child: ClipRRect(
-                      borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(20),
-                          topRight: Radius.circular(20)),
-                      child: SizedBox(
-                        height: 160,
-                        width: 370,
-                        child: Image.asset(
-                          'assets/dispics/dishes/Manchurian.png',
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    top: 165,
-                    left: 9,
-                    child: Text(
-                      'Tapri IITians ki',
-                      style: GoogleFonts.inter(
-                          color: const Color.fromARGB(255, 2, 2, 2),
-                          fontSize: 20,
-                          fontWeight: FontWeight.w600),
-                    ),
-                  ),
-                  Positioned(
-                      top: 172,
-                      right: 40,
-                      child: Image.asset(
-                        'assets/buttons/star.png',
-                        height: 20,
-                        width: 20,
-                      )),
-                  Positioned(
-                    top: 195,
-                    left: 9,
-                    child: Text(
-                      'Open till 11Pm',
-                      style: GoogleFonts.inter(
-                          color: const Color.fromRGBO(142, 140, 140, 1),
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500),
-                    ),
-                  ),
-                  Positioned(
-                    top: 172,
-                    right: 13,
-                    child: Text(
-                      '3.6',
-                      style: GoogleFonts.inter(
-                          color: const Color.fromARGB(255, 208, 184, 0),
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500),
-                    ),
-                  )
-                ]),
-              ),
-            ),
-          ),
-        ),
-      ],
+    return Flexible(
+      child: ListView.builder(
+          padding: EdgeInsets.zero,
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: Restaurants_name.length,
+          shrinkWrap: true,
+          itemBuilder: (BuildContext context, int index) {
+            return card(
+              index: index,
+            );
+          }),
     );
   }
 }
 
-// ignore: camel_case_types
-class NightCanteen_card extends StatelessWidget {
-  const NightCanteen_card({
+class card extends StatelessWidget {
+  const card({
     super.key,
+    required this.index,
   });
+
+  // ignore: prefer_typing_uninitialized_variables
+  final index;
 
   @override
   Widget build(BuildContext context) {
@@ -465,17 +392,25 @@ class NightCanteen_card extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.fromLTRB(10, 2, 10, 2),
           child: Material(
-            elevation: 10,
+            elevation: 0,
             borderRadius: const BorderRadius.all(Radius.circular(13)),
             child: Container(
               decoration: const BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black26,
+                      blurRadius: 40,
+                      spreadRadius: -15,
+                    )
+                  ],
                   borderRadius: BorderRadius.all(Radius.circular(13)),
                   color: Color.fromARGB(255, 255, 255, 255)),
               height: 240,
               width: 356,
               child: GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, '/nightcanteen');
+                  Navigator.pushNamed(
+                      context, Restaurants_route[index].toString());
                 },
                 child: Stack(children: [
                   Positioned(
@@ -487,7 +422,7 @@ class NightCanteen_card extends StatelessWidget {
                         height: 173,
                         width: 370,
                         child: Image.asset(
-                          'assets/dispics/dishes/shahi_paneer.png',
+                          Restaurants_Img[index].toString(),
                           fit: BoxFit.fill,
                         ),
                       ),
@@ -497,7 +432,7 @@ class NightCanteen_card extends StatelessWidget {
                     top: 180,
                     left: 15,
                     child: Text(
-                      'Night Canteen',
+                      Restaurants_name[index].toString(),
                       style: GoogleFonts.inter(
                           color: const Color.fromARGB(255, 2, 2, 2),
                           fontSize: 20,
@@ -516,7 +451,7 @@ class NightCanteen_card extends StatelessWidget {
                     top: 208,
                     left: 15,
                     child: Text(
-                      'Opens after 11Pm',
+                      Restaurants_disc[index].toString(),
                       style: GoogleFonts.inter(
                           color: const Color.fromRGBO(142, 140, 140, 1),
                           fontSize: 15,
@@ -527,7 +462,7 @@ class NightCanteen_card extends StatelessWidget {
                     top: 185,
                     right: 13,
                     child: Text(
-                      '4.1',
+                      Restaurants_stars[index].toString(),
                       style: GoogleFonts.inter(
                           color: const Color.fromARGB(255, 208, 184, 0),
                           fontSize: 15,
@@ -543,195 +478,3 @@ class NightCanteen_card extends StatelessWidget {
     );
   }
 }
-
-// ignore: camel_case_types
-class TeaPost_card extends StatelessWidget {
-  const TeaPost_card({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const SizedBox(
-          height: 20,
-        ),
-        Padding(
-          padding: const EdgeInsets.fromLTRB(10, 2, 10, 2),
-          child: Material(
-            elevation: 10,
-            borderRadius: const BorderRadius.all(Radius.circular(13)),
-            child: Container(
-              decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(13)),
-                  color: Color.fromARGB(255, 255, 255, 255)),
-              height: 240,
-              width: 356,
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, '/teapost');
-                },
-                child: Stack(children: [
-                  Positioned(
-                    child: ClipRRect(
-                      borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(20),
-                          topRight: Radius.circular(20)),
-                      child: SizedBox(
-                        height: 160,
-                        width: 370,
-                        child: Image.asset(
-                          'assets/dispics/dishes/Frenchfries.jpg',
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    top: 165,
-                    left: 9,
-                    child: Text(
-                      'Tea Post',
-                      style: GoogleFonts.inter(
-                          color: const Color.fromARGB(255, 2, 2, 2),
-                          fontSize: 20,
-                          fontWeight: FontWeight.w600),
-                    ),
-                  ),
-                  Positioned(
-                      top: 172,
-                      right: 40,
-                      child: Image.asset(
-                        'assets/buttons/star.png',
-                        height: 20,
-                        width: 20,
-                      )),
-                  Positioned(
-                    top: 195,
-                    left: 9,
-                    child: Text(
-                      'Open till 2Am',
-                      style: GoogleFonts.inter(
-                          color: const Color.fromRGBO(142, 140, 140, 1),
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500),
-                    ),
-                  ),
-                  Positioned(
-                    top: 172,
-                    right: 13,
-                    child: Text(
-                      '3.9',
-                      style: GoogleFonts.inter(
-                          color: const Color.fromARGB(255, 208, 184, 0),
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500),
-                    ),
-                  )
-                ]),
-              ),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-// ignore: camel_case_types
-class Juciliciouss_card extends StatelessWidget {
-  const Juciliciouss_card({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const SizedBox(
-          height: 20,
-        ),
-        Padding(
-          padding: const EdgeInsets.fromLTRB(10, 2, 10, 2),
-          child: Material(
-            elevation: 10,
-            borderRadius: const BorderRadius.all(Radius.circular(13)),
-            child: Container(
-              decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(13)),
-                  color: Color.fromARGB(255, 255, 255, 255)),
-              height: 240,
-              width: 356,
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, '/juiciliciouscafe');
-                },
-                child: Stack(children: [
-                  Positioned(
-                    child: ClipRRect(
-                      borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(20),
-                          topRight: Radius.circular(20)),
-                      child: SizedBox(
-                        height: 160,
-                        width: 370,
-                        child: Image.asset(
-                          'assets/dispics/dishes/juiciliciouscafe.jpg',
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    top: 165,
-                    left: 9,
-                    child: Text(
-                      'Juicilicious',
-                      style: GoogleFonts.inter(
-                          color: const Color.fromARGB(255, 2, 2, 2),
-                          fontSize: 20,
-                          fontWeight: FontWeight.w600),
-                    ),
-                  ),
-                  Positioned(
-                      top: 172,
-                      right: 40,
-                      child: Image.asset(
-                        'assets/buttons/star.png',
-                        height: 20,
-                        width: 20,
-                      )),
-                  Positioned(
-                    top: 195,
-                    left: 9,
-                    child: Text(
-                      'Open till 2Am',
-                      style: GoogleFonts.inter(
-                          color: const Color.fromRGBO(142, 140, 140, 1),
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500),
-                    ),
-                  ),
-                  Positioned(
-                    top: 172,
-                    right: 13,
-                    child: Text(
-                      '4.3',
-                      style: GoogleFonts.inter(
-                          color: const Color.fromARGB(255, 208, 184, 0),
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500),
-                    ),
-                  )
-                ]),
-              ),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-// ignore: camel_case_types

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_2/global/globals.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
@@ -41,7 +42,7 @@ class _PaymentsPageState extends State<PaymentsPage> {
 
   void _handlePaymentError(PaymentFailureResponse response) {
     {
-      Navigator.pushNamed(context, '/afterpayments');
+      Navigator.pushNamed(context, '/payments');
     }
     // Do something when payment fails
   }
@@ -58,14 +59,7 @@ class _PaymentsPageState extends State<PaymentsPage> {
         width: double.infinity,
         height: MediaQuery.of(context).size.height,
         decoration: const BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment(6.123234262925839e-17, -1),
-              end: Alignment(1, 6.123234262925839e-17),
-              colors: [
-                Color.fromRGBO(0, 174, 93, 1),
-                Color.fromRGBO(0, 193, 104, 1),
-                Color.fromRGBO(31, 252, 145, 1)
-              ]),
+          color: Color.fromRGBO(63, 255, 169, 1),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -92,11 +86,16 @@ class _PaymentsPageState extends State<PaymentsPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('Rs 500',
+                Text('Rs',
                     style: GoogleFonts.inter(
                         fontSize: 70,
                         fontWeight: FontWeight.w700,
-                        color: Colors.white)),
+                        color: const Color.fromARGB(255, 255, 255, 255))),
+                Text(totalCartValue.toString(),
+                    style: GoogleFonts.inter(
+                        fontSize: 70,
+                        fontWeight: FontWeight.w700,
+                        color: const Color.fromARGB(255, 255, 255, 255))),
               ],
             ),
             const SizedBox(
@@ -105,17 +104,11 @@ class _PaymentsPageState extends State<PaymentsPage> {
             GestureDetector(
               onTap: () {
                 var options = {
-                  'key': '<rzp_test_V9s6DK7Eadsvfx>',
-                  'amount': '50000', //in the smallest currency sub-unit.
-                  'name': 'Acme Corp.',
-                  'order_id':
-                      'order_EMBFqjDHEEn80l', // Generate order_id using Orders API
-                  'description': 'Fine T-Shirt',
+                  'key': "rzp_test_63wbl8WV8xdIR9",
+                  'amount': totalCartValue! * 100,
+                  'name': 'DeliverEat',
+                  'description': 'Food',
                   'timeout': 300, // in seconds
-                  'prefill': {
-                    'contact': '9123456789',
-                    'email': 'gaurav.kumar@example.com'
-                  }
                 };
                 _razorpay.open(options);
               },
@@ -126,7 +119,7 @@ class _PaymentsPageState extends State<PaymentsPage> {
                   borderRadius: BorderRadius.all(
                     Radius.circular(10),
                   ),
-                  color: Colors.white,
+                  color: Color.fromARGB(255, 255, 255, 255),
                 ),
                 child: SvgPicture.asset(
                   'assets/buttons/Razorpay_logo.svg',
@@ -137,5 +130,11 @@ class _PaymentsPageState extends State<PaymentsPage> {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _razorpay.clear();
+    super.dispose();
   }
 }

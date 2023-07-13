@@ -302,7 +302,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             Row(
               children: [
                 SizedBox(
-                  width: 0.125*screenwidth,
+                  width: 0.125 * screenwidth,
                 ),
                 TextButton.icon(
                   onPressed: () {

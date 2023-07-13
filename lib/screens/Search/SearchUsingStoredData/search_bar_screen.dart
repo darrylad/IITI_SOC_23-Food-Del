@@ -41,7 +41,7 @@ class _SearchBarScreen extends State<SearchBarScreen> {
           centerTitle: true,
           leading: BackButton(
             onPressed: () {
-              Navigator.pushNamed(context, '/search');
+              Navigator.pushNamed(context, '/home');
             },
             color: const Color.fromARGB(255, 152, 46, 1),
           ),

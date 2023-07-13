@@ -31,6 +31,7 @@ class MyApp extends StatelessWidget {
         )
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'DeliverEat',
         theme: ThemeData(
           fontFamily: GoogleFonts.lato().fontFamily,
