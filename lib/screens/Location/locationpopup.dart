@@ -1,7 +1,6 @@
 // ignore: non_constant_identifier_names
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../global/globals.dart';

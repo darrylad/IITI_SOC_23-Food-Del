@@ -5,6 +5,7 @@ import 'package:flutter_2/Screens/Cart/data_base.dart';
 import 'package:flutter_2/Screens/Restaurants/TeaPost/tea_post_menu.dart';
 import 'package:flutter_2/Screens/Restaurants/alertwidgetcancel.dart';
 import 'package:flutter_2/Screens/Restaurants/restaurants_logo_decider.dart';
+import 'package:flutter_2/global/globals.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -56,7 +57,9 @@ class _TPMainCourseState extends State<TPMainCourse> {
       });
     }
 
-    if (productsTP[widget.menuindex].menutype == 'Main Course') {
+    if (productsTP[widget.menuindex].menutype == 'Main Course' &&
+        (categorySelected == productsTP[widget.menuindex].category ||
+            categorySelected == 'All')) {
       return Container(
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(
@@ -165,7 +168,6 @@ class _TPMainCourseState extends State<TPMainCourse> {
                           child: InkWell(
                             onTap: () {
                               saveData(this.widget.menuindex);
-                              _showModalBottomSheet(context);
 
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
@@ -272,8 +274,7 @@ class _TPMainCourseState extends State<TPMainCourse> {
                                                         Navigator.of(context)
                                                             .pop();
 
-                                                        _showModalBottomSheet(
-                                                            context);
+                                                        
 
                                                         ScaffoldMessenger.of(
                                                                 context)
@@ -387,7 +388,9 @@ class _TPFastFoodState extends State<TPFastFood> {
       });
     }
 
-    if (productsTP[widget.menuindex].menutype == 'Fast Food') {
+    if (productsTP[widget.menuindex].menutype == 'Fast Food' &&
+        (categorySelected == productsTP[widget.menuindex].category ||
+            categorySelected == 'All')) {
       return Container(
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(
@@ -496,7 +499,6 @@ class _TPFastFoodState extends State<TPFastFood> {
                           child: InkWell(
                             onTap: () {
                               saveData(this.widget.menuindex);
-                              _showModalBottomSheet(context);
 
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
@@ -603,8 +605,6 @@ class _TPFastFoodState extends State<TPFastFood> {
                                                         Navigator.of(context)
                                                             .pop();
 
-                                                        _showModalBottomSheet(
-                                                            context);
 
                                                         ScaffoldMessenger.of(
                                                                 context)
@@ -718,7 +718,9 @@ class _TPBeveragesState extends State<TPBeverages> {
       });
     }
 
-    if (productsTP[widget.menuindex].menutype == 'Beverages') {
+    if (productsTP[widget.menuindex].menutype == 'Beverages' &&
+        (categorySelected == productsTP[widget.menuindex].category ||
+            categorySelected == 'All')) {
       return Container(
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(
@@ -827,7 +829,6 @@ class _TPBeveragesState extends State<TPBeverages> {
                           child: InkWell(
                             onTap: () {
                               saveData(this.widget.menuindex);
-                              _showModalBottomSheet(context);
 
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
@@ -934,8 +935,6 @@ class _TPBeveragesState extends State<TPBeverages> {
                                                         Navigator.of(context)
                                                             .pop();
 
-                                                        _showModalBottomSheet(
-                                                            context);
 
                                                         ScaffoldMessenger.of(
                                                                 context)
@@ -1005,44 +1004,3 @@ class _TPBeveragesState extends State<TPBeverages> {
   }
 }
 
-void _showModalBottomSheet(BuildContext context) {
-  showModalBottomSheet(
-    context: context,
-    enableDrag: true,
-    isDismissible: true,
-    isScrollControlled: true,
-    shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(
-      top: Radius.circular(30),
-    )),
-    builder: (context) => DraggableScrollableSheet(
-        expand: false,
-        initialChildSize: 0.35,
-        maxChildSize: 0.9,
-        minChildSize: 0.32,
-        builder: (context, scrollcontroller) {
-          double screenwidth = MediaQuery.of(context).size.width;
-          return Container(
-              decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
-                  color: Color.fromARGB(255, 229, 229, 229)),
-              padding: const EdgeInsets.only(top: 25),
-              child: Stack(
-                children: [
-                  const Center(child: CartScreen()),
-                  Positioned(
-                    left: screenwidth * 0.5 - 40,
-                    child: Container(
-                      width: 80,
-                      height: 7,
-                      decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 154, 154, 154),
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                    ),
-                  ),
-                ],
-              ));
-        }),
-  );
-}

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_2/Screens/Cart/cart_model.dart';
 import 'package:flutter_2/Screens/Cart/data_base.dart';
-
+import 'package:flutter_2/global/globals.dart';
 import 'package:provider/provider.dart';
 
 import '../Restaurants/non_veg_logo.dart';
@@ -13,7 +13,7 @@ class CartScreen extends StatefulWidget {
     Key? key,
   }) : super(key: key);
 
-    static const String routeName = '/cart';
+  static const String routeName = '/cart';
 
   static Route route() {
     return MaterialPageRoute(
@@ -326,6 +326,7 @@ class _CartScreenState extends State<CartScreen> {
                       ValueListenableBuilder<int?>(
                           valueListenable: totalPrice,
                           builder: (context, val, child) {
+                            totalCartValue = val;
                             return Column(
                               children: [
                                 const SizedBox(
@@ -385,8 +386,8 @@ class _CartScreenState extends State<CartScreen> {
       bottomNavigationBar: InkWell(
         onTap: () {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('Payment Successful'),
+            SnackBar(
+              content: Text(totalCartValue.toString()),
               duration: Duration(seconds: 2),
             ),
           );
@@ -582,7 +583,7 @@ class BillingAmount extends StatelessWidget {
                 fontWeight: FontWeight.w800),
           ),
           Text(
-            '\u{20B9}' + value.toString(),
+            '\u{20B9}$value',
             style: const TextStyle(
               fontSize: 17,
               fontWeight: FontWeight.w800,

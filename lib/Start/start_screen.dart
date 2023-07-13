@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_2/global/globals.dart';
 import 'package:flutter_2/Screens/Location/add_location_screen.dart';
 import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 // import 'package:google_sign_in/google_sign_in.dart';
@@ -96,10 +97,12 @@ class State1 extends State<Startscreen> {
                 GestureDetector(
                   onTap: () {
                     controller.login();
+                context.go('/addlocationscreen.dart');
+
                   },
                   child: Container(
-                    height: 0.144*screenwidth,
-                    width: 0.742*screenwidth,
+                    height: 0.144 * screenwidth,
+                    width: 0.742 * screenwidth,
                     decoration: const BoxDecoration(
                       border: Border(
                           top: BorderSide(

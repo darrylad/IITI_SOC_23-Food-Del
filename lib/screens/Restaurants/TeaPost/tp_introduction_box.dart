@@ -47,7 +47,7 @@ class _TPIntroductionState extends State<TPIntroduction> {
                       Row(
                         children: [
                           SizedBox(
-                            width: 0.55*screenwidth,
+                            width: 0.55 * screenwidth,
                             child: Text(
                               'Tea Post',
                               style: GoogleFonts.inter(
@@ -58,7 +58,8 @@ class _TPIntroductionState extends State<TPIntroduction> {
                           ),
                           IconButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, '/searchbarteapost');
+                                Navigator.pushNamed(
+                                    context, '/searchbarteapost');
                               },
                               icon: SvgPicture.asset(
                                 'assets/buttons/search.svg',
@@ -130,27 +131,19 @@ class _TPIntroductionState extends State<TPIntroduction> {
                               bottom: -0.01 * screenwidth,
                               left: screenwidth * 0.415,
                               child: TextButton(
-                                  onPressed: () => _dialogBuilder(context),
-                                  child: Row(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        '$Locationselected ',
-                                        style: GoogleFonts.inter(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w400,
-                                            color: const Color.fromARGB(
-                                                255, 0, 0, 0)),
-                                      ),
-                                      Text(
-                                        '▼',
-                                        style: GoogleFonts.inter(
-                                            fontSize: 8,
-                                            fontWeight: FontWeight.w600,
-                                            color: const Color.fromARGB(
-                                                255, 0, 0, 0)),
-                                      )
-                                    ],
+                                  onPressed: () => _dialogBuilder(context)
+                                          .then((dropdownvalue) {
+                                        setState(() {
+                                          Locationselected = dropdownValue;
+                                        });
+                                      }),
+                                  child: Text(
+                                    '$Locationselected ',
+                                    style: GoogleFonts.inter(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w400,
+                                        color:
+                                            const Color.fromARGB(255, 0, 0, 0)),
                                   )),
                             ),
                             Positioned(
@@ -196,8 +189,8 @@ class _TPIntroductionState extends State<TPIntroduction> {
   }
 }
 
-Future<void> _dialogBuilder(BuildContext context) {
-  return showDialog<void>(
+Future<String?> _dialogBuilder(BuildContext context) async {
+  return showDialog<String>(
     context: context,
     builder: (BuildContext context) {
       return const popup();

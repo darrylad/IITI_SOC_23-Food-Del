@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-// ignore: camel_case_types
-class cancel extends StatefulWidget {
-  const cancel({super.key});
+class Cancel extends StatefulWidget {
+  const Cancel({super.key});
 
   @override
-  State<cancel> createState() => _cancelState();
+  State<Cancel> createState() => _CancelState();
 }
 
-// ignore: camel_case_types
-class _cancelState extends State<cancel> {
+class _CancelState extends State<Cancel> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -100,4 +98,3 @@ class _cancelState extends State<cancel> {
   }
 }
 
-// ignore: camel_case_types

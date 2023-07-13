@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_2/Screens/Restaurants/JuiciliciousCafe/juici_cafe_menu.dart';
 import 'package:flutter_2/Screens/Restaurants/NightCanteen/night_canteen_menu.dart';
 import 'package:flutter_2/Screens/Restaurants/TapriIITiansKi/tapri_iitians_ki.dart';
+import 'package:flutter_2/Screens/Restaurants/TeaPost/tea_post_menu.dart';
 import 'package:flutter_2/Screens/Restaurants/non_veg_logo.dart';
 import 'package:flutter_2/Screens/Restaurants/veg_logo.dart';
 
@@ -47,7 +49,7 @@ class JCLogoDecider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (productsTIK[logoindex].category == 'Veg') {
+    if (productsJC[logoindex].category == 'Veg') {
       return const VegLogo();
     } else {
       return const NonVegLogo();
@@ -64,7 +66,7 @@ class TPLogoDecider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (productsTIK[logoindex].category == 'Veg') {
+    if (productsTP[logoindex].category == 'Veg') {
       return const VegLogo();
     } else {
       return const NonVegLogo();

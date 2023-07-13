@@ -23,7 +23,7 @@ class _NCIntroductionState extends State<NCIntroduction> {
     double screenwidth = MediaQuery.of(context).size.width;
 
     return Container(
-      height: screenwidth * 0.9,
+      height: screenwidth * 0.81,
       width: screenwidth,
       child: Column(
         children: [
@@ -49,7 +49,7 @@ class _NCIntroductionState extends State<NCIntroduction> {
                       Row(
                         children: [
                           SizedBox(
-                            width: 0.55*screenwidth,
+                            width: 0.55 * screenwidth,
                             child: Text(
                               'Night Canteen',
                               style: GoogleFonts.inter(
@@ -132,21 +132,21 @@ class _NCIntroductionState extends State<NCIntroduction> {
                               bottom: -0.01 * screenwidth,
                               left: screenwidth * 0.415,
                               child: TextButton(
-                                  onPressed: () => _dialogBuilder(context),
-                                  child: Row(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        '$Locationselected ',
-                                        style: GoogleFonts.inter(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w400,
-                                            color: const Color.fromARGB(
-                                                255, 0, 0, 0)),
-                                      ),
-                                      
-                                    ],
-                                  )),
+                                  onPressed: () => _dialogBuilder(context)
+                                          .then((dropdownvalue) {
+                                        setState(() {
+                                          Locationselected = dropdownValue;
+                                        });
+                                      }),
+                                  child: Text(
+                                    Locationselected,
+                                    style: GoogleFonts.inter(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w400,
+                                        color: const Color.fromARGB(
+                                            255, 0, 0, 0)),
+                                  )
+                                  ),
                             ),
                             Positioned(
                               bottom: 0.1 * screenwidth,
@@ -191,8 +191,8 @@ class _NCIntroductionState extends State<NCIntroduction> {
   }
 }
 
-Future<void> _dialogBuilder(BuildContext context) {
-  return showDialog<void>(
+Future<String?> _dialogBuilder(BuildContext context) async {
+  return showDialog<String>(
     context: context,
     builder: (BuildContext context) {
       return const popup();

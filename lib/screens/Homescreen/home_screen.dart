@@ -1,25 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_2/Screens/Cart/cart_provider.dart';
+import 'package:flutter_2/Screens/Cart/data_base.dart';
 import 'package:flutter_2/Screens/Homescreen/ImageCarausel.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 
 import '../../global/globals.dart';
 import '../Location/locationpopup.dart';
 import 'SectionTitle.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({
-    super.key,
-  });
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
-  static const String routeName = '/home';
+  static const String routeName = '/addlocation';
 
   static Route route() {
     return MaterialPageRoute(
       builder: (_) => const HomeScreen(),
       settings: const RouteSettings(name: routeName),
     );
+  }
+
+  @override
+  State<HomeScreen> createState() => _HomeScreen();
+}
+
+// ignore: camel_case_types
+class _HomeScreen extends State<HomeScreen> {
+  DBHelper dbHelper = DBHelper();
+  @override
+  void initState() {
+    super.initState();
+    context.read<CartProvider>().getData();
   }
 
   @override
@@ -199,41 +213,41 @@ class _SearchBarState extends State<SearchBar> {
     return Padding(
       padding: const EdgeInsets.fromLTRB(0, 40, 0, 0),
       child: Container(
-          height: 45,
-          width: 350,
-          decoration: const BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                  color: Color.fromRGBO(160, 80, 0, 1),
-                  spreadRadius: -19.0,
-                  offset: Offset.zero,
-                  blurRadius: 30,
-                )
-              ],
-              color: Color.fromRGBO(255, 243, 240, 1),
-              border: Border(
-                  right: BorderSide(color: Color.fromRGBO(164, 73, 21, 1)),
-                  bottom: BorderSide(color: Color.fromRGBO(164, 73, 21, 1)),
-                  left: BorderSide(color: Color.fromRGBO(164, 73, 21, 1)),
-                  top: BorderSide(color: Color.fromRGBO(164, 73, 21, 1))),
-              borderRadius: BorderRadius.all(Radius.circular(10))),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(
-                'assets/buttons/Search_1.png',
-                height: 25,
-                width: 25,
-              ),
-              const SizedBox(
-                width: 5,
-              ),
-              Text('Search Reataurants,Dishes and more',
-                  style: GoogleFonts.lato(
-                      fontSize: 18, color: const Color.fromRGBO(164, 73, 21, 1))),
+        height: 45,
+        width: 350,
+        decoration: const BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Color.fromRGBO(160, 80, 0, 1),
+                spreadRadius: -19.0,
+                offset: Offset.zero,
+                blurRadius: 30,
+              )
             ],
-          ),
+            color: Color.fromRGBO(255, 243, 240, 1),
+            border: Border(
+                right: BorderSide(color: Color.fromRGBO(164, 73, 21, 1)),
+                bottom: BorderSide(color: Color.fromRGBO(164, 73, 21, 1)),
+                left: BorderSide(color: Color.fromRGBO(164, 73, 21, 1)),
+                top: BorderSide(color: Color.fromRGBO(164, 73, 21, 1))),
+            borderRadius: BorderRadius.all(Radius.circular(10))),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              'assets/buttons/Search_1.png',
+              height: 25,
+              width: 25,
+            ),
+            const SizedBox(
+              width: 5,
+            ),
+            Text('Search Reataurants,Dishes and more',
+                style: GoogleFonts.lato(
+                    fontSize: 18, color: const Color.fromRGBO(164, 73, 21, 1))),
+          ],
         ),
+      ),
     );
   }
 }
@@ -247,16 +261,20 @@ Future<void> _dialogBuilder(BuildContext context) {
   );
 }
 
-class GoodMorning extends StatelessWidget {
-  const GoodMorning({
-    super.key,
-    required this.name,
-  });
-
+class GoodMorning extends StatefulWidget {
   final String name;
+  const GoodMorning({super.key, required this.name});
 
   @override
+  State<GoodMorning> createState() => _GoodMorning();
+}
+
+// ignore: camel_case_types
+class _GoodMorning extends State<GoodMorning> {
+  @override
   Widget build(BuildContext context) {
+    String username = widget.name;
+
     return Column(
       children: [
         const SizedBox(
@@ -275,7 +293,7 @@ class GoodMorning extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(26, 0, 0, 0),
                   child: Text(
-                    'Hi, $name ',
+                    'Hi, $username ',
                     style: GoogleFonts.inter(
                         color: const Color.fromARGB(255, 152, 46, 1),
                         fontSize: 24,
@@ -289,19 +307,20 @@ class GoodMorning extends StatelessWidget {
                       child: Image.asset('assets/buttons/location.png',
                           height: 14, width: 14),
                     ),
-                    GestureDetector(
-                      onTap: () => _dialogBuilder(context),
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(2, 0, 0, 0),
+                    TextButton(
+                        onPressed: () =>
+                            _dialogBuilder(context).then((dropdownvalue) {
+                              setState(() {
+                                Locationselected = dropdownValue;
+                              });
+                            }),
                         child: Text(
                           'Deliver to: $Locationselected ',
                           style: GoogleFonts.inter(
-                              color: const Color.fromARGB(255, 129, 129, 129),
-                              fontSize: 12,
-                              fontWeight: FontWeight.w400),
-                        ),
-                      ),
-                    ),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400,
+                              color: const Color.fromARGB(255, 0, 0, 0)),
+                        )),
                   ],
                 ),
               ],

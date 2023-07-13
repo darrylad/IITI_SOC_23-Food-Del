@@ -5,6 +5,7 @@ import '../controller_login/login_controller.dart';
 String username = '';
 // ignore: non_constant_identifier_names
 String Locationselected = 'Select Location';
+String categorySelected = 'All';
 
 final controller = Get.put(LoginController());
 

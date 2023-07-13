@@ -6,6 +6,7 @@ import 'package:flutter_2/Screens/Restaurants/NightCanteen/night_canteen_menu.da
 import 'package:flutter_2/Screens/Restaurants/NightCanteen/night_canteen_screen.dart';
 import 'package:flutter_2/Screens/Restaurants/alertwidgetcancel.dart';
 import 'package:flutter_2/Screens/Restaurants/restaurants_logo_decider.dart';
+import 'package:flutter_2/global/globals.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -58,8 +59,9 @@ class _NCMainCourseState extends State<NCMainCourse> {
       });
     }
 
-    if (productsNC[widget.menuindex].menutype == 'Main Course') {
-
+    if (productsNC[widget.menuindex].menutype == 'Main Course' &&
+        (categorySelected == productsNC[widget.menuindex].category ||
+            categorySelected == 'All')) {
       return Container(
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(
@@ -90,7 +92,7 @@ class _NCMainCourseState extends State<NCMainCourse> {
                 width: 10,
               ),
               SizedBox(
-                width: 0.475*screenwidth,
+                width: 0.475 * screenwidth,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -107,8 +109,8 @@ class _NCMainCourseState extends State<NCMainCourse> {
                       height: 2.5,
                     ),
                     SizedBox(
-                      width: 0.45*screenwidth,
-                      height: 0.0765*screenwidth,
+                      width: 0.45 * screenwidth,
+                      height: 0.0765 * screenwidth,
                       child: Text(productsNC[widget.menuindex].itemdescription,
                           style: GoogleFonts.inter(
                               fontSize: 10,
@@ -168,7 +170,6 @@ class _NCMainCourseState extends State<NCMainCourse> {
                           child: InkWell(
                             onTap: () {
                               saveData(this.widget.menuindex);
-                              _showModalBottomSheet(context);
 
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
@@ -274,9 +275,6 @@ class _NCMainCourseState extends State<NCMainCourse> {
                                                             .menuindex);
                                                         Navigator.of(context)
                                                             .pop();
-
-                                                        _showModalBottomSheet(
-                                                            context);
 
                                                         ScaffoldMessenger.of(
                                                                 context)
@@ -390,7 +388,9 @@ class _NCFastFoodState extends State<NCFastFood> {
       });
     }
 
-    if (productsNC[widget.menuindex].menutype == 'Fast Food') {
+    if (productsNC[widget.menuindex].menutype == 'Fast Food' &&
+        (categorySelected == productsNC[widget.menuindex].category ||
+            categorySelected == 'All')) {
       return Container(
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(
@@ -421,7 +421,7 @@ class _NCFastFoodState extends State<NCFastFood> {
                 width: 10,
               ),
               SizedBox(
-                width: 0.475*screenwidth,
+                width: 0.475 * screenwidth,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -438,8 +438,8 @@ class _NCFastFoodState extends State<NCFastFood> {
                       height: 2.5,
                     ),
                     SizedBox(
-                      width: 0.45*screenwidth,
-                      height: 0.0765*screenwidth,
+                      width: 0.45 * screenwidth,
+                      height: 0.0765 * screenwidth,
                       child: Text(productsNC[widget.menuindex].itemdescription,
                           style: GoogleFonts.inter(
                               fontSize: 10,
@@ -499,7 +499,6 @@ class _NCFastFoodState extends State<NCFastFood> {
                           child: InkWell(
                             onTap: () {
                               saveData(this.widget.menuindex);
-                              _showModalBottomSheet(context);
 
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
@@ -605,9 +604,6 @@ class _NCFastFoodState extends State<NCFastFood> {
                                                             .menuindex);
                                                         Navigator.of(context)
                                                             .pop();
-
-                                                        _showModalBottomSheet(
-                                                            context);
 
                                                         ScaffoldMessenger.of(
                                                                 context)
@@ -721,7 +717,9 @@ class _NCBeveragesState extends State<NCBeverages> {
       });
     }
 
-    if (productsNC[widget.menuindex].menutype == 'Beverages') {
+    if (productsNC[widget.menuindex].menutype == 'Beverages' &&
+        (categorySelected == productsNC[widget.menuindex].category ||
+            categorySelected == 'All')) {
       return Container(
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(
@@ -752,7 +750,7 @@ class _NCBeveragesState extends State<NCBeverages> {
                 width: 10,
               ),
               SizedBox(
-                width: 0.475*screenwidth,
+                width: 0.475 * screenwidth,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -769,8 +767,8 @@ class _NCBeveragesState extends State<NCBeverages> {
                       height: 2.5,
                     ),
                     SizedBox(
-                      width: 0.45*screenwidth,
-                      height: 0.0765*screenwidth,
+                      width: 0.45 * screenwidth,
+                      height: 0.0765 * screenwidth,
                       child: Text(productsNC[widget.menuindex].itemdescription,
                           style: GoogleFonts.inter(
                               fontSize: 10,
@@ -830,7 +828,6 @@ class _NCBeveragesState extends State<NCBeverages> {
                           child: InkWell(
                             onTap: () {
                               saveData(this.widget.menuindex);
-                              _showModalBottomSheet(context);
 
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
@@ -937,9 +934,6 @@ class _NCBeveragesState extends State<NCBeverages> {
                                                         Navigator.of(context)
                                                             .pop();
 
-                                                        _showModalBottomSheet(
-                                                            context);
-
                                                         ScaffoldMessenger.of(
                                                                 context)
                                                             .showSnackBar(
@@ -1006,46 +1000,4 @@ class _NCBeveragesState extends State<NCBeverages> {
       return Container();
     }
   }
-}
-
-void _showModalBottomSheet(BuildContext context) {
-  showModalBottomSheet(
-    context: context,
-    enableDrag: true,
-    isDismissible: true,
-    isScrollControlled: true,
-    shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(
-      top: Radius.circular(30),
-    )),
-    builder: (context) => DraggableScrollableSheet(
-        expand: false,
-        initialChildSize: 0.35,
-        maxChildSize: 0.9,
-        minChildSize: 0.32,
-        builder: (context, scrollcontroller) {
-          double screenwidth = MediaQuery.of(context).size.width;
-          return Container(
-              decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
-                  color: Color.fromARGB(255, 229, 229, 229)),
-              padding: const EdgeInsets.only(top: 25),
-              child: Stack(
-                children: [
-                  const Center(child: CartScreen()),
-                  Positioned(
-                    left: screenwidth * 0.5 - 40,
-                    child: Container(
-                      width: 80,
-                      height: 7,
-                      decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 154, 154, 154),
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                    ),
-                  ),
-                ],
-              ));
-        }),
-  );
 }
