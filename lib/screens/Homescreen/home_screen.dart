@@ -27,7 +27,7 @@ class _HomeScreen extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    print(username);
+    // print(username);
     context.read<CartProvider>().getData();
   }
 
@@ -63,7 +63,7 @@ class MainScroll extends StatelessWidget {
         stretch: true,
         // snap: true,
         // floating: true,
-        expandedHeight: 185,
+        expandedHeight: 170,
         flexibleSpace: FlexibleSpaceBar(
           stretchModes: const <StretchMode>[
             StretchMode.zoomBackground,
@@ -72,7 +72,7 @@ class MainScroll extends StatelessWidget {
           ],
           centerTitle: true,
           expandedTitleScale: 1.0,
-          titlePadding: const EdgeInsets.fromLTRB(0, 8, 0, 10),
+          titlePadding: const EdgeInsets.fromLTRB(0, 5, 0, 8),
           title: const SearchBar_Homepage(),
           background: GoodMorning(name: name),
         ),
@@ -259,7 +259,7 @@ class GoodMorning extends StatefulWidget {
 class _GoodMorning extends State<GoodMorning> {
   @override
   Widget build(BuildContext context) {
-    String username = widget.name;
+    // String username = widget.name;
 
     return Column(
       children: [
@@ -277,7 +277,7 @@ class _GoodMorning extends State<GoodMorning> {
                   height: 30,
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(26, 0, 0, 0),
+                  padding: const EdgeInsets.fromLTRB(26, 2, 0, 0),
                   child: Text(
                     'Hi, $username ',
                     style: GoogleFonts.inter(
@@ -293,8 +293,8 @@ class _GoodMorning extends State<GoodMorning> {
                       child: Image.asset('assets/buttons/location.png',
                           height: 14, width: 14),
                     ),
-                    TextButton(
-                        onPressed: () =>
+                    GestureDetector(
+                        onTap: () =>
                             _dialogBuilder(context).then((dropdownvalue) {
                               setState(() {
                                 Locationselected = dropdownValue;

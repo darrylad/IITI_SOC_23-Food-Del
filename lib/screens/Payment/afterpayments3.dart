@@ -13,7 +13,7 @@ class DeliveredScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double swidth = MediaQuery.of(context).size.width;
-    double sheight = MediaQuery.of(context).size.width;
+    double sheight = MediaQuery.of(context).size.height;
 
     return Scaffold(
       body: Container(
@@ -28,10 +28,10 @@ class DeliveredScreen extends StatelessWidget {
         child: Stack(
           children: [
             Positioned.fill(
-              top: 80,
+              bottom: sheight* 0.32, // distance from bottom of screen
               child: Align(
                   alignment: Alignment.topCenter,
-                  child: Image.asset('assets/buttons/check.png')),
+                  child: RiveAnimation.asset('assets/rive/news.riv')),
             ),
             Positioned.fill(
               bottom: 120, // distance from bottom of screen
@@ -93,7 +93,7 @@ class DeliveredScreen extends StatelessWidget {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       SvgPicture.asset(
-                                        'assets/buttons/phone.png',
+                                        'assets/buttons/phone.svg',
                                         height: 25,
                                         width: 25,
                                       ),
