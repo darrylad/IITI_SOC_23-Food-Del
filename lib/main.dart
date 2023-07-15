@@ -88,7 +88,7 @@ final GoRouter router = GoRouter(
         path: '/',
         builder: (BuildContext context, GoRouterState state) {
           // ignore: prefer_const_constructors
-          return DeliveredScreen();
+          return Startscreen();
         }),
     GoRoute(
         name: 'addlocationscreen',

@@ -89,7 +89,7 @@ class State1 extends State<Startscreen> {
                 GestureDetector(
                   onTap: () {
                     controller.login();
-                    context.go('/add_location_screen.dart');
+                    // context.go('/add_location_screen.dart');
                   },
                   child: Container(
                     height: 0.144 * screenwidth,

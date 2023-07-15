@@ -20,7 +20,7 @@ class _AfterpaymentsState extends State<Afterpayments> {
     super.initState();
   }
 
-  static const maxmin = 40;
+  static const maxmin = 12;
   int minutes = maxmin;
   Timer? timer;
 
