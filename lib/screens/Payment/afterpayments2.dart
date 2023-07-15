@@ -1,5 +1,5 @@
 import 'dart:async';
-
+import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_2/screens/Homescreen/home_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -14,6 +14,13 @@ class Afterpayments1 extends StatefulWidget {
 }
 
 class _Afterpayments1State extends State<Afterpayments1> {
+
+ final String deliveryAgentName = "Abhinav Tiwari";
+  final String deliveryAgentPhone = "9876543210";
+
+
+
+
   @override
   void initState() {
     startTimer();
@@ -131,7 +138,7 @@ class _Afterpayments1State extends State<Afterpayments1> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text('Abhinav Tiwari',
+                              Text(deliveryAgentName.toString(),
                                   style: GoogleFonts.inter(
                                     fontSize: 22,
                                     fontWeight: FontWeight.w500,
@@ -146,7 +153,17 @@ class _Afterpayments1State extends State<Afterpayments1> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               GestureDetector(
-                                onTap: () {},
+                                onTap: ()async {
+                                  final Uri url = Uri(
+                                scheme: 'tel',
+                                path: deliveryAgentPhone,
+                              );
+                              if (await canLaunchUrl(url)) {
+                                await launchUrl(url);
+                              } else {
+                                throw 'Could not launch $url';
+                              }
+                                },
                                 child: Container(
                                   color: const Color.fromRGBO(237, 237, 237, 1),
                                   height: 38,
@@ -165,7 +182,7 @@ class _Afterpayments1State extends State<Afterpayments1> {
                                           width: 2,
                                         ),
                                         Text(
-                                          '8302193934',
+                                          deliveryAgentPhone.toString(),
                                           style: GoogleFonts.inter(
                                               fontSize: 18,
                                               fontWeight: FontWeight.w400,
@@ -198,7 +215,7 @@ class _Afterpayments1State extends State<Afterpayments1> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                'Abhinav Tiwari',
+                                deliveryAgentName.toString(),
                                 style: GoogleFonts.inter(
                                     fontSize: 18,
                                     fontWeight: FontWeight.w400,
