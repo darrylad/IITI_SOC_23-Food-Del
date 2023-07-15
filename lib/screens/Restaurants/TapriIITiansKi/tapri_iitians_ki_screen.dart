@@ -6,6 +6,7 @@ import 'package:flutter_2/Screens/Restaurants/TapriIITiansKi/tik_introduction_bo
 import 'package:flutter_2/Screens/Restaurants/TapriIITiansKi/tik_item_identifier.dart';
 import 'package:flutter_2/Screens/Restaurants/expand_state_provider.dart';
 import 'package:flutter_2/global/globals.dart';
+import 'package:flutter_2/screens/Homescreen/home_screen.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -13,22 +14,13 @@ import 'package:provider/provider.dart';
 class TapriIITiansKiScreen extends StatefulWidget {
   const TapriIITiansKiScreen({Key? key}) : super(key: key);
 
-  static const String routeName = '/tapri';
-
-  static Route route() {
-    return MaterialPageRoute(
-      builder: (_) => const TapriIITiansKiScreen(),
-      settings: const RouteSettings(name: routeName),
-    );
-  }
-
   @override
   State<TapriIITiansKiScreen> createState() => _TapriIITiansKiScreenState();
 }
 
 class _TapriIITiansKiScreenState extends State<TapriIITiansKiScreen> {
   DBHelper dbHelper = DBHelper();
-    @override
+  @override
   void initState() {
     super.initState();
     context.read<CartProvider>().getData();
@@ -41,7 +33,7 @@ class _TapriIITiansKiScreenState extends State<TapriIITiansKiScreen> {
 
     return Scaffold(
       extendBody: true,
-      bottomNavigationBar: const BottomNav_nightcanteen(),
+      bottomNavigationBar: const Nav(),
       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       body: SingleChildScrollView(
         // physics: const ClampingScrollPhysics(),
@@ -101,7 +93,7 @@ class _TapriIITiansKiScreenState extends State<TapriIITiansKiScreen> {
                                   child: Text(
                                     'All',
                                     style: GoogleFonts.inter(
-                                        fontSize: 0.036*screenwidth,
+                                        fontSize: 0.036 * screenwidth,
                                         fontWeight: FontWeight.w600),
                                   ),
                                 ),
@@ -145,7 +137,7 @@ class _TapriIITiansKiScreenState extends State<TapriIITiansKiScreen> {
                                         Text(
                                           'Veg',
                                           style: GoogleFonts.inter(
-                                              fontSize: 0.036*screenwidth,
+                                              fontSize: 0.036 * screenwidth,
                                               fontWeight: FontWeight.w600),
                                         ),
                                       ],
@@ -190,7 +182,7 @@ class _TapriIITiansKiScreenState extends State<TapriIITiansKiScreen> {
                                         Text(
                                           'Non Veg',
                                           style: GoogleFonts.inter(
-                                              fontSize: 0.0358*screenwidth,
+                                              fontSize: 0.0358 * screenwidth,
                                               fontWeight: FontWeight.w600),
                                         ),
                                       ],

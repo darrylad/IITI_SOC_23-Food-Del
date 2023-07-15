@@ -3,7 +3,8 @@ import 'package:flutter_2/Screens/Cart/cart_provider.dart';
 import 'package:flutter_2/Screens/Cart/data_base.dart';
 import 'package:flutter_2/Screens/Homescreen/ImageCarausel.dart';
 import 'package:flutter_2/Screens/Homescreen/data.dart';
-import 'package:flutter_2/Screens/Payment/afterpayments.dart';
+
+import 'package:go_router/go_router.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -16,15 +17,6 @@ import 'SectionTitle.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
-  static const String routeName = '/addlocation';
-
-  static Route route() {
-    return MaterialPageRoute(
-      builder: (_) => const HomeScreen(),
-      settings: const RouteSettings(name: routeName),
-    );
-  }
-
   @override
   State<HomeScreen> createState() => _HomeScreen();
 }
@@ -35,6 +27,7 @@ class _HomeScreen extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
+    print(username);
     context.read<CartProvider>().getData();
   }
 
@@ -42,7 +35,7 @@ class _HomeScreen extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      bottomNavigationBar: BottomNav_1(),
+      bottomNavigationBar: Nav(),
       backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
       body: MainScroll(
         name: username,
@@ -106,17 +99,17 @@ class MainScroll extends StatelessWidget {
   }
 }
 
-class BottomNav_1 extends StatefulWidget {
-  const BottomNav_1({
+class Nav extends StatefulWidget {
+  const Nav({
     super.key,
   });
 
   @override
-  State<BottomNav_1> createState() => _BottomNav_1State();
+  State<Nav> createState() => _NavState();
 }
 
 // ignore: camel_case_types
-class _BottomNav_1State extends State<BottomNav_1> {
+class _NavState extends State<Nav> {
   // ignore: prefer_typing_uninitialized_variables
 
   @override
@@ -136,7 +129,7 @@ class _BottomNav_1State extends State<BottomNav_1> {
           children: [
             IconButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/home');
+                  context.go('/home_screen.dart');
                 },
                 icon: Image.asset(
                   'assets/buttons/Home.png',
@@ -148,7 +141,7 @@ class _BottomNav_1State extends State<BottomNav_1> {
             ),
             IconButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/cart');
+                  context.push('/CartScreen.dart');
                 },
                 icon: SvgPicture.asset(
                   'assets/buttons/cart.svg',
@@ -160,7 +153,7 @@ class _BottomNav_1State extends State<BottomNav_1> {
             ),
             IconButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/accounts');
+                  context.go('/ProfileScreen.dart');
                 },
                 icon: SvgPicture.asset(
                   'assets/buttons/User.svg',
@@ -184,7 +177,7 @@ class SearchBar_Homepage extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, '/searchbarafter');
+        context.go('/SearchBarScreen.dart');
       },
       child: const SearchBar(),
     );
@@ -327,7 +320,7 @@ class _GoodMorning extends State<GoodMorning> {
                     icon: ClipRRect(
                       borderRadius: const BorderRadius.all(Radius.circular(50)),
                       child: Image.asset(
-                        'assets/images/logo.png',
+                        'assets/appicon/1024.png',
                         height: 70,
                         width: 70,
                       ),
@@ -409,8 +402,7 @@ class card extends StatelessWidget {
               width: 356,
               child: GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(
-                      context, Restaurants_route[index].toString());
+                  context.push(Restaurants_route[index].toString());
                 },
                 child: Stack(children: [
                   Positioned(

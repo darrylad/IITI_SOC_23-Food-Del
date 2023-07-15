@@ -1,21 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_2/screens/Homescreen/home_screen.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../global/globals.dart';
 
 class AddLocationScreen extends StatefulWidget {
   const AddLocationScreen({super.key});
-
-  static const String routeName = '/addlocation';
-
-  static Route route() {
-    return MaterialPageRoute(
-      builder: (_) => const AddLocationScreen(),
-      settings: const RouteSettings(name: routeName),
-    );
-  }
 
   @override
   State<AddLocationScreen> createState() => _AddLocationScreenState();

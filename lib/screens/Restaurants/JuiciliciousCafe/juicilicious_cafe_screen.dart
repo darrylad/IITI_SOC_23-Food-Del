@@ -4,6 +4,8 @@ import 'package:flutter_2/Screens/Cart/data_base.dart';
 import 'package:flutter_2/Screens/Restaurants/JuiciliciousCafe/jc_item_identifier.dart';
 import 'package:flutter_2/Screens/Restaurants/expand_state_provider.dart';
 import 'package:flutter_2/global/globals.dart';
+import 'package:flutter_2/screens/Homescreen/home_screen.dart';
+import 'package:flutter_2/screens/Payment/afterpayments.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -14,26 +16,18 @@ import 'juici_cafe_menu.dart';
 class JuiciliciousCafeScreen extends StatefulWidget {
   const JuiciliciousCafeScreen({Key? key}) : super(key: key);
 
-  static const String routeName = '/juiciliciouscafe';
-
-  static Route route() {
-    return MaterialPageRoute(
-      builder: (_) => const JuiciliciousCafeScreen(),
-      settings: const RouteSettings(name: routeName),
-    );
-  }
-
   @override
   State<JuiciliciousCafeScreen> createState() => _JuiciliciousCafeScreenState();
 }
 
 class _JuiciliciousCafeScreenState extends State<JuiciliciousCafeScreen> {
   DBHelper dbHelper = DBHelper();
-    @override
+  @override
   void initState() {
     super.initState();
     context.read<CartProvider>().getData();
   }
+
   //List<bool> clicked = List.generate(10, (index) => false, growable: true);
   @override
   Widget build(BuildContext context) {
@@ -41,7 +35,7 @@ class _JuiciliciousCafeScreenState extends State<JuiciliciousCafeScreen> {
 
     return Scaffold(
       extendBody: true,
-      bottomNavigationBar: const BottomNav_nightcanteen(),
+      bottomNavigationBar: const Nav(),
       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       body: SingleChildScrollView(
         // physics: const ClampingScrollPhysics(),
@@ -101,7 +95,7 @@ class _JuiciliciousCafeScreenState extends State<JuiciliciousCafeScreen> {
                                   child: Text(
                                     'All',
                                     style: GoogleFonts.inter(
-                                        fontSize: 0.036*screenwidth,
+                                        fontSize: 0.036 * screenwidth,
                                         fontWeight: FontWeight.w600),
                                   ),
                                 ),
@@ -145,7 +139,7 @@ class _JuiciliciousCafeScreenState extends State<JuiciliciousCafeScreen> {
                                         Text(
                                           'Veg',
                                           style: GoogleFonts.inter(
-                                              fontSize: 0.036*screenwidth,
+                                              fontSize: 0.036 * screenwidth,
                                               fontWeight: FontWeight.w600),
                                         ),
                                       ],
@@ -190,7 +184,7 @@ class _JuiciliciousCafeScreenState extends State<JuiciliciousCafeScreen> {
                                         Text(
                                           'Non Veg',
                                           style: GoogleFonts.inter(
-                                              fontSize: 0.0358*screenwidth,
+                                              fontSize: 0.0358 * screenwidth,
                                               fontWeight: FontWeight.w600),
                                         ),
                                       ],
@@ -386,74 +380,6 @@ class _JuiciliciousCafeScreenState extends State<JuiciliciousCafeScreen> {
             const SizedBox(
               height: 100,
             )
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class BottomNav_nightcanteen extends StatefulWidget {
-  const BottomNav_nightcanteen({
-    super.key,
-  });
-
-  @override
-  State<BottomNav_nightcanteen> createState() => _BottomNav_nightcanteenState();
-}
-
-// ignore: camel_case_types
-class _BottomNav_nightcanteenState extends State<BottomNav_nightcanteen> {
-  // ignore: prefer_typing_uninitialized_variables
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(20, 0, 20, 15),
-      child: Container(
-        height: 60,
-        decoration: const BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(20)),
-          color: Color.fromRGBO(255, 255, 255, 1),
-        ),
-        //
-
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            IconButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/home');
-                },
-                icon: Image.asset(
-                  'assets/buttons/Home.png',
-                  height: 30,
-                  width: 30,
-                )),
-            const SizedBox(
-              width: 60,
-            ),
-            IconButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/cart');
-                },
-                icon: SvgPicture.asset(
-                  'assets/buttons/cart.svg',
-                  height: 30,
-                  width: 30,
-                )),
-            const SizedBox(
-              width: 60,
-            ),
-            IconButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/accounts');
-                },
-                icon: SvgPicture.asset(
-                  'assets/buttons/User.svg',
-                  height: 30,
-                  width: 30,
-                )),
           ],
         ),
       ),

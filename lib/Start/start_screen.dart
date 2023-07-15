@@ -11,15 +11,6 @@ import 'package:google_fonts/google_fonts.dart';
 class Startscreen extends StatefulWidget {
   const Startscreen({super.key});
 
-  static const String routeName = '/';
-
-  static Route route() {
-    return MaterialPageRoute(
-      builder: (_) => const Startscreen(),
-      settings: const RouteSettings(name: routeName),
-    );
-  }
-
   @override
   State<StatefulWidget> createState() {
     return State1();
@@ -44,6 +35,7 @@ class State1 extends State<Startscreen> {
                 return LoginView();
               } else {
                 username = controller.googleAccount.value?.displayName ?? '';
+
                 return const AddLocationScreen();
               }
             }),
@@ -78,7 +70,7 @@ class State1 extends State<Startscreen> {
                           bottomRight: Radius.circular(137),
                         ),
                         image: DecorationImage(
-                          image: AssetImage("assets/images/logo.png"),
+                          image: AssetImage("assets/appicon/1024.png"),
                           fit: BoxFit.cover,
                         ))),
                 SizedBox(
@@ -97,8 +89,7 @@ class State1 extends State<Startscreen> {
                 GestureDetector(
                   onTap: () {
                     controller.login();
-                context.go('/addlocationscreen.dart');
-
+                    context.go('/add_location_screen.dart');
                   },
                   child: Container(
                     height: 0.144 * screenwidth,

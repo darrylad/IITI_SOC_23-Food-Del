@@ -41,7 +41,7 @@ class _SearchBarScreen extends State<SearchBarScreen> {
           centerTitle: true,
           leading: BackButton(
             onPressed: () {
-              Navigator.pushNamed(context, '/home');
+              context.go('/home_screen.dart');
             },
             color: const Color.fromARGB(255, 152, 46, 1),
           ),

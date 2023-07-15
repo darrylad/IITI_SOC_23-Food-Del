@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_2/Screens/Cart/cart_model.dart';
 import 'package:flutter_2/Screens/Cart/data_base.dart';
 import 'package:flutter_2/global/globals.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 
+import '../../Services/notifi.dart';
 import '../../global/globals.dart';
 import '../Restaurants/non_veg_logo.dart';
 import '../Restaurants/veg_logo.dart';
@@ -409,7 +411,7 @@ class _CartScreenState extends State<CartScreen> {
                         padding: const EdgeInsets.only(top: 30),
                         child: GestureDetector(
                             onTap: () {
-                              Navigator.pushNamed(context, '/payments');
+                              context.push('/PaymentsPage.dart');
                             },
                             child: Container(
                               height: 60,

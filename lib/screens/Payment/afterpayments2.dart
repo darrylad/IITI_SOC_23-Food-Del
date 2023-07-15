@@ -1,21 +1,13 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_2/screens/Homescreen/home_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Afterpayments1 extends StatefulWidget {
   const Afterpayments1({super.key});
-
-  static const String routeName = '/afterpayments2';
-
-  static Route route() {
-    return MaterialPageRoute(
-      builder: (_) => const Afterpayments1(),
-      settings: const RouteSettings(name: routeName),
-    );
-  }
 
   @override
   State<Afterpayments1> createState() => _Afterpayments1State();
@@ -33,10 +25,10 @@ class _Afterpayments1State extends State<Afterpayments1> {
   Timer? timer;
 
   void startTimer() {
-    timer = Timer.periodic(Duration(minutes: 1), (_) {
+    timer = Timer.periodic(const Duration(minutes: 1), (_) {
       setState(() {
         if (minutes < 1) {
-          Navigator.pushNamed(context, '/afterpayments3');
+          context.go('/Afterpayments2.dart');
         } else {
           minutes--;
         }
@@ -61,7 +53,7 @@ class _Afterpayments1State extends State<Afterpayments1> {
     });
     return Scaffold(
       extendBody: true,
-      bottomNavigationBar: const BottomNav_1(),
+      bottomNavigationBar: const Nav(),
       body: Padding(
           padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
           child: Stack(children: [
@@ -102,7 +94,7 @@ class _Afterpayments1State extends State<Afterpayments1> {
               child:
                   Column(mainAxisAlignment: MainAxisAlignment.end, children: [
                 Text(
-                  '5',
+                  minutes.toString(),
                   style: GoogleFonts.inter(
                       fontSize: 160,
                       color: Colors.white,
@@ -230,84 +222,3 @@ class _Afterpayments1State extends State<Afterpayments1> {
 }
 
 // ignore: camel_case_types
-class BottomNav_1 extends StatefulWidget {
-  const BottomNav_1({
-    super.key,
-  });
-
-  @override
-  State<BottomNav_1> createState() => _BottomNav_1State();
-}
-
-// ignore: camel_case_types
-class _BottomNav_1State extends State<BottomNav_1> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: const Color.fromARGB(0, 0, 0, 0),
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
-        child: Material(
-          borderRadius: const BorderRadius.all(Radius.circular(20)),
-          elevation: 2,
-          child: Container(
-            height: 60,
-            decoration: const BoxDecoration(
-                color: Color.fromRGBO(255, 255, 255, 1),
-                boxShadow: [
-                  //BoxShadow
-                  BoxShadow(
-                    color: Color.fromARGB(255, 0, 0, 0),
-                    offset: Offset(1, 1),
-                    blurRadius: 0.0,
-                    spreadRadius: 0.0,
-                  ), //BoxShadow
-                ],
-                borderRadius: BorderRadius.all(Radius.circular(20))),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                const SizedBox(
-                  width: 53,
-                ),
-                IconButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/home');
-                    },
-                    icon: Image.asset(
-                      'assets/buttons/Home.png',
-                      height: 30,
-                      width: 30,
-                    )),
-                const SizedBox(
-                  width: 60,
-                ),
-                IconButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/cart');
-                    },
-                    icon: SvgPicture.asset(
-                      'assets/buttons/cart.svg',
-                      height: 30,
-                      width: 30,
-                    )),
-                const SizedBox(
-                  width: 60,
-                ),
-                IconButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/accounts');
-                    },
-                    icon: SvgPicture.asset(
-                      'assets/buttons/User.svg',
-                      height: 30,
-                      width: 30,
-                    )),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}

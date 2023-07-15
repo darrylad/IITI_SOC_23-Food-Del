@@ -23,7 +23,7 @@ class ExpandStateProvider extends ChangeNotifier {
 
   void assignblur() {
     if (categorySelected == 'All') {
-      blurradiusall = 8;
+      blurradiusall = 30;
       blurradiusveg = 0;
       blurradiusnonveg = 0;
     } else if (categorySelected == 'Veg') {
@@ -39,7 +39,7 @@ class ExpandStateProvider extends ChangeNotifier {
 
   void assigncolor() {
     if (categorySelected == 'All') {
-      colorall = Colors.black.withOpacity(0.1);
+      colorall = Color.fromARGB(255, 0, 0, 0).withOpacity(0.1);
       colorveg = Colors.white.withOpacity(0.7);
       colornonveg = Colors.white.withOpacity(0.7);
     } else if (categorySelected == 'Veg') {

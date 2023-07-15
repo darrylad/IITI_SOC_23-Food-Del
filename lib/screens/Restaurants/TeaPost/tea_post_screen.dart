@@ -4,6 +4,7 @@ import 'package:flutter_2/Screens/Cart/data_base.dart';
 import 'package:flutter_2/Screens/Restaurants/TeaPost/tp_item_identifier.dart';
 import 'package:flutter_2/Screens/Restaurants/expand_state_provider.dart';
 import 'package:flutter_2/global/globals.dart';
+import 'package:flutter_2/screens/Homescreen/home_screen.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -13,22 +14,13 @@ import 'tea_post_menu.dart';
 class TeaPostScreen extends StatefulWidget {
   const TeaPostScreen({Key? key}) : super(key: key);
 
-  static const String routeName = '/teapost';
-
-  static Route route() {
-    return MaterialPageRoute(
-      builder: (_) => const TeaPostScreen(),
-      settings: const RouteSettings(name: routeName),
-    );
-  }
-
   @override
   State<TeaPostScreen> createState() => _TeaPostScreenState();
 }
 
 class _TeaPostScreenState extends State<TeaPostScreen> {
   DBHelper dbHelper = DBHelper();
-    @override
+  @override
   void initState() {
     super.initState();
     context.read<CartProvider>().getData();
@@ -41,7 +33,7 @@ class _TeaPostScreenState extends State<TeaPostScreen> {
 
     return Scaffold(
       extendBody: true,
-      bottomNavigationBar: const BottomNav_nightcanteen(),
+      bottomNavigationBar: const Nav(),
       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       body: SingleChildScrollView(
         // physics: const ClampingScrollPhysics(),
@@ -101,7 +93,7 @@ class _TeaPostScreenState extends State<TeaPostScreen> {
                                   child: Text(
                                     'All',
                                     style: GoogleFonts.inter(
-                                        fontSize: 0.036*screenwidth,
+                                        fontSize: 0.036 * screenwidth,
                                         fontWeight: FontWeight.w600),
                                   ),
                                 ),
@@ -145,7 +137,7 @@ class _TeaPostScreenState extends State<TeaPostScreen> {
                                         Text(
                                           'Veg',
                                           style: GoogleFonts.inter(
-                                              fontSize: 0.036*screenwidth,
+                                              fontSize: 0.036 * screenwidth,
                                               fontWeight: FontWeight.w600),
                                         ),
                                       ],
@@ -190,7 +182,7 @@ class _TeaPostScreenState extends State<TeaPostScreen> {
                                         Text(
                                           'Non Veg',
                                           style: GoogleFonts.inter(
-                                              fontSize: 0.0358*screenwidth,
+                                              fontSize: 0.0358 * screenwidth,
                                               fontWeight: FontWeight.w600),
                                         ),
                                       ],

@@ -26,7 +26,7 @@ class _SearchScreen extends State<SearchScreen> {
     double screenwidth = MediaQuery.of(context).size.width;
     return Scaffold(
         extendBody: true,
-        bottomNavigationBar: const BottomNav_1(),
+        bottomNavigationBar: const Nav(),
         body: CustomScrollView(
           slivers: [
             const SliverAppBar(

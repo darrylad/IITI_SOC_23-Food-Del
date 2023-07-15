@@ -15,10 +15,10 @@ List Restaurants_Img = [
 ];
 
 List Restaurants_route = [
-  '/nightcanteen',
-  '/teapost',
-  '/tapri',
-  '/juiciliciouscafe'
+  '/NightCanteenScreen.dart',
+  '/TeaPostScreen.dart',
+  '/TapriIITiansKiScreen.dart',
+  '/JuiciliciousCafeScreen.dart'
 ];
 
 List Restaurants_disc = [

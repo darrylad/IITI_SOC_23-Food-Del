@@ -67,7 +67,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
     return Scaffold(
       backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
-      bottomNavigationBar: const BottomNav_1(),
+      bottomNavigationBar: const Nav(),
       body: SingleChildScrollView(
         physics: const ClampingScrollPhysics(),
         child: Column(
@@ -433,7 +433,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 TextButton.icon(
                   onPressed: () {
                     controller.logout();
-                    Navigator.pushNamed(context, '/');
+                    context.go('/');
                   },
                   icon: SvgPicture.asset(
                     'assets/Tejas/logout.svg',

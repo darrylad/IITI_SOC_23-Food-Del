@@ -8,15 +8,6 @@ import 'package:google_fonts/google_fonts.dart';
 class PaymentsPage extends StatefulWidget {
   const PaymentsPage({super.key});
 
-  static const String routeName = '/payments';
-
-  static Route route() {
-    return MaterialPageRoute(
-      builder: (_) => const PaymentsPage(),
-      settings: const RouteSettings(name: routeName),
-    );
-  }
-
   @override
   State<PaymentsPage> createState() => _PaymentsPageState();
 }
@@ -35,14 +26,14 @@ class _PaymentsPageState extends State<PaymentsPage> {
 
   void _handlePaymentSuccess(PaymentSuccessResponse response) {
     {
-      Navigator.pushNamed(context, '/afterpayments');
+      context.go('/Afterpayments.dart');
     }
     // Do something when payment succeeds
   }
 
   void _handlePaymentError(PaymentFailureResponse response) {
     {
-      Navigator.pushNamed(context, '/payments');
+      context.go('/PaymentsPage.dart');
     }
     // Do something when payment fails
   }
@@ -108,7 +99,9 @@ class _PaymentsPageState extends State<PaymentsPage> {
                   'amount': totalCartValue! * 100,
                   'name': 'DeliverEat',
                   'description': 'Food',
-                  'timeout': 300, // in seconds
+                  'timeout': 300,
+
+                  'send_sms_hash': true, // in seconds
                 };
                 _razorpay.open(options);
               },
