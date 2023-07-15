@@ -64,7 +64,8 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (_) => ExpandStateProvider(),
-        )
+        ),
+
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
@@ -88,7 +89,7 @@ final GoRouter router = GoRouter(
         path: '/',
         builder: (BuildContext context, GoRouterState state) {
           // ignore: prefer_const_constructors
-          return Startscreen();
+          return HomeScreen();
         }),
     GoRoute(
         name: 'addlocationscreen',
