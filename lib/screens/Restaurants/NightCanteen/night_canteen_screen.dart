@@ -4,11 +4,13 @@ import 'package:flutter_2/Screens/Cart/data_base.dart';
 import 'package:flutter_2/Screens/Restaurants/NightCanteen/nc_item_identifier.dart';
 import 'package:flutter_2/Screens/Restaurants/expand_state_provider.dart';
 import 'package:flutter_2/global/globals.dart';
+import 'package:flutter_2/screens/Homescreen/home_screen.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
+import '../../../navbarbasics/nav.dart';
 import 'nc_introduction_box.dart';
 import 'night_canteen_menu.dart';
 
@@ -42,7 +44,7 @@ class _NightCanteenScreenState extends State<NightCanteenScreen> {
     double screenwidth = MediaQuery.of(context).size.width;
     return Scaffold(
       extendBody: true,
-      bottomNavigationBar: const BottomNav_nightcanteen(),
+      bottomNavigationBar: const Nav(),
       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       body: SingleChildScrollView(
         // physics: const ClampingScrollPhysics(),
@@ -430,74 +432,6 @@ class _NightCanteenScreenState extends State<NightCanteenScreen> {
             const SizedBox(
               height: 100,
             )
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class BottomNav_nightcanteen extends StatefulWidget {
-  const BottomNav_nightcanteen({
-    super.key,
-  });
-
-  @override
-  State<BottomNav_nightcanteen> createState() => _BottomNav_nightcanteenState();
-}
-
-// ignore: camel_case_types
-class _BottomNav_nightcanteenState extends State<BottomNav_nightcanteen> {
-  // ignore: prefer_typing_uninitialized_variables
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(20, 0, 20, 15),
-      child: Container(
-        height: 60,
-        decoration: const BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(20)),
-          color: Color.fromRGBO(255, 255, 255, 1),
-        ),
-        //
-
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            IconButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/home');
-                },
-                icon: Image.asset(
-                  'assets/buttons/Home.png',
-                  height: 30,
-                  width: 30,
-                )),
-            const SizedBox(
-              width: 60,
-            ),
-            IconButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/cart');
-                },
-                icon: SvgPicture.asset(
-                  'assets/buttons/cart.svg',
-                  height: 30,
-                  width: 30,
-                )),
-            const SizedBox(
-              width: 60,
-            ),
-            IconButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/accounts');
-                },
-                icon: SvgPicture.asset(
-                  'assets/buttons/User.svg',
-                  height: 30,
-                  width: 30,
-                )),
           ],
         ),
       ),

@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_2/global/globals.dart';
 import 'package:rive/rive.dart';
 // import 'dart:ui';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class DeliveredScreen extends StatelessWidget {
-  final String deliveryAgentName = "Abhinav Tiwari";
-  final String deliveryAgentPhone = "9876543210";
-
   const DeliveredScreen({super.key});
 
   @override
@@ -28,8 +26,8 @@ class DeliveredScreen extends StatelessWidget {
         child: Stack(
           children: [
             Positioned.fill(
-              bottom: sheight* 0.32, // distance from bottom of screen
-              child: Align(
+              bottom: sheight * 0.32, // distance from bottom of screen
+              child: const Align(
                   alignment: Alignment.topCenter,
                   child: RiveAnimation.asset('assets/rive/news.riv')),
             ),

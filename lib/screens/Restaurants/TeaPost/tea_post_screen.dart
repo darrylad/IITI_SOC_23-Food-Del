@@ -8,20 +8,12 @@ import 'package:flutter_2/global/globals.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import '../../../navbarbasics/nav.dart';
 import 'tp_introduction_box.dart';
 import 'tea_post_menu.dart';
 
 class TeaPostScreen extends StatefulWidget {
   const TeaPostScreen({Key? key}) : super(key: key);
-
-  static const String routeName = '/teapost';
-
-  static Route route() {
-    return MaterialPageRoute(
-      builder: (_) => const TeaPostScreen(),
-      settings: const RouteSettings(name: routeName),
-    );
-  }
 
   @override
   State<TeaPostScreen> createState() => _TeaPostScreenState();

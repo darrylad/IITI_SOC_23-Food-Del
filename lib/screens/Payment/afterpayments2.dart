@@ -1,10 +1,13 @@
 import 'dart:async';
+import 'package:rive/rive.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_2/screens/Homescreen/home_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../../navbarbasics/nav.dart';
 
 class Afterpayments1 extends StatefulWidget {
   const Afterpayments1({super.key});
@@ -14,12 +17,8 @@ class Afterpayments1 extends StatefulWidget {
 }
 
 class _Afterpayments1State extends State<Afterpayments1> {
-
- final String deliveryAgentName = "Abhinav Tiwari";
+  final String deliveryAgentName = "Abhinav Tiwari";
   final String deliveryAgentPhone = "9876543210";
-
-
-
 
   @override
   void initState() {
@@ -64,31 +63,25 @@ class _Afterpayments1State extends State<Afterpayments1> {
       body: Padding(
           padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
           child: Stack(children: [
-            Container(
-              decoration: const BoxDecoration(
-                gradient: RadialGradient(colors: [
-                  Color.fromRGBO(0, 229, 92, 1),
-                  Color.fromRGBO(1, 159, 112, 1),
-                  Color.fromRGBO(0, 78, 96, 1),
-                ], center: Alignment.center, radius: 1),
-              ),
+            SizedBox(
               height: MediaQuery.of(context).size.height,
               width: double.infinity,
+              child: Image.asset(
+                'assets/buttons/Tracking_green.png',
+                fit: BoxFit.fill,
+              ),
             ),
             AnimatedOpacity(
               curve: Curves.linear,
               opacity: istrue ? 1 : 0,
               duration: const Duration(seconds: 1),
-              child: Container(
-                decoration: const BoxDecoration(
-                  gradient: RadialGradient(colors: [
-                    Color.fromRGBO(1, 159, 121, 1),
-                    Color.fromRGBO(1, 139, 114, 1),
-                    Color.fromRGBO(0, 67, 96, 1),
-                  ], center: Alignment.center, radius: 1),
-                ),
+              child: SizedBox(
                 height: MediaQuery.of(context).size.height,
                 width: double.infinity,
+                child: Image.asset(
+                  'assets/buttons/Tracking_2.png',
+                  fit: BoxFit.fill,
+                ),
               ),
             ),
             Positioned(
@@ -100,23 +93,27 @@ class _Afterpayments1State extends State<Afterpayments1> {
               ),
               child:
                   Column(mainAxisAlignment: MainAxisAlignment.end, children: [
-                Text(
-                  minutes.toString(),
-                  style: GoogleFonts.inter(
-                      fontSize: 160,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600),
-                ),
-                Text(
-                  'minutes',
-                  style: GoogleFonts.inter(
-                      fontSize: 40,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600),
-                ),
+                // Text(
+                //   minutes.toString(),
+                //   style: GoogleFonts.inter(
+                //       fontSize: 160,
+                //       color: Colors.white,
+                //       fontWeight: FontWeight.w600),
+                // ),
+                // Text(
+                //   'minutes',
+                //   style: GoogleFonts.inter(
+                //       fontSize: 40,
+                //       color: Colors.white,
+                //       fontWeight: FontWeight.w600),
+                // ),
                 const SizedBox(
-                  height: 60,
-                ),
+                    height: 400,
+                    width: 500,
+                    child: RiveAnimation.asset(
+                      'assets/rive/delivery.riv',
+                      fit: BoxFit.fill,
+                    )),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -153,16 +150,16 @@ class _Afterpayments1State extends State<Afterpayments1> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               GestureDetector(
-                                onTap: ()async {
+                                onTap: () async {
                                   final Uri url = Uri(
-                                scheme: 'tel',
-                                path: deliveryAgentPhone,
-                              );
-                              if (await canLaunchUrl(url)) {
-                                await launchUrl(url);
-                              } else {
-                                throw 'Could not launch $url';
-                              }
+                                    scheme: 'tel',
+                                    path: deliveryAgentPhone,
+                                  );
+                                  if (await canLaunchUrl(url)) {
+                                    await launchUrl(url);
+                                  } else {
+                                    throw 'Could not launch $url';
+                                  }
                                 },
                                 child: Container(
                                   color: const Color.fromRGBO(237, 237, 237, 1),

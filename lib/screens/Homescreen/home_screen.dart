@@ -11,6 +11,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 
 import '../../global/globals.dart';
+import '../../navbarbasics/nav.dart';
 import '../Location/locationpopup.dart';
 import 'SectionTitle.dart';
 
@@ -35,7 +36,7 @@ class _HomeScreen extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      bottomNavigationBar: Nav(),
+      bottomNavigationBar: const Nav(),
       backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
       body: MainScroll(
         name: username,
@@ -63,7 +64,7 @@ class MainScroll extends StatelessWidget {
         stretch: true,
         // snap: true,
         // floating: true,
-        expandedHeight: 170,
+        expandedHeight: 175,
         flexibleSpace: FlexibleSpaceBar(
           stretchModes: const <StretchMode>[
             StretchMode.zoomBackground,
@@ -72,14 +73,14 @@ class MainScroll extends StatelessWidget {
           ],
           centerTitle: true,
           expandedTitleScale: 1.0,
-          titlePadding: const EdgeInsets.fromLTRB(0, 5, 0, 8),
+          titlePadding: const EdgeInsets.fromLTRB(0, 1, 0, 8),
           title: const SearchBar_Homepage(),
           background: GoodMorning(name: name),
         ),
       ),
-      const SliverToBoxAdapter(
-        child: ImageCarausal(),
-      ),
+      // const SliverToBoxAdapter(
+      //   child: ImageCarausal(),
+      // ),
       const SliverToBoxAdapter(
         child: Center(
           child: SectionTitle(
@@ -96,74 +97,6 @@ class MainScroll extends StatelessWidget {
         ),
       )
     ]);
-  }
-}
-
-class Nav extends StatefulWidget {
-  const Nav({
-    super.key,
-  });
-
-  @override
-  State<Nav> createState() => _NavState();
-}
-
-// ignore: camel_case_types
-class _NavState extends State<Nav> {
-  // ignore: prefer_typing_uninitialized_variables
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(20, 0, 20, 15),
-      child: Container(
-        height: 60,
-        decoration: const BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(20)),
-          color: Color.fromRGBO(255, 255, 255, 1),
-        ),
-        //
-
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            IconButton(
-                onPressed: () {
-                  context.go('/home_screen.dart');
-                },
-                icon: Image.asset(
-                  'assets/buttons/Home.png',
-                  height: 30,
-                  width: 30,
-                )),
-            const SizedBox(
-              width: 60,
-            ),
-            IconButton(
-                onPressed: () {
-                  context.push('/CartScreen.dart');
-                },
-                icon: SvgPicture.asset(
-                  'assets/buttons/cart.svg',
-                  height: 30,
-                  width: 30,
-                )),
-            const SizedBox(
-              width: 60,
-            ),
-            IconButton(
-                onPressed: () {
-                  context.go('/ProfileScreen.dart');
-                },
-                icon: SvgPicture.asset(
-                  'assets/buttons/User.svg',
-                  height: 30,
-                  width: 30,
-                )),
-          ],
-        ),
-      ),
-    );
   }
 }
 
@@ -264,7 +197,7 @@ class _GoodMorning extends State<GoodMorning> {
     return Column(
       children: [
         const SizedBox(
-          height: 30,
+          height: 20,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

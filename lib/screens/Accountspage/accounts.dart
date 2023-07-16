@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../navbarbasics/nav.dart';
 import '../Homescreen/home_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -84,14 +85,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         borderRadius:
                             const BorderRadius.all(Radius.circular(180)),
                         child: Image.asset(
-                          'assets/images/logo.png',
+                          'assets/appicon/1024.png',
                           height: 180,
                           width: 180,
                         )))
               ],
             ),
             const SizedBox(
-              height: 10,
+              height: 20,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -105,13 +106,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ],
             ),
             const SizedBox(
-              height: 30,
+              height: 50,
             ),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(
-                  width: 0.125 * screenwidth,
+                  width: 0.130 * screenwidth,
                 ),
                 TextButton.icon(
                   onPressed: () {},
@@ -121,41 +122,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     height: 26,
                   ),
                   label: Padding(
-                    padding: const EdgeInsets.fromLTRB(16, 0, 0, 0),
+                    padding: const EdgeInsets.fromLTRB(13, 0, 0, 0),
                     child: Text(
-                      'My Orders',
-                      textAlign: TextAlign.left,
-                      style: GoogleFonts.inter(
-                          color: const Color.fromRGBO(0, 0, 0, 1),
-                          fontSize: 22,
-                          letterSpacing: 0,
-                          fontWeight: FontWeight.normal,
-                          height: 1),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 5,
-            ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(
-                  width: 0.125 * screenwidth,
-                ),
-                TextButton.icon(
-                  onPressed: () {},
-                  icon: SvgPicture.asset(
-                    'assets/Tejas/creditcard.svg',
-                    width: 26,
-                    height: 26,
-                  ),
-                  label: Padding(
-                    padding: const EdgeInsets.fromLTRB(16, 0, 0, 0),
-                    child: Text(
-                      'Payments Methods',
+                      'Active Orders',
                       textAlign: TextAlign.left,
                       style: GoogleFonts.inter(
                           color: const Color.fromRGBO(0, 0, 0, 1),
@@ -204,102 +173,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
               height: 5,
             ),
             Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(
-                  width: 0.125 * screenwidth,
-                ),
-                TextButton.icon(
-                  onPressed: () {},
-                  icon: SvgPicture.asset(
-                    'assets/Tejas/feedback.svg',
-                    width: 26,
-                    height: 26,
-                  ),
-                  label: Padding(
-                    padding: const EdgeInsets.fromLTRB(16, 0, 0, 0),
-                    child: Text(
-                      'Feedback',
-                      textAlign: TextAlign.left,
-                      style: GoogleFonts.inter(
-                          color: const Color.fromRGBO(0, 0, 0, 1),
-                          fontSize: 22,
-                          letterSpacing: 0,
-                          fontWeight: FontWeight.normal,
-                          height: 1),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 5,
-            ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(
-                  width: 0.125 * screenwidth,
-                ),
-                TextButton.icon(
-                  onPressed: () {},
-                  icon: SvgPicture.asset(
-                    'assets/Tejas/ringing.svg',
-                    width: 26,
-                    height: 26,
-                  ),
-                  label: Padding(
-                    padding: const EdgeInsets.fromLTRB(16, 0, 0, 0),
-                    child: Text(
-                      'Notifications',
-                      textAlign: TextAlign.left,
-                      style: GoogleFonts.inter(
-                          color: const Color.fromRGBO(0, 0, 0, 1),
-                          fontSize: 22,
-                          letterSpacing: 0,
-                          fontWeight: FontWeight.normal,
-                          height: 1),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 5,
-            ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(
-                  width: 0.125 * screenwidth,
-                ),
-                TextButton.icon(
-                  onPressed: () {},
-                  icon: SvgPicture.asset(
-                    'assets/Tejas/moon.svg',
-                    width: 26,
-                    height: 26,
-                  ),
-                  label: Padding(
-                    padding: const EdgeInsets.fromLTRB(16, 0, 0, 0),
-                    child: Text(
-                      'Appearance',
-                      textAlign: TextAlign.left,
-                      style: GoogleFonts.inter(
-                          color: const Color.fromRGBO(0, 0, 0, 1),
-                          fontSize: 22,
-                          letterSpacing: 0,
-                          fontWeight: FontWeight.normal,
-                          height: 1),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 5,
-            ),
-            Row(
               children: [
                 SizedBox(
                   width: 0.125 * screenwidth,
@@ -325,46 +198,27 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                               padding: const EdgeInsets.only(
                                                   right: 20),
                                               child: Image.asset(
-                                                'assets/Tejas/lodo_draft1.png',
+                                                'assets/appicon/1024.png',
                                                 height: 104,
                                                 width: 104,
                                               ),
                                             ),
                                             Text(
-                                              'Deliver Eat',
+                                              'MunchMate',
                                               style: GoogleFonts.inter(
                                                   color: const Color.fromRGBO(
                                                       143, 63, 5, 1),
-                                                  fontSize: 24,
+                                                  fontSize: 26,
                                                   letterSpacing: 0,
-                                                  fontWeight: FontWeight.normal,
+                                                  fontWeight: FontWeight.w600,
                                                   height: 1),
                                             ),
                                           ],
                                         )),
                                   ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(24),
-                                    child: ElevatedButton(
-                                        onPressed: () {},
-                                        style: ElevatedButton.styleFrom(
-                                          primary: const Color.fromRGBO(
-                                              217, 137, 79, 1),
-                                        ),
-                                        child: Text(
-                                          'Open in Store',
-                                          textAlign: TextAlign.center,
-                                          style: GoogleFonts.inter(
-                                              color: const Color.fromRGBO(
-                                                  255, 255, 255, 1),
-                                              fontSize: 16,
-                                              letterSpacing: 0,
-                                              fontWeight: FontWeight.normal,
-                                              height: 1),
-                                        )),
-                                  ),
                                   const Padding(
-                                    padding: EdgeInsets.all(20),
+                                    padding:
+                                        EdgeInsets.fromLTRB(20, 50, 20, 20),
                                     child: Text(
                                       'We made this app to give on-campus restaurants an intuitive platform to display their menu and provide delivery services. This project was a part of IITISoC’23.',
                                       textAlign: TextAlign.center,
@@ -372,14 +226,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                           color: Color.fromRGBO(
                                               115, 49, 2, 0.6000000238418579),
                                           fontFamily: 'Inter',
-                                          fontSize: 17,
+                                          fontSize: 21,
                                           letterSpacing: 0,
                                           fontWeight: FontWeight.normal,
                                           height: 1),
                                     ),
                                   ),
                                   const Padding(
-                                    padding: EdgeInsets.all(32),
+                                    padding:
+                                        EdgeInsets.fromLTRB(32, 40, 32, 32),
                                     child: Text(
                                       'Made by Shivam, Darryl, Tejas, and Deepesh',
                                       textAlign: TextAlign.center,
@@ -387,9 +242,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                           color: Color.fromRGBO(
                                               115, 49, 2, 0.6000000238418579),
                                           fontFamily: 'Inter',
-                                          fontSize: 17,
+                                          fontSize: 23,
                                           letterSpacing: 0,
-                                          fontWeight: FontWeight.normal,
+                                          fontWeight: FontWeight.w500,
                                           height: 1),
                                     ),
                                   )
@@ -405,7 +260,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     height: 26,
                   ),
                   label: const Padding(
-                    padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                    padding: EdgeInsets.fromLTRB(14, 0, 0, 0),
                     child: Text(
                       'About',
                       textAlign: TextAlign.left,
@@ -441,7 +296,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     height: 26,
                   ),
                   label: Padding(
-                    padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                    padding: const EdgeInsets.fromLTRB(12, 0, 0, 0),
                     child: Text(
                       'Log Out',
                       textAlign: TextAlign.left,

@@ -9,20 +9,12 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
+import '../../../navbarbasics/nav.dart';
 import 'jc_introduction_box.dart';
 import 'juici_cafe_menu.dart';
 
 class JuiciliciousCafeScreen extends StatefulWidget {
   const JuiciliciousCafeScreen({Key? key}) : super(key: key);
-
-  static const String routeName = '/juiciliciouscafe';
-
-  static Route route() {
-    return MaterialPageRoute(
-      builder: (_) => const JuiciliciousCafeScreen(),
-      settings: const RouteSettings(name: routeName),
-    );
-  }
 
   @override
   State<JuiciliciousCafeScreen> createState() => _JuiciliciousCafeScreenState();

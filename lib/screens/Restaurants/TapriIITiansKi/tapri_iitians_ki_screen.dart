@@ -6,13 +6,15 @@ import 'package:flutter_2/Screens/Restaurants/TapriIITiansKi/tik_introduction_bo
 import 'package:flutter_2/Screens/Restaurants/TapriIITiansKi/tik_item_identifier.dart';
 import 'package:flutter_2/Screens/Restaurants/expand_state_provider.dart';
 import 'package:flutter_2/global/globals.dart';
+import 'package:flutter_2/screens/Homescreen/home_screen.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
+import '../../../navbarbasics/nav.dart';
+
 class TapriIITiansKiScreen extends StatefulWidget {
   const TapriIITiansKiScreen({Key? key}) : super(key: key);
-
 
   static const String routeName = '/tapri';
 
@@ -29,7 +31,7 @@ class TapriIITiansKiScreen extends StatefulWidget {
 
 class _TapriIITiansKiScreenState extends State<TapriIITiansKiScreen> {
   DBHelper dbHelper = DBHelper();
-    @override
+  @override
   void initState() {
     super.initState();
     context.read<CartProvider>().getData();
@@ -42,7 +44,7 @@ class _TapriIITiansKiScreenState extends State<TapriIITiansKiScreen> {
 
     return Scaffold(
       extendBody: true,
-      bottomNavigationBar: const BottomNav_nightcanteen(),
+      bottomNavigationBar: const Nav(),
       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       body: SingleChildScrollView(
         // physics: const ClampingScrollPhysics(),

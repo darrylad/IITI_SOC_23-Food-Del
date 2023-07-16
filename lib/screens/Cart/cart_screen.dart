@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_2/Screens/Cart/cart_model.dart';
 import 'package:flutter_2/Screens/Cart/data_base.dart';
 import 'package:flutter_2/global/globals.dart';
+import 'package:flutter_2/navbarbasics/nav.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -17,15 +18,6 @@ class CartScreen extends StatefulWidget {
   const CartScreen({
     Key? key,
   }) : super(key: key);
-
-  static const String routeName = '/cart';
-
-  static Route route() {
-    return MaterialPageRoute(
-      builder: (_) => const CartScreen(),
-      settings: const RouteSettings(name: routeName),
-    );
-  }
 
   @override
   State<CartScreen> createState() => _CartScreenState();
@@ -45,6 +37,7 @@ class _CartScreenState extends State<CartScreen> {
   Widget build(BuildContext context) {
     final cart = Provider.of<CartProvider>(context);
     return Scaffold(
+      bottomNavigationBar: const Nav(),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         title: Text(

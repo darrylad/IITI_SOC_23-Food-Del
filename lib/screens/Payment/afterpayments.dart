@@ -5,6 +5,11 @@ import 'package:flutter_2/screens/Homescreen/home_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:rive/rive.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+import '../../global/globals.dart';
+import '../../navbarbasics/nav.dart';
 
 class Afterpayments extends StatefulWidget {
   const Afterpayments({super.key});
@@ -20,12 +25,12 @@ class _AfterpaymentsState extends State<Afterpayments> {
     super.initState();
   }
 
-  static const maxmin = 12;
+  static const maxmin = 40;
   int minutes = maxmin;
   Timer? timer;
 
   void startTimer() {
-    timer = Timer.periodic(Duration(minutes: 1), (_) {
+    timer = Timer.periodic(const Duration(minutes: 1), (_) {
       setState(() {
         if (minutes <= 11) {
           context.go('/Afterpayments1.dart');
@@ -57,31 +62,19 @@ class _AfterpaymentsState extends State<Afterpayments> {
       body: Padding(
           padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
           child: Stack(children: [
-            Container(
-              decoration: const BoxDecoration(
-                gradient: RadialGradient(colors: [
-                  Color.fromRGBO(200, 86, 62, 1),
-                  Color.fromRGBO(171, 52, 1, 1),
-                  Color.fromRGBO(115, 23, 2, 1),
-                ], center: Alignment.center, radius: 1),
-              ),
+            SizedBox(
               height: MediaQuery.of(context).size.height,
               width: double.infinity,
+              child: Image.asset('assets/buttons/Tracking.png'),
             ),
             AnimatedOpacity(
               curve: Curves.linear,
               opacity: istrue ? 1 : 0,
               duration: const Duration(seconds: 1),
-              child: Container(
-                decoration: const BoxDecoration(
-                  gradient: RadialGradient(colors: [
-                    Color.fromRGBO(255, 163, 96, 1),
-                    Color.fromRGBO(205, 78, 06, 1),
-                    Color.fromRGBO(146, 19, 2, 1),
-                  ], center: Alignment.center, radius: 1),
-                ),
+              child: SizedBox(
                 height: MediaQuery.of(context).size.height,
                 width: double.infinity,
+                child: Image.asset('assets/buttons/Tracking_1.png'),
               ),
             ),
             Positioned(
@@ -93,23 +86,28 @@ class _AfterpaymentsState extends State<Afterpayments> {
               ),
               child:
                   Column(mainAxisAlignment: MainAxisAlignment.end, children: [
-                Text(
-                  minutes.toString(),
-                  style: GoogleFonts.inter(
-                      fontSize: 160,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600),
-                ),
-                Text(
-                  'minutes',
-                  style: GoogleFonts.inter(
-                      fontSize: 40,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600),
-                ),
+                // Text(
+                //   minutes.toString(),
+                //   style: GoogleFonts.inter(
+                //       fontSize: 160,
+                //       color: Colors.white,
+                //       fontWeight: FontWeight.w600),
+                // ),
+                // Text(
+                //   'minutes',
+                //   style: GoogleFonts.inter(
+                //       fontSize: 40,
+                //       color: Colors.white,
+                //       fontWeight: FontWeight.w600),
+                // ),
                 const SizedBox(
-                  height: 60,
-                ),
+                    height: 400,
+                    width: 400,
+                    child: RiveAnimation.asset(
+                      'assets/rive/payment.riv',
+                      fit: BoxFit.fill,
+                    )),
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -147,9 +145,22 @@ class _AfterpaymentsState extends State<Afterpayments> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               GestureDetector(
-                                onTap: () {},
+                                onTap: () async {
+                                  final Uri url = Uri(
+                                    scheme: 'tel',
+                                    path: RestPhone,
+                                  );
+                                  if (await canLaunchUrl(url)) {
+                                    await launchUrl(url);
+                                  } else {
+                                    throw 'Could not launch $url';
+                                  }
+                                },
                                 child: Container(
-                                  color: const Color.fromRGBO(237, 237, 237, 1),
+                                  decoration: const BoxDecoration(
+                                      color: Color.fromRGBO(237, 237, 237, 1),
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(5))),
                                   height: 38,
                                   width: 275,
                                   child: Center(
@@ -172,9 +183,14 @@ class _AfterpaymentsState extends State<Afterpayments> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               GestureDetector(
-                                onTap: () {},
+                                onTap: () {
+                                  context.push('/Cancellation.dart');
+                                },
                                 child: Container(
-                                  color: const Color.fromRGBO(237, 237, 237, 1),
+                                  decoration: const BoxDecoration(
+                                      color: Color.fromRGBO(237, 237, 237, 1),
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(5))),
                                   height: 38,
                                   width: 275,
                                   child: Center(
@@ -202,12 +218,6 @@ class _AfterpaymentsState extends State<Afterpayments> {
             ))
           ])),
     );
-  }
-
-  @override
-  void dispose() {
-    startTimer();
-    super.dispose();
   }
 }
 

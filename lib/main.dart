@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_2/Screens/Restaurants/expand_state_provider.dart';
 import 'package:flutter_2/Screens/Cart/cart_provider.dart';
+import 'package:flutter_2/screens/Payment/cancellation.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -88,7 +89,14 @@ final GoRouter router = GoRouter(
         path: '/',
         builder: (BuildContext context, GoRouterState state) {
           // ignore: prefer_const_constructors
-          return DeliveredScreen();
+          return Afterpayments1();
+        }),
+    GoRoute(
+        name: 'Cancel',
+        path: '/Cancellation.dart',
+        builder: (BuildContext context, GoRouterState state) {
+          // ignore: prefer_const_constructors
+          return Cancellation();
         }),
     GoRoute(
         name: 'addlocationscreen',
