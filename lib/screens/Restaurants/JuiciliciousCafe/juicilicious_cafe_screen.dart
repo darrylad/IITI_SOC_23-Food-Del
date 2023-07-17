@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_2/Screens/Cart/cart_provider.dart';
 import 'package:flutter_2/Screens/Cart/data_base.dart';
-import 'package:flutter_2/Screens/Restaurants/JuiciliciousCafe/jc_item_identifier.dart';
+
 import 'package:flutter_2/Screens/Restaurants/expand_state_provider.dart';
 import 'package:flutter_2/global/globals.dart';
-import 'package:flutter_2/screens/Homescreen/home_screen.dart';
+
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import '../../../navbarbasics/nav.dart';
 import 'jc_introduction_box.dart';
+import 'jc_item_identifier.dart';
 import 'juici_cafe_menu.dart';
 
 class JuiciliciousCafeScreen extends StatefulWidget {
@@ -71,7 +72,7 @@ class _JuiciliciousCafeScreenState extends State<JuiciliciousCafeScreen> {
                           height: 0.115 * screenwidth,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(40),
-                            color: Color.fromARGB(255, 223, 217, 212)
+                            color: const Color.fromARGB(255, 223, 217, 212)
                                 .withOpacity(0.31),
                           ),
                           child: Row(
@@ -261,7 +262,7 @@ class _JuiciliciousCafeScreenState extends State<JuiciliciousCafeScreen> {
                                         width: 10,
                                       ),
                                       Text(
-                                        'Main Course',
+                                        'Shakes',
                                         style: GoogleFonts.inter(
                                             fontSize: 18,
                                             color: provider
@@ -286,7 +287,7 @@ class _JuiciliciousCafeScreenState extends State<JuiciliciousCafeScreen> {
                                     ),
                                     shrinkWrap: true,
                                     itemBuilder: (context, index) {
-                                      return JCMainCourse(menuindex: index);
+                                      return JCShakes(menuindex: index);
                                     }),
                               ),
                             ],
@@ -354,68 +355,51 @@ class _JuiciliciousCafeScreenState extends State<JuiciliciousCafeScreen> {
                             ],
                           ),
                         ),
-                        Theme(
-                          data: Theme.of(context)
-                              .copyWith(dividerColor: Colors.transparent),
-                          child: ExpansionTile(
-                            collapsedIconColor: Colors.white,
-                            iconColor: Colors.white,
-                            initiallyExpanded: true,
-                            onExpansionChanged: (value) =>
-                                provider.assignExpansionTile3Paramenters(value),
-                            title: Row(
-                              children: [
-                                Container(
-                                  width: 150,
-                                  height: 35,
-                                  decoration: BoxDecoration(
-                                    color: provider.expansionTile3TileColor,
-                                    borderRadius: BorderRadius.circular(27),
-                                  ),
-                                  child: Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      const SizedBox(
-                                        width: 16,
-                                      ),
-                                      SvgPicture.asset(
-                                          provider.expansionTile3Image),
-                                      const SizedBox(
-                                        width: 10,
-                                      ),
-                                      Text(
-                                        'Beverages',
-                                        style: GoogleFonts.inter(
-                                            fontSize: 18,
-                                            color: provider
-                                                .expansionTile3TitleColor,
-                                            fontWeight: FontWeight.w500),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                            children: <Widget>[
-                              InkWell(
-                                onTap: () {},
-                                child: ListView.builder(
-                                    itemCount: productsJC.length,
-                                    physics: const ClampingScrollPhysics(),
-                                    padding: EdgeInsets.only(
-                                      top: 0.025 * screenwidth,
-                                      bottom: 0.025 * screenwidth,
-                                      left: 0.025 * screenwidth,
-                                    ),
-                                    shrinkWrap: true,
-                                    itemBuilder: (context, index) {
-                                      return JCBeverages(menuindex: index);
-                                    }),
-                              ),
-                            ],
-                          ),
-                        ),
+                        // Theme(
+                        //   data: Theme.of(context)
+                        //       .copyWith(dividerColor: Colors.transparent),
+                        //   child: ExpansionTile(
+                        //     collapsedIconColor: Colors.white,
+                        //     iconColor: Colors.white,
+                        //     initiallyExpanded: true,
+                        //     onExpansionChanged: (value) =>
+                        //         provider.assignExpansionTile3Paramenters(value),
+                        //     title: Row(
+                        //       children: [
+                        //         Container(
+                        //           width: 150,
+                        //           height: 35,
+                        //           decoration: BoxDecoration(
+                        //             color: provider.expansionTile3TileColor,
+                        //             borderRadius: BorderRadius.circular(27),
+                        //           ),
+                        //           child: Row(
+                        //             crossAxisAlignment:
+                        //                 CrossAxisAlignment.center,
+                        //             children: [
+                        //               const SizedBox(
+                        //                 width: 16,
+                        //               ),
+                        //               SvgPicture.asset(
+                        //                   provider.expansionTile3Image),
+                        //               const SizedBox(
+                        //                 width: 10,
+                        //               ),
+                        //               Text(
+                        //                 'Beverages',
+                        //                 style: GoogleFonts.inter(
+                        //                     fontSize: 18,
+                        //                     color: provider
+                        //                         .expansionTile3TitleColor,
+                        //                     fontWeight: FontWeight.w500),
+                        //               ),
+                        //             ],
+                        //           ),
+                        //         ),
+                        //       ],
+                        //     ),
+                        //   ),
+                        // ),
                       ],
                     );
                   },

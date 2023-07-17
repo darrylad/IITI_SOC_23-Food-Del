@@ -112,7 +112,6 @@ class _Afterpayments1State extends State<Afterpayments1> {
                     width: 500,
                     child: RiveAnimation.asset(
                       'assets/rive/delivery.riv',
-                      fit: BoxFit.fill,
                     )),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,

@@ -8,8 +8,8 @@ List<Item> productsTIK = [
       restaurant: 'Tapri IITians Ki',
       itemdescription: 'Dish Description',
       identity: 'TPIK',
-      price: 100,
-      image: 'assets/Deepesh/assets/images/pbm.jpg'),
+      price: 50,
+      image: 'assets/dispics/dishes/BURGER.jpg'),
   Item(
       name: 'Garlic Bread',
       category: 'Veg',
@@ -18,7 +18,7 @@ List<Item> productsTIK = [
       itemdescription: 'Dish Description',
       identity: 'TPIK',
       price: 30,
-      image: 'assets/Deepesh/assets/images/kathiroll.jpg'),
+      image: 'assets/dispics/dishes/GARLIC BREAD.jpg'),
   Item(
       name: 'Pav Bhaji',
       category: 'Veg',
@@ -27,7 +27,7 @@ List<Item> productsTIK = [
       restaurant: 'Tapri IITians Ki',
       itemdescription: 'Dish Description',
       price: 25,
-      image: 'assets/Deepesh/assets/images/noodles.png'),
+      image: 'assets/dispics/dishes/PAV BHAJI.jpg'),
   Item(
       name: 'Grilled Sandwich',
       category: 'Veg',
@@ -35,8 +35,8 @@ List<Item> productsTIK = [
       identity: 'TPIK',
       restaurant: 'Tapri IITians Ki',
       itemdescription: 'Dish Description',
-      price: 8,
-      image: 'assets/Deepesh/assets/images/frenchfries.jpg'),
+      price: 30,
+      image: 'assets/dispics/dishes/Grilled sanwich.jpg'),
   Item(
       name: 'Red Sauce Pasta',
       category: 'Veg',
@@ -45,7 +45,7 @@ List<Item> productsTIK = [
       itemdescription: 'Dish Description',
       identity: 'TPIK',
       price: 25,
-      image: 'assets/Deepesh/assets/images/coffee.jpg'),
+      image: 'assets/dispics/dishes/RED PASTA.jpg'),
   Item(
       name: 'White Sauce Pasta',
       category: 'Veg',
@@ -54,16 +54,7 @@ List<Item> productsTIK = [
       itemdescription: 'Dish Description',
       identity: 'TPIK',
       price: 70,
-      image: 'assets/Deepesh/assets/images/cheesecornmomos.jpg'),
-  Item(
-      name: 'Bread Butter',
-      category: 'Veg',
-      menutype: 'Breakfast',
-      restaurant: 'Tapri IITians Ki',
-      itemdescription: 'Dish Description',
-      identity: 'TPIK',
-      price: 50,
-      image: 'assets/Deepesh/assets/images/grilledsandwich.jpg'),
+      image: 'assets/dispics/dishes/WHITE PASTA.jpg'),
   Item(
       name: 'Mojito',
       category: 'Veg',
@@ -72,7 +63,7 @@ List<Item> productsTIK = [
       itemdescription: 'Dish Description',
       identity: 'TPIK',
       price: 40,
-      image: 'assets/Deepesh/assets/images/paneerparatha.jpg'),
+      image: 'assets/dispics/dishes/mojito.jpg'),
   Item(
       name: 'Paneer Tikka',
       category: 'Veg',
@@ -80,7 +71,7 @@ List<Item> productsTIK = [
       restaurant: 'Tapri IITians Ki',
       itemdescription: 'Dish Description',
       identity: 'TPIK',
-      price: 12,
+      price: 120,
       image: 'assets/Deepesh/assets/images/paneertikka.png'),
   Item(
       name: 'Pizza',

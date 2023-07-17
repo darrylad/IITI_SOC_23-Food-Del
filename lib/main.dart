@@ -89,7 +89,7 @@ final GoRouter router = GoRouter(
         path: '/',
         builder: (BuildContext context, GoRouterState state) {
           // ignore: prefer_const_constructors
-          return Startscreen();
+          return Afterpayments1();
         }),
     GoRoute(
         name: 'Cancel',

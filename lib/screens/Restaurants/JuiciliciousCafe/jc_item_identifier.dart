@@ -12,18 +12,18 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:provider/provider.dart';
 
-class JCMainCourse extends StatefulWidget {
+class JCShakes extends StatefulWidget {
   final int menuindex;
-  const JCMainCourse({
+  const JCShakes({
     Key? key,
     required this.menuindex,
   }) : super(key: key);
 
   @override
-  State<JCMainCourse> createState() => _JCMainCourseState();
+  State<JCShakes> createState() => _JCShakesState();
 }
 
-class _JCMainCourseState extends State<JCMainCourse> {
+class _JCShakesState extends State<JCShakes> {
   @override
   Widget build(BuildContext context) {
     double screenwidth = MediaQuery.of(context).size.width;
@@ -56,7 +56,7 @@ class _JCMainCourseState extends State<JCMainCourse> {
       });
     }
 
-    if (productsJC[widget.menuindex].menutype == 'Main Course' &&
+    if (productsJC[widget.menuindex].menutype == 'Shakes' &&
         (categorySelected == productsJC[widget.menuindex].category ||
             categorySelected == 'All')) {
       return Container(
