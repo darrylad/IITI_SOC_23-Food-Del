@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_2/BottomNavigationBar/my_nav_bar.dart';
 import 'package:flutter_2/Screens/Cart/cart_provider.dart';
 import 'package:flutter_2/Screens/Cart/data_base.dart';
 import 'package:flutter_2/Screens/Restaurants/NightCanteen/nc_item_identifier.dart';
@@ -42,7 +43,7 @@ class _NightCanteenScreenState extends State<NightCanteenScreen> {
     double screenwidth = MediaQuery.of(context).size.width;
     return Scaffold(
       extendBody: true,
-      bottomNavigationBar: const BottomNav_nightcanteen(),
+      bottomNavigationBar: const MyNavBar(),
       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       body: SingleChildScrollView(
         // physics: const ClampingScrollPhysics(),
@@ -55,7 +56,7 @@ class _NightCanteenScreenState extends State<NightCanteenScreen> {
             ),
             const NCIntroduction(),
             SizedBox(
-              height: 0.1 * screenwidth,
+              height: 0.056 * screenwidth,
             ),
             Center(
               child: Text(
@@ -65,7 +66,7 @@ class _NightCanteenScreenState extends State<NightCanteenScreen> {
               ),
             ),
             SizedBox(
-              height: 0.05 * screenwidth,
+              height: 0.033 * screenwidth,
             ),
             ChangeNotifierProvider<ExpandStateProvider>(
                 create: (context) => ExpandStateProvider(),
@@ -74,15 +75,20 @@ class _NightCanteenScreenState extends State<NightCanteenScreen> {
                     return Column(
                       children: [
                         Container(
-                          height: 0.175 * screenwidth,
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 0.042 * screenwidth),
+                          width: 0.86 * screenwidth,
+                          height: 0.115 * screenwidth,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(40),
+                            color: Color.fromARGB(255, 223, 217, 212)
+                                .withOpacity(0.31),
+                          ),
                           child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Container(
-                                height: 40,
-                                width: 0.21 * screenwidth,
+                                height: 0.085 * screenwidth,
+                                width: 0.24 * screenwidth,
                                 decoration: BoxDecoration(
                                     boxShadow: [
                                       BoxShadow(
@@ -90,26 +96,47 @@ class _NightCanteenScreenState extends State<NightCanteenScreen> {
                                           spreadRadius: 0,
                                           color: Colors.black.withOpacity(0.2))
                                     ],
-                                    borderRadius: BorderRadius.circular(20),
+                                    borderRadius: BorderRadius.circular(15),
                                     color: provider.colorall),
                                 child: TextButton(
-                                  onPressed: () {
-                                    categorySelected = 'All';
-                                    provider.assignstate(false);
-                                    provider.assignblur();
-                                    provider.assigncolor();
-                                  },
-                                  child: Text(
-                                    'All',
-                                    style: GoogleFonts.inter(
-                                        fontSize: 0.036*screenwidth,
-                                        fontWeight: FontWeight.w600),
-                                  ),
-                                ),
+                                    onPressed: () {
+                                      categorySelected = 'All';
+                                      provider.assignstate(false);
+                                      provider.assignblur();
+                                      provider.assigncolor();
+                                    },
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        SizedBox(
+                                          height: 0.04 * screenwidth,
+                                          width: 0.04 * screenwidth,
+                                          child: ClipRRect(
+                                            child: SvgPicture.asset(
+                                              'assets/buttons/all.svg',
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          width: 0.01 * screenwidth,
+                                        ),
+                                        Text(
+                                          'All',
+                                          style: GoogleFonts.inter(
+                                              color: Colors.black,
+                                              fontSize: 0.03 * screenwidth,
+                                              fontWeight: FontWeight.w600),
+                                        ),
+                                      ],
+                                    )),
                               ),
                               Container(
-                                height: 40,
-                                width: 0.23 * screenwidth,
+                                height: 0.085 * screenwidth,
+                                width: 0.24 * screenwidth,
                                 decoration: BoxDecoration(
                                     boxShadow: [
                                       BoxShadow(
@@ -117,7 +144,7 @@ class _NightCanteenScreenState extends State<NightCanteenScreen> {
                                           spreadRadius: 0,
                                           color: Colors.black.withOpacity(0.2))
                                     ],
-                                    borderRadius: BorderRadius.circular(20),
+                                    borderRadius: BorderRadius.circular(15),
                                     color: provider.colorveg),
                                 child: TextButton(
                                     onPressed: () {
@@ -129,10 +156,12 @@ class _NightCanteenScreenState extends State<NightCanteenScreen> {
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
                                       children: [
                                         SizedBox(
-                                          height: 0.05 * screenwidth,
-                                          width: 0.05 * screenwidth,
+                                          height: 0.04 * screenwidth,
+                                          width: 0.04 * screenwidth,
                                           child: ClipRRect(
                                             child: SvgPicture.asset(
                                               'assets/buttons/veg.svg',
@@ -141,20 +170,22 @@ class _NightCanteenScreenState extends State<NightCanteenScreen> {
                                           ),
                                         ),
                                         SizedBox(
-                                          width: 0.0255 * screenwidth,
+                                          width: 0.01 * screenwidth,
                                         ),
                                         Text(
                                           'Veg',
                                           style: GoogleFonts.inter(
-                                              fontSize: 0.036*screenwidth,
+                                              color: const Color.fromARGB(
+                                                  255, 0, 143, 57),
+                                              fontSize: 0.03 * screenwidth,
                                               fontWeight: FontWeight.w600),
                                         ),
                                       ],
                                     )),
                               ),
                               Container(
-                                height: 40,
-                                width: 0.295 * screenwidth,
+                                height: 0.085 * screenwidth,
+                                width: 0.24 * screenwidth,
                                 decoration: BoxDecoration(
                                     boxShadow: [
                                       BoxShadow(
@@ -162,7 +193,7 @@ class _NightCanteenScreenState extends State<NightCanteenScreen> {
                                           spreadRadius: 0,
                                           color: Colors.black.withOpacity(0.2))
                                     ],
-                                    borderRadius: BorderRadius.circular(20),
+                                    borderRadius: BorderRadius.circular(15),
                                     color: provider.colornonveg),
                                 child: TextButton(
                                     onPressed: () {
@@ -174,10 +205,12 @@ class _NightCanteenScreenState extends State<NightCanteenScreen> {
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
                                       children: [
                                         SizedBox(
-                                          height: 0.05 * screenwidth,
-                                          width: 0.05 * screenwidth,
+                                          height: 0.04 * screenwidth,
+                                          width: 0.04 * screenwidth,
                                           child: ClipRRect(
                                             child: SvgPicture.asset(
                                               'assets/buttons/nonveg.svg',
@@ -186,12 +219,14 @@ class _NightCanteenScreenState extends State<NightCanteenScreen> {
                                           ),
                                         ),
                                         SizedBox(
-                                          width: 0.0255 * screenwidth,
+                                          width: 0.01 * screenwidth,
                                         ),
                                         Text(
                                           'Non Veg',
                                           style: GoogleFonts.inter(
-                                              fontSize: 0.0358*screenwidth,
+                                              color: const Color.fromARGB(
+                                                  255, 210, 63, 0),
+                                              fontSize: 0.03 * screenwidth,
                                               fontWeight: FontWeight.w600),
                                         ),
                                       ],
@@ -200,6 +235,9 @@ class _NightCanteenScreenState extends State<NightCanteenScreen> {
                             ],
                           ),
                         ),
+                        SizedBox(
+                          height: 0.0972 * screenwidth,
+                        ),
                         Theme(
                           data: Theme.of(context)
                               .copyWith(dividerColor: Colors.transparent),
@@ -207,14 +245,15 @@ class _NightCanteenScreenState extends State<NightCanteenScreen> {
                             collapsedIconColor: Colors.white,
                             iconColor: Colors.white,
                             initiallyExpanded: true,
+                            onExpansionChanged: (value) =>
+                                provider.assignExpansionTile1Paramenters(value),
                             title: Row(
                               children: [
                                 Container(
                                   width: 170,
                                   height: 35,
                                   decoration: BoxDecoration(
-                                    color:
-                                        const Color.fromARGB(255, 211, 93, 7),
+                                    color: provider.expansionTile1TileColor,
                                     borderRadius: BorderRadius.circular(27),
                                   ),
                                   child: Row(
@@ -225,7 +264,7 @@ class _NightCanteenScreenState extends State<NightCanteenScreen> {
                                         width: 16,
                                       ),
                                       SvgPicture.asset(
-                                          'assets/buttons/exptileicon.svg'),
+                                          provider.expansionTile1Image),
                                       const SizedBox(
                                         width: 10,
                                       ),
@@ -233,7 +272,8 @@ class _NightCanteenScreenState extends State<NightCanteenScreen> {
                                         'Main Course',
                                         style: GoogleFonts.inter(
                                             fontSize: 18,
-                                            color: Colors.white,
+                                            color: provider
+                                                .expansionTile1TitleColor,
                                             fontWeight: FontWeight.w500),
                                       ),
                                     ],
@@ -266,6 +306,8 @@ class _NightCanteenScreenState extends State<NightCanteenScreen> {
                           child: ExpansionTile(
                             collapsedIconColor: Colors.white,
                             iconColor: Colors.white,
+                            onExpansionChanged: (value) =>
+                                provider.assignExpansionTile2Paramenters(value),
                             initiallyExpanded: true,
                             title: Row(
                               children: [
@@ -273,8 +315,7 @@ class _NightCanteenScreenState extends State<NightCanteenScreen> {
                                   width: 147,
                                   height: 35,
                                   decoration: BoxDecoration(
-                                    color:
-                                        const Color.fromARGB(255, 211, 93, 7),
+                                    color: provider.expansionTile2TileColor,
                                     borderRadius: BorderRadius.circular(27),
                                   ),
                                   child: Row(
@@ -285,7 +326,7 @@ class _NightCanteenScreenState extends State<NightCanteenScreen> {
                                         width: 16,
                                       ),
                                       SvgPicture.asset(
-                                          'assets/buttons/exptileicon.svg'),
+                                          provider.expansionTile2Image),
                                       const SizedBox(
                                         width: 10,
                                       ),
@@ -293,7 +334,8 @@ class _NightCanteenScreenState extends State<NightCanteenScreen> {
                                         'Fast Food',
                                         style: GoogleFonts.inter(
                                             fontSize: 18,
-                                            color: Colors.white,
+                                            color: provider
+                                                .expansionTile2TitleColor,
                                             fontWeight: FontWeight.w500),
                                       ),
                                     ],
@@ -327,14 +369,15 @@ class _NightCanteenScreenState extends State<NightCanteenScreen> {
                             collapsedIconColor: Colors.white,
                             iconColor: Colors.white,
                             initiallyExpanded: true,
+                            onExpansionChanged: (value) =>
+                                provider.assignExpansionTile3Paramenters(value),
                             title: Row(
                               children: [
                                 Container(
                                   width: 150,
                                   height: 35,
                                   decoration: BoxDecoration(
-                                    color:
-                                        const Color.fromARGB(255, 211, 93, 7),
+                                    color: provider.expansionTile3TileColor,
                                     borderRadius: BorderRadius.circular(27),
                                   ),
                                   child: Row(
@@ -345,7 +388,7 @@ class _NightCanteenScreenState extends State<NightCanteenScreen> {
                                         width: 16,
                                       ),
                                       SvgPicture.asset(
-                                          'assets/buttons/exptileicon.svg'),
+                                          provider.expansionTile3Image),
                                       const SizedBox(
                                         width: 10,
                                       ),
@@ -353,7 +396,8 @@ class _NightCanteenScreenState extends State<NightCanteenScreen> {
                                         'Beverages',
                                         style: GoogleFonts.inter(
                                             fontSize: 18,
-                                            color: Colors.white,
+                                            color: provider
+                                                .expansionTile3TitleColor,
                                             fontWeight: FontWeight.w500),
                                       ),
                                     ],

@@ -8,6 +8,12 @@ String Locationselected = 'Select Location';
 String categorySelected = 'All';
 
 final controller = Get.put(LoginController());
+bool homeselected = true;
+bool cartselected = false;
+bool profileselected = false;
+
+bool cartEmptyState = true;
+var currentIndex = 0;
 
 List<String> options = <String>[
   'Select Location',

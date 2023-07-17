@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_2/BottomNavigationBar/navbar_state_provider.dart';
 import 'package:flutter_2/Screens/Homescreen/home_screen.dart';
 import 'package:flutter_2/Screens/Location/add_location_screen.dart';
 import 'package:flutter_2/Screens/Restaurants/expand_state_provider.dart';
@@ -28,7 +29,8 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (_) => ExpandStateProvider(),
-        )
+        ),
+        ChangeNotifierProvider(create: (_) => NavBarStateProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

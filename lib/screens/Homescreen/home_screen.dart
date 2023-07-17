@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_2/BottomNavigationBar/my_nav_bar.dart';
 import 'package:flutter_2/Screens/Cart/cart_provider.dart';
 import 'package:flutter_2/Screens/Cart/data_base.dart';
 import 'package:flutter_2/Screens/Homescreen/ImageCarausel.dart';
@@ -16,7 +17,7 @@ import 'SectionTitle.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
-  static const String routeName = '/addlocation';
+  static const String routeName = '/home';
 
   static Route route() {
     return MaterialPageRoute(
@@ -40,14 +41,19 @@ class _HomeScreen extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      extendBody: true,
-      bottomNavigationBar: BottomNav_1(),
-      backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
-      body: MainScroll(
-        name: username,
-      ),
-    );
+    return ChangeNotifierProvider<CartProvider>(
+        create: (context) => CartProvider(),
+        child:
+            Consumer<CartProvider>(builder: (context, provider, child) {
+          return Scaffold(
+            extendBody: true,
+            bottomNavigationBar: MyNavBar(),
+            backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
+            body: MainScroll(
+              name: username,
+            ),
+          );
+        }));
   }
 }
 
