@@ -5,6 +5,8 @@ import 'package:go_router/go_router.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../Services/notifi.dart';
+
 class PaymentsPage extends StatefulWidget {
   const PaymentsPage({super.key});
 
@@ -30,6 +32,7 @@ class _PaymentsPageState extends State<PaymentsPage> {
       payed = true;
       colourdecider();
       context.go('/Afterpayments.dart');
+      showNotifications();
     }
     // Do something when payment succeeds
   }
