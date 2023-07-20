@@ -78,9 +78,9 @@ class MainScroll extends StatelessWidget {
           background: GoodMorning(name: name),
         ),
       ),
-      const SliverToBoxAdapter(
-        child: ImageCarausal(),
-      ),
+      // const SliverToBoxAdapter(
+      //   child: ImageCarausal(),
+      // ),
       const SliverToBoxAdapter(
         child: Center(
           child: SectionTitle(
