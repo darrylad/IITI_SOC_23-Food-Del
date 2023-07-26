@@ -344,6 +344,12 @@ class _TIKMainCourseState extends State<TIKMainCourse> {
                                         listen: false)
                                     .updateCartEmptyState(false);
                               });
+                               ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text('Item Added Successfully!'),
+                                  duration: Duration(seconds: 2),
+                                ),
+                              );
                             },
                             child: SvgPicture.asset(
                               'assets/buttons/plus.svg',
@@ -698,6 +704,12 @@ class _TIKFastFoodState extends State<TIKFastFood> {
                                         listen: false)
                                     .updateCartEmptyState(false);
                               });
+                               ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text('Item Added Successfully!'),
+                                  duration: Duration(seconds: 2),
+                                ),
+                              );
                             },
                             child: SvgPicture.asset(
                               'assets/buttons/plus.svg',
@@ -1052,6 +1064,12 @@ class _TIKBeveragesState extends State<TIKBeverages> {
                                         listen: false)
                                     .updateCartEmptyState(false);
                               });
+                               ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text('Item Added Successfully!'),
+                                  duration: Duration(seconds: 2),
+                                ),
+                              );
                             },
                             child: SvgPicture.asset(
                               'assets/buttons/plus.svg',

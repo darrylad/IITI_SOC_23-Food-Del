@@ -351,6 +351,12 @@ class _TPMainCourseState extends State<TPMainCourse> {
                                         listen: false)
                                     .updateCartEmptyState(false);
                               });
+                               ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text('Item Added Successfully!'),
+                                  duration: Duration(seconds: 2),
+                                ),
+                              );
                             },
                             child: SvgPicture.asset(
                               'assets/buttons/plus.svg',
@@ -703,6 +709,12 @@ class _TPFastFoodState extends State<TPFastFood> {
                                 Provider.of<CartEmptyStateProvider>(context,
                                         listen: false)
                                     .updateCartEmptyState(false);
+                                     ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text('Item Added Successfully!'),
+                                  duration: Duration(seconds: 2),
+                                ),
+                              );
                               });
                             },
                             child: SvgPicture.asset(
@@ -1058,6 +1070,12 @@ class _TPBeveragesState extends State<TPBeverages> {
                                         listen: false)
                                     .updateCartEmptyState(false);
                               });
+                               ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text('Item Added Successfully!'),
+                                  duration: Duration(seconds: 2),
+                                ),
+                              );
                             },
                             child: SvgPicture.asset(
                               'assets/buttons/plus.svg',

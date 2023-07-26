@@ -198,7 +198,6 @@ class _JCShakesState extends State<JCShakes> {
                         );
                       } else if (!((provider.cart[0].productId!).contains(
                           (productsJC[this.widget.menuindex].identity)))) {
-                     
                         return Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -327,7 +326,6 @@ class _JCShakesState extends State<JCShakes> {
                           ),
                         );
                       } else {
-                    
                         return Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -347,6 +345,12 @@ class _JCShakesState extends State<JCShakes> {
                                 Provider.of<CartEmptyStateProvider>(context,
                                         listen: false)
                                     .updateCartEmptyState(false);
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content: Text('Item Added Successfully!'),
+                                    duration: Duration(seconds: 2),
+                                  ),
+                                );
                               });
                             },
                             child: SvgPicture.asset(
@@ -555,7 +559,6 @@ class _JCFastFoodState extends State<JCFastFood> {
                         );
                       } else if (!((provider.cart[0].productId!).contains(
                           (productsJC[this.widget.menuindex].identity)))) {
-                    
                         return Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -684,7 +687,6 @@ class _JCFastFoodState extends State<JCFastFood> {
                           ),
                         );
                       } else {
-                       
                         return Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -701,7 +703,15 @@ class _JCFastFoodState extends State<JCFastFood> {
                             onTap: () {
                               saveData(this.widget.menuindex);
                               setState(() {
-                              
+                                Provider.of<CartEmptyStateProvider>(context,
+                                        listen: false)
+                                    .updateCartEmptyState(false);
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content: Text('Item Added Successfully!'),
+                                    duration: Duration(seconds: 2),
+                                  ),
+                                );
                               });
                             },
                             child: SvgPicture.asset(
@@ -903,7 +913,6 @@ class _JCBeveragesState extends State<JCBeverages> {
                         );
                       } else if (!((provider.cart[0].productId!).contains(
                           (productsJC[this.widget.menuindex].identity)))) {
-                       
                         return Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -1031,7 +1040,6 @@ class _JCBeveragesState extends State<JCBeverages> {
                           ),
                         );
                       } else {
-                       
                         return Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -1052,6 +1060,12 @@ class _JCBeveragesState extends State<JCBeverages> {
                                         listen: false)
                                     .updateCartEmptyState(false);
                               });
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text('Item Added Successfully!'),
+                                  duration: Duration(seconds: 2),
+                                ),
+                              );
                             },
                             child: SvgPicture.asset(
                               'assets/buttons/plus.svg',

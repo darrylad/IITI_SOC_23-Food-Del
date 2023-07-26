@@ -164,7 +164,7 @@ class _SlideToAction extends State<SlideToAction>
 
   void _onSlideEnd(DragEndDetails details) {
     if (!_isCanceled) {
-      if (_slideAmount >= _maxSlideAmount - widget.screenwidth * 0.16) {
+      if (_slideAmount >= _maxSlideAmount - widget.screenwidth * 0.19) {
         _slideToCancel();
       } else {
         _slideController.reverse();
@@ -202,7 +202,7 @@ class _SlideToAction extends State<SlideToAction>
               onHorizontalDragUpdate: _onSlideUpdate,
               onHorizontalDragEnd: _onSlideEnd,
               child: Padding(
-                padding: EdgeInsets.all(screenWidth * 0.0085),
+                padding: EdgeInsets.only(left: screenWidth * 0.0085, top: screenWidth*0.0065, bottom: screenWidth*0.0065),
                 child: Container(
                     width: screenWidth * 0.1667,
                     height: screenWidth * 0.1667,
