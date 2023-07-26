@@ -23,15 +23,16 @@ class PaymentsPage extends StatefulWidget {
 class _PaymentsPageState extends State<PaymentsPage> {
   final usermodel = Get.put(OrderedRepository());
   final _razorpay = Razorpay();
+  NotificationServices notificationServices = NotificationServices();
 
   @override
   void initState() {
     _razorpay.on(Razorpay.EVENT_PAYMENT_SUCCESS, _handlePaymentSuccess);
     _razorpay.on(Razorpay.EVENT_PAYMENT_ERROR, _handlePaymentError);
     _razorpay.on(Razorpay.EVENT_EXTERNAL_WALLET, _handleExternalWallet);
-    
 
     super.initState();
+    notificationServices.InitialiseNotifications();
   }
 
   void _handlePaymentSuccess(PaymentSuccessResponse response) {
@@ -45,6 +46,8 @@ class _PaymentsPageState extends State<PaymentsPage> {
           Orderid: 1222545651616);
 
       usermodel.createuser(user);
+      notificationServices.showNotifications(
+          "Order is accepted by restaurant", "ETA: 20 min");
 
       context.go('/Afterpayments.dart');
     }

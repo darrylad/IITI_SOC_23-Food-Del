@@ -25,14 +25,14 @@ class _AfterpaymentsState extends State<Afterpayments> {
     super.initState();
   }
 
-  static const maxmin = 40;
+  static const maxmin = 2;
   int minutes = maxmin;
   Timer? timer;
 
   void startTimer() {
     timer = Timer.periodic(const Duration(minutes: 1), (_) {
       setState(() {
-        if (minutes <= 11) {
+        if (minutes <= 1) {
           context.go('/Afterpayments1.dart');
         } else {
           minutes--;
@@ -65,7 +65,10 @@ class _AfterpaymentsState extends State<Afterpayments> {
             SizedBox(
               height: MediaQuery.of(context).size.height,
               width: double.infinity,
-              child: Image.asset('assets/buttons/Tracking.png'),
+              child: Image.asset(
+                'assets/buttons/Tracking.png',
+                fit: BoxFit.fill,
+              ),
             ),
             AnimatedOpacity(
               curve: Curves.linear,
@@ -74,7 +77,10 @@ class _AfterpaymentsState extends State<Afterpayments> {
               child: SizedBox(
                 height: MediaQuery.of(context).size.height,
                 width: double.infinity,
-                child: Image.asset('assets/buttons/Tracking_1.png'),
+                child: Image.asset(
+                  'assets/buttons/Tracking_1.png',
+                  fit: BoxFit.fill,
+                ),
               ),
             ),
             Positioned(
@@ -218,6 +224,12 @@ class _AfterpaymentsState extends State<Afterpayments> {
             ))
           ])),
     );
+  }
+
+  @override
+  void dispose() {
+    startTimer();
+    super.dispose();
   }
 }
 

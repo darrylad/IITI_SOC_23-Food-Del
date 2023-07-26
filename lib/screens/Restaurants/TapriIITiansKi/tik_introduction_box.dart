@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_2/Screens/Location/locationpopup.dart';
 import 'package:flutter_2/global/globals.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TIKIntroduction extends StatefulWidget {
@@ -59,7 +60,7 @@ class _TIKIntroductionState extends State<TIKIntroduction> {
                           ),
                           IconButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, '/searchbartapri');
+                                context.push('/SearchBarScreenTapri.dart');
                               },
                               icon: SvgPicture.asset(
                                 'assets/buttons/search.svg',
@@ -148,7 +149,7 @@ class _TIKIntroductionState extends State<TIKIntroduction> {
                             ),
                             Positioned(
                               bottom: 0.1 * screenwidth,
-                              left: screenwidth * 0.19,
+                              left: screenwidth * 0.15,
                               child: Text(
                                 'ETA: 10 min',
                                 style: GoogleFonts.inter(

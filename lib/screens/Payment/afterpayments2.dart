@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'dart:ffi';
+import 'package:lottie/lottie.dart';
 import 'package:rive/rive.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +9,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../Services/notifi.dart';
 import '../../navbarbasics/nav.dart';
 
 class Afterpayments1 extends StatefulWidget {
@@ -19,27 +22,12 @@ class Afterpayments1 extends StatefulWidget {
 class _Afterpayments1State extends State<Afterpayments1> {
   final String deliveryAgentName = "Abhinav Tiwari";
   final String deliveryAgentPhone = "9876543210";
+  NotificationServices notificationServices = NotificationServices();
 
   @override
   void initState() {
-    startTimer();
+    notificationServices.InitialiseNotifications();
     super.initState();
-  }
-
-  static const maxmin = 10;
-  int minutes = maxmin;
-  Timer? timer;
-
-  void startTimer() {
-    timer = Timer.periodic(const Duration(minutes: 1), (_) {
-      setState(() {
-        if (minutes < 1) {
-          context.go('/Afterpayments2.dart');
-        } else {
-          minutes--;
-        }
-      });
-    });
   }
 
   bool istrue = true;
@@ -93,25 +81,11 @@ class _Afterpayments1State extends State<Afterpayments1> {
               ),
               child:
                   Column(mainAxisAlignment: MainAxisAlignment.end, children: [
-                // Text(
-                //   minutes.toString(),
-                //   style: GoogleFonts.inter(
-                //       fontSize: 160,
-                //       color: Colors.white,
-                //       fontWeight: FontWeight.w600),
-                // ),
-                // Text(
-                //   'minutes',
-                //   style: GoogleFonts.inter(
-                //       fontSize: 40,
-                //       color: Colors.white,
-                //       fontWeight: FontWeight.w600),
-                // ),
-                const SizedBox(
+                SizedBox(
                     height: 400,
                     width: 500,
-                    child: RiveAnimation.asset(
-                      'assets/rive/delivery.riv',
+                    child: Lottie.asset(
+                      'assets/rive/lottie_delivery.json',
                     )),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -129,7 +103,7 @@ class _Afterpayments1State extends State<Afterpayments1> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           const SizedBox(
-                            height: 25,
+                            height: 10,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -143,7 +117,7 @@ class _Afterpayments1State extends State<Afterpayments1> {
                             ],
                           ),
                           const SizedBox(
-                            height: 12,
+                            height: 9,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -193,7 +167,38 @@ class _Afterpayments1State extends State<Afterpayments1> {
                             ],
                           ),
                           const SizedBox(
-                            height: 20,
+                            height: 5,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                color: const Color.fromRGBO(237, 237, 237, 1),
+                                height: 38,
+                                width: 200,
+                                child: GestureDetector(
+                                  onTap: () {
+                                    notificationServices.showNotifications(
+                                        "Order Delivered", '');
+
+                                    context.go('/Afterpayments2.dart');
+                                  },
+                                  child: Center(
+                                    child: Text(
+                                      "Order Delivered",
+                                      style: GoogleFonts.inter(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w400,
+                                          color: const Color.fromRGBO(
+                                              1, 62, 25, 0.75)),
+                                    ),
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 10,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -225,7 +230,7 @@ class _Afterpayments1State extends State<Afterpayments1> {
                   ],
                 ),
                 const SizedBox(
-                  height: 120,
+                  height: 80,
                 )
               ]),
             ))

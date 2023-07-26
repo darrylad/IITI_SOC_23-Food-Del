@@ -69,7 +69,7 @@ class _JuiciliciousCafeScreenState extends State<JuiciliciousCafeScreen> {
                       children: [
                         Container(
                           width: 0.86 * screenwidth,
-                          height: 0.115 * screenwidth,
+                          height: 0.110 * screenwidth,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(40),
                             color: const Color.fromARGB(255, 223, 217, 212)

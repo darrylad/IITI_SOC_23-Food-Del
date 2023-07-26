@@ -42,7 +42,7 @@ class _SearchBarScreenNight extends State<SearchBarScreenNight> {
           centerTitle: true,
           leading: BackButton(
             onPressed: () {
-              Navigator.pushNamed(context, '/nightcanteen');
+              context.go('/NightCanteenScreen.dart');
             },
             color: const Color.fromARGB(255, 152, 46, 1),
           ),

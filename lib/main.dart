@@ -34,23 +34,6 @@ String locationdropdownvalue = 'Choose Your Location';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  AndroidInitializationSettings androidInitializationSettings =
-      const AndroidInitializationSettings("@mipmap/ic_launcher");
-
-  DarwinInitializationSettings iossettings = const DarwinInitializationSettings(
-    requestAlertPermission: true,
-    requestBadgePermission: true,
-    requestCriticalPermission: true,
-    requestSoundPermission: true,
-  );
-
-  InitializationSettings initializationSettings = InitializationSettings(
-    android: androidInitializationSettings,
-    iOS: iossettings,
-  );
-
-  bool? initialized =
-      await NotificationsPlugin.initialize(initializationSettings);
 
   runApp(const MyApp());
 }
@@ -92,7 +75,7 @@ final GoRouter router = GoRouter(
         path: '/',
         builder: (BuildContext context, GoRouterState state) {
           // ignore: prefer_const_constructors
-          return HomeScreen();
+          return Startscreen();
         }),
     GoRoute(
         name: 'Cancel',

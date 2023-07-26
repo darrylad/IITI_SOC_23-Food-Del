@@ -2,9 +2,8 @@ import "package:flutter/material.dart";
 import 'package:flutter_2/Screens/Cart/item_model.dart';
 import 'package:flutter_2/Screens/Restaurants/TeaPost/tea_post_menu.dart';
 import 'package:flutter_2/Screens/Search/search_widget.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-
 
 class SearchBarScreenTeaPost extends StatefulWidget {
   const SearchBarScreenTeaPost({Key? key}) : super(key: key);
@@ -41,7 +40,7 @@ class _SearchBarScreenTeaPost extends State<SearchBarScreenTeaPost> {
           centerTitle: true,
           leading: BackButton(
             onPressed: () {
-              Navigator.pushNamed(context, '/teapost');
+              context.go('/teapost');
             },
             color: const Color.fromARGB(255, 152, 46, 1),
           ),
@@ -81,21 +80,13 @@ class _SearchBarScreenTeaPost extends State<SearchBarScreenTeaPost> {
                               ),
                             ),
                             splashColor: Colors.grey,
-                            title: Text(
-                              menuItem.name,
-                              style: GoogleFonts.lato(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold
-                              )
-                            ),
+                            title: Text(menuItem.name,
+                                style: GoogleFonts.lato(
+                                    fontSize: 20, fontWeight: FontWeight.bold)),
                             tileColor: Colors.white70,
-                            subtitle: Text(
-                              menuItem.restaurant,
-                              style: GoogleFonts.lato(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w400
-                              )
-                            ),
+                            subtitle: Text(menuItem.restaurant,
+                                style: GoogleFonts.lato(
+                                    fontSize: 16, fontWeight: FontWeight.w400)),
                             onTap: null,
                           ),
                         ),

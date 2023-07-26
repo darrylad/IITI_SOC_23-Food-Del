@@ -5,8 +5,20 @@ import 'package:rive/rive.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class DeliveredScreen extends StatelessWidget {
+import '../../Services/notifi.dart';
+
+class DeliveredScreen extends StatefulWidget {
   const DeliveredScreen({super.key});
+
+  @override
+  State<DeliveredScreen> createState() => _DeliveredScreenState();
+}
+
+class _DeliveredScreenState extends State<DeliveredScreen> {
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

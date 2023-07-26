@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_2/global/globals.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Cancel extends StatefulWidget {
@@ -53,22 +54,28 @@ class _CancelState extends State<Cancel> {
                   const SizedBox(
                     height: 60,
                   ),
-                  Container(
-                    height: 55,
-                    width: 250,
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(10),
+                  GestureDetector(
+                    onTap: () {
+                      payed = false;
+                      colourdecider();
+                    },
+                    child: Container(
+                      height: 55,
+                      width: 250,
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(10),
+                        ),
+                        color: Color.fromRGBO(255, 222, 222, 1),
                       ),
-                      color: Color.fromRGBO(255, 222, 222, 1),
+                      child: Center(
+                          child: Text(
+                        'Cancel the order',
+                        style: GoogleFonts.inter(
+                            fontSize: 20,
+                            color: const Color.fromRGBO(195, 0, 0, 1)),
+                      )),
                     ),
-                    child: Center(
-                        child: Text(
-                      'Cancel the order',
-                      style: GoogleFonts.inter(
-                          fontSize: 20,
-                          color: const Color.fromRGBO(195, 0, 0, 1)),
-                    )),
                   ),
                   const SizedBox(
                     height: 30,
@@ -97,4 +104,3 @@ class _CancelState extends State<Cancel> {
         ));
   }
 }
-

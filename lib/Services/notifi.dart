@@ -1,28 +1,43 @@
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
-// ignore: non_constant_identifier_names
-FlutterLocalNotificationsPlugin NotificationsPlugin =
-    FlutterLocalNotificationsPlugin();
+class NotificationServices {
+  final FlutterLocalNotificationsPlugin _flutterLocalNotificationsPlugin =
+      FlutterLocalNotificationsPlugin();
+  final AndroidInitializationSettings androidInitializationSettings =
+      const AndroidInitializationSettings('app');
 
-void showNotifications() async {
-  AndroidNotificationDetails androidNotificationDetails =
-      const AndroidNotificationDetails(
-    'Darryl',
-    'Deepesh',
-    priority: Priority.max,
-    importance: Importance.max,
+  DarwinInitializationSettings iossettings = const DarwinInitializationSettings(
+    requestAlertPermission: true,
+    requestBadgePermission: true,
+    requestCriticalPermission: true,
+    requestSoundPermission: true,
   );
 
-  DarwinNotificationDetails iosdetails = const DarwinNotificationDetails(
-    presentAlert: true,
-    presentBadge: true,
-    presentSound: true,
-  );
+  // ignore: non_constant_identifier_names
+  void InitialiseNotifications() async {
+    InitializationSettings initializationSettings = InitializationSettings(
+        android: androidInitializationSettings, iOS: iossettings);
 
-  NotificationDetails notificationDetails = NotificationDetails(
-    android: androidNotificationDetails,
-    iOS: iosdetails,
-  );
+    await _flutterLocalNotificationsPlugin.initialize(initializationSettings);
+  }
 
-  await NotificationsPlugin.show(0, 'Darryl', 'Deepesh', notificationDetails);
+  void showNotifications(String title, String body) async {
+    AndroidNotificationDetails androidNotificationDetails =
+        const AndroidNotificationDetails('Darryl', 'Deepesh',
+            importance: Importance.max, priority: Priority.max);
+    DarwinNotificationDetails darwinNotificationDetails =
+        const DarwinNotificationDetails(
+      presentAlert: true,
+      presentBadge: true,
+      presentBanner: true,
+      presentSound: true,
+    );
+
+    NotificationDetails notificationDetails = NotificationDetails(
+      android: androidNotificationDetails,
+      iOS: darwinNotificationDetails,
+    );
+
+    _flutterLocalNotificationsPlugin.show(0, title, body, notificationDetails);
+  }
 }

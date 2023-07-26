@@ -9,15 +9,6 @@ import "menu_item_data.dart";
 class SearchBarScreen extends StatefulWidget {
   const SearchBarScreen({Key? key}) : super(key: key);
 
-  static const String routeName = '/searchbarafter';
-
-  static Route route() {
-    return MaterialPageRoute(
-      builder: (_) => const SearchBarScreen(),
-      settings: const RouteSettings(name: routeName),
-    );
-  }
-
   @override
   State<SearchBarScreen> createState() => _SearchBarScreen();
 }

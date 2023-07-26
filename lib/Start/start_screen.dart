@@ -35,6 +35,7 @@ class State1 extends State<Startscreen> {
                 return LoginView();
               } else {
                 username = controller.googleAccount.value?.displayName ?? '';
+                Future.delayed(Duration(seconds: 1));
                 return const AddLocationScreen();
               }
             }),

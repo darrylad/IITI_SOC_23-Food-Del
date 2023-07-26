@@ -2,9 +2,14 @@
 // ignore_for_file: prefer_typing_uninitialized_variables, duplicate_ignore
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../controller_login/login_controller.dart';
+import '../screens/Cart/cart_provider.dart';
 
 final String deliveryAgentName = "Abhinav Tiwari";
 final String deliveryAgentPhone = "9876543210";
@@ -85,3 +90,124 @@ List<String> options = <String>[
 
 String dropdownValue = 'Select Location';
 int? totalCartValue = 0;
+
+ValueNotifier<int> currentIndex = ValueNotifier<int>(0);
+ValueNotifier<bool> cartEmptyState = ValueNotifier<bool>(true);
+
+bool isAppStarted = true;
+
+/* Widget emptyCartSelectedWidget = SvgPicture.asset(
+  'assets/buttons/cart.svg',
+  colorFilter: const ColorFilter.mode(
+    Colors.white,
+    BlendMode.srcIn,
+  ),
+  fit: BoxFit.cover,
+);
+
+Widget emptyCartNotSelectedWidget = SvgPicture.asset(
+  'assets/buttons/cart.svg',
+  colorFilter: const ColorFilter.mode(
+    Colors.black,
+    BlendMode.srcIn,
+  ),
+  fit: BoxFit.cover,
+);
+
+Widget nonEmptyCartNotSelectedWidget = Row(
+  children: [
+    const SizedBox(
+      width: 13,
+    ),
+    SvgPicture.asset(
+      'assets/buttons/cart.svg',
+      colorFilter: const ColorFilter.mode(
+        Colors.white,
+        BlendMode.srcIn,
+      ),
+      fit: BoxFit.cover,
+    ),
+    const SizedBox(
+      width: 5,
+    ),
+    Container(
+      height: 40,
+      width: 55,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(27),
+        color: const Color.fromARGB(255, 216, 255, 218),
+      ),
+      child: const Center(
+        child: Text(
+          'go',
+        ),
+      ),
+    )
+  ],
+);
+
+Widget nonEmptyCartSelectedWidget = Row(
+  children: [
+    const SizedBox(
+      width: 13,
+    ),
+    SvgPicture.asset(
+      'assets/buttons/cart.svg',
+      colorFilter: const ColorFilter.mode(
+        Colors.white,
+        BlendMode.srcIn,
+      ),
+      fit: BoxFit.cover,
+    ),
+    const SizedBox(
+      width: 5,
+    ),
+    Container(
+      height: 40,
+      width: 55,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(27),
+        color: const Color.fromARGB(255, 216, 255, 218),
+      ),
+      child: const Center(
+        child: Text(
+          'go',
+        ),
+      ),
+    )
+  ],
+); */
+
+class CartEmptyStateProvider with ChangeNotifier {
+  bool _cartEmptyState = true;
+  int _currentIndex = 0;
+
+  bool get cartEmptyState => _cartEmptyState;
+  int get currentIndex => _currentIndex;
+
+  Future<void> loadCartState() async {
+    final prefs = await SharedPreferences.getInstance();
+    _cartEmptyState = prefs.getBool('cartEmptyState') ?? true;
+    _currentIndex = prefs.getInt('3') ?? 3;
+    notifyListeners();
+  }
+
+  Future<void> saveCartState() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('cartEmptyState', _cartEmptyState);
+    await prefs.setInt('currentIndex', 0);
+  }
+
+  void updateCartEmptyState(bool newState) {
+    _cartEmptyState = newState;
+    saveCartState();
+    notifyListeners();
+  }
+
+  void updateCurrentIndex(int newIndex) {
+    _currentIndex = newIndex;
+    notifyListeners();
+  }
+}
+
+final cartEmptyStateProvider = CartEmptyStateProvider();

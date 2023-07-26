@@ -1,8 +1,8 @@
 import "package:flutter/material.dart";
 import 'package:flutter_2/Screens/Cart/item_model.dart';
 import 'package:flutter_2/Screens/Restaurants/JuiciliciousCafe/juici_cafe_menu.dart';
+import 'package:go_router/go_router.dart';
 import '../../Search/search_widget.dart';
-
 
 class SearchBarScreenJuiciliciousCafe extends StatefulWidget {
   const SearchBarScreenJuiciliciousCafe({Key? key}) : super(key: key);
@@ -17,10 +17,12 @@ class SearchBarScreenJuiciliciousCafe extends StatefulWidget {
   }
 
   @override
-  State<SearchBarScreenJuiciliciousCafe> createState() => _SearchBarScreenJuiciliciousCafe();
+  State<SearchBarScreenJuiciliciousCafe> createState() =>
+      _SearchBarScreenJuiciliciousCafe();
 }
 
-class _SearchBarScreenJuiciliciousCafe extends State<SearchBarScreenJuiciliciousCafe> {
+class _SearchBarScreenJuiciliciousCafe
+    extends State<SearchBarScreenJuiciliciousCafe> {
   late List<Item> menuItems;
   String query = '';
 
@@ -39,7 +41,7 @@ class _SearchBarScreenJuiciliciousCafe extends State<SearchBarScreenJuicilicious
           centerTitle: true,
           leading: BackButton(
             onPressed: () {
-              Navigator.pushNamed(context, '/juiciliciouscafe');
+              context.go('/juiciliciouscafe');
             },
             color: const Color.fromARGB(255, 152, 46, 1),
           ),
@@ -88,7 +90,7 @@ class _SearchBarScreenJuiciliciousCafe extends State<SearchBarScreenJuicilicious
                             ),
                             tileColor: Colors.white70,
                             subtitle: Text(
-                              menuItem.restaurant ,
+                              menuItem.restaurant,
                               style: const TextStyle(
                                   color: Color.fromARGB(255, 80, 80, 80),
                                   fontFamily: 'Dropdown',

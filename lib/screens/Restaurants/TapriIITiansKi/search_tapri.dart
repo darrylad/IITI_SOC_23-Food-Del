@@ -6,7 +6,6 @@ import "package:go_router/go_router.dart";
 
 import "../../Search/search_widget.dart";
 
-
 class SearchBarScreenTapri extends StatefulWidget {
   const SearchBarScreenTapri({Key? key}) : super(key: key);
 
@@ -42,7 +41,7 @@ class _SearchBarScreenTapri extends State<SearchBarScreenTapri> {
           centerTitle: true,
           leading: BackButton(
             onPressed: () {
-              Navigator.pushNamed(context, '/tapri');
+              context.go('/tapri');
             },
             color: const Color.fromARGB(255, 152, 46, 1),
           ),
