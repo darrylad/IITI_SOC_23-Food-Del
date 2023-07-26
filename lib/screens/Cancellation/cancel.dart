@@ -202,22 +202,27 @@ class _SlideToAction extends State<SlideToAction>
               onHorizontalDragUpdate: _onSlideUpdate,
               onHorizontalDragEnd: _onSlideEnd,
               child: Padding(
-                padding: EdgeInsets.only(left: screenWidth * 0.0085, top: screenWidth*0.0065, bottom: screenWidth*0.0065),
+                padding: EdgeInsets.only(
+                    left: screenWidth * 0.0085,
+                    top: screenWidth * 0.0065,
+                    bottom: screenWidth * 0.0065),
                 child: Container(
-                    width: screenWidth * 0.1667,
-                    height: screenWidth * 0.1667,
-                    decoration: const BoxDecoration(
-                      color: Color.fromARGB(255, 255, 187, 187),
-                      shape: BoxShape.circle,
+                  width: screenWidth * 0.1667,
+                  height: screenWidth * 0.1667,
+                  decoration: const BoxDecoration(
+                    color: Color.fromARGB(255, 255, 187, 187),
+                    shape: BoxShape.circle,
+                  ),
+                  child: Center(
+                    child: SizedBox(
+                      width: screenWidth * 0.04166,
+                      height: screenWidth * 0.08236,
+                      child: SvgPicture.asset(
+                        'assets/buttons/slideactionarrow.svg',
+                      ),
                     ),
-                    child:Center(
-                      child: SizedBox(
-                          width: screenWidth * 0.02083,
-                          height: screenWidth * 0.04166,
-                          child: SvgPicture.asset('assets/buttons/slideactionarrow.svg',
-                          ),
-                        ),
-                    ),),
+                  ),
+                ),
               ),
             ),
           ),
@@ -226,7 +231,7 @@ class _SlideToAction extends State<SlideToAction>
             child: Center(
               child: Text(
                 'Slide To Cancel',
-                style: TextStyle(
+                style: GoogleFonts.inter(
                   color:
                       const Color.fromARGB(255, 255, 170, 190).withOpacity(0.6),
                   fontSize: 18,
