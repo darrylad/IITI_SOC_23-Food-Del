@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Cancel extends StatefulWidget {
@@ -139,7 +140,7 @@ class _SlideToAction extends State<SlideToAction>
     _slideController.animateTo(_maxSlideAmount /
         _maxSlideAmount); // Slide to the cancel state smoothly
     // Perform the task when the slide reaches the end
-    print('Cancel');
+    context.go('/home_screen.dart');
   }
 
   void _onSlideStart(DragStartDetails details) {

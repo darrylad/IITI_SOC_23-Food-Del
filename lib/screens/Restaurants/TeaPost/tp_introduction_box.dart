@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_2/Screens/Location/locationpopup.dart';
 import 'package:flutter_2/global/globals.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TPIntroduction extends StatefulWidget {
@@ -58,8 +59,7 @@ class _TPIntroductionState extends State<TPIntroduction> {
                           ),
                           IconButton(
                               onPressed: () {
-                                Navigator.pushNamed(
-                                    context, '/searchbarteapost');
+                                context.push('/SearchBarScreenTeaPost.dart');
                               },
                               icon: SvgPicture.asset(
                                 'assets/buttons/search.svg',
@@ -132,23 +132,23 @@ class _TPIntroductionState extends State<TPIntroduction> {
                               left: screenwidth * 0.415,
                               child: TextButton(
                                   onPressed: () => _dialogBuilder(context)
-                                          .then((dropdownvalue) {
-                                        setState(() {
-                                          Locationselected = dropdownValue;
-                                        });
-                                      }),
+                                      .then((dropdownvalue) {
+                                    setState(() {
+                                      Locationselected = dropdownValue;
+                                    });
+                                  }),
                                   child: Text(
                                     '$Locationselected ',
                                     style: GoogleFonts.inter(
                                         fontSize: 14,
                                         fontWeight: FontWeight.w400,
                                         color:
-                                            const Color.fromARGB(255, 0, 0, 0)),
+                                        const Color.fromARGB(255, 0, 0, 0)),
                                   )),
                             ),
                             Positioned(
                               bottom: 0.1 * screenwidth,
-                              left: screenwidth * 0.19,
+                              left: screenwidth * 0.15,
                               child: Text(
                                 'ETA: 10 min',
                                 style: GoogleFonts.inter(
@@ -171,7 +171,7 @@ class _TPIntroductionState extends State<TPIntroduction> {
                           child: Text(
                             'Immerse yourself in our charming space to discover a cozy haven where tea connoisseurs and food enthusiasts gather to savor handcrafted brews, delectable dishes, and create unforgettable memories.',
                             style: GoogleFonts.inter(
-                                fontSize: 14,
+                                fontSize: 12,
                                 fontWeight: FontWeight.w400,
                                 color: const Color.fromARGB(255, 0, 0, 0)),
                           ),

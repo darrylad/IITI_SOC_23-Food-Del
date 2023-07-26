@@ -97,7 +97,16 @@ class _SearchBarScreen extends State<SearchBarScreen> {
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold),
                             ),
-                            onTap: null,
+                              onTap: () {
+                                (menuItem.restaurant == 'Night Canteen')
+                                    ? context.go('/NightCanteenScreen.dart')
+                                    : menuItem.restaurant == 'Tapri IITians Ki'
+                                    ? context.go('/TapriIITiansKiScreen.dart')
+                                    : menuItem.restaurant == 'Tea Post'
+                                    ? context.go('/TeaPostScreen.dart')
+                                    : context.go(
+                                    '/JuiciliciousCafeScreen.dart');
+                              },
                           ),
                         ),
                       ),

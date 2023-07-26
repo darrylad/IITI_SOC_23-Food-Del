@@ -1,9 +1,9 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_2/BottomNavigationBar/bottom_nav_bar.dart';
 import 'package:flutter_2/Screens/Restaurants/expand_state_provider.dart';
 import 'package:flutter_2/Screens/Cart/cart_provider.dart';
 import 'package:flutter_2/screens/Payment/cancellation.dart';
-import 'package:flutter_2/screens/Restaurants/JuiciliciousCafe/juicilicious_cafe_screen.dart';
+import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -17,6 +17,7 @@ import '../Screens/Homescreen/home_screen.dart';
 import '../Screens/Payment/afterpayments.dart';
 import '../Screens/Payment/afterpayments2.dart';
 import '../Screens/Payment/payments_screen.dart';
+import '../Screens/Restaurants/JuiciliciousCafe/juicilicious_cafe_screen.dart';
 import '../Screens/Restaurants/JuiciliciousCafe/search_juiciliciouscafe.dart';
 import '../Screens/Restaurants/NightCanteen/night_canteen_screen.dart';
 import '../Screens/Restaurants/NightCanteen/search_nightcanteen.dart';
@@ -32,23 +33,7 @@ String locationdropdownvalue = 'Choose Your Location';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  AndroidInitializationSettings androidInitializationSettings =
-      const AndroidInitializationSettings("@mipmap/ic_launcher");
-
-  DarwinInitializationSettings iossettings = const DarwinInitializationSettings(
-    requestAlertPermission: true,
-    requestBadgePermission: true,
-    requestCriticalPermission: true,
-    requestSoundPermission: true,
-  );
-
-  InitializationSettings initializationSettings = InitializationSettings(
-    android: androidInitializationSettings,
-    iOS: iossettings,
-  );
-
-  bool? initialized =
-      await NotificationsPlugin.initialize(initializationSettings);
+  await Firebase.initializeApp();
 
   runApp(const MyApp());
 }
@@ -90,7 +75,7 @@ final GoRouter router = GoRouter(
         path: '/',
         builder: (BuildContext context, GoRouterState state) {
           // ignore: prefer_const_constructors
-          return HomeScreen();
+          return Startscreen();
         }),
     GoRoute(
         name: 'Cancel',

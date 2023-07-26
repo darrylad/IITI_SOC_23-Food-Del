@@ -3,6 +3,7 @@ import 'package:flutter_2/Screens/Location/locationpopup.dart';
 import 'package:flutter_2/Screens/Restaurants/NightCanteen/night_canteen_screen.dart';
 import 'package:flutter_2/global/globals.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class NCIntroduction extends StatefulWidget {
@@ -60,7 +61,7 @@ class _NCIntroductionState extends State<NCIntroduction> {
                           ),
                           IconButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, '/searchbarnight');
+                                context.push('/SearchBarScreenNight.dart');
                               },
                               icon: SvgPicture.asset(
                                 'assets/buttons/search.svg',
@@ -88,7 +89,7 @@ class _NCIntroductionState extends State<NCIntroduction> {
                             style: GoogleFonts.inter(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w600,
-                                color: const Color.fromARGB(255, 0, 0, 0)),
+                                color: Color.fromARGB(255, 0, 0, 0)),
                           ),
                           const SizedBox(
                             width: 5,
@@ -133,24 +134,23 @@ class _NCIntroductionState extends State<NCIntroduction> {
                               left: screenwidth * 0.415,
                               child: TextButton(
                                   onPressed: () => _dialogBuilder(context)
-                                          .then((dropdownvalue) {
-                                        setState(() {
-                                          Locationselected = dropdownValue;
-                                        });
-                                      }),
+                                      .then((dropdownvalue) {
+                                    setState(() {
+                                      Locationselected = dropdownValue;
+                                    });
+                                  }),
                                   child: Text(
                                     Locationselected,
                                     style: GoogleFonts.inter(
                                         fontSize: 14,
                                         fontWeight: FontWeight.w400,
-                                        color: const Color.fromARGB(
-                                            255, 0, 0, 0)),
-                                  )
-                                  ),
+                                        color:
+                                        const Color.fromARGB(255, 0, 0, 0)),
+                                  )),
                             ),
                             Positioned(
                               bottom: 0.1 * screenwidth,
-                              left: screenwidth * 0.19,
+                              left: screenwidth * 0.15,
                               child: Text(
                                 'ETA: 10 min',
                                 style: GoogleFonts.inter(
@@ -169,11 +169,11 @@ class _NCIntroductionState extends State<NCIntroduction> {
                         padding: const EdgeInsets.only(right: 22.0),
                         child: SizedBox(
                           width: screenwidth * 0.875,
-                          height: screenwidth * 0.3,
+                          height: screenwidth * 0.2,
                           child: Text(
                             'Step into a lively atmosphere filled with the aroma of mouthwatering dishes and the sounds of laughter and conversations.',
                             style: GoogleFonts.inter(
-                                fontSize: 15,
+                                fontSize: 12,
                                 fontWeight: FontWeight.w400,
                                 color: const Color.fromARGB(255, 0, 0, 0)),
                           ),

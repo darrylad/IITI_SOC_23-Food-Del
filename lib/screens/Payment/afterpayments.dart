@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_2/BottomNavigationBar/bottom_nav_bar.dart';
 import 'package:flutter_2/screens/Homescreen/home_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
@@ -25,14 +26,14 @@ class _AfterpaymentsState extends State<Afterpayments> {
     super.initState();
   }
 
-  static const maxmin = 40;
+  static const maxmin = 2;
   int minutes = maxmin;
   Timer? timer;
 
   void startTimer() {
     timer = Timer.periodic(const Duration(minutes: 1), (_) {
       setState(() {
-        if (minutes <= 11) {
+        if (minutes <= 1) {
           context.go('/Afterpayments1.dart');
         } else {
           minutes--;
@@ -58,14 +59,17 @@ class _AfterpaymentsState extends State<Afterpayments> {
     });
     return Scaffold(
       extendBody: true,
-      bottomNavigationBar: const Nav(),
+      bottomNavigationBar: const MyNavBar(),
       body: Padding(
           padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
           child: Stack(children: [
             SizedBox(
               height: MediaQuery.of(context).size.height,
               width: double.infinity,
-              child: Image.asset('assets/buttons/Tracking.png'),
+              child: Image.asset(
+                'assets/buttons/Tracking.png',
+                fit: BoxFit.fill,
+              ),
             ),
             AnimatedOpacity(
               curve: Curves.linear,
@@ -74,150 +78,159 @@ class _AfterpaymentsState extends State<Afterpayments> {
               child: SizedBox(
                 height: MediaQuery.of(context).size.height,
                 width: double.infinity,
-                child: Image.asset('assets/buttons/Tracking_1.png'),
+                child: Image.asset(
+                  'assets/buttons/Tracking_1.png',
+                  fit: BoxFit.fill,
+                ),
               ),
             ),
             Positioned(
                 child: Container(
-              height: MediaQuery.of(context).size.height,
-              width: double.infinity,
-              decoration: const BoxDecoration(
-                color: Color.fromARGB(0, 255, 255, 255),
-              ),
-              child:
+                  height: MediaQuery.of(context).size.height,
+                  width: double.infinity,
+                  decoration: const BoxDecoration(
+                    color: Color.fromARGB(0, 255, 255, 255),
+                  ),
+                  child:
                   Column(mainAxisAlignment: MainAxisAlignment.end, children: [
-                // Text(
-                //   minutes.toString(),
-                //   style: GoogleFonts.inter(
-                //       fontSize: 160,
-                //       color: Colors.white,
-                //       fontWeight: FontWeight.w600),
-                // ),
-                // Text(
-                //   'minutes',
-                //   style: GoogleFonts.inter(
-                //       fontSize: 40,
-                //       color: Colors.white,
-                //       fontWeight: FontWeight.w600),
-                // ),
-                const SizedBox(
-                    height: 400,
-                    width: 400,
-                    child: RiveAnimation.asset(
-                      'assets/rive/payment.riv',
-                      fit: BoxFit.fill,
-                    )),
+                    // Text(
+                    //   minutes.toString(),
+                    //   style: GoogleFonts.inter(
+                    //       fontSize: 160,
+                    //       color: Colors.white,
+                    //       fontWeight: FontWeight.w600),
+                    // ),
+                    // Text(
+                    //   'minutes',
+                    //   style: GoogleFonts.inter(
+                    //       fontSize: 40,
+                    //       color: Colors.white,
+                    //       fontWeight: FontWeight.w600),
+                    // ),
+                    const SizedBox(
+                        height: 400,
+                        width: 400,
+                        child: RiveAnimation.asset(
+                          'assets/rive/payment.riv',
+                          fit: BoxFit.fill,
+                        )),
 
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(20),
-                        ),
-                        color: Color.fromRGBO(255, 255, 255, 1),
-                      ),
-                      height: 210,
-                      width: 350,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          const SizedBox(
-                            height: 35,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(20),
+                            ),
+                            color: Color.fromRGBO(255, 255, 255, 1),
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                          height: 210,
+                          width: 350,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Text('Your food is being prepared',
-                                  style: GoogleFonts.inter(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w500,
-                                    color:
+                              const SizedBox(
+                                height: 35,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text('Your food is being prepared',
+                                      style: GoogleFonts.inter(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w500,
+                                        color:
                                         const Color.fromRGBO(2, 119, 56, 0.92),
-                                  )),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 25,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              GestureDetector(
-                                onTap: () async {
-                                  final Uri url = Uri(
-                                    scheme: 'tel',
-                                    path: RestPhone,
-                                  );
-                                  if (await canLaunchUrl(url)) {
-                                    await launchUrl(url);
-                                  } else {
-                                    throw 'Could not launch $url';
-                                  }
-                                },
-                                child: Container(
-                                  decoration: const BoxDecoration(
-                                      color: Color.fromRGBO(237, 237, 237, 1),
-                                      borderRadius:
+                                      )),
+                                ],
+                              ),
+                              const SizedBox(
+                                height: 25,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  GestureDetector(
+                                    onTap: () async {
+                                      final Uri url = Uri(
+                                        scheme: 'tel',
+                                        path: RestPhone,
+                                      );
+                                      if (await canLaunchUrl(url)) {
+                                        await launchUrl(url);
+                                      } else {
+                                        throw 'Could not launch $url';
+                                      }
+                                    },
+                                    child: Container(
+                                      decoration: const BoxDecoration(
+                                          color: Color.fromRGBO(237, 237, 237, 1),
+                                          borderRadius:
                                           BorderRadius.all(Radius.circular(5))),
-                                  height: 38,
-                                  width: 275,
-                                  child: Center(
-                                    child: Text(
-                                      'Call Night Canteen',
-                                      style: GoogleFonts.inter(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w400,
-                                          color: Colors.black),
+                                      height: 38,
+                                      width: 275,
+                                      child: Center(
+                                        child: Text(
+                                          'Call Night Canteen',
+                                          style: GoogleFonts.inter(
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.w400,
+                                              color: Colors.black),
+                                        ),
+                                      ),
                                     ),
                                   ),
-                                ),
+                                ],
                               ),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              GestureDetector(
-                                onTap: () {
-                                  context.push('/Cancellation.dart');
-                                },
-                                child: Container(
-                                  decoration: const BoxDecoration(
-                                      color: Color.fromRGBO(237, 237, 237, 1),
-                                      borderRadius:
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  GestureDetector(
+                                    onTap: () {
+                                      context.push('/Cancellation.dart');
+                                    },
+                                    child: Container(
+                                      decoration: const BoxDecoration(
+                                          color: Color.fromRGBO(237, 237, 237, 1),
+                                          borderRadius:
                                           BorderRadius.all(Radius.circular(5))),
-                                  height: 38,
-                                  width: 275,
-                                  child: Center(
-                                    child: Text(
-                                      'Request Cancellation',
-                                      style: GoogleFonts.inter(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w400,
-                                          color: Colors.black),
+                                      height: 38,
+                                      width: 275,
+                                      child: Center(
+                                        child: Text(
+                                          'Request Cancellation',
+                                          style: GoogleFonts.inter(
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.w400,
+                                              color: Colors.black),
+                                        ),
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ),
+                                ],
+                              )
                             ],
-                          )
-                        ],
-                      ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 120,
-                )
-              ]),
-            ))
+                    const SizedBox(
+                      height: 120,
+                    )
+                  ]),
+                ))
           ])),
     );
+  }
+
+  @override
+  void dispose() {
+    startTimer();
+    super.dispose();
   }
 }
 

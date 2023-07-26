@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_2/Screens/Location/locationpopup.dart';
 import 'package:flutter_2/global/globals.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class JCIntroduction extends StatefulWidget {
@@ -59,8 +60,8 @@ class _JCIntroductionState extends State<JCIntroduction> {
                           ),
                           IconButton(
                               onPressed: () {
-                                Navigator.pushNamed(
-                                    context, '/searchbarjuiciliciouscafe');
+                                context.push(
+                                    '/SearchBarScreenJuiciliciousCafe.dart');
                               },
                               icon: SvgPicture.asset(
                                 'assets/buttons/search.svg',
@@ -146,12 +147,12 @@ class _JCIntroductionState extends State<JCIntroduction> {
                                         fontSize: 14,
                                         fontWeight: FontWeight.w400,
                                         color:
-                                            const Color.fromARGB(255, 0, 0, 0)),
+                                        const Color.fromARGB(255, 0, 0, 0)),
                                   )),
                             ),
                             Positioned(
                               bottom: 0.1 * screenwidth,
-                              left: screenwidth * 0.19,
+                              left: screenwidth * 0.15,
                               child: Text(
                                 'ETA: 10 min',
                                 style: GoogleFonts.inter(
@@ -170,11 +171,11 @@ class _JCIntroductionState extends State<JCIntroduction> {
                         padding: const EdgeInsets.only(right: 22.0),
                         child: SizedBox(
                           width: screenwidth * 0.875,
-                          height: screenwidth * 0.3,
+                          height: screenwidth * 0.2,
                           child: Text(
                             'Step into a vibrant oasis where flavor meets freshness in every sip to create a symphony of refreshing and wholesome beverages and to make every visit to Juicilicious a truly juicilicious experience..',
                             style: GoogleFonts.inter(
-                                fontSize: 14,
+                                fontSize: 12,
                                 fontWeight: FontWeight.w400,
                                 color: const Color.fromARGB(255, 0, 0, 0)),
                           ),
@@ -200,4 +201,3 @@ Future<String?> _dialogBuilder(BuildContext context) async {
     },
   );
 }
-

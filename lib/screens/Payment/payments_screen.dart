@@ -1,6 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_2/database/model.dart';
+import 'package:flutter_2/database/ordered_repository.dart';
 import 'package:flutter_2/global/globals.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:go_router/go_router.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -15,7 +21,9 @@ class PaymentsPage extends StatefulWidget {
 }
 
 class _PaymentsPageState extends State<PaymentsPage> {
+  final usermodel = Get.put(OrderedRepository());
   final _razorpay = Razorpay();
+  NotificationServices notificationServices = NotificationServices();
 
   @override
   void initState() {
@@ -24,6 +32,7 @@ class _PaymentsPageState extends State<PaymentsPage> {
     _razorpay.on(Razorpay.EVENT_EXTERNAL_WALLET, _handleExternalWallet);
 
     super.initState();
+    notificationServices.InitialiseNotifications();
   }
 
   void _handlePaymentSuccess(PaymentSuccessResponse response) {
@@ -31,6 +40,15 @@ class _PaymentsPageState extends State<PaymentsPage> {
       colour_3 = colour_4;
       payed = true;
       colourdecider();
+      final user = userModel(
+          ClientName: username,
+          Address: Locationselected,
+          Orderid: 1222545651616);
+
+      usermodel.createuser(user);
+      notificationServices.showNotifications(
+          "Order is accepted by restaurant", "ETA: 20 min");
+
       context.go('/Afterpayments.dart');
     }
     // Do something when payment succeeds
