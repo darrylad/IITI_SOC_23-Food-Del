@@ -32,7 +32,6 @@ class _PaymentsPageState extends State<PaymentsPage> {
       payed = true;
       colourdecider();
       context.go('/Afterpayments.dart');
-      showNotifications();
     }
     // Do something when payment succeeds
   }
