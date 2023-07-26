@@ -38,12 +38,7 @@ class _CartScreenState extends State<CartScreen> {
   Widget build(BuildContext context) {
     final cart = Provider.of<CartProvider>(context);
     return Scaffold(
-      bottomNavigationBar:
-          Consumer<CartProvider>(builder: (BuildContext context, value, child) {
-        Provider.of<CartEmptyStateProvider>(context, listen: false)
-            .updateCartEmptyState(value.cart.isEmpty);
-        return MyNavBar();
-      }),
+      bottomNavigationBar: const MyNavBar(),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         title: Text(
@@ -317,10 +312,8 @@ class _CartScreenState extends State<CartScreen> {
               },
             ),
             Consumer<CartProvider>(
-              builder: (BuildContext context, value, Widget? child) {
+              builder: (BuildContext context, value, widget) {
                 if (value.cart.isEmpty) {
-                  Provider.of<CartEmptyStateProvider>(context, listen: false)
-                      .updateCartEmptyState(value.cart.isEmpty);
                   return Center(
                       child: Text(
                     'Please add some items',
@@ -328,8 +321,6 @@ class _CartScreenState extends State<CartScreen> {
                         fontWeight: FontWeight.w500, fontSize: 18.0),
                   ));
                 } else {
-                  Provider.of<CartEmptyStateProvider>(context, listen: false)
-                        .updateCartEmptyState( value.cart.isEmpty);
                   final ValueNotifier<int?> totalPrice = ValueNotifier(null);
                   for (var element in value.cart) {
                     totalPrice.value =

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_2/BottomNavigationBar/bottom_nav_bar.dart';
-import 'package:flutter_2/BottomNavigationBar/navBarCartStateProvider.dart';
 import 'package:flutter_2/Screens/Restaurants/expand_state_provider.dart';
 import 'package:flutter_2/Screens/Cart/cart_provider.dart';
-import 'package:flutter_2/global/globals.dart';
 import 'package:flutter_2/screens/Payment/cancellation.dart';
 import 'package:flutter_2/screens/Restaurants/JuiciliciousCafe/juicilicious_cafe_screen.dart';
 import 'package:go_router/go_router.dart';
@@ -61,7 +59,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    cartEmptyStateProvider.loadCartState();
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
@@ -70,8 +67,6 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (_) => ExpandStateProvider(),
         ),
-        ChangeNotifierProvider<CartEmptyStateProvider>(
-            create: (_) => CartEmptyStateProvider()),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,

@@ -91,9 +91,6 @@ List<String> options = <String>[
 String dropdownValue = 'Select Location';
 int? totalCartValue = 0;
 
-ValueNotifier<int> currentIndex = ValueNotifier<int>(0);
-ValueNotifier<bool> cartEmptyState = ValueNotifier<bool>(true);
-
 bool isAppStarted = true;
 
 /* Widget emptyCartSelectedWidget = SvgPicture.asset(
@@ -177,37 +174,4 @@ Widget nonEmptyCartSelectedWidget = Row(
     )
   ],
 ); */
-
-class CartEmptyStateProvider with ChangeNotifier {
-  bool _cartEmptyState = true;
-  int _currentIndex = 0;
-
-  bool get cartEmptyState => _cartEmptyState;
-  int get currentIndex => _currentIndex;
-
-  Future<void> loadCartState() async {
-    final prefs = await SharedPreferences.getInstance();
-    _cartEmptyState = prefs.getBool('cartEmptyState') ?? true;
-    _currentIndex = prefs.getInt('3') ?? 3;
-    notifyListeners();
-  }
-
-  Future<void> saveCartState() async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool('cartEmptyState', _cartEmptyState);
-    await prefs.setInt('currentIndex', 0);
-  }
-
-  void updateCartEmptyState(bool newState) {
-    _cartEmptyState = newState;
-    saveCartState();
-    notifyListeners();
-  }
-
-  void updateCurrentIndex(int newIndex) {
-    _currentIndex = newIndex;
-    notifyListeners();
-  }
-}
-
-final cartEmptyStateProvider = CartEmptyStateProvider();
+int currentIndex = 0;

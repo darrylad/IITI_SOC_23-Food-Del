@@ -152,9 +152,6 @@ class _TIKMainCourseState extends State<TIKMainCourse> {
                     child: Consumer<CartProvider>(
                         builder: (BuildContext context, provider, widget) {
                       if (provider.cart.isEmpty) {
-                        Provider.of<CartEmptyStateProvider>(context,
-                                listen: false)
-                            .updateCartEmptyState(true);
                         return Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -170,11 +167,7 @@ class _TIKMainCourseState extends State<TIKMainCourse> {
                           child: InkWell(
                             onTap: () {
                               saveData(this.widget.menuindex);
-                              setState(() {
-                                Provider.of<CartEmptyStateProvider>(context,
-                                        listen: false)
-                                    .updateCartEmptyState(false);
-                              });
+
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                   content: Text('Item Added Successfully!'),
@@ -190,9 +183,6 @@ class _TIKMainCourseState extends State<TIKMainCourse> {
                         );
                       } else if (!((provider.cart[0].productId!).contains(
                           (productsTIK[this.widget.menuindex].identity)))) {
-                        Provider.of<CartEmptyStateProvider>(context,
-                                listen: false)
-                            .updateCartEmptyState(false);
                         return Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -283,13 +273,6 @@ class _TIKMainCourseState extends State<TIKMainCourse> {
                                                         Navigator.of(context)
                                                             .pop();
 
-                                                        setState(() {
-                                                          Provider.of<CartEmptyStateProvider>(
-                                                                  context,
-                                                                  listen: false)
-                                                              .updateCartEmptyState(
-                                                                  false);
-                                                        });
                                                         ScaffoldMessenger.of(
                                                                 context)
                                                             .showSnackBar(
@@ -321,9 +304,6 @@ class _TIKMainCourseState extends State<TIKMainCourse> {
                           ),
                         );
                       } else {
-                        Provider.of<CartEmptyStateProvider>(context,
-                                listen: false)
-                            .updateCartEmptyState(false);
                         return Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -339,12 +319,8 @@ class _TIKMainCourseState extends State<TIKMainCourse> {
                           child: InkWell(
                             onTap: () {
                               saveData(this.widget.menuindex);
-                              setState(() {
-                                Provider.of<CartEmptyStateProvider>(context,
-                                        listen: false)
-                                    .updateCartEmptyState(false);
-                              });
-                               ScaffoldMessenger.of(context).showSnackBar(
+
+                              ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                   content: Text('Item Added Successfully!'),
                                   duration: Duration(seconds: 2),
@@ -512,9 +488,6 @@ class _TIKFastFoodState extends State<TIKFastFood> {
                     child: Consumer<CartProvider>(
                         builder: (BuildContext context, provider, widget) {
                       if (provider.cart.isEmpty) {
-                        Provider.of<CartEmptyStateProvider>(context,
-                                listen: false)
-                            .updateCartEmptyState(true);
                         return Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -530,11 +503,7 @@ class _TIKFastFoodState extends State<TIKFastFood> {
                           child: InkWell(
                             onTap: () {
                               saveData(this.widget.menuindex);
-                              setState(() {
-                                Provider.of<CartEmptyStateProvider>(context,
-                                        listen: false)
-                                    .updateCartEmptyState(false);
-                              });
+
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                   content: Text('Item Added Successfully!'),
@@ -550,9 +519,6 @@ class _TIKFastFoodState extends State<TIKFastFood> {
                         );
                       } else if (!((provider.cart[0].productId!).contains(
                           (productsTIK[this.widget.menuindex].identity)))) {
-                        Provider.of<CartEmptyStateProvider>(context,
-                                listen: false)
-                            .updateCartEmptyState(false);
                         return Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -643,13 +609,6 @@ class _TIKFastFoodState extends State<TIKFastFood> {
                                                         Navigator.of(context)
                                                             .pop();
 
-                                                        setState(() {
-                                                          Provider.of<CartEmptyStateProvider>(
-                                                                  context,
-                                                                  listen: false)
-                                                              .updateCartEmptyState(
-                                                                  false);
-                                                        });
                                                         ScaffoldMessenger.of(
                                                                 context)
                                                             .showSnackBar(
@@ -681,9 +640,6 @@ class _TIKFastFoodState extends State<TIKFastFood> {
                           ),
                         );
                       } else {
-                        Provider.of<CartEmptyStateProvider>(context,
-                                listen: false)
-                            .updateCartEmptyState(false);
                         return Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -699,12 +655,8 @@ class _TIKFastFoodState extends State<TIKFastFood> {
                           child: InkWell(
                             onTap: () {
                               saveData(this.widget.menuindex);
-                              setState(() {
-                                Provider.of<CartEmptyStateProvider>(context,
-                                        listen: false)
-                                    .updateCartEmptyState(false);
-                              });
-                               ScaffoldMessenger.of(context).showSnackBar(
+
+                              ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                   content: Text('Item Added Successfully!'),
                                   duration: Duration(seconds: 2),
@@ -872,9 +824,6 @@ class _TIKBeveragesState extends State<TIKBeverages> {
                     child: Consumer<CartProvider>(
                         builder: (BuildContext context, provider, widget) {
                       if (provider.cart.isEmpty) {
-                        Provider.of<CartEmptyStateProvider>(context,
-                                listen: false)
-                            .updateCartEmptyState(true);
                         return Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -890,11 +839,7 @@ class _TIKBeveragesState extends State<TIKBeverages> {
                           child: InkWell(
                             onTap: () {
                               saveData(this.widget.menuindex);
-                              setState(() {
-                                Provider.of<CartEmptyStateProvider>(context,
-                                        listen: false)
-                                    .updateCartEmptyState(false);
-                              });
+
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                   content: Text('Item Added Successfully!'),
@@ -910,9 +855,6 @@ class _TIKBeveragesState extends State<TIKBeverages> {
                         );
                       } else if (!((provider.cart[0].productId!).contains(
                           (productsTIK[this.widget.menuindex].identity)))) {
-                        Provider.of<CartEmptyStateProvider>(context,
-                                listen: false)
-                            .updateCartEmptyState(false);
                         return Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -1002,13 +944,6 @@ class _TIKBeveragesState extends State<TIKBeverages> {
                                                             .menuindex);
                                                         Navigator.of(context)
                                                             .pop();
-                                                        setState(() {
-                                                          Provider.of<CartEmptyStateProvider>(
-                                                                  context,
-                                                                  listen: false)
-                                                              .updateCartEmptyState(
-                                                                  false);
-                                                        });
 
                                                         ScaffoldMessenger.of(
                                                                 context)
@@ -1041,9 +976,6 @@ class _TIKBeveragesState extends State<TIKBeverages> {
                           ),
                         );
                       } else {
-                        Provider.of<CartEmptyStateProvider>(context,
-                                listen: false)
-                            .updateCartEmptyState(false);
                         return Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -1059,12 +991,8 @@ class _TIKBeveragesState extends State<TIKBeverages> {
                           child: InkWell(
                             onTap: () {
                               saveData(this.widget.menuindex);
-                              setState(() {
-                                Provider.of<CartEmptyStateProvider>(context,
-                                        listen: false)
-                                    .updateCartEmptyState(false);
-                              });
-                               ScaffoldMessenger.of(context).showSnackBar(
+
+                              ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                   content: Text('Item Added Successfully!'),
                                   duration: Duration(seconds: 2),

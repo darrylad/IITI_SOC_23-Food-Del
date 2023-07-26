@@ -8,11 +8,10 @@ import 'package:flutter_2/Screens/Homescreen/data.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:path/path.dart';
 import 'package:provider/provider.dart';
 
 import '../../global/globals.dart';
-import '../../navbarbasics/nav.dart';
 import '../Location/locationpopup.dart';
 import 'SectionTitle.dart';
 
@@ -30,24 +29,13 @@ class _HomeScreen extends State<HomeScreen> {
   void initState() {
     super.initState();
     // print(username);
-    context.read<CartProvider>().getData();
-    if (isAppStarted == true) {
-      Provider.of<CartEmptyStateProvider>(context, listen: false)
-          .loadCartState();
-      isAppStarted = false;
-    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      bottomNavigationBar:
-          Consumer<CartProvider>(builder: (BuildContext context, value, child) {
-        Provider.of<CartEmptyStateProvider>(context, listen: false)
-            .updateCartEmptyState(value.cart.isEmpty);
-        return const MyNavBar();
-      }),
+      bottomNavigationBar: const MyNavBar(),
       backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
       body: MainScroll(
         name: username,
@@ -355,10 +343,7 @@ class _CardState extends State<Card> {
               child: GestureDetector(
                 onTap: () {
                   context.push(Restaurants_route[widget.index].toString());
-                  setState(() {
-                    Provider.of<CartEmptyStateProvider>(context, listen: false)
-                        .updateCurrentIndex(3);
-                  });
+                  currentIndex = 3;
                   categorySelected = 'All';
                 },
                 child: Stack(children: [

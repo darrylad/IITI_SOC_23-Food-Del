@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "package:flutter_2/BottomNavigationBar/bottom_nav_bar.dart";
+
 import "package:flutter_2/global/globals.dart";
 import "package:flutter_2/main.dart";
 import "package:go_router/go_router.dart";
@@ -32,11 +33,7 @@ class _SearchScreen extends State<SearchScreen> {
     double screenwidth = MediaQuery.of(context).size.width;
     return Scaffold(
         extendBody: true,
-        bottomNavigationBar: Consumer<CartProvider>(
-            builder: (BuildContext context, value, child) {
-          cartEmptyState.value = value.cart.isEmpty;
-          return MyNavBar();
-        }),
+        bottomNavigationBar: const MyNavBar(),
         body: CustomScrollView(
           slivers: [
             const SliverAppBar(

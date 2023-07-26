@@ -45,12 +45,7 @@ class _NightCanteenScreenState extends State<NightCanteenScreen> {
     double screenwidth = MediaQuery.of(context).size.width;
     return Scaffold(
       extendBody: true,
-      bottomNavigationBar:
-          Consumer<CartProvider>(builder: (BuildContext context, value, child) {
-        Provider.of<CartEmptyStateProvider>(context, listen: false)
-            .updateCartEmptyState(value.cart.isEmpty);
-        return const MyNavBar();
-      }),
+      bottomNavigationBar: const MyNavBar(),
       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       body: SingleChildScrollView(
         // physics: const ClampingScrollPhysics(),

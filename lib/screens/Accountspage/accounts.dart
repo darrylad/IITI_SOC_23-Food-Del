@@ -78,12 +78,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
     return Scaffold(
       backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
-      bottomNavigationBar:
-          Consumer<CartProvider>(builder: (BuildContext context, value, child) {
-        Provider.of<CartEmptyStateProvider>(context, listen: false)
-            .updateCartEmptyState(value.cart.isEmpty);
-        return const MyNavBar();
-      }),
+      bottomNavigationBar: const MyNavBar(),
       body: SingleChildScrollView(
         physics: const ClampingScrollPhysics(),
         child: Column(

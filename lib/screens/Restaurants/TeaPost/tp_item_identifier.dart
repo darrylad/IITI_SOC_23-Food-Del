@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_2/Screens/Cart/cart_model.dart';
 import 'package:flutter_2/Screens/Cart/cart_provider.dart';
@@ -164,9 +163,6 @@ class _TPMainCourseState extends State<TPMainCourse> {
                     child: Consumer<CartProvider>(
                         builder: (BuildContext context, provider, widget) {
                       if (provider.cart.isEmpty) {
-                        Provider.of<CartEmptyStateProvider>(context,
-                                listen: false)
-                            .updateCartEmptyState(true);
                         return Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -181,12 +177,6 @@ class _TPMainCourseState extends State<TPMainCourse> {
                           width: 0.2 * screenwidth,
                           child: InkWell(
                             onTap: () {
-                              setState(() {
-                                Provider.of<CartEmptyStateProvider>(context,
-                                        listen: false)
-                                    .updateCartEmptyState(false);
-                              });
-
                               saveData(this.widget.menuindex);
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
@@ -292,13 +282,6 @@ class _TPMainCourseState extends State<TPMainCourse> {
                                                             .menuindex);
                                                         Navigator.of(context)
                                                             .pop();
-                                                        setState(() {
-                                                          Provider.of<CartEmptyStateProvider>(
-                                                                  context,
-                                                                  listen: false)
-                                                              .updateCartEmptyState(
-                                                                  false);
-                                                        });
 
                                                         ScaffoldMessenger.of(
                                                                 context)
@@ -346,12 +329,8 @@ class _TPMainCourseState extends State<TPMainCourse> {
                           child: InkWell(
                             onTap: () {
                               saveData(this.widget.menuindex);
-                              setState(() {
-                                Provider.of<CartEmptyStateProvider>(context,
-                                        listen: false)
-                                    .updateCartEmptyState(false);
-                              });
-                               ScaffoldMessenger.of(context).showSnackBar(
+
+                              ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                   content: Text('Item Added Successfully!'),
                                   duration: Duration(seconds: 2),
@@ -519,9 +498,6 @@ class _TPFastFoodState extends State<TPFastFood> {
                     child: Consumer<CartProvider>(
                         builder: (BuildContext context, provider, widget) {
                       if (provider.cart.isEmpty) {
-                        Provider.of<CartEmptyStateProvider>(context,
-                                listen: false)
-                            .updateCartEmptyState(true);
                         return Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -538,11 +514,7 @@ class _TPFastFoodState extends State<TPFastFood> {
                             onTap: () {
                               saveData(this.widget.menuindex);
 
-                              setState(() {
-                                Provider.of<CartEmptyStateProvider>(context,
-                                        listen: false)
-                                    .updateCartEmptyState(false);
-                              });
+                              setState(() {});
 
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
@@ -559,9 +531,6 @@ class _TPFastFoodState extends State<TPFastFood> {
                         );
                       } else if (!((provider.cart[0].productId!).contains(
                           (productsTP[this.widget.menuindex].identity)))) {
-                        Provider.of<CartEmptyStateProvider>(context,
-                                listen: false)
-                            .updateCartEmptyState(false);
                         return Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -651,13 +620,6 @@ class _TPFastFoodState extends State<TPFastFood> {
                                                             .menuindex);
                                                         Navigator.of(context)
                                                             .pop();
-                                                        setState(() {
-                                                          Provider.of<CartEmptyStateProvider>(
-                                                                  context,
-                                                                  listen: false)
-                                                              .updateCartEmptyState(
-                                                                  false);
-                                                        });
 
                                                         ScaffoldMessenger.of(
                                                                 context)
@@ -705,17 +667,12 @@ class _TPFastFoodState extends State<TPFastFood> {
                           child: InkWell(
                             onTap: () {
                               saveData(this.widget.menuindex);
-                              setState(() {
-                                Provider.of<CartEmptyStateProvider>(context,
-                                        listen: false)
-                                    .updateCartEmptyState(false);
-                                     ScaffoldMessenger.of(context).showSnackBar(
+                              ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                   content: Text('Item Added Successfully!'),
                                   duration: Duration(seconds: 2),
                                 ),
                               );
-                              });
                             },
                             child: SvgPicture.asset(
                               'assets/buttons/plus.svg',
@@ -878,9 +835,6 @@ class _TPBeveragesState extends State<TPBeverages> {
                     child: Consumer<CartProvider>(
                         builder: (BuildContext context, provider, widget) {
                       if (provider.cart.isEmpty) {
-                        Provider.of<CartEmptyStateProvider>(context,
-                                listen: false)
-                            .updateCartEmptyState(true);
                         return Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -897,12 +851,6 @@ class _TPBeveragesState extends State<TPBeverages> {
                             onTap: () {
                               saveData(this.widget.menuindex);
 
-                              setState(() {
-                                Provider.of<CartEmptyStateProvider>(context,
-                                        listen: false)
-                                    .updateCartEmptyState(false);
-                              });
-
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                   content: Text('Item Added Successfully!'),
@@ -918,9 +866,6 @@ class _TPBeveragesState extends State<TPBeverages> {
                         );
                       } else if (!((provider.cart[0].productId!).contains(
                           (productsTP[this.widget.menuindex].identity)))) {
-                        Provider.of<CartEmptyStateProvider>(context,
-                                listen: false)
-                            .updateCartEmptyState(false);
                         return Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -1011,14 +956,6 @@ class _TPBeveragesState extends State<TPBeverages> {
                                                         Navigator.of(context)
                                                             .pop();
 
-                                                        setState(() {
-                                                          Provider.of<CartEmptyStateProvider>(
-                                                                  context,
-                                                                  listen: false)
-                                                              .updateCartEmptyState(
-                                                                  false);
-                                                        });
-
                                                         ScaffoldMessenger.of(
                                                                 context)
                                                             .showSnackBar(
@@ -1065,12 +1002,8 @@ class _TPBeveragesState extends State<TPBeverages> {
                           child: InkWell(
                             onTap: () {
                               saveData(this.widget.menuindex);
-                              setState(() {
-                                Provider.of<CartEmptyStateProvider>(context,
-                                        listen: false)
-                                    .updateCartEmptyState(false);
-                              });
-                               ScaffoldMessenger.of(context).showSnackBar(
+
+                              ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                   content: Text('Item Added Successfully!'),
                                   duration: Duration(seconds: 2),

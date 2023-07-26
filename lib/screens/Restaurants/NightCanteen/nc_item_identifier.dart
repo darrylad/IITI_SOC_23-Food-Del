@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_2/Screens/Cart/cart_model.dart';
 import 'package:flutter_2/Screens/Cart/cart_provider.dart';
-import 'package:flutter_2/Screens/Cart/cart_screen.dart';
 import 'package:flutter_2/Screens/Cart/data_base.dart';
 import 'package:flutter_2/Screens/Restaurants/NightCanteen/night_canteen_menu.dart';
-import 'package:flutter_2/Screens/Restaurants/NightCanteen/night_canteen_screen.dart';
 import 'package:flutter_2/Screens/Restaurants/alertwidgetcancel.dart';
 import 'package:flutter_2/Screens/Restaurants/restaurants_logo_decider.dart';
 import 'package:flutter_2/global/globals.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:provider/provider.dart';
@@ -162,9 +159,6 @@ class _NCMainCourseState extends State<NCMainCourse> {
                     child: Consumer<CartProvider>(
                         builder: (BuildContext context, provider, widget) {
                       if (provider.cart.isEmpty) {
-                        Provider.of<CartEmptyStateProvider>(context,
-                                listen: false)
-                            .updateCartEmptyState(true);
                         return Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -179,12 +173,6 @@ class _NCMainCourseState extends State<NCMainCourse> {
                           width: 0.2 * screenwidth,
                           child: InkWell(
                             onTap: () {
-                              setState(() {
-                                Provider.of<CartEmptyStateProvider>(context,
-                                        listen: false)
-                                    .updateCartEmptyState(false);
-                              });
-
                               saveData(this.widget.menuindex);
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
@@ -290,13 +278,6 @@ class _NCMainCourseState extends State<NCMainCourse> {
                                                             .menuindex);
                                                         Navigator.of(context)
                                                             .pop();
-                                                        setState(() {
-                                                          Provider.of<CartEmptyStateProvider>(
-                                                                  context,
-                                                                  listen: false)
-                                                              .updateCartEmptyState(
-                                                                  false);
-                                                        });
 
                                                         ScaffoldMessenger.of(
                                                                 context)
@@ -344,11 +325,7 @@ class _NCMainCourseState extends State<NCMainCourse> {
                           child: InkWell(
                             onTap: () {
                               saveData(this.widget.menuindex);
-                              setState(() {
-                                Provider.of<CartEmptyStateProvider>(context,
-                                        listen: false)
-                                    .updateCartEmptyState(false);
-                              });
+
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                   content: Text('Item Added Successfully!'),
@@ -517,9 +494,6 @@ class _NCFastFoodState extends State<NCFastFood> {
                     child: Consumer<CartProvider>(
                         builder: (BuildContext context, provider, widget) {
                       if (provider.cart.isEmpty) {
-                        Provider.of<CartEmptyStateProvider>(context,
-                                listen: false)
-                            .updateCartEmptyState(true);
                         return Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -536,12 +510,6 @@ class _NCFastFoodState extends State<NCFastFood> {
                             onTap: () {
                               saveData(this.widget.menuindex);
 
-                              setState(() {
-                                Provider.of<CartEmptyStateProvider>(context,
-                                        listen: false)
-                                    .updateCartEmptyState(false);
-                              });
-
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                   content: Text('Item Added Successfully!'),
@@ -557,9 +525,6 @@ class _NCFastFoodState extends State<NCFastFood> {
                         );
                       } else if (!((provider.cart[0].productId!).contains(
                           (productsNC[this.widget.menuindex].identity)))) {
-                        Provider.of<CartEmptyStateProvider>(context,
-                                listen: false)
-                            .updateCartEmptyState(false);
                         return Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -649,13 +614,6 @@ class _NCFastFoodState extends State<NCFastFood> {
                                                             .menuindex);
                                                         Navigator.of(context)
                                                             .pop();
-                                                        setState(() {
-                                                          Provider.of<CartEmptyStateProvider>(
-                                                                  context,
-                                                                  listen: false)
-                                                              .updateCartEmptyState(
-                                                                  false);
-                                                        });
 
                                                         ScaffoldMessenger.of(
                                                                 context)
@@ -703,11 +661,7 @@ class _NCFastFoodState extends State<NCFastFood> {
                           child: InkWell(
                             onTap: () {
                               saveData(this.widget.menuindex);
-                              setState(() {
-                                Provider.of<CartEmptyStateProvider>(context,
-                                        listen: false)
-                                    .updateCartEmptyState(false);
-                              });
+
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                   content: Text('Item Added Successfully!'),
@@ -876,9 +830,6 @@ class _NCBeveragesState extends State<NCBeverages> {
                     child: Consumer<CartProvider>(
                         builder: (BuildContext context, provider, widget) {
                       if (provider.cart.isEmpty) {
-                        Provider.of<CartEmptyStateProvider>(context,
-                                listen: false)
-                            .updateCartEmptyState(true);
                         return Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -895,12 +846,6 @@ class _NCBeveragesState extends State<NCBeverages> {
                             onTap: () {
                               saveData(this.widget.menuindex);
 
-                              setState(() {
-                                Provider.of<CartEmptyStateProvider>(context,
-                                        listen: false)
-                                    .updateCartEmptyState(false);
-                              });
-
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                   content: Text('Item Added Successfully!'),
@@ -916,9 +861,6 @@ class _NCBeveragesState extends State<NCBeverages> {
                         );
                       } else if (!((provider.cart[0].productId!).contains(
                           (productsNC[this.widget.menuindex].identity)))) {
-                        Provider.of<CartEmptyStateProvider>(context,
-                                listen: false)
-                            .updateCartEmptyState(false);
                         return Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -1009,14 +951,6 @@ class _NCBeveragesState extends State<NCBeverages> {
                                                         Navigator.of(context)
                                                             .pop();
 
-                                                        setState(() {
-                                                          Provider.of<CartEmptyStateProvider>(
-                                                                  context,
-                                                                  listen: false)
-                                                              .updateCartEmptyState(
-                                                                  false);
-                                                        });
-
                                                         ScaffoldMessenger.of(
                                                                 context)
                                                             .showSnackBar(
@@ -1063,12 +997,8 @@ class _NCBeveragesState extends State<NCBeverages> {
                           child: InkWell(
                             onTap: () {
                               saveData(this.widget.menuindex);
-                              setState(() {
-                                Provider.of<CartEmptyStateProvider>(context,
-                                        listen: false)
-                                    .updateCartEmptyState(false);
-                              });
-                               ScaffoldMessenger.of(context).showSnackBar(
+
+                              ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                   content: Text('Item Added Successfully!'),
                                   duration: Duration(seconds: 2),

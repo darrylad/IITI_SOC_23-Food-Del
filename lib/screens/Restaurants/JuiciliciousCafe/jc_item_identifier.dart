@@ -159,9 +159,6 @@ class _JCShakesState extends State<JCShakes> {
                     child: Consumer<CartProvider>(
                         builder: (BuildContext context, provider, widget) {
                       if (provider.cart.isEmpty) {
-                        Provider.of<CartEmptyStateProvider>(context,
-                                listen: false)
-                            .updateCartEmptyState(true);
                         return Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -176,11 +173,6 @@ class _JCShakesState extends State<JCShakes> {
                           width: 0.2 * screenwidth,
                           child: InkWell(
                             onTap: () {
-                              setState(() {
-                                Provider.of<CartEmptyStateProvider>(context,
-                                        listen: false)
-                                    .updateCartEmptyState(false);
-                              });
                               saveData(this.widget.menuindex);
 
                               ScaffoldMessenger.of(context).showSnackBar(
@@ -287,13 +279,6 @@ class _JCShakesState extends State<JCShakes> {
                                                             .menuindex);
                                                         Navigator.of(context)
                                                             .pop();
-                                                        setState(() {
-                                                          Provider.of<CartEmptyStateProvider>(
-                                                                  context,
-                                                                  listen: false)
-                                                              .updateCartEmptyState(
-                                                                  false);
-                                                        });
 
                                                         ScaffoldMessenger.of(
                                                                 context)
@@ -341,17 +326,12 @@ class _JCShakesState extends State<JCShakes> {
                           child: InkWell(
                             onTap: () {
                               saveData(this.widget.menuindex);
-                              setState(() {
-                                Provider.of<CartEmptyStateProvider>(context,
-                                        listen: false)
-                                    .updateCartEmptyState(false);
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                    content: Text('Item Added Successfully!'),
-                                    duration: Duration(seconds: 2),
-                                  ),
-                                );
-                              });
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text('Item Added Successfully!'),
+                                  duration: Duration(seconds: 2),
+                                ),
+                              );
                             },
                             child: SvgPicture.asset(
                               'assets/buttons/plus.svg',
@@ -521,9 +501,6 @@ class _JCFastFoodState extends State<JCFastFood> {
                     child: Consumer<CartProvider>(
                         builder: (BuildContext context, provider, widget) {
                       if (provider.cart.isEmpty) {
-                        Provider.of<CartEmptyStateProvider>(context,
-                                listen: false)
-                            .updateCartEmptyState(true);
                         return Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -539,11 +516,7 @@ class _JCFastFoodState extends State<JCFastFood> {
                           child: InkWell(
                             onTap: () {
                               saveData(this.widget.menuindex);
-                              setState(() {
-                                Provider.of<CartEmptyStateProvider>(context,
-                                        listen: false)
-                                    .updateCartEmptyState(false);
-                              });
+
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                   content: Text('Item Added Successfully!'),
@@ -648,13 +621,6 @@ class _JCFastFoodState extends State<JCFastFood> {
                                                             .menuindex);
                                                         Navigator.of(context)
                                                             .pop();
-                                                        setState(() {
-                                                          Provider.of<CartEmptyStateProvider>(
-                                                                  context,
-                                                                  listen: false)
-                                                              .updateCartEmptyState(
-                                                                  false);
-                                                        });
 
                                                         ScaffoldMessenger.of(
                                                                 context)
@@ -702,17 +668,12 @@ class _JCFastFoodState extends State<JCFastFood> {
                           child: InkWell(
                             onTap: () {
                               saveData(this.widget.menuindex);
-                              setState(() {
-                                Provider.of<CartEmptyStateProvider>(context,
-                                        listen: false)
-                                    .updateCartEmptyState(false);
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                    content: Text('Item Added Successfully!'),
-                                    duration: Duration(seconds: 2),
-                                  ),
-                                );
-                              });
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text('Item Added Successfully!'),
+                                  duration: Duration(seconds: 2),
+                                ),
+                              );
                             },
                             child: SvgPicture.asset(
                               'assets/buttons/plus.svg',
@@ -875,9 +836,6 @@ class _JCBeveragesState extends State<JCBeverages> {
                     child: Consumer<CartProvider>(
                         builder: (BuildContext context, provider, widget) {
                       if (provider.cart.isEmpty) {
-                        Provider.of<CartEmptyStateProvider>(context,
-                                listen: false)
-                            .updateCartEmptyState(true);
                         return Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -893,11 +851,7 @@ class _JCBeveragesState extends State<JCBeverages> {
                           child: InkWell(
                             onTap: () {
                               saveData(this.widget.menuindex);
-                              setState(() {
-                                Provider.of<CartEmptyStateProvider>(context,
-                                        listen: false)
-                                    .updateCartEmptyState(false);
-                              });
+
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                   content: Text('Item Added Successfully!'),
@@ -1002,13 +956,7 @@ class _JCBeveragesState extends State<JCBeverages> {
                                                             .menuindex);
                                                         Navigator.of(context)
                                                             .pop();
-                                                        setState(() {
-                                                          Provider.of<CartEmptyStateProvider>(
-                                                                  context,
-                                                                  listen: false)
-                                                              .updateCartEmptyState(
-                                                                  false);
-                                                        });
+
                                                         ScaffoldMessenger.of(
                                                                 context)
                                                             .showSnackBar(
@@ -1055,11 +1003,7 @@ class _JCBeveragesState extends State<JCBeverages> {
                           child: InkWell(
                             onTap: () {
                               saveData(this.widget.menuindex);
-                              setState(() {
-                                Provider.of<CartEmptyStateProvider>(context,
-                                        listen: false)
-                                    .updateCartEmptyState(false);
-                              });
+
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                   content: Text('Item Added Successfully!'),
