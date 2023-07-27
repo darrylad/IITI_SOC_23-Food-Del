@@ -1,16 +1,35 @@
-# flutter_2
+# MunchMates
 
-A new Flutter project.
+A new and efficient way of ordering food in our IITI campus.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This Git repo contain different branches but the main branch is the final git push we have done.
 
-A few resources to get you started if this is your first Flutter project:
+## How to run app
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Just go to the main.dart file located in the lib section and then using your prefered IDE enter flutter run in the terminal.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Cases of failure in starting of app
+
+Don't worry if it shows some error in sign in , its just because of the differencs in emulators.
+
+* Try to change the first go route located in the main.dart file( its name will be returning Startscreen) , change Startscreen to Homescreen and the app will work fine for you.
+
+### Cases of custom operating system provided by device manufacturer 
+
+In this case there is chance that there might be some renderflex errors but its fine cause its won't effect the functionality of the app.
+
+## How to do payments 
+
+As this app is in trial mode so use the following test card details to complete the payments.
+
+* Card No. 4111 1111 1111 1111
+* Expiry - Any date( In future )
+* Card Holder's Name - ( Any Name )
+* CVV - 123
+* OTP - Any no will work
+
+## Thanks for reading !! Hope you will enjoy our App
+
+
