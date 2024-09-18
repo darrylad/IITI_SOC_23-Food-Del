@@ -30,6 +30,9 @@ As this app is in trial mode so use the following test card details to complete 
 * CVV - 123
 * OTP - Any no will work
 
+## Wireframes:
+[Click here to view Figma wireframe](https://www.figma.com/design/dFkV0DV8VAysXsLl4Oske9/foodDeliveryAppCollab?node-id=0-1&t=jAj3UzSrepcQ7BQB-1)
+
 ## Thanks for reading !! Hope you will enjoy our App
 
 
